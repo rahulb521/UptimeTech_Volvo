@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlTitle_timer"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:id="@+id/header_view"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open Trip(s)" 
+            android:textSize="13sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/dark_gray"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ticket_row"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/white"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/header_view"
+        android:layout_toEndOf="@+id/header_view">
+
+        <RelativeLayout
+            android:id="@+id/row_color_line"
+            android:layout_width="@dimen/ticket_line_color_width"
+            android:layout_height="match_parent"
+            android:background="@color/green_blue" />
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/row_color_line"
+            android:layout_marginLeft="13dp"
+            >
+
+
+            <com.teramatrix.vos.utils.CustomTextViewArialBold
+                android:id="@+id/tv_ticket_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="# TICKET-90 "
+                android:textColor="@color/light_gray"
+                android:textSize="@dimen/tv_id_details_text_size" />
+
+        <com.teramatrix.vos.utils.CustomTextViewArial
+            android:id="@+id/tv_id_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*assigned * 12-Feb-2015 21:09:45"
+            android:textColor="@color/light_gray"
+            android:layout_toRightOf="@+id/tv_ticket_number"
+            android:textSize="@dimen/tv_id_details_text_size" />
+
+        <com.teramatrix.vos.utils.CustomTextViewArial
+            android:id="@+id/tv_ticket_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_id_details"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Tyre Problem"
+            android:textColor="@color/black"
+            android:layout_marginTop="0.5dp"
+            android:textSize="19sp" />
+
+        <ImageView
+            android:id="@+id/img_eye"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/tv_id_details"
+            android:layout_marginRight="14dp"
+            android:background="@drawable/trip_end_flag"
+            android:contentDescription="@string/hello_world"
+            android:visibility="visible" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#e9e8e8"
+            ></RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

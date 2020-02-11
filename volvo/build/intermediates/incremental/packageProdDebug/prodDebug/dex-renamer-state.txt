@@ -1,0 +1,7 @@
+#Fri Jul 05 10:49:40 IST 2019
+base.0=/home/neeraj/Desktop/njvj/volvo/vasuptime/volvo-vasuptime-android/volvo/build/intermediates/transforms/dexMerger/prod/debug/0
+path.1=classes2.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/home/neeraj/Desktop/njvj/volvo/vasuptime/volvo-vasuptime-android/volvo/build/intermediates/transforms/dexMerger/prod/debug/0

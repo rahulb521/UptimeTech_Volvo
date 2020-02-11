@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- @author Gaurav.Mangal -->
+<resources>
+
+    <!-- App name usage string value -->
+    <string name="app_name">Eicher</string>
+    <string name="hello_world">हैलो वर्ल्ड</string>
+    <string name="action_settings">सेटिंग्स</string>
+    <string name="internet_connection">इंटरनेट कनेक्शन से कनेक्ट करें</string>
+    <string name="please_wait">कृपया प्रतीक्षा करें ...</string>
+    <string name="data_offline">उपलब्ध नहीं नेटवर्क</string>
+
+    
+    <!-- String Title -->
+    <string name="title_vecv_configuration">व्यवस्था का प्रारूप</string>
+    <string name="title_log">ट्रैकिंग प्रवेश</string>
+    <string name="decline_title">एक कारण का चयन करें</string>
+
+    <!-- String Hint Text -->
+    <string name="license_number">लाइसेंस संख्या</string>
+    <string name="pin_password">पिन नंबर</string>
+    <string name="retype_pin_password">पिन नंबर को पुन: लिखें</string>
+     <string name="enter_reason">अन्य कारण दर्ज</string>
+
+    <!-- String Text -->
+    <string name="configure">कॉन्फ़िगर</string>
+    <string name="login">लॉग इन करें</string>
+    <string name="submit">प्रस्तुत करना</string>
+    <string name="cancel">रद्द करना</string>
+    <string name="btn_submit">लॉग इन करें</string>
+    <string name="ok">ठीक</string>
+    <string name="decline">नकारना</string>
+    <string name="accept">स्वीकार करना</string>
+    <string name="resolved">हल</string>
+    <string name="closed">सामाप्ति</string>
+    <string name="van_reached">वान पहुँच गया</string>
+    <string name="str_pin_number">पासवर्ड</string>
+    <string name="retype_pin_number">पासवर्ड फिर से लिखें</string>
+    <string name="my_ticket">मेरा टिकट</string>
+    <string name="no_my_tickets">कोई खुला टिकट</string>
+    <string name="no_closed_tickets">कोई बंद टिकट</string>
+    <string name="history_ticket">इतिहास टिकट</string>
+    <string name="id_details"># टिकट 90 * 12 फरवरी 2015 21:09:45 सौंपा</string>
+    <string name="ticket_details">वाणिज्यिक वाहन एक वोल्वो समूह और आयशर मोटर्स VE</string>
+    <string name="tv_timecounter">01:25:55</string>
+    <string name="str_job_complete">काम पूरा</string>
+    <string name="str_wip">कार्य प्रगति पर है</string>
+    <string name="tv_time_jobs">11:45:55</string>
+    <string name="tv_problem_desc">समस्या का विवरण</string>
+    <string name="tv_SLA_Time">SLA के समय</string>
+    <string name="tv_sla">SLA</string>
+    <string name="tv_estimationTime">अनुमानित समय</string>
+    <string name="tv_estimationCost">अनुमानित लागत</string>
+    <string name="tv_title_comment">आप टिकट अस्वीकार करने के लिए करना चाहते हैं?</string>
+    <string name="confirm_message">क्या आप इस काम को पूरा करना चाहते हैं</string>
+    <string name="estimation_cost_title">चयन करें अनुमानित लागत</string>
+    <string name="updating_record">अपडेट किया जा रहा रिकॉर्ड </string>
+    <string name="updating_tickets">टिकट अपडेट कर रहा है</string>
+    <string name="hrs">बजे</string>
+    <string name="sla_missing_reason">SLA छूटी कारण</string>
+    <string name="edit_estimationtime_header">अनुमानित समय संपादित करें</string>
+    <string name="new_estimationtime_header">नई अनुमानित समय</string>
+    <string name="select_reason">चुनिंदा कारण</string>
+    <string name="new_ticket">नया टिकट</string>
+    <string name="customer_contact">ग्राहक से संपर्क</string>
+    <string name="breakdown_location">गाड़ी ख़राब स्थान</string>
+    <string name="nature_of_problem">समस्या की प्रकृति</string>
+    <string name="assign_time">निर्धारित समय</string>
+    <string name="vehicle_type">वाहन का प्रकार</string>
+    <string name="job_estimation">नौकरी आकलन</string>
+    <string name="not_available">उपलब्ध नहीं है</string>
+    <string name="met">मेट</string>
+    <string name="not_met">नहीं मिले</string>
+    <string name="retriving_data">पुन: प्राप्त डेटा</string>
+    <string name="device_register">आपकी डिवाइस GCM साथ पंजीकृत</string>
+    <string name="new_message">नया संदेश</string>
+    <string name="network_not_available">नेटवर्क उपलब्ध नहीं है। स्थानीय DB में स्थान बचाने के लिए</string>
+    <string name="online">ऑनलाइन</string>
+    <string name="offline">ऑफ़लाइन</string>
+    <string name="error_sync_update">सर्वर से तुल्यकालन अद्यतन में त्रुटि</string>
+
+    <!-- Progress bar messages -->
+    <string name="configuring_license">लाइसेंस विन्यस्त करें</string>
+    <string name="configuring_pin">पिन विन्यस्त करें</string>
+    <string name="loading_new_ticket">नया टिकट लोड हो रहा है</string>
+    <string name="sync_data">सर्वर से तुल्यकालन डेटा</string>
+    <string name="getting_direction">ड्राइविंग निर्देश प्राप्त हो रही है</string>
+    <string name="getting_new_ticket">नई टिकट मिल रहा</string>
+    <string name="update_estimation_time">अनुमानित समय अपडेट कर रहा है</string>
+
+    <!-- Validation messages -->
+    <string name="error_message">त्रुटि संदेश</string>
+    <string name="required_license">लाइसेंस नंबर दर्ज करें।</string>
+    <string name="imei_number_not_found">डिवाइस IMEI नंबर प्राप्त करने में असमर्थ। कृपया पुन: प्रयास करें।</string>
+    <string name="error_pin_password">आपके द्वारा दर्ज पिन से मेल नहीं खाती।</string>
+    <string name="fill_problem_description">समस्या विवरण भरें</string>
+    <string name="select_estimated_cost">अनुमानित लागत का चयन करें।</string>
+    <string name="gpe_check">जीपीएस इसे सक्षम अपनी device.Please में अक्षम है?</string>
+    <string name="gps_forword">गोटो सेटिंग पेज जीपीएस सक्षम करने के लिए</string>
+    <string name="gps_message">GCM आईडी सेट नहीं, एप्लिकेशन पुनः प्रारंभ करें!</string>
+    <string name="security_token">सुरक्षा टोकन नहीं मिला</string>
+    <string name="fill_reason_others">अन्य के लिए कारण भरें!</string>
+    <string name="one_select_reason">कम से कम एक कारण का चयन करें!</string>
+    <string name="select_estimation_time">संपादित आकलन समय का चयन करें</string>
+    <string name="location_not_found">स्थान नहीं मिला</string>
+    <string name="estimation_time">आकलन समय का चयन करें</string>
+    <string name="estimation_cost">मरम्मत की अनुमानित लागत का चयन करें</string>
+    <string name="missing_sla_time">missed SLA के लिए कारण का चयन करें</string>
+    <string name="select_one_options">कृपया एक विकल्प चुनें!</string>
+    <string name="no_log_file">कोई ब्यौरे उपलब्ध कराएँ।</string>
+    <string name="send_mail">ईमेल भेजें ...</string>
+    <string name="eicher_logs">Eicher Logs</string>
+
+    <!-- Ticket Action Reason -->
+    <string name="ticket_action_reason_type_decline_ticket">1</string>
+    <string name="ticket_action_reason_type_sla_missed">2</string>
+    <string name="ticket_action_reason_type_estimation_time_increment">3</string>
+
+    <!-- pop up myticket top right text -->
+
+    <string name="log_location">स्थान लॉग्स</string>
+    <string name="log_error_log">त्रुटि लॉग</string>
+    <string name="log_complete">अनुप्रयोग के लिए लॉग</string>
+    <string name="settings">सेटिंग्स</string>
+
+    <!-- Log folder names -->
+    <string name="log_folder_tracking_location">/Eicher_Log/LocationLogs/</string>
+    <string name="log_folder_error">/Eicher_Log/ErrorLogs/</string>
+    <string name="log_folder_app_log">/Eicher_Log/AppLogs/</string>
+    <!-- log files names -->
+    <string name="eicher_location_log">Eicher_location_log_</string>
+    <string name="eicher_error_log">Eicher_error_log_</string>
+    <string name="eicher_complete_log">Eicher_complete_log_</string>
+    <string name="eicher_log_filename">Eicher_location_log_17-Mar-2015.txt</string>
+    <string name="eicher_select_file">फ़ाइल का चयन करें</string>
+    
+    
+    
+    <string name="language_option">भाषा चुने</string>
+    <string name="hindi">हिन्दी</string>
+     <string name="english">अंग्रेजी</string>
+     
+      <string name="source">उद्‍गम-स्थान</string>
+    <string name="destination">गंतव्य</string>
+    
+    <string name="tv_estimated_distance">अनुमानित प्रभार्य दूरी (किमी)</string>
+    
+
+</resources>

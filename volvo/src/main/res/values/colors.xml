@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Gaurav Mangal -->
+    <!-- App normal color hex code -->
+    <color name="white_grey">#F0F0F0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="blue_color">#306EFF</color>
+    <color name="strong_red">#c8241b</color>
+    <color name="blue_header">#5C9CCC</color>
+    <color name="blue_btn_press">#ABCEE6</color>
+    <color name="border_network">#d32328</color>
+    <color name="red_dark_press">#bc1428</color>
+    <color name="white_gray_dark">#f9f9f9</color>
+    <color name="white_gray_bg">#f7f7f6</color>
+    <color name="red">#d32328</color>
+    <color name="grey_90">#f1f1f1</color>
+    
+    <!-- 211 35 40 -->
+    <color name="green_blue">#08a300</color>
+    <!-- 8 163 0 -->
+    <color name="et_border">#dbdbdb</color>
+    <color name="et_border_dark">#cccaca</color>
+    <color name="blue">#25247b</color>
+    <color name="sky_blue">#8CBED6</color>
+    <color name="white_dark_btn">#eeeeee</color>
+
+    <!-- 37 36 123 -->
+    <color name="button_bg">#d32328</color>
+    <color name="textcolor_title">#1f1a17</color>
+    <color name="textcolor_button">#fff</color>
+    <color name="textcolor_pintitle">#90969c</color>
+    <color name="button_not_select">#8b8987</color>
+    <color name="devider_list">#f1f1f1</color>
+    <color name="light_gray">#8e8c8a</color>
+    <color name="dark_gray">#676767</color>
+    
+    <color name="light_black">#1d1916</color>
+    <color name="black_slat">#27333f</color>
+    <color name="light_dark_gray">#9a9b9c</color>
+    <color name="translucent_black">#80000000</color>
+    <color name="green_light">#5cb85c</color>
+    <color name="white_light">#8f8c8b</color>
+    <color name="black_label">#4f4f4f</color>
+    <color name="black_heading">#333333</color>
+    <color name="light_divider_popup">#dddddd</color>
+    <color name="black_popup_btn">#767676</color>
+    <color name="green_ok">#5cb85c</color>
+
+    <color name="holo_blue_light">#33b5e5</color>
+
+    <color name="volvo_blue">#1251b5</color>
+    <color name="volvo_green">#00a54f</color>
+    <color name="volvo_red">#ee1d23</color>
+    <color name="volvo_orange">#8e9396</color>
+    <color name="steel_background">#eae9ef</color>
+
+
+
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rel_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/paddingBottom"
+        android:paddingLeft="@dimen/paddingLeft"
+        android:paddingTop="@dimen/paddingTop" >
+
+        <com.teramatrix.vos.utils.CustomTextViewArial
+            android:id="@+id/txt_cost_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="500-1000"
+            android:textColor="@color/black_label"
+            android:textSize="15sp" />
+
+        <RadioButton
+            android:id="@+id/radio_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/paddingLeft"
+            android:button="@drawable/custom_btn_radio" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/ed_estimated_cost"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" 
+        android:hint="Enter Estimated Cost"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:padding="5dp"
+        android:inputType="number"
+        android:textSize="@dimen/btn_textsize_detail_heading"
+        android:visibility="gone"
+        />
+
+</LinearLayout>

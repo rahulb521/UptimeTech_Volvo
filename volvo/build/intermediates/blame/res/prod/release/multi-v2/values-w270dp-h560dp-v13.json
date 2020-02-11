@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/neeraj/Desktop/njvj/volvo/vasuptime/volvo-vasuptime-android/volvo/build/intermediates/incremental/mergeProdReleaseResources/merged.dir/values-w270dp-h560dp-v13/values-w270dp-h560dp-v13.xml",
+            "map": [
+                {
+                    "source": "/home/neeraj/.gradle/caches/transforms-1/files-1.1/materialdatetimepicker-3.5.1.aar/d63b46ba5a0aadf59a76bb6421493e9f/res/values-w270dp-h560dp-v13/values-w270dp-h560dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,124,184,242,303",
+                        "endColumns": "68,59,57,60,59",
+                        "endOffsets": "119,179,237,298,358"
+                    }
+                }
+            ]
+        }
+    ]
+}

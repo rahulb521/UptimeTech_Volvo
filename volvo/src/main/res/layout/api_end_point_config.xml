@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Eos Api End Point"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/ed_api_end_point_eos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:singleLine="true"
+        android:text="http://180.149.46.100:666/"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="18dp"
+        android:text="Telimatic Api End Point"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/ed_api_end_point_telimatic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:singleLine="true"
+        android:text="http://180.149.46.100:666/"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp"
+        android:weightSum="2" >
+
+        <TextView
+            android:id="@+id/txt_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/holo_blue_light"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="Cancel"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:layout_margin="10dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_save"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/holo_blue_light"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="Save"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:layout_margin="10dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

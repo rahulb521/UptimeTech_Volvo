@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/rel_line"
+        android:layout_width="match_parent"
+        android:layout_height="1.2dp"
+        android:layout_below="@+id/rl_header_top"
+        android:background="@color/volvo_blue"
+        ></RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rlTitle_bar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_below="@+id/rel_line"
+        android:background="#ffffff" >
+
+        <!--Virtual Divider Line Between Timer View and Contact-->
+        <RelativeLayout
+            android:id="@+id/button_divider"
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+            android:background="#000000" >
+        </RelativeLayout>
+
+        <!--(Clock Image + Time String) Parent View-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/button_divider"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            >
+
+            <!--Clock Image-->
+            <ImageView
+                android:id="@+id/timerImage"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/timer"
+                android:visibility="visible"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                />
+            <!-- Time String Or Status String -->
+            <com.teramatrix.vos.utils.CustomTextViewArial
+                android:id="@+id/tv_time_counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_timecounter"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+
+        <!--(Phone Icon + Contact Number String) Parent View-->
+        <LinearLayout
+            android:id="@+id/rlTitle_bar_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/button_divider"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            >
+
+            <ImageView
+                android:id="@+id/contactImage"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/call_withbg"
+                android:visibility="visible"
+                android:layout_gravity="center_vertical"
+                />
+
+            <com.teramatrix.vos.utils.CustomTextViewArial
+                android:id="@+id/tv_contactnumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contacts"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/rlTitle_bar"
+        android:background="@color/volvo_blue" >
+    </RelativeLayout>
+
+    <fragment
+        android:id="@+id/maplocation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rlbtn"
+        android:layout_below="@+id/rl_bar"
+        class="com.google.android.gms.maps.SupportMapFragment" />
+
+    <RelativeLayout
+        android:id="@+id/rlbtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_gray_bg"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/volvo_blue" >
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_navigation"
+            android:layout_width="@dimen/navigation_width"
+            android:layout_height="@dimen/navigation_width"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/navigation" />
+
+        <com.teramatrix.vos.utils.CustomTextViewArial
+            android:id="@+id/btn_van_reached"
+            android:layout_width="@dimen/btn_width_vanReached"
+            android:layout_height="@dimen/btn_height_vanReached"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/volvo_green"
+            android:gravity="center"
+            android:text="@string/van_reached"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_header_top"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="#ffffff"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/img_header"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14dp"
+            android:background="@drawable/volvo_logo"
+            android:contentDescription="@string/app_name" />
+
+        <ImageView
+            android:id="@+id/img_network"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="14dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/wifi_enalbed"
+            android:contentDescription="@string/app_name" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_header_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rl_header_top_height"
+        android:background="@color/blue_color"
+        android:padding="5dp" >
+
+        <TextView
+            android:id="@+id/title_error_log"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="@string/title_log"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/title_error_log_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@android:drawable/ic_dialog_email"
+            android:textSize="16sp"
+             />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_header_top" >
+
+        <TextView
+            android:id="@+id/textdatalocation"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:padding="10dp" />
+    </ScrollView>
+
+</RelativeLayout>

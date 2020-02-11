@@ -1,0 +1,82 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "27.0.3"
+    flavorDimensions "default"
+
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId "com.teramatrix.vos"
+        minSdkVersion 15
+        targetSdkVersion 26
+        multiDexEnabled true
+        versionCode = 54
+
+        versionName = "1.5"
+    }
+
+    productFlavors {
+        dev610 {
+            buildConfigField 'String', 'HOST', '"http://i.teramatrix.in:609/"'
+        }
+        dev614 {
+            buildConfigField 'String', 'HOST', '"http://i.teramatrix.in:613/"'
+        }
+        prod {
+            buildConfigField 'String', 'HOST', '"https://uptimecenter.vecv.net:8082/"'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+}
+
+dependencies {
+
+    implementation files('libs/httpclient-4.0.3.jar')
+    implementation project(':library')
+    implementation 'com.google.android.gms:play-services-analytics:15.0.0'
+    implementation 'com.google.android.gms:play-services-gcm:15.0.0'
+    implementation 'com.google.android.gms:play-services-maps:15.0.0'
+    implementation 'com.google.android.gms:play-services-location:15.0.0'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.android.support:multidex:1.0.1'
+    implementation 'com.wdullaer:materialdatetimepicker:3.5.1'
+    implementation 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
+    implementation 'com.whiteelephant:monthandyearpicker:1.3.0'
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation files('libs/library-2.1.1-sources.jar')
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation "com.google.firebase:firebase-messaging:15.0.0"
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.9@aar') {
+        transitive = true
+    }
+}
+apply plugin: 'com.google.gms.google-services'

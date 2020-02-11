@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/action1"
+        android:title="@string/log_location"
+    />
+ 
+    <item
+        android:id="@+id/action2"
+        android:title="@string/log_error_log"
+    />
+    
+     <item
+        android:id="@+id/action3"
+        android:title="@string/log_complete"
+    />
+   <!--  <item 
+         android:id="@+id/action4"
+         android:title="@string/settings"/>  -->
+         
+        <!--  <item 
+         android:id="@+id/action5"
+         android:title="@string/str_help"/> -->
+         
+   
+ 
+</menu>

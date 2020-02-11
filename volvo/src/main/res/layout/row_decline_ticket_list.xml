@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/rl_row_reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/paddingBottom"
+            android:paddingTop="@dimen/paddingTop" >
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_launcher"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/img"
+                android:text="Not Available Time"
+                android:textColor="@color/black_label"
+                android:textSize="15sp" />
+
+            <CheckBox
+                android:id="@+id/value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/paddingLeft"
+                android:button="@drawable/check_box_selector" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/reason_other"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp"
+            android:visibility="visible" >
+
+            <com.teramatrix.vos.utils.ActionEditText
+                android:id="@+id/ed_reason_other_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/edit_text_background"
+                android:gravity="top|left"
+                android:imeOptions="actionDone"
+                android:digits="0123456789abcdefghijklmnopqrstuvwxyz@!#$%^*()_{}=~+-*/.,&apos;:; []"
+                android:hint="@string/enter_reason"
+                android:maxLength="256"
+                android:minLines="4"
+                android:padding="3dp"
+                 />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

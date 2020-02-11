@@ -1,0 +1,513 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.teramatrix.vos"
+4    android:versionCode="54"
+5    android:versionName="1.5" >
+6
+7    <uses-sdk
+7-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:6:5-8:41
+8        android:minSdkVersion="15"
+8-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:6:5-8:41
+9        android:targetSdkVersion="26" />
+9-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:8:9-38
+10
+11    <!-- GCM requires a Google account. -->
+12    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+12-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:11:5-71
+12-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:11:22-68
+13    <!-- Keeps the processor from sleeping when a message is received. -->
+14    <uses-permission android:name="android.permission.WAKE_LOCK" />
+14-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:13:5-68
+14-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:13:22-65
+15    <!-- Creates a custom permission so only this app can receive its messages. -->
+16    <permission
+16-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:15:5-17:47
+17        android:name="com.teramatrix.vos.permission.C2D_MESSAGE"
+17-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:16:9-65
+18        android:protectionLevel="signature" />
+18-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:17:9-44
+19
+20    <uses-permission android:name="com.teramatrix.vecv.permission.C2D_MESSAGE" />
+20-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:19:5-82
+20-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:19:22-79
+21    <!-- This app has permission to register and receive data message. -->
+22    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+22-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:21:5-82
+22-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:21:22-79
+23    <!-- Permission to vibrate -->
+24    <uses-permission android:name="android.permission.VIBRATE" />
+24-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:23:5-66
+24-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:23:22-63
+25
+26    <permission
+26-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:25:5-27:47
+27        android:name="com.teramatrix.vos.permission.MAPS_RECEIVE"
+27-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:26:9-66
+28        android:protectionLevel="signature" />
+28-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:27:9-44
+29
+30    <!-- Permission to File Read Write -->
+31    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+31-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:30:5-80
+31-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:30:22-77
+32    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+32-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:31:5-81
+32-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:31:22-78
+33    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+33-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:32:5-80
+33-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:32:22-77
+34    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+34-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:33:5-81
+34-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:33:22-78
+35
+36    <!-- <uses-permission android:name="com.teramatrix.vecv.permission.MAPS_RECEIVE" /> -->
+37
+38
+39    <!-- Set User Permissions -->
+40    <uses-permission android:name="android.permission.INTERNET" />
+40-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:39:5-67
+40-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:39:22-64
+41    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+41-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:40:5-75
+41-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:40:22-72
+42    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+42-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:41:5-79
+42-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:41:22-76
+43    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+43-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:42:5-79
+43-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:42:22-76
+44    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+44-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:43:5-81
+44-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:43:22-78
+45    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+45-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:44:5-81
+45-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:44:22-78
+46    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+46-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:45:5-98
+46-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:45:22-95
+47    <uses-permission android:name="com.teramatrix.vecv.MAPS_RECEIVE" />
+47-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:46:5-72
+47-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:46:22-69
+48
+49    <uses-feature
+49-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:48:5-50:35
+50        android:glEsVersion="0x00020000"
+50-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:49:9-41
+51        android:required="true" />
+51-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:50:9-32
+52
+53    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+53-->[com.google.firebase:firebase-analytics-impl:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/2b1fda1b400b01e2b86f1407c28d9d72/firebase-analytics-impl-15.0.0/AndroidManifest.xml:26:5-110
+53-->[com.google.firebase:firebase-analytics-impl:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/2b1fda1b400b01e2b86f1407c28d9d72/firebase-analytics-impl-15.0.0/AndroidManifest.xml:26:22-107
+54    <uses-permission android:name="com.teramatrix.vos.permission.C2D_MESSAGE" />
+54-->[com.google.firebase:firebase-iid:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/7ce038e9f7e1b0d57520b7b2e6bc7bc3/firebase-iid-15.0.0/AndroidManifest.xml:32:5-79
+54-->[com.google.firebase:firebase-iid:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/7ce038e9f7e1b0d57520b7b2e6bc7bc3/firebase-iid-15.0.0/AndroidManifest.xml:32:22-76
+55
+56    <application
+56-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:52:5-207:19
+57        android:name="com.teramatrix.vos.EosApplication"
+57-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:53:9-57
+58        android:allowBackup="false"
+58-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:54:9-36
+59        android:debuggable="true"
+60        android:icon="@mipmap/ic_launcher"
+60-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:55:9-43
+61        android:label="@string/app_name"
+61-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:56:9-41
+62        android:largeHeap="true"
+62-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:57:9-33
+63        android:supportsRtl="true"
+63-->[com.whiteelephant:monthandyearpicker:1.3.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/cf1e3b82da5c39963bf0a6f2fa6cd6dd/monthandyearpicker-1.3.0/AndroidManifest.xml:15:9-35
+64        android:theme="@style/AppTheme" >
+64-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:59:9-40
+65        <meta-data
+65-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:60:9-62:69
+66            android:name="com.google.android.gms.version"
+66-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:61:13-58
+67            android:value="@integer/google_play_services_version" />
+67-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:62:13-66
+68
+69        <!-- In order to use Maps in your application add Map API Key -->
+70        <meta-data
+70-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:65:9-67:51
+71            android:name="com.google.android.maps.v2.API_KEY"
+71-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:66:13-62
+72            android:value="@string/map_api_key" />
+72-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:67:13-48
+73
+74        <activity
+74-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:69:9-78:20
+75            android:name="com.teramatrix.vos.SplashActivity"
+75-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:70:13-61
+76            android:label="@string/app_name"
+76-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:71:13-45
+77            android:screenOrientation="portrait" >
+77-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:72:13-49
+78            <intent-filter>
+78-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:73:13-77:29
+79                <action android:name="android.intent.action.MAIN" />
+79-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:74:17-69
+79-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:74:25-66
+80
+81                <category android:name="android.intent.category.LAUNCHER" />
+81-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:76:17-77
+81-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:76:27-74
+82            </intent-filter>
+83        </activity>
+84        <activity
+84-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:79:9-85:20
+85            android:name="com.teramatrix.vos.ConfigurationPinActivity"
+85-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:80:13-71
+86            android:configChanges="locale"
+86-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:81:13-43
+87            android:label="@string/app_name"
+87-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:82:13-45
+88            android:screenOrientation="portrait"
+88-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:83:13-49
+89            android:windowSoftInputMode="stateHidden|adjustResize" >
+89-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:84:13-67
+90        </activity>
+91        <activity
+91-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:86:9-92:20
+92            android:name="com.teramatrix.vos.ConfigurationLicenseActivity"
+92-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:87:13-75
+93            android:configChanges="locale"
+93-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:88:13-43
+94            android:label="@string/app_name"
+94-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:89:13-45
+95            android:screenOrientation="portrait"
+95-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:90:13-49
+96            android:windowSoftInputMode="adjustPan|adjustResize" >
+96-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:91:13-65
+97        </activity>
+98        <activity
+98-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:93:9-99:20
+99            android:name="com.teramatrix.vos.MyTicketActivity"
+99-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:94:13-63
+100            android:configChanges="locale"
+100-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:95:13-43
+101            android:label="@string/app_name"
+101-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:96:13-45
+102            android:screenOrientation="portrait"
+102-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:97:13-49
+103            android:windowSoftInputMode="stateHidden|adjustResize" >
+103-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:98:13-67
+104        </activity>
+105        <activity
+105-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:100:9-107:20
+106            android:name="com.teramatrix.vos.MapViewTimerActivitySeekBar"
+106-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:101:13-74
+107            android:configChanges="locale"
+107-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:102:13-43
+108            android:label="@string/app_name"
+108-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:103:13-45
+109            android:launchMode="singleTask"
+109-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:104:13-44
+110            android:screenOrientation="portrait"
+110-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:105:13-49
+111            android:windowSoftInputMode="adjustResize|adjustPan" >
+111-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:106:13-65
+112        </activity>
+113        <activity
+113-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:108:9-114:20
+114            android:name="com.teramatrix.vos.JobStatusDetailActivity"
+114-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:109:13-70
+115            android:configChanges="locale"
+115-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:110:13-43
+116            android:label="@string/app_name"
+116-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:111:13-45
+117            android:screenOrientation="portrait"
+117-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:112:13-49
+118            android:windowSoftInputMode="stateHidden|adjustResize" >
+118-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:113:13-67
+119        </activity>
+120        <activity
+120-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:116:9-122:20
+121            android:name="com.teramatrix.vos.volvouptime.UpTimeRegisterActivity"
+121-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:117:13-63
+122            android:configChanges="locale"
+122-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:118:13-43
+123            android:label="@string/app_name"
+123-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:119:13-45
+124            android:screenOrientation="portrait"
+124-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:120:13-49
+125            android:windowSoftInputMode="stateHidden|adjustResize" >
+125-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:121:13-67
+126        </activity>
+127        <activity
+127-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:124:9-131:20
+128            android:name="com.teramatrix.vos.volvouptime.UpTimeTicketDetailsActivity"
+128-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:125:13-68
+129            android:configChanges="locale"
+129-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:126:13-43
+130            android:label="@string/app_name"
+130-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:127:13-45
+131            android:screenOrientation="portrait"
+131-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:128:13-49
+132            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+132-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:129:13-69
+133            android:windowSoftInputMode="stateHidden|adjustResize" >
+133-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:130:13-67
+134        </activity>
+135        <activity
+135-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:133:9-140:20
+136            android:name="com.teramatrix.vos.volvouptime.UpTimeVehicleListActivity"
+136-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:134:13-66
+137            android:configChanges="locale"
+137-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:135:13-43
+138            android:label="@string/app_name"
+138-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:136:13-45
+139            android:screenOrientation="portrait"
+139-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:137:13-49
+140            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+140-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:138:13-69
+141            android:windowSoftInputMode="stateHidden|adjustResize" >
+141-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:139:13-67
+142        </activity>
+143
+144        <service
+144-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:142:9-145:19
+145            android:name="com.teramatrix.vos.service.AlertRingerService"
+145-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:143:13-73
+146            android:enabled="true" >
+146-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:144:13-35
+147        </service>
+148        <service
+148-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:146:9-149:19
+149            android:name="com.teramatrix.vos.service.PostLocationService"
+149-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:147:13-74
+150            android:enabled="true" >
+150-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:148:13-35
+151        </service>
+152        <service
+152-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:150:9-153:19
+153            android:name="com.teramatrix.vos.service.SyncTicketsService"
+153-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:151:13-73
+154            android:enabled="true" >
+154-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:152:13-35
+155        </service>
+156        <service
+156-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:155:9-158:19
+157            android:name="com.teramatrix.vos.service.Locationservice"
+157-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:156:13-70
+158            android:enabled="true" >
+158-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:157:13-35
+159        </service>
+160
+161        <receiver
+161-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:161:9-164:20
+162            android:name="com.teramatrix.vos.reciver.NewTicketAlertRinger"
+162-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:162:13-75
+163            android:enabled="true" >
+163-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:163:13-35
+164        </receiver>
+165        <receiver android:name="com.teramatrix.vos.reciver.InternetAvailabilityRecever" >
+165-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:165:9-169:20
+165-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:165:19-88
+166            <intent-filter>
+166-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:166:13-168:29
+167                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+167-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:167:17-79
+167-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:167:25-76
+168            </intent-filter>
+169        </receiver>
+170        <receiver
+170-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:170:9-181:20
+171            android:name="com.teramatrix.vos.reciver.PhoneRebootReceiver"
+171-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:171:13-74
+172            android:enabled="true"
+172-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:172:13-35
+173            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
+173-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:173:13-75
+174            <intent-filter>
+174-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:174:13-180:29
+175                <action android:name="android.intent.action.BOOT_COMPLETED" />
+175-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:175:17-79
+175-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:175:25-76
+176
+177                <category android:name="android.intent.category.DEFAULT" />
+177-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:177:17-76
+177-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:177:27-73
+178
+179                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+179-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:179:17-82
+179-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:179:25-79
+180            </intent-filter>
+181        </receiver>
+182
+183        <!-- GCM Receiver -->
+184        <service android:name="com.teramatrix.vos.firebase.service.MyFirebaseMessagingService" >
+184-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:184:9-189:19
+184-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:185:13-72
+185            <intent-filter>
+185-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:186:13-188:29
+186                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+186-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:187:17-77
+186-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:187:25-75
+187            </intent-filter>
+188        </service>
+189        <service android:name="com.teramatrix.vos.firebase.service.MyFirebaseInstanceIDService" >
+189-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:190:9-195:19
+189-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:191:13-73
+190            <intent-filter>
+190-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:192:13-194:29
+191                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+191-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:193:17-79
+191-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:193:25-77
+192            </intent-filter>
+193        </service>
+194
+195        <provider
+195-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:198:9-203:20
+196            android:name="com.activeandroid.content.ContentProvider"
+196-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:199:13-69
+197            android:authorities="com.teramatrix.vos"
+197-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:200:13-53
+198            android:enabled="true"
+198-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:201:13-35
+199            android:exported="false" >
+199-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:202:13-37
+200        </provider>
+201
+202        <meta-data
+202-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:204:9-206:72
+203            android:name="io.fabric.ApiKey"
+203-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:205:13-44
+204            android:value="b7fb867e45d32601c7f4cb3104e7ca22e31185ca" />
+204-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:206:13-69
+205
+206        <receiver
+206-->[com.google.android.gms:play-services-analytics:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/e2d4ac85e0a07ce75637e6ae9b1267ab/play-services-analytics-15.0.0/AndroidManifest.xml:30:9-34:20
+207            android:name="com.google.android.gms.analytics.AnalyticsReceiver"
+207-->[com.google.android.gms:play-services-analytics:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/e2d4ac85e0a07ce75637e6ae9b1267ab/play-services-analytics-15.0.0/AndroidManifest.xml:31:13-78
+208            android:enabled="true"
+208-->[com.google.android.gms:play-services-analytics:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/e2d4ac85e0a07ce75637e6ae9b1267ab/play-services-analytics-15.0.0/AndroidManifest.xml:32:13-35
+209            android:exported="false" >
+209-->[com.google.android.gms:play-services-analytics:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/e2d4ac85e0a07ce75637e6ae9b1267ab/play-services-analytics-15.0.0/AndroidManifest.xml:33:13-37
+210        </receiver>
+211
+212        <service
+212-->[com.google.android.gms:play-services-analytics:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/e2d4ac85e0a07ce75637e6ae9b1267ab/play-services-analytics-15.0.0/AndroidManifest.xml:36:9-39:40
+213            android:name="com.google.android.gms.analytics.AnalyticsService"
+213-->[com.google.android.gms:play-services-analytics:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/e2d4ac85e0a07ce75637e6ae9b1267ab/play-services-analytics-15.0.0/AndroidManifest.xml:37:13-77
+214            android:enabled="true"
+214-->[com.google.android.gms:play-services-analytics:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/e2d4ac85e0a07ce75637e6ae9b1267ab/play-services-analytics-15.0.0/AndroidManifest.xml:38:13-35
+215            android:exported="false" />
+215-->[com.google.android.gms:play-services-analytics:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/e2d4ac85e0a07ce75637e6ae9b1267ab/play-services-analytics-15.0.0/AndroidManifest.xml:39:13-37
+216        <service
+216-->[com.google.android.gms:play-services-analytics:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/e2d4ac85e0a07ce75637e6ae9b1267ab/play-services-analytics-15.0.0/AndroidManifest.xml:40:9-44:72
+217            android:name="com.google.android.gms.analytics.AnalyticsJobService"
+217-->[com.google.android.gms:play-services-analytics:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/e2d4ac85e0a07ce75637e6ae9b1267ab/play-services-analytics-15.0.0/AndroidManifest.xml:41:13-80
+218            android:enabled="true"
+218-->[com.google.android.gms:play-services-analytics:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/e2d4ac85e0a07ce75637e6ae9b1267ab/play-services-analytics-15.0.0/AndroidManifest.xml:42:13-35
+219            android:exported="false"
+219-->[com.google.android.gms:play-services-analytics:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/e2d4ac85e0a07ce75637e6ae9b1267ab/play-services-analytics-15.0.0/AndroidManifest.xml:43:13-37
+220            android:permission="android.permission.BIND_JOB_SERVICE" />
+220-->[com.google.android.gms:play-services-analytics:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/e2d4ac85e0a07ce75637e6ae9b1267ab/play-services-analytics-15.0.0/AndroidManifest.xml:44:13-69
+221        <!--
+222             FirebaseMessagingService performs security checks at runtime,
+223             no need for explicit permissions despite exported="true"
+224        -->
+225        <service
+225-->[com.google.firebase:firebase-messaging:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/2dd43f1d6a478933e92c08735c06b226/firebase-messaging-15.0.0/AndroidManifest.xml:28:9-34:19
+226            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+226-->[com.google.firebase:firebase-messaging:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/2dd43f1d6a478933e92c08735c06b226/firebase-messaging-15.0.0/AndroidManifest.xml:29:13-82
+227            android:exported="true" >
+227-->[com.google.firebase:firebase-messaging:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/2dd43f1d6a478933e92c08735c06b226/firebase-messaging-15.0.0/AndroidManifest.xml:30:13-36
+228            <intent-filter android:priority="-500" >
+228-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:186:13-188:29
+229                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+229-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:187:17-77
+229-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:187:25-75
+230            </intent-filter>
+231        </service>
+232
+233        <provider
+233-->[com.crashlytics.sdk.android:crashlytics:2.9.9] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/b8c7ad26301803a2397aab7d791dbd8b/crashlytics-2.9.9/AndroidManifest.xml:12:9-16:38
+234            android:name="com.crashlytics.android.CrashlyticsInitProvider"
+234-->[com.crashlytics.sdk.android:crashlytics:2.9.9] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/b8c7ad26301803a2397aab7d791dbd8b/crashlytics-2.9.9/AndroidManifest.xml:13:13-75
+235            android:authorities="com.teramatrix.vos.crashlyticsinitprovider"
+235-->[com.crashlytics.sdk.android:crashlytics:2.9.9] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/b8c7ad26301803a2397aab7d791dbd8b/crashlytics-2.9.9/AndroidManifest.xml:14:13-75
+236            android:exported="false"
+236-->[com.crashlytics.sdk.android:crashlytics:2.9.9] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/b8c7ad26301803a2397aab7d791dbd8b/crashlytics-2.9.9/AndroidManifest.xml:15:13-37
+237            android:initOrder="90" />
+237-->[com.crashlytics.sdk.android:crashlytics:2.9.9] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/b8c7ad26301803a2397aab7d791dbd8b/crashlytics-2.9.9/AndroidManifest.xml:16:13-35
+238
+239        <activity
+239-->[com.google.android.gms:play-services-base:15.0.1] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/47e4cd1885c99d691f8def41fe1fe1e6/play-services-base-15.0.1/AndroidManifest.xml:23:9-26:75
+240            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+240-->[com.google.android.gms:play-services-base:15.0.1] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/47e4cd1885c99d691f8def41fe1fe1e6/play-services-base-15.0.1/AndroidManifest.xml:24:13-79
+241            android:exported="false"
+241-->[com.google.android.gms:play-services-base:15.0.1] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/47e4cd1885c99d691f8def41fe1fe1e6/play-services-base-15.0.1/AndroidManifest.xml:25:13-37
+242            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+242-->[com.google.android.gms:play-services-base:15.0.1] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/47e4cd1885c99d691f8def41fe1fe1e6/play-services-base-15.0.1/AndroidManifest.xml:26:13-72
+243
+244        <receiver
+244-->[com.google.firebase:firebase-analytics-impl:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/2b1fda1b400b01e2b86f1407c28d9d72/firebase-analytics-impl-15.0.0/AndroidManifest.xml:29:9-33:20
+245            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+245-->[com.google.firebase:firebase-analytics-impl:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/2b1fda1b400b01e2b86f1407c28d9d72/firebase-analytics-impl-15.0.0/AndroidManifest.xml:30:13-85
+246            android:enabled="true"
+246-->[com.google.firebase:firebase-analytics-impl:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/2b1fda1b400b01e2b86f1407c28d9d72/firebase-analytics-impl-15.0.0/AndroidManifest.xml:31:13-35
+247            android:exported="false" >
+247-->[com.google.firebase:firebase-analytics-impl:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/2b1fda1b400b01e2b86f1407c28d9d72/firebase-analytics-impl-15.0.0/AndroidManifest.xml:32:13-37
+248        </receiver>
+249
+250        <service
+250-->[com.google.firebase:firebase-analytics-impl:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/2b1fda1b400b01e2b86f1407c28d9d72/firebase-analytics-impl-15.0.0/AndroidManifest.xml:35:9-38:40
+251            android:name="com.google.android.gms.measurement.AppMeasurementService"
+251-->[com.google.firebase:firebase-analytics-impl:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/2b1fda1b400b01e2b86f1407c28d9d72/firebase-analytics-impl-15.0.0/AndroidManifest.xml:36:13-84
+252            android:enabled="true"
+252-->[com.google.firebase:firebase-analytics-impl:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/2b1fda1b400b01e2b86f1407c28d9d72/firebase-analytics-impl-15.0.0/AndroidManifest.xml:37:13-35
+253            android:exported="false" />
+253-->[com.google.firebase:firebase-analytics-impl:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/2b1fda1b400b01e2b86f1407c28d9d72/firebase-analytics-impl-15.0.0/AndroidManifest.xml:38:13-37
+254
+255        <receiver
+255-->[com.google.firebase:firebase-iid:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/7ce038e9f7e1b0d57520b7b2e6bc7bc3/firebase-iid-15.0.0/AndroidManifest.xml:35:9-44:20
+256            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+256-->[com.google.firebase:firebase-iid:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/7ce038e9f7e1b0d57520b7b2e6bc7bc3/firebase-iid-15.0.0/AndroidManifest.xml:36:13-78
+257            android:exported="true"
+257-->[com.google.firebase:firebase-iid:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/7ce038e9f7e1b0d57520b7b2e6bc7bc3/firebase-iid-15.0.0/AndroidManifest.xml:37:13-36
+258            android:permission="com.google.android.c2dm.permission.SEND" >
+258-->[com.google.firebase:firebase-iid:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/7ce038e9f7e1b0d57520b7b2e6bc7bc3/firebase-iid-15.0.0/AndroidManifest.xml:38:13-73
+259            <intent-filter>
+259-->[com.google.firebase:firebase-iid:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/7ce038e9f7e1b0d57520b7b2e6bc7bc3/firebase-iid-15.0.0/AndroidManifest.xml:39:13-43:29
+260                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+260-->[com.google.firebase:firebase-iid:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/7ce038e9f7e1b0d57520b7b2e6bc7bc3/firebase-iid-15.0.0/AndroidManifest.xml:40:17-81
+260-->[com.google.firebase:firebase-iid:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/7ce038e9f7e1b0d57520b7b2e6bc7bc3/firebase-iid-15.0.0/AndroidManifest.xml:40:25-78
+261
+262                <category android:name="com.teramatrix.vos" />
+262-->[com.google.firebase:firebase-iid:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/7ce038e9f7e1b0d57520b7b2e6bc7bc3/firebase-iid-15.0.0/AndroidManifest.xml:42:17-61
+262-->[com.google.firebase:firebase-iid:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/7ce038e9f7e1b0d57520b7b2e6bc7bc3/firebase-iid-15.0.0/AndroidManifest.xml:42:27-58
+263            </intent-filter>
+264        </receiver>
+265        <!--
+266             FirebaseInstanceIdService performs security checks at runtime,
+267             no need for explicit permissions despite exported="true"
+268        -->
+269        <service
+269-->[com.google.firebase:firebase-iid:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/7ce038e9f7e1b0d57520b7b2e6bc7bc3/firebase-iid-15.0.0/AndroidManifest.xml:50:9-56:19
+270            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+270-->[com.google.firebase:firebase-iid:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/7ce038e9f7e1b0d57520b7b2e6bc7bc3/firebase-iid-15.0.0/AndroidManifest.xml:51:13-77
+271            android:exported="true" >
+271-->[com.google.firebase:firebase-iid:15.0.0] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/7ce038e9f7e1b0d57520b7b2e6bc7bc3/firebase-iid-15.0.0/AndroidManifest.xml:52:13-36
+272            <intent-filter android:priority="-500" >
+272-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:192:13-194:29
+273                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+273-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:193:17-79
+273-->/Volumes/MyDrive/EOS(VECV)/Volvo(VTI)/Volvo/volvo-vasuptime-android-development/volvo/src/main/AndroidManifest.xml:193:25-77
+274            </intent-filter>
+275        </service>
+276
+277        <provider
+277-->[com.google.firebase:firebase-common:15.0.1] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/da6d3e50ef3428c2fa9cd898b907df68/firebase-common-15.0.1/AndroidManifest.xml:8:9-12:39
+278            android:name="com.google.firebase.provider.FirebaseInitProvider"
+278-->[com.google.firebase:firebase-common:15.0.1] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/da6d3e50ef3428c2fa9cd898b907df68/firebase-common-15.0.1/AndroidManifest.xml:9:13-77
+279            android:authorities="com.teramatrix.vos.firebaseinitprovider"
+279-->[com.google.firebase:firebase-common:15.0.1] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/da6d3e50ef3428c2fa9cd898b907df68/firebase-common-15.0.1/AndroidManifest.xml:10:13-72
+280            android:exported="false"
+280-->[com.google.firebase:firebase-common:15.0.1] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/da6d3e50ef3428c2fa9cd898b907df68/firebase-common-15.0.1/AndroidManifest.xml:11:13-37
+281            android:initOrder="100" />
+281-->[com.google.firebase:firebase-common:15.0.1] /Users/vaibhav/.gradle/caches/transforms-2/files-2.1/da6d3e50ef3428c2fa9cd898b907df68/firebase-common-15.0.1/AndroidManifest.xml:12:13-36
+282    </application>
+283
+284</manifest>

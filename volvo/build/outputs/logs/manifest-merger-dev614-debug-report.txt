@@ -1,0 +1,724 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:2:1-209:12
+INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:2:1-209:12
+INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:2:1-209:12
+INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:2:1-209:12
+MERGED from [com.android.support:multidex:1.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\c4924e865862a675338e80453bf876f3\AndroidManifest.xml:17:1-22:12
+MERGED from [:library] D:\Volvo\volvo-vasuptime-android-development\library\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:17:1-47:12
+MERGED from [com.google.android.gms:play-services-gcm:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-gcm-15.0.0.aar\77f432705d73b5edebc1cb5ba9ddc74c\AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-maps:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.0.aar\5fcc9a213ddfe3823f55d32670f0d7cf\AndroidManifest.xml:17:1-32:12
+MERGED from [com.google.android.gms:play-services-location:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-location-15.0.0.aar\683262d18ed459838f57cbfe8b6dd35d\AndroidManifest.xml:2:1-9:12
+MERGED from [com.wdullaer:materialdatetimepicker:3.5.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\materialdatetimepicker-3.5.1.aar\38e829148b6c34b5da18c150f3318c88\AndroidManifest.xml:17:1-30:12
+MERGED from [com.android.support:design:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-27.0.2.aar\5c9d7a37c60e2b05f06c47c109980ee1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\8995035fccebe7b1a965fd51976636cd\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.0.2.aar\680fc64a7e34e755e46bb3cdc7abe8ad\AndroidManifest.xml:17:1-22:12
+MERGED from [com.whiteelephant:monthandyearpicker:1.3.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\monthandyearpicker-1.3.0.aar\0206bb171df0a8036e5cdb74c63c3d00\AndroidManifest.xml:2:1-17:12
+MERGED from [com.facebook.stetho:stetho:1.5.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\stetho-1.5.0.aar\f37ef57a57009142bda2d0520a5f456d\AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.firebase:firebase-messaging:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-messaging-15.0.0.aar\e62cc68ebf76098b56c8c211874a94d8\AndroidManifest.xml:17:1-37:12
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\4caf0b061d0f1b60892c7c0f15657e89\AndroidManifest.xml:2:1-19:12
+MERGED from [com.google.android.gms:play-services-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-15.0.0.aar\469a67af1b389893fd82e708b7901e30\AndroidManifest.xml:17:1-31:12
+MERGED from [com.google.android.gms:play-services-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-iid-15.0.0.aar\f52b7c361aa3d84016c7eb94dbad900b\AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\9c2d9fed3cf0df77fb1f60b0bc75f7b4\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:17:1-41:12
+MERGED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:17:1-59:12
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-stats-15.0.1.aar\84c2e306e5d7aee0ca09069322947ad0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\96fb3efef3b4dbe32cca1342968d591d\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-common:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-common-15.0.1.aar\bae1a0c26d7576788df89cdb91e7fb85\AndroidManifest.xml:2:1-15:12
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\be7a72c22a0d6c677b4e831a79903966\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-15.0.1.aar\136e8537e9037d6c9ea54da5b71d4f4d\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\37618d3a2c7b7dfbf9ac38c08007cb16\AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-measurement-base:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-15.0.0.aar\3475e5593b89c5049135323a6c33707c\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:support-v13:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v13-27.0.2.aar\d962f513b08a59ecae27d2056e3899f4\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\transition-27.0.2.aar\9414b8427d0a7e7f36138d2a418aed46\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v4:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.2.aar\a00640446cde56181071a133fa9eec54\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.2.aar\908306dcb868c652b906a75a423c6dc9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\d255002331b26faa045a2d39eaff0b57\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\3550c5f0b943c37e832371ab732675e2\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\9331e517e580f9500a5857db35dfe9ae\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\4f63132edd769ab799e2a8d75d8656cb\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\6c7b8b1acf4c535dce7851a704c438e2\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\c98e8507f3136f4a58e15a261dc552ef\AndroidManifest.xml:17:1-22:12
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.6.8.aar\1437b46c177a0ca18278630e6df08c26\AndroidManifest.xml:45:1-56:12
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\answers-1.4.7.aar\8240e8463a78ec1a6240a1230d7e565d\AndroidManifest.xml:2:1-13:12
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\fabric-1.4.8.aar\8418f7bb792e02e76cab8de812775e96\AndroidManifest.xml:22:1-33:12
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\beta-1.2.10.aar\16f3a7e487a15fa86e477235efdf3a88\AndroidManifest.xml:2:1-13:12
+MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\c7eb9dba143b4538c9147b70b02b5c47\AndroidManifest.xml:17:1-24:12
+INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:2:1-209:12
+INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:2:1-209:12
+INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:2:1-209:12
+	package
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:4:5-33
+		INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml
+		INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:2:1-209:12
+		INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:2:1-209:12
+		INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:2:11-69
+uses-sdk
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:6:5-8:41
+INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:6:5-8:41
+INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:6:5-8:41
+MERGED from [com.android.support:multidex:1.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\c4924e865862a675338e80453bf876f3\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\c4924e865862a675338e80453bf876f3\AndroidManifest.xml:20:5-43
+MERGED from [:library] D:\Volvo\volvo-vasuptime-android-development\library\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:library] D:\Volvo\volvo-vasuptime-android-development\library\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-gcm:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-gcm-15.0.0.aar\77f432705d73b5edebc1cb5ba9ddc74c\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-gcm:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-gcm-15.0.0.aar\77f432705d73b5edebc1cb5ba9ddc74c\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.0.aar\5fcc9a213ddfe3823f55d32670f0d7cf\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.0.aar\5fcc9a213ddfe3823f55d32670f0d7cf\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-location:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-location-15.0.0.aar\683262d18ed459838f57cbfe8b6dd35d\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-location-15.0.0.aar\683262d18ed459838f57cbfe8b6dd35d\AndroidManifest.xml:5:5-44
+MERGED from [com.wdullaer:materialdatetimepicker:3.5.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\materialdatetimepicker-3.5.1.aar\38e829148b6c34b5da18c150f3318c88\AndroidManifest.xml:22:5-24:41
+MERGED from [com.wdullaer:materialdatetimepicker:3.5.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\materialdatetimepicker-3.5.1.aar\38e829148b6c34b5da18c150f3318c88\AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:design:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-27.0.2.aar\5c9d7a37c60e2b05f06c47c109980ee1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\design-27.0.2.aar\5c9d7a37c60e2b05f06c47c109980ee1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\8995035fccebe7b1a965fd51976636cd\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.0.2.aar\8995035fccebe7b1a965fd51976636cd\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.0.2.aar\680fc64a7e34e755e46bb3cdc7abe8ad\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.0.2.aar\680fc64a7e34e755e46bb3cdc7abe8ad\AndroidManifest.xml:20:5-44
+MERGED from [com.whiteelephant:monthandyearpicker:1.3.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\monthandyearpicker-1.3.0.aar\0206bb171df0a8036e5cdb74c63c3d00\AndroidManifest.xml:7:5-9:41
+MERGED from [com.whiteelephant:monthandyearpicker:1.3.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\monthandyearpicker-1.3.0.aar\0206bb171df0a8036e5cdb74c63c3d00\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.stetho:stetho:1.5.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\stetho-1.5.0.aar\f37ef57a57009142bda2d0520a5f456d\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.stetho:stetho:1.5.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\stetho-1.5.0.aar\f37ef57a57009142bda2d0520a5f456d\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:firebase-messaging:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-messaging-15.0.0.aar\e62cc68ebf76098b56c8c211874a94d8\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-messaging:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-messaging-15.0.0.aar\e62cc68ebf76098b56c8c211874a94d8\AndroidManifest.xml:20:5-44
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\4caf0b061d0f1b60892c7c0f15657e89\AndroidManifest.xml:7:5-43
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\4caf0b061d0f1b60892c7c0f15657e89\AndroidManifest.xml:7:5-43
+MERGED from [com.google.android.gms:play-services-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-15.0.0.aar\469a67af1b389893fd82e708b7901e30\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-15.0.0.aar\469a67af1b389893fd82e708b7901e30\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-iid-15.0.0.aar\f52b7c361aa3d84016c7eb94dbad900b\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-iid-15.0.0.aar\f52b7c361aa3d84016c7eb94dbad900b\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\9c2d9fed3cf0df77fb1f60b0bc75f7b4\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\9c2d9fed3cf0df77fb1f60b0bc75f7b4\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-stats-15.0.1.aar\84c2e306e5d7aee0ca09069322947ad0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-stats-15.0.1.aar\84c2e306e5d7aee0ca09069322947ad0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\96fb3efef3b4dbe32cca1342968d591d\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\96fb3efef3b4dbe32cca1342968d591d\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-common:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-common-15.0.1.aar\bae1a0c26d7576788df89cdb91e7fb85\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-common-15.0.1.aar\bae1a0c26d7576788df89cdb91e7fb85\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\be7a72c22a0d6c677b4e831a79903966\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\be7a72c22a0d6c677b4e831a79903966\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-15.0.1.aar\136e8537e9037d6c9ea54da5b71d4f4d\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-15.0.1.aar\136e8537e9037d6c9ea54da5b71d4f4d\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\37618d3a2c7b7dfbf9ac38c08007cb16\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\37618d3a2c7b7dfbf9ac38c08007cb16\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-15.0.0.aar\3475e5593b89c5049135323a6c33707c\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-15.0.0.aar\3475e5593b89c5049135323a6c33707c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v13:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v13-27.0.2.aar\d962f513b08a59ecae27d2056e3899f4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v13:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v13-27.0.2.aar\d962f513b08a59ecae27d2056e3899f4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\transition-27.0.2.aar\9414b8427d0a7e7f36138d2a418aed46\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\transition-27.0.2.aar\9414b8427d0a7e7f36138d2a418aed46\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.2.aar\a00640446cde56181071a133fa9eec54\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-27.0.2.aar\a00640446cde56181071a133fa9eec54\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.2.aar\908306dcb868c652b906a75a423c6dc9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.0.2.aar\908306dcb868c652b906a75a423c6dc9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\d255002331b26faa045a2d39eaff0b57\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-fragment-27.0.2.aar\d255002331b26faa045a2d39eaff0b57\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\3550c5f0b943c37e832371ab732675e2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.0.2.aar\3550c5f0b943c37e832371ab732675e2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\9331e517e580f9500a5857db35dfe9ae\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.0.2.aar\9331e517e580f9500a5857db35dfe9ae\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\4f63132edd769ab799e2a8d75d8656cb\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.0.2.aar\4f63132edd769ab799e2a8d75d8656cb\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\6c7b8b1acf4c535dce7851a704c438e2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.0.2.aar\6c7b8b1acf4c535dce7851a704c438e2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\c98e8507f3136f4a58e15a261dc552ef\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.2] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-compat-27.0.2.aar\c98e8507f3136f4a58e15a261dc552ef\AndroidManifest.xml:20:5-44
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.6.8.aar\1437b46c177a0ca18278630e6df08c26\AndroidManifest.xml:50:5-43
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.6.8.aar\1437b46c177a0ca18278630e6df08c26\AndroidManifest.xml:50:5-43
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\answers-1.4.7.aar\8240e8463a78ec1a6240a1230d7e565d\AndroidManifest.xml:7:5-43
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\answers-1.4.7.aar\8240e8463a78ec1a6240a1230d7e565d\AndroidManifest.xml:7:5-43
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\fabric-1.4.8.aar\8418f7bb792e02e76cab8de812775e96\AndroidManifest.xml:27:5-43
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\fabric-1.4.8.aar\8418f7bb792e02e76cab8de812775e96\AndroidManifest.xml:27:5-43
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\beta-1.2.10.aar\16f3a7e487a15fa86e477235efdf3a88\AndroidManifest.xml:7:5-43
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\beta-1.2.10.aar\16f3a7e487a15fa86e477235efdf3a88\AndroidManifest.xml:7:5-43
+MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\c7eb9dba143b4538c9147b70b02b5c47\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\runtime-1.0.3.aar\c7eb9dba143b4538c9147b70b02b5c47\AndroidManifest.xml:20:5-22:41
+INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:6:5-8:41
+INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:6:5-8:41
+	android:targetSdkVersion
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:8:9-38
+		INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml
+		INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:7:9-35
+		INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml
+		INJECTED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:11:5-71
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:11:22-68
+uses-permission#android.permission.WAKE_LOCK
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:13:5-68
+MERGED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:27:5-68
+MERGED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:27:5-68
+MERGED from [com.google.android.gms:play-services-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-15.0.0.aar\469a67af1b389893fd82e708b7901e30\AndroidManifest.xml:27:5-68
+MERGED from [com.google.android.gms:play-services-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-15.0.0.aar\469a67af1b389893fd82e708b7901e30\AndroidManifest.xml:27:5-68
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:25:5-68
+MERGED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:24:5-68
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:13:22-65
+permission#com.teramatrix.vos.permission.C2D_MESSAGE
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:15:5-17:47
+MERGED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:28:5-30:47
+	android:protectionLevel
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:17:9-44
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:16:9-65
+uses-permission#com.teramatrix.vecv.permission.C2D_MESSAGE
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:19:5-82
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:19:22-79
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:21:5-82
+MERGED from [com.google.android.gms:play-services-gcm:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-gcm-15.0.0.aar\77f432705d73b5edebc1cb5ba9ddc74c\AndroidManifest.xml:23:5-82
+MERGED from [com.google.android.gms:play-services-gcm:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-gcm-15.0.0.aar\77f432705d73b5edebc1cb5ba9ddc74c\AndroidManifest.xml:23:5-82
+MERGED from [com.google.android.gms:play-services-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-iid-15.0.0.aar\f52b7c361aa3d84016c7eb94dbad900b\AndroidManifest.xml:23:5-82
+MERGED from [com.google.android.gms:play-services-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-iid-15.0.0.aar\f52b7c361aa3d84016c7eb94dbad900b\AndroidManifest.xml:23:5-82
+MERGED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:26:5-82
+MERGED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:26:5-82
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:21:22-79
+uses-permission#android.permission.VIBRATE
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:23:5-66
+MERGED from [com.wdullaer:materialdatetimepicker:3.5.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\materialdatetimepicker-3.5.1.aar\38e829148b6c34b5da18c150f3318c88\AndroidManifest.xml:26:5-66
+MERGED from [com.wdullaer:materialdatetimepicker:3.5.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\materialdatetimepicker-3.5.1.aar\38e829148b6c34b5da18c150f3318c88\AndroidManifest.xml:26:5-66
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:23:22-63
+permission#com.teramatrix.vos.permission.MAPS_RECEIVE
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:25:5-27:47
+	android:protectionLevel
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:27:9-44
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:26:9-66
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:30:5-80
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:30:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:31:5-81
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:31:22-78
+uses-permission#android.permission.READ_INTERNAL_STORAGE
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:32:5-80
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:32:22-77
+uses-permission#android.permission.WRITE_INTERNAL_STORAGE
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:33:5-81
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:33:22-78
+uses-permission#android.permission.INTERNET
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:39:5-67
+MERGED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-gcm:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-gcm-15.0.0.aar\77f432705d73b5edebc1cb5ba9ddc74c\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-gcm:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-gcm-15.0.0.aar\77f432705d73b5edebc1cb5ba9ddc74c\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.0.aar\5fcc9a213ddfe3823f55d32670f0d7cf\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.0.aar\5fcc9a213ddfe3823f55d32670f0d7cf\AndroidManifest.xml:24:5-67
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\4caf0b061d0f1b60892c7c0f15657e89\AndroidManifest.xml:9:5-67
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\4caf0b061d0f1b60892c7c0f15657e89\AndroidManifest.xml:9:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-15.0.0.aar\469a67af1b389893fd82e708b7901e30\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-15.0.0.aar\469a67af1b389893fd82e708b7901e30\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-iid-15.0.0.aar\f52b7c361aa3d84016c7eb94dbad900b\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-iid-15.0.0.aar\f52b7c361aa3d84016c7eb94dbad900b\AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:23:5-67
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.6.8.aar\1437b46c177a0ca18278630e6df08c26\AndroidManifest.xml:52:5-67
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.6.8.aar\1437b46c177a0ca18278630e6df08c26\AndroidManifest.xml:52:5-67
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\answers-1.4.7.aar\8240e8463a78ec1a6240a1230d7e565d\AndroidManifest.xml:9:5-67
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\answers-1.4.7.aar\8240e8463a78ec1a6240a1230d7e565d\AndroidManifest.xml:9:5-67
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\fabric-1.4.8.aar\8418f7bb792e02e76cab8de812775e96\AndroidManifest.xml:29:5-67
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\fabric-1.4.8.aar\8418f7bb792e02e76cab8de812775e96\AndroidManifest.xml:29:5-67
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\beta-1.2.10.aar\16f3a7e487a15fa86e477235efdf3a88\AndroidManifest.xml:9:5-67
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\beta-1.2.10.aar\16f3a7e487a15fa86e477235efdf3a88\AndroidManifest.xml:9:5-67
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:39:22-64
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:40:5-75
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:40:22-72
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:41:5-79
+MERGED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-maps:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.0.aar\5fcc9a213ddfe3823f55d32670f0d7cf\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-maps:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.0.aar\5fcc9a213ddfe3823f55d32670f0d7cf\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-15.0.0.aar\469a67af1b389893fd82e708b7901e30\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-15.0.0.aar\469a67af1b389893fd82e708b7901e30\AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:22:5-79
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:41:22-76
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:42:5-79
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:42:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:43:5-81
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:43:22-78
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:44:5-81
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:44:22-78
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:45:5-98
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:45:22-95
+uses-permission#com.teramatrix.vecv.MAPS_RECEIVE
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:46:5-72
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:46:22-69
+uses-feature#0x00020000
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:48:5-50:35
+MERGED from [com.google.android.gms:play-services-maps:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.0.aar\5fcc9a213ddfe3823f55d32670f0d7cf\AndroidManifest.xml:26:5-28:35
+MERGED from [com.google.android.gms:play-services-maps:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.0.aar\5fcc9a213ddfe3823f55d32670f0d7cf\AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:49:9-41
+	android:required
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:50:9-32
+application
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:52:5-207:19
+MERGED from [:library] D:\Volvo\volvo-vasuptime-android-development\library\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-20
+MERGED from [:library] D:\Volvo\volvo-vasuptime-android-development\library\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:29:5-45:19
+MERGED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:29:5-45:19
+MERGED from [com.google.android.gms:play-services-gcm:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-gcm-15.0.0.aar\77f432705d73b5edebc1cb5ba9ddc74c\AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-gcm:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-gcm-15.0.0.aar\77f432705d73b5edebc1cb5ba9ddc74c\AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-maps:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.0.aar\5fcc9a213ddfe3823f55d32670f0d7cf\AndroidManifest.xml:30:5-20
+MERGED from [com.google.android.gms:play-services-maps:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.0.aar\5fcc9a213ddfe3823f55d32670f0d7cf\AndroidManifest.xml:30:5-20
+MERGED from [com.google.android.gms:play-services-location:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-location-15.0.0.aar\683262d18ed459838f57cbfe8b6dd35d\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-location-15.0.0.aar\683262d18ed459838f57cbfe8b6dd35d\AndroidManifest.xml:7:5-20
+MERGED from [com.wdullaer:materialdatetimepicker:3.5.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\materialdatetimepicker-3.5.1.aar\38e829148b6c34b5da18c150f3318c88\AndroidManifest.xml:28:5-20
+MERGED from [com.wdullaer:materialdatetimepicker:3.5.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\materialdatetimepicker-3.5.1.aar\38e829148b6c34b5da18c150f3318c88\AndroidManifest.xml:28:5-20
+MERGED from [com.whiteelephant:monthandyearpicker:1.3.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\monthandyearpicker-1.3.0.aar\0206bb171df0a8036e5cdb74c63c3d00\AndroidManifest.xml:11:5-15:38
+MERGED from [com.whiteelephant:monthandyearpicker:1.3.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\monthandyearpicker-1.3.0.aar\0206bb171df0a8036e5cdb74c63c3d00\AndroidManifest.xml:11:5-15:38
+MERGED from [com.facebook.stetho:stetho:1.5.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\stetho-1.5.0.aar\f37ef57a57009142bda2d0520a5f456d\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.stetho:stetho:1.5.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\stetho-1.5.0.aar\f37ef57a57009142bda2d0520a5f456d\AndroidManifest.xml:11:5-20
+MERGED from [com.google.firebase:firebase-messaging:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-messaging-15.0.0.aar\e62cc68ebf76098b56c8c211874a94d8\AndroidManifest.xml:22:5-35:19
+MERGED from [com.google.firebase:firebase-messaging:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-messaging-15.0.0.aar\e62cc68ebf76098b56c8c211874a94d8\AndroidManifest.xml:22:5-35:19
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\4caf0b061d0f1b60892c7c0f15657e89\AndroidManifest.xml:11:5-17:19
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\4caf0b061d0f1b60892c7c0f15657e89\AndroidManifest.xml:11:5-17:19
+MERGED from [com.google.android.gms:play-services-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-15.0.0.aar\469a67af1b389893fd82e708b7901e30\AndroidManifest.xml:29:5-20
+MERGED from [com.google.android.gms:play-services-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-15.0.0.aar\469a67af1b389893fd82e708b7901e30\AndroidManifest.xml:29:5-20
+MERGED from [com.google.android.gms:play-services-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-iid-15.0.0.aar\f52b7c361aa3d84016c7eb94dbad900b\AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-iid-15.0.0.aar\f52b7c361aa3d84016c7eb94dbad900b\AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\9c2d9fed3cf0df77fb1f60b0bc75f7b4\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\9c2d9fed3cf0df77fb1f60b0bc75f7b4\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:28:5-39:19
+MERGED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:28:5-39:19
+MERGED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:34:5-57:19
+MERGED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:34:5-57:19
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-stats-15.0.1.aar\84c2e306e5d7aee0ca09069322947ad0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-stats-15.0.1.aar\84c2e306e5d7aee0ca09069322947ad0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\96fb3efef3b4dbe32cca1342968d591d\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-15.0.1.aar\96fb3efef3b4dbe32cca1342968d591d\AndroidManifest.xml:22:5-20
+MERGED from [com.google.firebase:firebase-common:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-common-15.0.1.aar\bae1a0c26d7576788df89cdb91e7fb85\AndroidManifest.xml:7:5-13:19
+MERGED from [com.google.firebase:firebase-common:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-common-15.0.1.aar\bae1a0c26d7576788df89cdb91e7fb85\AndroidManifest.xml:7:5-13:19
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\be7a72c22a0d6c677b4e831a79903966\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-tasks-15.0.1.aar\be7a72c22a0d6c677b4e831a79903966\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-15.0.1.aar\136e8537e9037d6c9ea54da5b71d4f4d\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-15.0.1.aar\136e8537e9037d6c9ea54da5b71d4f4d\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\37618d3a2c7b7dfbf9ac38c08007cb16\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\37618d3a2c7b7dfbf9ac38c08007cb16\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-measurement-base:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-15.0.0.aar\3475e5593b89c5049135323a6c33707c\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-15.0.0.aar\3475e5593b89c5049135323a6c33707c\AndroidManifest.xml:22:5-20
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.6.8.aar\1437b46c177a0ca18278630e6df08c26\AndroidManifest.xml:54:5-20
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.6.8.aar\1437b46c177a0ca18278630e6df08c26\AndroidManifest.xml:54:5-20
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\answers-1.4.7.aar\8240e8463a78ec1a6240a1230d7e565d\AndroidManifest.xml:11:5-20
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\answers-1.4.7.aar\8240e8463a78ec1a6240a1230d7e565d\AndroidManifest.xml:11:5-20
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\fabric-1.4.8.aar\8418f7bb792e02e76cab8de812775e96\AndroidManifest.xml:31:5-20
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\fabric-1.4.8.aar\8418f7bb792e02e76cab8de812775e96\AndroidManifest.xml:31:5-20
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\beta-1.2.10.aar\16f3a7e487a15fa86e477235efdf3a88\AndroidManifest.xml:11:5-20
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\beta-1.2.10.aar\16f3a7e487a15fa86e477235efdf3a88\AndroidManifest.xml:11:5-20
+	android:supportsRtl
+		ADDED from [com.whiteelephant:monthandyearpicker:1.3.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\monthandyearpicker-1.3.0.aar\0206bb171df0a8036e5cdb74c63c3d00\AndroidManifest.xml:15:9-35
+	android:label
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:56:9-41
+	android:largeHeap
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:57:9-33
+	android:icon
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:55:9-43
+	android:allowBackup
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:54:9-36
+		REJECTED from [com.whiteelephant:monthandyearpicker:1.3.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\monthandyearpicker-1.3.0.aar\0206bb171df0a8036e5cdb74c63c3d00\AndroidManifest.xml:12:9-35
+	android:theme
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:59:9-40
+	tools:replace
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:58:9-44
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:53:9-57
+meta-data#com.google.android.gms.version
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:60:9-62:69
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\37618d3a2c7b7dfbf9ac38c08007cb16\AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-basement-15.0.1.aar\37618d3a2c7b7dfbf9ac38c08007cb16\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:62:13-66
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:61:13-58
+meta-data#com.google.android.maps.v2.API_KEY
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:65:9-67:51
+	android:value
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:67:13-48
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:66:13-62
+activity#com.teramatrix.vos.SplashActivity
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:69:9-78:20
+	android:screenOrientation
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:72:13-49
+	android:label
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:71:13-45
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:70:13-61
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:73:13-77:29
+action#android.intent.action.MAIN
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:74:17-69
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:74:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:76:17-77
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:76:27-74
+activity#com.teramatrix.vos.ConfigurationPinActivity
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:79:9-85:20
+	android:screenOrientation
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:83:13-49
+	android:label
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:82:13-45
+	android:windowSoftInputMode
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:84:13-67
+	android:configChanges
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:81:13-43
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:80:13-71
+activity#com.teramatrix.vos.ConfigurationLicenseActivity
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:86:9-92:20
+	android:screenOrientation
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:90:13-49
+	android:label
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:89:13-45
+	android:windowSoftInputMode
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:91:13-65
+	android:configChanges
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:88:13-43
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:87:13-75
+activity#com.teramatrix.vos.MyTicketActivity
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:93:9-99:20
+	android:screenOrientation
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:97:13-49
+	android:label
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:96:13-45
+	android:windowSoftInputMode
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:98:13-67
+	android:configChanges
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:95:13-43
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:94:13-63
+activity#com.teramatrix.vos.MapViewTimerActivitySeekBar
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:100:9-107:20
+	android:screenOrientation
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:105:13-49
+	android:label
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:103:13-45
+	android:launchMode
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:104:13-44
+	android:windowSoftInputMode
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:106:13-65
+	android:configChanges
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:102:13-43
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:101:13-74
+activity#com.teramatrix.vos.JobStatusDetailActivity
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:108:9-114:20
+	android:screenOrientation
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:112:13-49
+	android:label
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:111:13-45
+	android:windowSoftInputMode
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:113:13-67
+	android:configChanges
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:110:13-43
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:109:13-70
+activity#com.teramatrix.vos.volvouptime.UpTimeRegisterActivity
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:116:9-122:20
+	android:screenOrientation
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:120:13-49
+	android:label
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:119:13-45
+	android:windowSoftInputMode
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:121:13-67
+	android:configChanges
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:118:13-43
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:117:13-63
+activity#com.teramatrix.vos.volvouptime.UpTimeTicketDetailsActivity
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:124:9-131:20
+	android:screenOrientation
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:128:13-49
+	android:label
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:127:13-45
+	android:windowSoftInputMode
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:130:13-67
+	android:configChanges
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:126:13-43
+	android:theme
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:129:13-69
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:125:13-68
+activity#com.teramatrix.vos.volvouptime.UpTimeVehicleListActivity
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:133:9-140:20
+	android:screenOrientation
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:137:13-49
+	android:label
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:136:13-45
+	android:windowSoftInputMode
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:139:13-67
+	android:configChanges
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:135:13-43
+	android:theme
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:138:13-69
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:134:13-66
+service#com.teramatrix.vos.service.AlertRingerService
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:142:9-145:19
+	android:enabled
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:144:13-35
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:143:13-73
+service#com.teramatrix.vos.service.PostLocationService
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:146:9-149:19
+	android:enabled
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:148:13-35
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:147:13-74
+service#com.teramatrix.vos.service.SyncTicketsService
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:150:9-153:19
+	android:enabled
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:152:13-35
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:151:13-73
+service#com.teramatrix.vos.service.Locationservice
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:155:9-158:19
+	android:enabled
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:157:13-35
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:156:13-70
+receiver#com.teramatrix.vos.reciver.NewTicketAlertRinger
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:161:9-164:20
+	android:enabled
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:163:13-35
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:162:13-75
+receiver#com.teramatrix.vos.reciver.InternetAvailabilityRecever
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:165:9-169:20
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:165:19-88
+intent-filter#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:166:13-168:29
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:167:17-79
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:167:25-76
+receiver#com.teramatrix.vos.reciver.PhoneRebootReceiver
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:170:9-181:20
+	android:enabled
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:172:13-35
+	android:permission
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:173:13-75
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:171:13-74
+intent-filter#android.intent.action.BOOT_COMPLETED+android.intent.action.QUICKBOOT_POWERON+android.intent.category.DEFAULT
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:174:13-180:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:175:17-79
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:175:25-76
+category#android.intent.category.DEFAULT
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:177:17-76
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:177:27-73
+action#android.intent.action.QUICKBOOT_POWERON
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:179:17-82
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:179:25-79
+service#com.teramatrix.vos.firebase.service.MyFirebaseMessagingService
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:184:9-189:19
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:185:13-72
+intent-filter#com.google.firebase.MESSAGING_EVENT
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:186:13-188:29
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:187:17-77
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:187:25-75
+service#com.teramatrix.vos.firebase.service.MyFirebaseInstanceIDService
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:190:9-195:19
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:191:13-73
+intent-filter#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:192:13-194:29
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:193:17-79
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:193:25-77
+provider#com.activeandroid.content.ContentProvider
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:198:9-203:20
+	android:enabled
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:201:13-35
+	android:authorities
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:200:13-53
+	android:exported
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:202:13-37
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:199:13-69
+meta-data#io.fabric.ApiKey
+ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:204:9-206:72
+	android:value
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:206:13-69
+	android:name
+		ADDED from D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\AndroidManifest.xml:205:13-44
+receiver#com.google.android.gms.analytics.AnalyticsReceiver
+ADDED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:30:9-34:20
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:32:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:33:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:31:13-78
+service#com.google.android.gms.analytics.AnalyticsService
+ADDED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:36:9-39:40
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:38:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:39:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:37:13-77
+service#com.google.android.gms.analytics.AnalyticsJobService
+ADDED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:40:9-44:72
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:42:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:43:13-37
+	android:permission
+		ADDED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:44:13-69
+	android:name
+		ADDED from [com.google.android.gms:play-services-analytics:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-analytics-15.0.0.aar\28a75ffde577d7f6ab3a1d0d2f7fbe61\AndroidManifest.xml:41:13-80
+service#com.google.firebase.messaging.FirebaseMessagingService
+ADDED from [com.google.firebase:firebase-messaging:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-messaging-15.0.0.aar\e62cc68ebf76098b56c8c211874a94d8\AndroidManifest.xml:28:9-34:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-messaging-15.0.0.aar\e62cc68ebf76098b56c8c211874a94d8\AndroidManifest.xml:30:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-messaging-15.0.0.aar\e62cc68ebf76098b56c8c211874a94d8\AndroidManifest.xml:29:13-82
+provider#com.crashlytics.android.CrashlyticsInitProvider
+ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\4caf0b061d0f1b60892c7c0f15657e89\AndroidManifest.xml:12:9-16:38
+	android:authorities
+		ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\4caf0b061d0f1b60892c7c0f15657e89\AndroidManifest.xml:14:13-75
+	android:exported
+		ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\4caf0b061d0f1b60892c7c0f15657e89\AndroidManifest.xml:15:13-37
+	android:initOrder
+		ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\4caf0b061d0f1b60892c7c0f15657e89\AndroidManifest.xml:16:13-35
+	android:name
+		ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\4caf0b061d0f1b60892c7c0f15657e89\AndroidManifest.xml:13:13-75
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\9c2d9fed3cf0df77fb1f60b0bc75f7b4\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\9c2d9fed3cf0df77fb1f60b0bc75f7b4\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\9c2d9fed3cf0df77fb1f60b0bc75f7b4\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\9c2d9fed3cf0df77fb1f60b0bc75f7b4\AndroidManifest.xml:24:13-79
+uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+ADDED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:26:5-110
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:26:22-107
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:29:9-33:20
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:31:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:30:13-85
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:35:9-38:40
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:38:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics-impl:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-15.0.0.aar\791f80a0c1ef19b4c5084949fe2c0067\AndroidManifest.xml:36:13-84
+permission#${applicationId}.permission.C2D_MESSAGE
+MERGED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:28:5-30:47
+uses-permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:32:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:32:22-76
+uses-permission#com.teramatrix.vos.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:32:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:32:22-76
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:35:9-44:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:37:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:38:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:36:13-78
+intent-filter#${applicationId}+com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:39:13-43:29
+intent-filter#com.google.android.c2dm.intent.RECEIVE+com.teramatrix.vos
+ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:39:13-43:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:40:17-81
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:40:25-78
+category#${applicationId}
+ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:42:17-61
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:42:27-58
+category#com.teramatrix.vos
+ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:42:17-61
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:42:27-58
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:50:9-56:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:52:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:15.0.0] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-iid-15.0.0.aar\0f19432e2472fe48beee5ea2da1df999\AndroidManifest.xml:51:13-77
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-common-15.0.1.aar\bae1a0c26d7576788df89cdb91e7fb85\AndroidManifest.xml:8:9-12:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-common-15.0.1.aar\bae1a0c26d7576788df89cdb91e7fb85\AndroidManifest.xml:10:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-common-15.0.1.aar\bae1a0c26d7576788df89cdb91e7fb85\AndroidManifest.xml:11:13-37
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-common-15.0.1.aar\bae1a0c26d7576788df89cdb91e7fb85\AndroidManifest.xml:12:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:15.0.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\firebase-common-15.0.1.aar\bae1a0c26d7576788df89cdb91e7fb85\AndroidManifest.xml:9:13-77

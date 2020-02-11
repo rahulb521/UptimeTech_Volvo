@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/translucent_black" >
+
+    <RelativeLayout
+        android:id="@+id/center_pop_up"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="70dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="70dp"
+       android:background="@drawable/corner_popup" >
+
+        <RelativeLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/rl_header_top"
+            android:background="@drawable/corner_popup">
+
+            <com.teramatrix.vos.utils.CustomTextViewArialBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="@string/decline_title"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/devider_list" >
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/rl_header_top"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/corner_popup" >
+
+            <com.teramatrix.vos.utils.CustomTextViewArial
+                android:id="@+id/btn_decline_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/didider"
+                android:gravity="center"
+                android:text="@string/cancel"
+                  android:background="@drawable/popup_button"
+                android:textColor="@color/black_popup_btn"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:id="@+id/didider"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@color/et_border" >
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/white_light" >
+            </RelativeLayout>
+
+            <com.teramatrix.vos.utils.CustomTextViewArial
+                android:id="@+id/btn_decline_ok"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/didider"
+                android:gravity="center"
+                android:text="@string/ok"
+                  android:background="@drawable/popup_button"
+                 android:textColor="@color/black_label"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_green_line_above"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/didider"
+                android:background="@color/border_network" >
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_green_line_above"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/didider"
+                android:background="@color/green_ok" >
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/list_reason_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bottom"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/title"
+            android:layout_marginTop="1dp"
+            android:divider="@color/devider_list"
+            android:background="@color/white"
+            android:dividerHeight="@dimen/list_devider_decline" >
+        </ListView>
+    </RelativeLayout>
+
+</RelativeLayout>

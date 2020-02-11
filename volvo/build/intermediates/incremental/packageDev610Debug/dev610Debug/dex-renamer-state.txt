@@ -1,0 +1,7 @@
+#Thu Feb 06 12:11:59 IST 2020
+base.0=D\:\\Volvo\\volvo-vasuptime-android-development\\volvo\\build\\intermediates\\transforms\\dexMerger\\dev610\\debug\\0
+path.1=classes2.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=D\:\\Volvo\\volvo-vasuptime-android-development\\volvo\\build\\intermediates\\transforms\\dexMerger\\dev610\\debug\\0

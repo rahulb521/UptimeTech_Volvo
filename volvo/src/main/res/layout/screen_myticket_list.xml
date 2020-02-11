@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+
+    <RelativeLayout
+        android:id="@+id/rel_line"
+        android:layout_width="match_parent"
+        android:layout_height="1.2dp"
+        android:layout_below="@+id/rl_header_top"
+        android:background="@color/volvo_blue"
+        ></RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/rel_line"
+        android:background="#ffffff" >
+
+        <com.teramatrix.vos.utils.CustomTextViewArial
+            android:id="@+id/btn_myTicket"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/button_divider"
+            android:background="#ffffff"
+            android:gravity="bottom|right"
+            android:paddingBottom="10dp"
+            android:paddingRight="20dp"
+            android:text="My Tickets"
+            android:textColor="#000000"
+            android:textSize="18sp"
+             />
+
+        <RelativeLayout
+            android:id="@+id/rl_active_myticket"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/rl_bar_red"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/button_divider"
+            android:layout_marginLeft="40dp"
+            android:background="@color/volvo_blue" >
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/button_divider"
+            android:layout_width="@dimen/button_devider_line_width"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible"
+            android:background="@color/et_border" >
+        </RelativeLayout>
+
+        <com.teramatrix.vos.utils.CustomTextViewArial
+            android:id="@+id/btn_historyTicket"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/button_divider"
+            android:background="#ffffff"
+            android:gravity="bottom|left"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:text="@string/history_ticket"
+            android:textColor="#000000"
+            android:textSize="18sp"
+             />
+
+        <RelativeLayout
+            android:id="@+id/rl_active_historyticket"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/rl_bar_red"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/button_divider"
+            android:layout_marginRight="20dp"
+            android:background="@color/white" >
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/linearLayout1"
+        android:background="#e9e8e8"
+        ></RelativeLayout>
+
+    <TextView
+        android:id="@+id/rel_loading_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_line2"
+        android:background="@color/translucent_black"
+        android:gravity="center"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:text="@string/updating_record"
+        android:textColor="@color/white_gray_dark"
+        android:textSize="@dimen/txt_update_record" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/ticket_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/rel_line2"
+        android:layout_marginTop="0dp"
+        android:background="#ffffff"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:smoothScrollbar="true"
+        android:visibility="visible" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/ticket_list_history"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/rel_line2"
+        android:layout_marginTop="0dp"
+        android:background="#ffffff"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:smoothScrollbar="true"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/ticket_data_not_availabe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/no_my_tickets"
+        android:textColor="@color/button_not_select"
+        android:textSize="@dimen/txt_size_record"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/rl_header_top"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="#ffffff"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/img_splash"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14dp"
+            android:background="@drawable/volvo_logo"
+            android:contentDescription="@string/app_name" />
+
+        <RelativeLayout
+            android:id="@+id/img_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:visibility="gone"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/refresh_icon"
+                android:contentDescription="@string/app_name" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/img_network"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/wifi_enalbed"
+            android:contentDescription="@string/app_name" />
+
+        <ImageView
+            android:id="@+id/img_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/app_name"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@mipmap/ic_action_power_settings_new"
+            android:layout_marginRight="17dp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</RelativeLayout>

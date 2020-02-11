@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/translucent_black" >
+
+    <RelativeLayout
+        android:id="@+id/center_pop_up"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@dimen/marginBottom"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/marginLeft"
+        android:layout_marginRight="@dimen/marginRight"
+        android:layout_marginTop="@dimen/marginTop"
+        android:background="@drawable/corner_popup" >
+
+        <RelativeLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/rl_header_top"
+            android:background="@drawable/corner_popup" >
+
+            <com.teramatrix.vos.utils.CustomTextViewArialBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="@string/job_estimation"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/devider_list" >
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom"
+            android:layout_below="@+id/title"
+            android:background="@color/white"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarFadeDuration="60000" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white" >
+
+                <TextView
+                    android:id="@+id/txt_pd_reason"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/pd_reason"
+                    android:textColor="@color/black_label"
+                    android:visibility="gone"
+                    android:textSize="@dimen/heading_label" />
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_pd_reason"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txt_estimation_cost"
+                    android:layout_below="@+id/txt_pd_reason"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="5dp"
+                    android:visibility="gone"
+                     >
+
+                    <EditText
+                        android:id="@+id/ed_pd_reason"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/et_cost"
+                        android:background="@drawable/edit_text_background"
+                        android:cursorVisible="false"
+                        android:drawableRight="@drawable/down_arrow"
+                        android:ellipsize="end"
+                        android:imeOptions="actionDone"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:singleLine="true"
+                        android:textSize="@dimen/btn_textsize_detail_heading" />
+                </RelativeLayout>
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/txt_problem_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relativeLayout_pd_reason"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/tv_problem_desc"
+                    android:textColor="@color/black_label"
+                    android:textSize="15sp" />
+
+                <com.teramatrix.vos.utils.ActionEditText
+                    android:id="@+id/ed_problem_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/ta_description_height"
+                    android:layout_below="@+id/txt_problem_description"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_background"
+                    android:digits="0123456789abcdefghijklmnopqrstuvwxyz@!#$%^*()_{}=~+-*/.,&apos;:; []"
+                    android:gravity="top|left"
+                    android:imeOptions="actionDone"
+                    android:inputType="textFilter|textMultiLine|textNoSuggestions"
+                    android:maxLength="256"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:scrollbars="vertical"
+                    android:textSize="@dimen/et_text_size" />
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/txt_estimation_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txt_problem_description"
+                    android:layout_below="@+id/txt_estimation_distance"
+                    android:layout_marginTop="50dp"
+                    android:text="@string/tv_estimationTime"
+                    android:textColor="@color/black_label"
+                    android:textSize="15sp" />
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/txt_estimation_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txt_problem_description"
+                    android:layout_below="@+id/ed_problem_description"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/tv_estimated_distance"
+                    android:textColor="@color/black_label"
+                    android:textSize="15sp" />
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/txt_estimation_distance_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/txt_estimation_distance"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:text="200 + 200 =400 km"
+                    android:textColor="@color/black_label"
+                    android:textSize="14sp" />
+
+                <!--
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/txt_estimation_distance_value"
+                    android:background="@color/et_border" >
+                </RelativeLayout>
+                -->
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/txt_estimation_time_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/txt_estimation_time"
+                    android:layout_marginRight="3dp"
+                    android:layout_toLeftOf="@+id/txt_estimation_time_suffix"
+                    android:text="01"
+                    android:textColor="@color/black_label"
+                    android:textSize="14sp" />
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/txt_estimation_time_suffix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/txt_estimation_time"
+                    android:layout_marginRight="15dp"
+                    android:text="@string/hrs"
+                    android:textColor="@color/black_label"
+                    android:textSize="@dimen/heading_label" />
+
+                <RelativeLayout
+                    android:id="@+id/rel_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txt_estimation_time"
+                    android:layout_alignRight="@+id/txt_estimation_time_suffix"
+                    android:layout_below="@+id/txt_estimation_time"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp" >
+
+                    <SeekBar
+                        android:id="@+id/seek_bar_timer"
+                        style="@style/CustomSeekBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="24"
+                        android:progress="0"
+                        android:secondaryProgress="0" />
+
+                    <!--
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/seek_bar_timer"
+                     android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/et_border" >
+                </RelativeLayout>
+                    -->
+
+                    <TextView
+                        android:id="@+id/txt_hour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Hours"
+                        android:textColor="@color/black_label"
+                        android:textSize="@dimen/heading_label_time"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:id="@+id/rel_timer1"
+                        android:layout_width="@dimen/rl_hour_width"
+                        android:layout_height="@dimen/rl_hour_height"
+                        android:layout_marginLeft="15dp"
+                        android:layout_toRightOf="@+id/txt_hour"
+                        android:background="@drawable/edit_text_background"
+                        android:visibility="gone" >
+
+                        <TextView
+                            android:id="@+id/txt_timer1_add"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/rl_add_time_height"
+                            android:layout_alignParentTop="true"
+                            android:background="@drawable/edit_text_background"
+                            android:gravity="center"
+                            android:text="+"
+                            android:textColor="@color/black_label"
+                            android:textSize="@dimen/tv_add_size" />
+
+                        <TextView
+                            android:id="@+id/txt_timer1_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_above="@+id/txt_timer1_minus"
+                            android:layout_below="@+id/txt_timer1_add"
+                            android:gravity="center"
+                            android:text="04"
+                            android:textColor="@color/black_heading"
+                            android:textSize="@dimen/heading_label" />
+
+                        <TextView
+                            android:id="@+id/txt_timer1_minus"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/rl_add_time_height"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/edit_text_background"
+                            android:gravity="center"
+                            android:text="-"
+                            android:textColor="@color/black_label"
+                            android:textSize="@dimen/tv_add_size" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/txt_minute"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_toRightOf="@+id/rel_timer1"
+                        android:text="Min"
+                        android:textColor="@color/black_label"
+                        android:textSize="@dimen/heading_label_time"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:id="@+id/rel_timer2"
+                        android:layout_width="@dimen/rl_hour_width"
+                        android:layout_height="@dimen/rl_hour_height"
+                        android:layout_marginLeft="15dp"
+                        android:layout_toRightOf="@+id/txt_minute"
+                        android:background="@drawable/edit_text_background"
+                        android:visibility="gone" >
+
+                        <TextView
+                            android:id="@+id/txt_timer2_add"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/rl_add_time_height"
+                            android:layout_alignParentTop="true"
+                            android:background="@drawable/edit_text_background"
+                            android:gravity="center"
+                            android:text="+"
+                            android:textColor="@color/black_label"
+                            android:textSize="@dimen/tv_add_size" />
+
+                        <TextView
+                            android:id="@+id/txt_timer2_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_above="@+id/txt_timer2_minus"
+                            android:layout_below="@+id/txt_timer2_add"
+                            android:gravity="center"
+                            android:text="56"
+                            android:textColor="@color/black_heading"
+                            android:textSize="@dimen/heading_label" />
+
+                        <TextView
+                            android:id="@+id/txt_timer2_minus"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/rl_add_time_height"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/edit_text_background"
+                            android:gravity="center"
+                            android:text="-"
+                            android:textColor="@color/black_label"
+                            android:textSize="@dimen/tv_add_size" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/txt_estimation_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txt_estimation_time"
+                    android:layout_below="@+id/rel_time"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/tv_estimationCost"
+                    android:textColor="@color/black_label"
+                    android:textSize="15sp" />
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/txt_signcost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel_time"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@+id/txt_estimation_cost"
+                    android:paddingLeft="2dp"
+                    android:text="(R)"
+                    android:textColor="@color/black_label"
+                    android:textSize="15sp" />
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txt_estimation_cost"
+                    android:layout_below="@+id/txt_estimation_cost"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:visibility="visible" >
+
+                    <EditText
+                        android:id="@+id/ed_estimation_cost"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/et_cost"
+                        android:background="@drawable/edit_text_background"
+                        android:cursorVisible="false"
+                        android:drawableRight="@drawable/down_arrow"
+                        android:imeOptions="actionGo"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:textSize="@dimen/btn_textsize_detail_heading" />
+                </RelativeLayout>
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/txt_sla_missed_reason"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txt_estimation_time"
+                    android:layout_below="@+id/relativeLayout1"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/sla_missing_reason"
+                    android:textColor="@color/black_label"
+                    android:textSize="@dimen/heading_label" />
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_sla_missed_reason"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txt_estimation_cost"
+                    android:layout_below="@+id/txt_sla_missed_reason"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="20dp"
+                    android:visibility="visible" >
+
+                    <EditText
+                        android:id="@+id/ed_sla_missed_reason"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/et_cost"
+                        android:background="@drawable/edit_text_background"
+                        android:cursorVisible="false"
+                        android:drawableRight="@drawable/down_arrow"
+                        android:ellipsize="end"
+                        android:imeOptions="actionDone"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:singleLine="true"
+                        android:textSize="@dimen/btn_textsize_detail_heading" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/rl_header_top"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/corner_popup" >
+
+            <RelativeLayout
+                android:id="@+id/didider"
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/white_light" >
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/above_bar_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/didider"
+                android:background="@color/volvo_red" >
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/above_bar_ok"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_green_line_above"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/didider"
+                android:background="@color/volvo_green" >
+            </RelativeLayout>
+
+            <!--Cancel -->
+            <com.teramatrix.vos.utils.CustomTextViewArial
+                android:id="@+id/btncancel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/popup_button"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:textColor="@color/black_popup_btn"
+                android:textSize="16sp"
+                android:layout_toLeftOf="@+id/didider"
+                android:layout_below="@+id/above_bar_cancel"
+                 />
+
+            <com.teramatrix.vos.utils.CustomTextViewArial
+                android:id="@+id/btnok"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/popup_button"
+                android:gravity="center"
+                android:text="@string/ok"
+                android:textColor="@color/black_label"
+                android:textSize="16sp"
+                android:layout_alignTop="@+id/didider"
+                android:layout_toRightOf="@+id/didider"
+                 />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

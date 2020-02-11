@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\shaders"/></dataSet><dataSet config="dev614"><source path="D:\Volvo\volvo-vasuptime-android-development\volvo\src\dev614\shaders"/></dataSet><dataSet config="debug"><source path="D:\Volvo\volvo-vasuptime-android-development\volvo\src\debug\shaders"/></dataSet><dataSet config="dev614Debug"><source path="D:\Volvo\volvo-vasuptime-android-development\volvo\src\dev614Debug\shaders"/></dataSet></merger>

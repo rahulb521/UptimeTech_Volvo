@@ -1,0 +1,55 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/neeraj/Desktop/njvj/volvo/vasuptime/volvo-vasuptime-android/volvo/build/intermediates/incremental/mergeProdReleaseResources/merged.dir/values-land/values-land.xml",
+            "map": [
+                {
+                    "source": "/home/neeraj/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/fcb28ac73087ae39648ecf2cf0ac1f82/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "232"
+                    },
+                    "to": {
+                        "startLines": "18",
+                        "startColumns": "4",
+                        "startOffsets": "1056",
+                        "endLines": "21",
+                        "endColumns": "12",
+                        "endOffsets": "1233"
+                    }
+                },
+                {
+                    "source": "/home/neeraj/.gradle/caches/transforms-1/files-1.1/materialdatetimepicker-3.5.1.aar/d63b46ba5a0aadf59a76bb6421493e9f/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,120,183,245,315,388,440,494,545,605,666,726",
+                        "endColumns": "64,62,61,69,72,51,53,50,59,60,59,56",
+                        "endOffsets": "115,178,240,310,383,435,489,540,600,661,721,778"
+                    },
+                    "to": {
+                        "startLines": "6,7,8,9,10,11,12,13,14,15,16,17",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "328,393,456,518,588,661,713,767,818,878,939,999",
+                        "endColumns": "64,62,61,69,72,51,53,50,59,60,59,56",
+                        "endOffsets": "388,451,513,583,656,708,762,813,873,934,994,1051"
+                    }
+                },
+                {
+                    "source": "/home/neeraj/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/bfdcd78c7e06b11c2c6f25e87f180ec6/res/values-land/values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,125,189,260",
+                        "endColumns": "69,63,70,67",
+                        "endOffsets": "120,184,255,323"
+                    }
+                }
+            ]
+        }
+    ]
+}

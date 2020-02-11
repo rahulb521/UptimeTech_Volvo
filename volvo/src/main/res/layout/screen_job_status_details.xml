@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/rl_header_top"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="#ffffff"
+         >
+
+        <ImageView
+            android:id="@+id/img_splash"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14dp"
+            android:background="@drawable/volvo_logo"
+            android:contentDescription="@string/app_name" />
+
+
+        <com.teramatrix.vos.utils.CustomTextViewArial
+            android:id="@+id/tv_header_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/str_wip"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            />
+
+        <ImageView
+            android:id="@+id/img_network"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="14dp"
+            android:background="@drawable/wifi_enalbed"
+            android:contentDescription="@string/app_name" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rel_line"
+        android:layout_width="match_parent"
+        android:layout_height="1.2dp"
+        android:layout_below="@+id/rl_header_top"
+        android:background="@color/volvo_blue"
+        ></RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/rlTitle_bar"
+        android:background="@color/volvo_blue" >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlbtn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white_gray_bg"
+        android:visibility="visible" >
+
+        <com.teramatrix.vos.utils.CustomTextViewArial
+            android:id="@+id/btn_job_completed"
+            android:layout_width="@dimen/btn_width_vanReached"
+            android:layout_height="@dimen/btn_height_vanReached"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/volvo_green"
+            android:gravity="center"
+            android:text="@string/str_job_complete"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rlbtn"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/rl_bar"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+             android:background="@color/white" >
+
+            <RelativeLayout
+                android:id="@+id/rl_jobs_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:paddingTop="20dp" >
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/tv_problem_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="14dp"
+                    android:drawableLeft="@drawable/icon_problemdesc"
+                    android:drawablePadding="15dp"
+                    android:text="@string/tv_problem_desc"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/textcolor_title"
+                    android:textSize="@dimen/ts_heading_prob_desc" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/et_border" >
+                </RelativeLayout>
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/tv_problemdescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/tv_problem_description"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginTop="30dp"
+                    android:paddingBottom="10dp"
+                    android:text="Volvo Trucks and Buses (VTB) is one of the largest players in the Indian CV Market and over the past 28 years,, "
+                    android:textColor="@color/white_light"
+                    android:textSize="@dimen/ts_data_jobs" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_sla_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:paddingTop="20dp" >
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/tv_sla_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="20dp"
+                    android:drawableLeft="@drawable/icon_slatime"
+                    android:drawablePadding="15dp"
+                    android:text="@string/tv_SLA_Time"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/textcolor_title"
+                    android:textSize="@dimen/ts_heading_prob_desc" />
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/tv_sla_timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginTop="20dp"
+                    android:text="10:10:10"
+                    android:textColor="@color/white_light"
+                    android:textSize="@dimen/ts_data_jobs" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/et_border" >
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_tv_sla_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:paddingTop="20dp" >
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/tv_slastatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="20dp"
+                    android:drawableLeft="@drawable/icon_sla"
+                    android:drawablePadding="15dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/tv_sla"
+                    android:textColor="@color/textcolor_title"
+                    android:textSize="@dimen/ts_heading_prob_desc" />
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/tv_sla_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginTop="20dp"
+                    android:text="MET"
+                    android:textColor="@color/white_light"
+                    android:textSize="@dimen/ts_data_jobs" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/et_border" >
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_tv_estimation_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:paddingTop="20dp" >
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/tv_estimationtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:drawableLeft="@drawable/icon_slatime"
+                    android:drawablePadding="15dp"
+                    android:text="@string/tv_estimationTime"
+                    android:textColor="@color/textcolor_title"
+                    android:textSize="@dimen/ts_heading_prob_desc" />
+
+
+               <TextView
+                    android:id="@+id/tv_edittime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toLeftOf="@+id/tv_estimation_time"
+                    android:drawableLeft="@drawable/edit"
+                    android:textSize="@dimen/ts_data_jobs" />
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/tv_estimation_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginTop="20dp"
+                    android:text="04:05:25"
+                    android:textColor="@color/white_light"
+                    android:textSize="@dimen/ts_data_jobs" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/et_border" >
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_tv_estimation_cost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:paddingTop="20dp" >
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/tv_estimationcost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="20dp"
+                    android:drawableLeft="@drawable/icon_cost"
+                    android:drawablePadding="15dp"
+                    android:text="@string/tv_estimationCost"
+                    android:textColor="@color/textcolor_title"
+                    android:textSize="@dimen/ts_heading_prob_desc" />
+
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/tv_editcost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toLeftOf="@+id/tv_symbol"
+                    android:drawableLeft="@drawable/edit"
+                    android:visibility="visible"
+                    android:textSize="@dimen/ts_data_jobs" />
+
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/tv_symbol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toLeftOf="@+id/tv_estimation_cost"
+                    android:text="S"
+                    android:textColor="@color/white_light"
+                    android:textSize="@dimen/ts_data_jobs" />
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/tv_estimation_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginTop="20dp"
+                    android:text="2000-2500"
+                    android:textColor="@color/white_light"
+                    android:textSize="@dimen/ts_data_jobs" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/et_border" >
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_tv_distance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:paddingTop="5dp" >
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/tv_distance_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="20dp"
+                    android:drawableLeft="@drawable/distance"
+                    android:drawablePadding="15dp"
+                    android:text="@string/tv_estimated_distance"
+                    android:textColor="@color/textcolor_title"
+                    android:textSize="@dimen/ts_heading_prob_desc" />
+
+
+          <!--     <TextView
+                    android:id="@+id/tv_distance_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toLeftOf="@+id/tv_distance_image"
+                    android:drawableLeft="@drawable/edit"
+                    android:textSize="@dimen/ts_data_jobs" />  -->
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/tv_distance_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                 android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginTop="50dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/not_available"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/white_light"
+                    android:textSize="@dimen/ts_data_jobs" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/et_border" >
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:id="@+id/rl_tv_partreplaced"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:visibility="gone"
+                android:paddingTop="20dp" >
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/tv_partreplaced"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginTop="20dp"
+                    android:drawableLeft="@drawable/icon_parts"
+                    android:drawablePadding="15dp"
+                    android:text="Parts Replaced"
+                    android:textColor="@color/textcolor_title"
+                    android:textSize="@dimen/ts_heading_prob_desc" />
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/tv_part_replaced"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Gear Box"
+                    android:textColor="@color/white_light"
+                    android:textSize="@dimen/ts_data_jobs" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/et_border" >
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rlTitle_bar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="#ffffff"
+        android:layout_below="@+id/rel_line"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+
+        <!--Virtual Divider Line Between Timer View and Contact-->
+        <RelativeLayout
+            android:id="@+id/button_divider"
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+            android:background="#000000" >
+        </RelativeLayout>
+
+        <!--(Clock Image + Time String) Parent View-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/button_divider"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            >
+
+            <!--Clock Image-->
+            <ImageView
+                android:id="@+id/tv_time_heading"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/timer"
+                android:visibility="visible"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"
+                />
+
+            <com.teramatrix.vos.utils.CustomTextViewArial
+                android:id="@+id/tv_time_counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_time_jobs"
+                android:textColor="#000000"
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_time_estimation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:text="Estimated Time To Repair"
+            android:textColor="@color/textcolor_title"
+            android:textSize="@dimen/ts_title_heading_jobs"
+            android:visibility="gone" />
+
+
+        <!--(Phone Icon + Contact Number String) Parent View-->
+        <LinearLayout
+            android:id="@+id/rlTitle_bar_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/button_divider"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            >
+            <ImageView
+                android:id="@+id/contactImage"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/call_withbg"
+                android:layout_gravity="center_vertical"
+                />
+
+            <com.teramatrix.vos.utils.CustomTextViewArial
+                android:id="@+id/tv_contactnumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

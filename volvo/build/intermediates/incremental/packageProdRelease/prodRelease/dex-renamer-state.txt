@@ -1,0 +1,4 @@
+#Fri Jul 05 11:40:04 IST 2019
+base.0=/home/neeraj/Desktop/njvj/volvo/vasuptime/volvo-vasuptime-android/volvo/build/intermediates/transforms/dex/prod/release/0
+path.0=classes.dex
+renamed.0=classes.dex

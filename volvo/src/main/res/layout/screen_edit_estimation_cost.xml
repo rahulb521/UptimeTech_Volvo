@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/translucent_black" >
+
+    <RelativeLayout
+        android:id="@+id/center_pop_up"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginBottom="@dimen/marginBottom_edit_time"
+        android:layout_marginLeft="@dimen/marginLeft"
+        android:layout_marginRight="@dimen/marginRight"
+        android:background="@drawable/corner_popup" >
+
+        <RelativeLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/rl_header_top"
+            android:background="@drawable/corner_popup" >
+
+            <com.teramatrix.vos.utils.CustomTextViewArialBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="@string/edit_estimationcost_header"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/devider_list" >
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom"
+            android:layout_below="@+id/title" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <RelativeLayout
+                    android:id="@+id/rel_timer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="25dp" >
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/txt_estimation_cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/new_estimationcost_header"
+                        android:textColor="@color/black_label"
+                        android:textSize="15sp" />
+
+
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/txt_estimation_time_suffix"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignTop="@+id/txt_estimation_time"
+                        android:text="@string/hrs"
+                        android:textColor="@color/black_label"
+                        android:textSize="@dimen/heading_label"
+                        android:visibility="gone" />
+
+                   <RelativeLayout
+                    android:id="@+id/relativeLayout1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txt_estimation_cost"
+                    android:layout_below="@+id/txt_estimation_cost"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:visibility="visible" >
+
+                    <EditText
+                        android:id="@+id/ed_estimation_cost"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/et_cost"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/edit_text_background"
+                        android:cursorVisible="false"
+                        android:drawableRight="@drawable/down_arrow"
+                        android:ellipsize="end"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:singleLine="true"
+                        android:textSize="@dimen/btn_textsize_detail_heading" />
+                </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rel_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txt_estimation_time"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:visibility="gone" >
+
+                        <TextView
+                            android:id="@+id/txt_hour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="Hours"
+                            android:textColor="@color/black_label"
+                            android:textSize="@dimen/heading_label_time" />
+
+                        <RelativeLayout
+                            android:id="@+id/rel_timer1"
+                            android:layout_width="@dimen/rl_hour_width"
+                            android:layout_height="@dimen/rl_hour_height"
+                            android:layout_marginLeft="15dp"
+                            android:layout_toRightOf="@+id/txt_hour"
+                            android:background="@drawable/edit_text_background" >
+
+                            <TextView
+                                android:id="@+id/txt_timer1_add"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/rl_add_time_height"
+                                android:layout_alignParentTop="true"
+                                android:background="@drawable/edit_text_background"
+                                android:gravity="center"
+                                android:text="+"
+                                android:textColor="@color/black_label"
+                                android:textSize="@dimen/tv_add_size" />
+
+                            <TextView
+                                android:id="@+id/txt_timer1_time"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_above="@+id/txt_timer1_minus"
+                                android:layout_below="@+id/txt_timer1_add"
+                                android:gravity="center"
+                                android:text="08"
+                                android:textColor="@color/black_heading"
+                                android:textSize="@dimen/heading_label" />
+
+                            <TextView
+                                android:id="@+id/txt_timer1_minus"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/rl_add_time_height"
+                                android:layout_alignParentBottom="true"
+                                android:background="@drawable/edit_text_background"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textColor="@color/black_label"
+                                android:textSize="@dimen/tv_add_size" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/txt_minute"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:layout_toRightOf="@+id/rel_timer1"
+                            android:text="Min"
+                            android:textColor="@color/black_label"
+                            android:textSize="@dimen/heading_label_time" />
+
+                        <RelativeLayout
+                            android:id="@+id/rel_timer2"
+                            android:layout_width="@dimen/rl_hour_width"
+                            android:layout_height="@dimen/rl_hour_height"
+                            android:layout_marginLeft="15dp"
+                            android:layout_toRightOf="@+id/txt_minute"
+                            android:background="@drawable/edit_text_background" >
+
+                            <TextView
+                                android:id="@+id/txt_timer2_add"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/rl_add_time_height"
+                                android:layout_alignParentTop="true"
+                                android:background="@drawable/edit_text_background"
+                                android:gravity="center"
+                                android:text="+"
+                                android:textColor="@color/black_label"
+                                android:textSize="@dimen/tv_add_size" />
+
+                            <TextView
+                                android:id="@+id/txt_timer2_time"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_above="@+id/txt_timer2_minus"
+                                android:layout_below="@+id/txt_timer2_add"
+                                android:gravity="center"
+                                android:text="58"
+                                android:textColor="@color/black_heading"
+                                android:textSize="@dimen/heading_label" />
+
+                            <TextView
+                                android:id="@+id/txt_timer2_minus"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/rl_add_time_height"
+                                android:layout_alignParentBottom="true"
+                                android:background="@drawable/edit_text_background"
+                                android:gravity="center"
+                                android:text="-"
+                                android:textColor="@color/black_label"
+                                android:textSize="@dimen/tv_add_size" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <com.teramatrix.vos.utils.CustomTextViewArial
+                    android:id="@+id/txt_reason_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel_timer"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/select_reason"
+                    android:textColor="@color/black_label"
+                    android:textSize="15sp" />
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txt_reason_cost"
+                    android:layout_below="@+id/txt_reason_cost"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:visibility="visible" >
+
+                    <EditText
+                        android:id="@+id/ed_estimated_time_reason"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/et_cost"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/edit_text_background"
+                        android:cursorVisible="false"
+                        android:drawableRight="@drawable/down_arrow"
+                        android:ellipsize="end"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:singleLine="true"
+                        android:textSize="@dimen/btn_textsize_detail_heading" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/rl_header_top"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/corner_popup" >
+
+            <com.teramatrix.vos.utils.CustomTextViewArial
+                android:id="@+id/btncancel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/didider"
+                android:background="@drawable/popup_button"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:textColor="@color/black_popup_btn"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:id="@+id/didider"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@color/devider_list" >
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/white_light" >
+            </RelativeLayout>
+
+            <com.teramatrix.vos.utils.CustomTextViewArial
+                android:id="@+id/btnok"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/didider"
+                android:background="@drawable/popup_button"
+                android:gravity="center"
+                android:text="@string/ok"
+                android:textColor="@color/black_label"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_green_line_above"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/didider"
+                android:background="@color/border_network" >
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_green_line_above"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/didider"
+                android:background="@color/green_ok" >
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

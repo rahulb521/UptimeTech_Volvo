@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/login_bg"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rl_header_top_height"
+        android:background="#ffffff"
+         >
+
+        <com.teramatrix.vos.utils.CustomTextViewArial
+            android:id="@+id/rl_title_bar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_vecv_configuration"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/et_border" >
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:windowSoftInputMode="adjustResize" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/linearLayout1"
+            >
+            <ImageView
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:src="@drawable/volvo_logo_new"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            >
+
+            <com.teramatrix.vos.utils.CustomTextViewArialBold
+                android:id="@+id/tv_enter_pin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/ll_pin"
+                android:text="@string/str_pin_number"
+                android:textColor="#000000"
+                android:textSize="13sp"
+                 />
+
+            <LinearLayout
+                android:id="@+id/ll_pin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_enter_pin"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/eText_pin1"
+                    android:layout_width="@dimen/et_pin_width"
+                    android:layout_height="@dimen/et_pin_height"
+                    android:layout_marginRight="8dp"
+                    android:background="#eae7e7"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:password="true"
+                    android:gravity="center"
+                    android:maxLength="1"
+                    android:padding="@dimen/padding_et"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:typeface="normal" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/eText_pin2"
+                   android:layout_width="@dimen/et_pin_width"
+                    android:layout_height="@dimen/et_pin_height"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center"
+                    android:background="#eae7e7"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:password="true"
+                    android:padding="@dimen/padding_et"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:typeface="normal" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/eText_pin3"
+                   android:layout_width="@dimen/et_pin_width"
+                    android:layout_height="@dimen/et_pin_height"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="#eae7e7"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:gravity="center"
+                    android:password="true"
+                    android:padding="@dimen/padding_et"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:typeface="normal" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/eText_pin4"
+                   android:layout_width="@dimen/et_pin_width"
+                    android:layout_height="@dimen/et_pin_height"
+                    android:layout_marginLeft="8dp"
+                    android:background="#eae7e7"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:gravity="center"
+                    android:password="true"
+                    android:padding="@dimen/padding_et"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:typeface="normal" >
+                </EditText>
+            </LinearLayout>
+
+            <com.teramatrix.vos.utils.CustomTextViewArialBold
+                android:id="@+id/tv_renter_pin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_below="@+id/ll_pin"
+                android:text="@string/retype_pin_number"
+                android:textColor="#000000"
+                android:textSize="13sp"
+                   />
+
+            <LinearLayout
+                android:id="@+id/ll_pin_retype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_renter_pin"
+                 >
+
+                <EditText
+                    android:id="@+id/eText_pin1_retype"
+                   android:layout_width="@dimen/et_pin_width"
+                    android:layout_height="@dimen/et_pin_height"
+                    android:background="#eae7e7"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:layout_marginRight="8dp"
+                    android:maxLength="1"
+                    android:gravity="center"
+                    android:password="true"
+                    android:padding="@dimen/padding_et"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:typeface="normal" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/eText_pin2_retype"
+                   android:layout_width="@dimen/et_pin_width"
+                    android:layout_height="@dimen/et_pin_height"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="#eae7e7"
+                    android:imeOptions="actionNext"
+                    android:password="true"
+                    android:gravity="center"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:padding="@dimen/padding_et"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:typeface="normal" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/eText_pin3_retype"
+                   android:layout_width="@dimen/et_pin_width"
+                    android:layout_height="@dimen/et_pin_height"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:background="#eae7e7"
+                    android:imeOptions="actionNext"
+                    android:gravity="center"
+                    android:password="true"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:padding="@dimen/padding_et"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:typeface="normal" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/eText_pin4_retype"
+                    android:layout_width="@dimen/et_pin_width"
+                    android:layout_height="@dimen/et_pin_height"
+                    android:layout_marginLeft="8dp"
+                    android:background="#eae7e7"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberPassword"
+                    android:password="true"
+                    android:gravity="center"
+                    android:maxLength="1"
+                    android:padding="@dimen/padding_et"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:typeface="normal" >
+                </EditText>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <com.teramatrix.vos.utils.CustomTextViewArial
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_marginTop="28dp"
+            android:layout_below="@+id/linearLayout1"
+            android:layout_height="50dp"
+            android:background="@color/volvo_blue"
+            android:gravity="center"
+            android:text="SUBMIT"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:layout_marginLeft="38dp"
+            android:layout_marginRight="38dp"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

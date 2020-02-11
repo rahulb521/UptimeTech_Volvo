@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- @author Gaurav.Mangal -->
+<resources>
+
+    <!-- App name usage string value -->
+    <string name="app_name">Uptime Tech</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="internet_connection">Please connect to internet connection</string>
+    <string name="please_wait">please wait</string>
+    <string name="data_offline">Internet not available</string>
+    <string name="map_api_key">AIzaSyC2S5kHeGYkW9cL4d7_uxfauTBfQEtN4HA</string>
+
+    <!-- String Title -->
+    <string name="title_vecv_configuration">Configuration</string>
+    <string name="title_log">Tracking Log</string>
+    <string name="decline_title">Please select a reason</string>
+
+    <!-- String Hint Text -->
+    <string name="license_number">License Number</string>
+    <string name="pin_password">Pin Number</string>
+    <string name="retype_pin_password">Retype Pin Number</string>
+    <string name="enter_reason">Enter other reason</string>
+
+    <!-- String Text -->
+    <string name="configure">CONFIGURE</string>
+    <string name="login">Login</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="btn_submit">Login</string>
+    <string name="ok">OK</string>
+    <string name="decline">Decline</string>
+    <string name="accept">Accept</string>
+    <string name="resolved">Resolved</string>
+    <string name="closed">Closed</string>
+    <string name="van_reached">Van Reached</string>
+    <string name="str_pin_number">Pin number</string>
+    <string name="retype_pin_number">Re-type Pin number</string>
+    <string name="my_ticket">My Tickets</string>
+    <string name="no_my_tickets">No Open Tickets</string>
+    <string name="no_closed_tickets">No Closed Tickets</string>
+    <string name="history_ticket">History Tickets</string>
+    <string name="id_details"># TICKET-90 *assigned * 12-Feb-2015 21:09:45</string>
+    <string name="ticket_details">VE Commercial Vehical A Volvo Group And Volvo Motors</string>
+    <string name="tv_timecounter">01:25:55</string>
+    <string name="str_job_complete">Job Completed</string>
+    <string name="str_wip">Work In Progress</string>
+    <string name="tv_time_jobs">11:45:55</string>
+    <string name="tv_problem_desc">Problem Description</string>
+    <string name="tv_SLA_Time">SLA Time</string>
+    <string name="tv_sla">SLA</string>
+    <string name="tv_estimationTime">Estimated Time</string>
+    <string name="tv_estimationCost">Estimated Cost</string>
+    <string name="tv_title_comment">Do you want to decline the ticket ?</string>
+    <string name="confirm_message">Are you sure, you want to complete this job?</string>
+    <string name="estimation_cost_title">Select estimated cost</string>
+    <string name="contact_selector_title">Contact Details</string>
+    <string name="updating_record">Updating records</string>
+    <string name="updating_tickets">Updating tickets</string>
+    <string name="hrs">hrs</string>
+    <string name="sla_missing_reason">SLA Missed Reason</string>
+    <string name="edit_estimationtime_header">Edit Estimated Time</string>
+    <string name="new_estimationtime_header">New Estimated Time</string>
+    <string name="select_reason">Select Reason</string>
+    <string name="new_ticket">New Ticket</string>
+    <string name="customer_contact">Customer Contact</string>
+    <string name="owner_contact">Owner Contact</string>
+    <string name="breakdown_location">Vehicle Breakdown Location</string>
+    <string name="nature_of_problem">Nature of Problem</string>
+    <string name="assign_time">Assigned Time</string>
+    <string name="vehicle_type">Vehicle Type</string>
+    <string name="job_estimation">Job Estimation</string>
+    <string name="not_available">N/A</string>
+    <string name="met">Met</string>
+    <string name="not_met">Not Met</string>
+    <string name="retriving_data">Retrieving data</string>
+    <string name="device_register">Your device registred with GCM</string>
+    <string name="new_message">New Message</string>
+    <string name="network_not_available">Network Not Available. save location in Local DB</string>
+    <string name="online">online</string>
+    <string name="offline">offline</string>
+    <string name="error_sync_update">Error in Synchronizing updates from server</string>
+
+    <!-- Progress bar messages -->
+    <string name="configuring_license">Configure license</string>
+    <string name="configuring_pin">Configure pin</string>
+    <string name="loading_new_ticket">Loading new ticket</string>
+    <string name="sync_data">Synchronizing data from server</string>
+    <string name="getting_direction">Getting driving directions</string>
+    <string name="getting_new_ticket">Getting new ticket</string>
+    <string name="update_estimation_time">Updating estimated time</string>
+    
+
+    <!-- Validation messages -->
+    <string name="error_message">Error Message</string>
+    <string name="required_license">Please enter license number.</string>
+    <string name="imei_number_not_found">Unable to get Device IMEI Number. Please try again.</string>
+    <string name="error_pin_password">pins you entered did not match.</string>
+    <string name="fill_problem_description">Please fill problem description</string>
+    <string name="select_estimated_cost">Please select estimated cost.</string>
+    <string name="gpe_check">GPS is disabled in your device.Please enable it?</string>
+    <string name="power_saving_check">Power saving mode is enabled in your device.Please disable it.</string>
+    <string name="power_saving_check_forward">OK</string>
+    <string name="gps_forword">Goto Settings Page To Enable GPS</string>
+    <string name="gps_message">GCM Id not set, please restart app!</string>
+    <string name="security_token">Security Token not found</string>
+    <string name="fill_reason_others">Please fill reason for other!</string>
+    <string name="one_select_reason">Please select atleast one reason!</string>
+    <string name="select_estimation_time">Please select edit estimation time</string>
+    <string name="location_not_found">Location not found</string>
+    <string name="estimation_time">Please select estimation time</string>
+    <string name="estimation_cost">Please select estimated cost of repairing</string>
+    <string name="missing_sla_time">Please select reason for missing SLA time</string>
+    <string name="select_one_options">Please select one option!</string>
+    <string name="no_log_file">No logs file available.</string>
+    <string name="send_mail">Send email...</string>
+    <string name="eicher_logs">Eicher Logs</string>
+
+    <!-- Ticket Action Reason -->
+    <string name="ticket_action_reason_type_decline_ticket">1</string>
+    <string name="ticket_action_reason_type_sla_missed">2</string>
+    <string name="ticket_action_reason_type_estimation_time_increment">12</string>
+    <string name="ticket_action_reason_type_estimation_cost_increment">13</string>
+
+    <!-- pop up myticket top right text -->
+
+    <string name="log_location">Location Logs</string>
+    <string name="log_error_log">Error logs</string>
+    <string name="log_complete">App logs</string>
+    <string name="settings">Settings</string>
+
+    <!-- Log folder names -->
+    <string name="log_folder_tracking_location">/Eicher_Log/LocationLogs/</string>
+    <string name="log_folder_error">/Eicher_Log/ErrorLogs/</string>
+    <string name="log_folder_app_log">/Eicher_Log/AppLogs/</string>
+    <!-- log files names -->
+    <string name="eicher_location_log">Eicher_location_log_</string>
+    <string name="eicher_error_log">Eicher_error_log_</string>
+    <string name="eicher_complete_log">Eicher_complete_log_</string>
+    <string name="eicher_log_filename">Eicher_location_log_17-Mar-2015.txt</string>
+    <string name="eicher_select_file">Select File</string>
+    <string name="language_option">Select Language</string>
+    <string name="hindi">Hindi</string>
+    <string name="english">English</string>
+    <string name="source">Source</string>
+    <string name="destination">Destination</string>
+    
+    
+    <string name="tv_estimated_distance">Estimated Chargeable Distance(KM)</string>
+    <string name="edit_estimationcost_header">Edit Estimated Cost</string>
+    <string name="new_estimationcost_header">New Estimated Cost</string>
+    <string name="select_estimation_cost">Please select edit estimation cost</string>
+	<string name="update_estimation_cost">Updating estimated cost</string>
+	
+	<string name="pd_reason">Select Problem</string>
+	
+	<string name="str_help">Help</string>
+	<string name="log_folder_help_vedio">/Eicher_Log/</string>
+	<string name="file_size">please download video again</string>
+	<string name="video_filename">/Eicher_Log/EicherHelp.mp4</string>
+	<string name="video_filename_create">EicherHelp.mp4</string>
+
+
+    <string-array name="job_type_array">
+        <item>Preventive Maintenance</item>
+        <item>Aggregate Repair</item>
+        <item>Accident Repair</item>
+    </string-array>
+
+    <string-array name="reason_array">
+        <item>Volvo - Tools / Equipments</item>
+        <item>Volvo - Parts not available</item>
+        <item>Volvo - Man power</item>
+        <item>Volvo - Fault diagnosis</item>
+        <item>Volvo - Approval</item>
+        <item>Customer - Tools / Equipments</item>
+        <item>Customer - Parts</item>
+        <item>Customer - Man power</item>
+        <item>Customer - AR</item>
+        <item>Customer - Approval / PO</item>
+    </string-array>
+
+</resources>

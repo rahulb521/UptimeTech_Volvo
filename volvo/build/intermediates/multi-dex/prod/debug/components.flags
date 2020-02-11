@@ -1,0 +1,92 @@
+-injars /home/neeraj/Desktop/njvj/volvo/vasuptime/volvo-vasuptime-android/volvo/libs/httpclient-4.0.3.jar(**.class)
+-injars /home/neeraj/Desktop/njvj/volvo/vasuptime/volvo-vasuptime-android/volvo/libs/library-2.1.1-sources.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/play-services-analytics-15.0.0.aar/6a7cc4fcb2b61e5dc15d7d66eeca9bd6/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/play-services-gcm-15.0.0.aar/1042e64c8cd1a734f622d1d5142cf74a/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.0.aar/969d8fd26f6b242fc4aa6a40e47d347b/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/play-services-location-15.0.0.aar/0beed7d138cb15075b45457a2cffaeaa/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/materialdatetimepicker-3.5.1.aar/d63b46ba5a0aadf59a76bb6421493e9f/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/design-27.0.2.aar/fcb28ac73087ae39648ecf2cf0ac1f82/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/bfdcd78c7e06b11c2c6f25e87f180ec6/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.2.aar/d64c87f0a08912badaa86c653f3cde40/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/multidex-1.0.2.aar/edad069655d561de8bb022b4c6bef5dc/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/modules-2/files-2.1/com.michaelpardo/activeandroid/3.1.0-SNAPSHOT/4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08/activeandroid-3.1.0-SNAPSHOT.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/monthandyearpicker-1.3.0.aar/ab655806ab3206f858b3d842001516be/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/stetho-1.5.0.aar/1cd41b3853298a3413b6c7a5a76d6499/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.2/3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf/gson-2.8.2.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/firebase-messaging-15.0.0.aar/387a1fe44aa039804b97436efe17aa98/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/crashlytics-2.9.9.aar/1cc4ab8b90011181fdd2b1d511ba1d01/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/play-services-analytics-impl-15.0.0.aar/aa0e660d4ad89a5f117e7da8de6ae612/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/play-services-iid-15.0.0.aar/a5c5fd14ebd79d4041c97d62ca7cb84a/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/a4add678879080bd1c51cd6c504338c6/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-15.0.0.aar/e98580b796a833fed4c6c1026d6c803a/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/firebase-iid-15.0.0.aar/97b98d741056cc0c04223e9f552f3fb0/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/play-services-stats-15.0.1.aar/0635d874c656f4a96bba1f23fd575215/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-15.0.1.aar/a26df333cf097e8aa7aed7ac6594bf72/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/firebase-common-15.0.1.aar/6a87cb337df80f1f03d21151ebe3d8ce/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/33580248b2b854975b329d6b41d06c1b/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/play-services-ads-identifier-15.0.1.aar/a266c62313b6aa94fab51dda21aa99eb/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/71553e9d88c224fa7f5d56f1c0288e18/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.0.aar/8e74962bb85748d3f171b34901d22fb8/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/support-v13-27.0.2.aar/6d5b3b4a1af88edc00b1eeb9b7860250/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/transition-27.0.2.aar/2bef90807228ef568024a4eae4f5571a/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.2.aar/6d5c97aa939035574a4595ad840861bd/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/27f22e6cb40904fd0ff8af634e106a5d/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.2.aar/5bcd42d59c97cbb599f7f3ea122643fb/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.2.aar/5279bfd504ba7eb19f9cf8e78173cb41/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.2.aar/2c3d4a67eac9ff5f934d2f38433a2ac4/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.2.aar/b84699e0c5b847db4a6a2e98c4ad330c/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.2.aar/d485bcfa02798cd9ceb35409d0d7ef1e/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/86d26c6abf4f258a436ea9e9d5da6761/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/27.0.2/b9ef4342c934a1a8b107506273dc8061662a322/support-annotations-27.0.2.jar(**.class)
+-injars /home/neeraj/.gradle/caches/modules-2/files-2.1/commons-cli/commons-cli/1.2/2bf96b7aa8b611c177d329452af1dc933e14501c/commons-cli-1.2.jar(**.class)
+-injars /home/neeraj/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/crashlytics-core-2.6.8.aar/db62c04e570cfbbd536ae0a5f86f3b68/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/answers-1.4.7.aar/03791d8d7f5322fab2bc58ea1f4291a3/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/fabric-1.4.8.aar/c2adbd7fbcb790d46aa6797af3927c34/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/beta-1.2.10.aar/33e9e2d7d921ec07a48a7a8bfcc5ffa0/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/transforms-1/files-1.1/runtime-1.0.3.aar/c54f7dee7fffac069aa379927d11bbec/jars/classes.jar(**.class)
+-injars /home/neeraj/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.0.3/7d7f60c4783872861222166f6164215f8951c7b1/common-1.0.3.jar(**.class)
+-injars /home/neeraj/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.0.0/a2d487452376193fc8c103dd2b9bd5f2b1b44563/common-1.0.0.jar(**.class)
+-injars /home/neeraj/Desktop/njvj/volvo/vasuptime/volvo-vasuptime-android/library/build/intermediates/intermediate-jars/debug/classes.jar(**.class)
+-injars /home/neeraj/Desktop/njvj/volvo/vasuptime/volvo-vasuptime-android/volvo/build/intermediates/classes/prod/debug(**.class)
+-outjars /home/neeraj/Desktop/njvj/volvo/vasuptime/volvo-vasuptime-android/volvo/build/intermediates/multi-dex/prod/debug/componentClasses.jar
+
+-libraryjars /home/neeraj/Android/Sdk/build-tools/27.0.3/lib/shrinkedAndroid.jar
+
+-forceprocessing
+-dontoptimize
+-dontobfuscate
+-dontusemixedcaseclassnames
+-dontpreverify
+-dontnote **
+-dontwarn **
+-printconfiguration /home/neeraj/Desktop/njvj/volvo/vasuptime/volvo-vasuptime-android/volvo/build/intermediates/multi-dex/prod/debug/components.flags
+
+
+# Referenced at /home/neeraj/Desktop/njvj/volvo/vasuptime/volvo-vasuptime-android/volvo/build/intermediates/manifests/full/prod/debug/AndroidManifest.xml:56
+-keep class com.teramatrix.vos.EosApplication {
+    <init>(...);
+}
+
+-keep public class * extends android.app.Instrumentation {
+    <init>();
+}
+
+-keep public class * extends android.app.Application {
+    <init>();
+    void attachBaseContext(android.content.Context);
+}
+
+-keep public class * extends android.app.backup.BackupAgent {
+    <init>();
+}
+
+-keep public class * extends java.lang.annotation.Annotation {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.android.tools.ir.** {
+    <fields>;
+    <methods>;
+}

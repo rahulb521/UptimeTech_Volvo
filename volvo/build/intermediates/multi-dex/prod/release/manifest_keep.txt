@@ -1,0 +1,3 @@
+# Referenced at /home/neeraj/Desktop/njvj/volvo/vasuptime/volvo-vasuptime-android/volvo/build/intermediates/manifests/full/prod/release/AndroidManifest.xml:56
+-keep class com.teramatrix.vos.EosApplication { <init>(...); }
+

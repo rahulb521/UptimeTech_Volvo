@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--Include Header -->
+    <include layout="@layout/main_header"></include>
+
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:paddingBottom="50dp"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:id="@+id/txt_vehicle_reg_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vehicle Registration Number"
+                    android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/txt_vehicle_reg_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="RJ14TG3265"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:orientation="vertical"
+                android:paddingLeft="30dp"
+                >
+
+                <TextView
+                    android:id="@+id/txt_door_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Door Number"
+                    android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/txt_door_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RJ14TG3265"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <!-- Chasis Number -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chassis Number"
+            android:textSize="12sp"
+            android:layout_marginTop="25dp"
+            />
+
+        <TextView
+            android:id="@+id/txt_chasis_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="N/A"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            />
+
+
+
+        <!--Job Type-->
+        <LinearLayout
+            android:id="@+id/spinner_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="25dp"
+            android:visibility="visible"
+            >
+
+            <TextView
+                android:id="@+id/tv_type_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Job Type"
+                android:textSize="12sp" />
+
+            <Spinner
+                android:id="@+id/job_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@null" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/et_border" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/reason_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="25dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/txt_job_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Preventive maintenance"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txt_reason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Parts not available"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Start Date Time"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/txt_startDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:drawableRight="@mipmap/ic_action_access_time"
+            android:text="March 19,2018 5:09 PM"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/et_border" />
+
+        <!--Input Box -> End Date and Time-->
+        <LinearLayout
+            android:id="@+id/end_date_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="25dp"
+            >
+
+        <TextView
+            android:id="@+id/txt_end_date_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="End Date Time"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/txt_endDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:drawableRight="@mipmap/ic_action_access_time"
+            android:text="March 19,2018 5:09 PM"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/et_border" />
+        </LinearLayout>
+
+
+        <!--Input Box -> End Date and Time-->
+        <LinearLayout
+            android:id="@+id/comment_box_contatiner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="25dp"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:id="@+id/txt_comment_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Job Comments"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/ed_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:paddingTop="6dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:hint="Enter MDS Job ID, Nature of work, etc."
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="7dp"
+                android:background="@color/et_border" />
+
+        </LinearLayout>
+
+
+
+        <!--Buttton -> Back / Update / Submit-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <com.teramatrix.vos.utils.CustomTextViewArial
+                android:id="@+id/cancel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:background="@color/et_border_dark"
+                android:gravity="center"
+                android:text="BACK"
+                android:textColor="@color/volvo_blue"
+                android:textSize="14sp" />
+
+            <com.teramatrix.vos.utils.CustomTextViewArial
+                android:id="@+id/update"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@color/volvo_blue"
+                android:gravity="center"
+                android:text="UPDATE"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

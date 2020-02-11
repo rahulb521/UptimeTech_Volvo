@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "767002029816",
+    "firebase_url": "https://vasuptime.firebaseio.com",
+    "project_id": "vasuptime",
+    "storage_bucket": "vasuptime.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767002029816:android:e71b424365708012",
+        "android_client_info": {
+          "package_name": "com.teramatrix.vos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767002029816-k81ufnqvtv3kii3p5m2pcncgb340gb3a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMtQTXuLX1IEO699ITHndR_TqErwYB68Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

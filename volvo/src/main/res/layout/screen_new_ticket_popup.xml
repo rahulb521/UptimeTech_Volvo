@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/translucent_black" >
+
+    <RelativeLayout
+        android:id="@+id/center_pop_up"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginBottom="@dimen/marginBottom"
+        android:layout_marginLeft="@dimen/marginLeft"
+        android:layout_marginRight="@dimen/marginRight"
+        android:background="@drawable/corner_popup" >
+
+        <RelativeLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/rl_header_top"
+            android:background="@drawable/corner_popup" >
+
+            <com.teramatrix.vos.utils.CustomTextViewArialBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="@string/new_ticket"
+                android:textColor="@color/black_heading"
+                android:textSize="@dimen/btn_textsize_new_tikcet_title" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/light_divider_popup" >
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom"
+            android:layout_below="@+id/title"
+            android:background="@color/white" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical" >
+                
+                
+                
+                <RelativeLayout
+                    android:id="@+id/relative_contact_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dp"
+                    android:paddingTop="2dp" >
+
+                    <ImageView
+                        android:id="@+id/img_contact"
+                        android:layout_width="@dimen/img_icon_width"
+                        android:layout_height="@dimen/img_icon_height"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/call" />
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/text_contact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:layout_toRightOf="@+id/img_contact"
+                        android:text="@string/customer_contact"
+                        android:textColor="@color/black_label"
+                        android:textSize="14sp" />
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/txt_contacct_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:text="9413967562"
+                        android:textColor="@color/black_label"
+                        android:textSize="13sp" />
+                </RelativeLayout>
+                
+                <RelativeLayout
+                    android:id="@+id/relative_contact_number_owner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:paddingBottom="2dp"
+                    android:paddingTop="2dp" >
+
+                    <ImageView
+                        android:id="@+id/img_contact_owner"
+                        android:layout_width="@dimen/img_icon_width"
+                        android:layout_height="@dimen/img_icon_height"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/call" />
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/text_contact_owner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:layout_toRightOf="@+id/img_contact_owner"
+                        android:text="@string/owner_contact"
+                        android:textColor="@color/black_label"
+                        android:textSize="14sp" />
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/txt_contacct_value_owner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:text="9413967562"
+                        android:textColor="@color/black_label"
+                        android:textSize="13sp" />
+                </RelativeLayout>
+                
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dp"
+                    android:paddingTop="2dp" >
+
+                    <ImageView
+                        android:id="@+id/img"
+                        android:layout_width="@dimen/img_icon_width"
+                        android:layout_height="@dimen/img_icon_height"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/icon_parts" />
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/img"
+                        android:layout_marginLeft="15dp"
+                        android:layout_toRightOf="@+id/img"
+                        android:text="@string/breakdown_location"
+                        android:textColor="@color/black_label"
+                        android:textSize="14sp" />
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/value"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/text"
+                        android:layout_below="@+id/img"
+                        android:layout_marginRight="20dp"
+                        android:text="Central Park Jogging Path, Rambagh, Jaipur, Rajasthan 302005, India"
+                        android:textColor="@color/black_label"
+                        android:textSize="13sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dp"
+                    android:paddingTop="2dp" >
+
+                    <ImageView
+                        android:id="@+id/img2"
+                        android:layout_width="@dimen/img_icon_width"
+                        android:layout_height="@dimen/img_icon_height"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/icon_problemdesc" />
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/text2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/img2"
+                        android:layout_marginLeft="15dp"
+                        android:layout_toRightOf="@+id/img2"
+                        android:text="@string/nature_of_problem"
+                        android:textColor="@color/black_label"
+                        android:textSize="14sp" />
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/value2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/text2"
+                        android:layout_below="@+id/img2"
+                        android:layout_marginRight="20dp"
+                        android:text="Volvo Trucks and Buses."
+                        android:textColor="@color/black_label"
+                        android:textSize="13sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dp"
+                    android:paddingTop="2dp" >
+
+                    <ImageView
+                        android:id="@+id/img4"
+                        android:layout_width="@dimen/img_icon_width"
+                        android:layout_height="@dimen/img_icon_height"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/icon_slatime" />
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/text4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:layout_toRightOf="@+id/img4"
+                        android:text="@string/assign_time"
+                        android:textColor="@color/black_label"
+                        android:textSize="14sp" />
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/value4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/text4"
+                        android:layout_alignParentBottom="true"
+                        android:layout_below="@+id/img4"
+                        android:layout_marginRight="20dp"
+                        android:text="12:00:00"
+                        android:textColor="@color/black_label"
+                        android:textSize="13sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp" >
+
+                    <ImageView
+                        android:id="@+id/img1"
+                        android:layout_width="@dimen/img_icon_width"
+                        android:layout_height="@dimen/img_icon_height"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/icon_parts" />
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/text1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:layout_toRightOf="@+id/img1"
+                        android:text="@string/vehicle_type"
+                        android:textColor="@color/black_label"
+                        android:textSize="14sp" />
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/value1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:text="Bus"
+                        android:textColor="@color/black_label"
+                        android:textSize="13sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp" >
+
+                    <ImageView
+                        android:id="@+id/img3"
+                        android:layout_width="@dimen/img_icon_width"
+                        android:layout_height="@dimen/img_icon_height"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/icon_slatime" />
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/text3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:layout_toRightOf="@+id/img3"
+                        android:text="@string/tv_SLA_Time"
+                        android:textColor="@color/black_label"
+                        android:textSize="14sp" />
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/value3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:text="2 min"
+                        android:textColor="@color/black_label"
+                        android:textSize="13sp" />
+                </RelativeLayout>
+                
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="4dp" >
+
+                    <ImageView
+                        android:id="@+id/distance"
+                        android:layout_width="@dimen/img_icon_width"
+                        android:layout_height="@dimen/img_icon_height"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="@drawable/distance" />
+
+                    
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/distance_heading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="15dp"
+                        android:layout_toRightOf="@+id/distance"
+                        android:text="@string/tv_estimated_distance"
+                        android:textColor="@color/black_label"
+                        android:textSize="14sp" />
+
+                    <com.teramatrix.vos.utils.CustomTextViewArial
+                        android:id="@+id/distance_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        android:layout_below="@+id/distance"
+                        android:text="200 + 200 =400"
+                        android:textColor="@color/black_label"
+                        android:textSize="13sp" />
+                </RelativeLayout>
+                
+                <RelativeLayout 
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    ></RelativeLayout>
+                
+                
+
+                
+            </LinearLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/rl_header_top"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/corner_popup" >
+
+            <com.teramatrix.vos.utils.CustomTextViewArial
+                android:id="@+id/tv_decline"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/didider"
+                android:background="@drawable/popup_button"
+                android:gravity="center"
+                android:text="@string/decline"
+                android:textColor="@color/black_popup_btn"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:id="@+id/didider"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@color/et_border" >
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0.5dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/et_border" >
+            </RelativeLayout>
+
+            <com.teramatrix.vos.utils.CustomTextViewArial
+                android:id="@+id/tv_accept"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/didider"
+                android:background="@drawable/popup_button"
+                android:gravity="center"
+                android:text="@string/accept"
+                android:textColor="@color/black_label"
+                android:textSize="16sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_green_line_above"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/didider"
+                android:background="@color/border_network" >
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_green_line_above"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/didider"
+                android:background="@color/green_ok" >
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
