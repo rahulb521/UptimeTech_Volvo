@@ -1,3 +1,0 @@
-# Referenced at D:\Volvo\volvo-vasuptime-android-development\volvo\build\intermediates\manifests\full\dev614\debug\AndroidManifest.xml:56
--keep class com.teramatrix.vos.EosApplication { <init>(...); }
-

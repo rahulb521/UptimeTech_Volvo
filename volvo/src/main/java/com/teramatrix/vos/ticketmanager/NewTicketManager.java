@@ -956,7 +956,6 @@ public class NewTicketManager implements INewTicket {
 				.setPriority(NotificationCompat.PRIORITY_DEFAULT)
 				.setContentIntent(pendingIntent)
 				.setSound(uri)
-				.setChannelId(CHANNEL_ID)
 				.setVibrate(new long[] { 0, 1000, 1000, 1000, 1000 })
 				.setAutoCancel(true);
 

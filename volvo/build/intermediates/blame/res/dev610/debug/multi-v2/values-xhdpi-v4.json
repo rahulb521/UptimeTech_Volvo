@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Volvo\\volvo-vasuptime-android-development\\volvo\\build\\intermediates\\incremental\\mergeDev610DebugResources\\merged.dir\\values-xhdpi-v4\\values-xhdpi-v4.xml",
+            "outputFile": "/Volumes/MyDrive/VTI/eos-mobile-vti/volvo/build/intermediates/incremental/mergeDev610DebugResources/merged.dir/values-xhdpi-v4/values-xhdpi-v4.xml",
             "map": [
                 {
-                    "source": "D:\\Volvo\\volvo-vasuptime-android-development\\volvo\\src\\main\\res\\values-xhdpi\\dimens.xml",
+                    "source": "/Volumes/MyDrive/VTI/eos-mobile-vti/volvo/src/main/res/values-xhdpi/dimens.xml",
                     "from": {
                         "startLines": "44,22,4,5,46,45,65,17,48,39,42,34,31,66,67,68,69,47,38,33,23,105,8,81,16,21,20,84,19,43,76,78,6,103,71,70,88,102,72,24,57,59,58,61,62,63,12,35,13,7,97,98,99,11,9,83,15,32,64,14,80,79,18,10,77,41,36,37,26,25,53,52,50,51,49,82,27,30,28,29,40,100,94,91,85",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,2,4,4,4,4,4,4,4,4,4,4,4,1,4,4,4,4,4,4,4,5,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Volvo\\volvo-vasuptime-android-development\\volvo\\build\\intermediates\\incremental\\mergeDev610DebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "/Volumes/MyDrive/VTI/eos-mobile-vti/volvo/build/intermediates/incremental/mergeDev610DebugResources/merged.dir/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.2.aar\\c98e8507f3136f4a58e15a261dc552ef\\res\\values-v16\\values-v16.xml",
+                    "source": "/Users/vaibhav/.gradle/caches/transforms-2/files-2.1/b2b429caccb6171ca95c03df516f5ca1/appcompat-v7-25.3.0/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -14,26 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\8995035fccebe7b1a965fd51976636cd\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "223"
-                    },
-                    "to": {
-                        "startLines": "4",
-                        "startColumns": "4",
-                        "startOffsets": "219",
-                        "endLines": "7",
-                        "endColumns": "12",
-                        "endOffsets": "387"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\materialdatetimepicker-3.5.1.aar\\38e829148b6c34b5da18c150f3318c88\\res\\values-v16\\values-v16.xml",
+                    "source": "/Users/vaibhav/.gradle/caches/transforms-2/files-2.1/f035cca3d1357cb5caf1fc0f66989cd7/materialdatetimepicker-3.5.1/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2,3,6,9",
                         "startColumns": "4,4,4,4",
@@ -43,12 +24,12 @@
                         "endOffsets": "148,281,400,517"
                     },
                     "to": {
-                        "startLines": "3,8,11,14",
+                        "startLines": "3,4,7,10",
                         "startColumns": "4,4,4,4",
-                        "startOffsets": "121,392,525,644",
-                        "endLines": "3,10,13,16",
+                        "startOffsets": "121,219,352,471",
+                        "endLines": "3,6,9,12",
                         "endColumns": "97,12,12,12",
-                        "endOffsets": "214,520,639,756"
+                        "endOffsets": "214,347,466,583"
                     }
                 }
             ]

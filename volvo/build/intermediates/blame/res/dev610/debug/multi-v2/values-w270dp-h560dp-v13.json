@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Volvo\\volvo-vasuptime-android-development\\volvo\\build\\intermediates\\incremental\\mergeDev610DebugResources\\merged.dir\\values-w270dp-h560dp-v13\\values-w270dp-h560dp-v13.xml",
+            "outputFile": "/Volumes/MyDrive/VTI/eos-mobile-vti/volvo/build/intermediates/incremental/mergeDev610DebugResources/merged.dir/values-w270dp-h560dp-v13/values-w270dp-h560dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\materialdatetimepicker-3.5.1.aar\\38e829148b6c34b5da18c150f3318c88\\res\\values-w270dp-h560dp-v13\\values-w270dp-h560dp-v13.xml",
+                    "source": "/Users/vaibhav/.gradle/caches/transforms-2/files-2.1/f035cca3d1357cb5caf1fc0f66989cd7/materialdatetimepicker-3.5.1/res/values-w270dp-h560dp-v13/values-w270dp-h560dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6",
                         "startColumns": "4,4,4,4,4",

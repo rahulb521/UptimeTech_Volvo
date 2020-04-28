@@ -23,6 +23,7 @@ import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -32,6 +33,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.teramatrix.vos.asynctasks.ConfigurationLicense;
 import com.teramatrix.vos.checkinternet.CheckInternetConnection;
@@ -316,10 +318,12 @@ public class ConfigurationLicenseActivity extends Activity implements
 
 					// get saved device IMEI nuber
 					strIMEINumber = UtilityFunction
-							.getIMEINumber(getApplicationContext());
+							.getIMEINumber(getApplicationContext(),strLicenseNum);
 
 					// get Device GCM id
+					// get Device GCM id
 					gcm_registration_id = FirebaseInstanceId.getInstance().getToken();
+					Log.e("FCMTOKEN",gcm_registration_id);
 					if (!strIMEINumber.equals("")) {
 						hasInternetConnect = checkinternet
 								.isConnectedToInternet();

@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="D:\Volvo\volvo-vasuptime-android-development\volvo\src\main\jniLibs"/></dataSet><dataSet config="dev614"><source path="D:\Volvo\volvo-vasuptime-android-development\volvo\src\dev614\jniLibs"/></dataSet><dataSet config="debug"><source path="D:\Volvo\volvo-vasuptime-android-development\volvo\src\debug\jniLibs"/></dataSet><dataSet config="dev614Debug"><source path="D:\Volvo\volvo-vasuptime-android-development\volvo\src\dev614Debug\jniLibs"/></dataSet></merger>

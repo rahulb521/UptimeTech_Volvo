@@ -22,6 +22,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.os.Build;
 import android.os.Environment;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -99,26 +100,30 @@ public class UtilityFunction {
 	}
 
 	// get IMEI number of the device
+
 	/**
-	 * 
 	 * @param context
 	 * @return
 	 */
 	@SuppressLint("NewApi")
-	public static String getIMEINumber(Context context) {
+	public static String getIMEINumber(Context context,String licenseKey) {
 		// Create an instance of the TelephonyManager
 		TelephonyManager telephonyManager = (TelephonyManager) context
 				.getSystemService(Context.TELEPHONY_SERVICE);
 		// get the device id via telephonyManage
-		imeiNumber = telephonyManager.getDeviceId();
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			imeiNumber =  telephonyManager.getImei(1);
+		} else {
+			imeiNumber = telephonyManager.getDeviceId();
+		}
 
-		if (imeiNumber == null) {
-			imeiNumber = android.os.Build.SERIAL;
+		if (imeiNumber == null || imeiNumber.isEmpty()) {
+			imeiNumber = licenseKey+System.currentTimeMillis();
 		}
 
 		return imeiNumber;
 	}
-	
+
 	// get current UTC time
 
 	@SuppressLint("SimpleDateFormat")

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Volvo\\volvo-vasuptime-android-development\\volvo\\build\\intermediates\\incremental\\mergeDev610DebugResources\\merged.dir\\values-port\\values-port.xml",
+            "outputFile": "/Volumes/MyDrive/VTI/eos-mobile-vti/volvo/build/intermediates/incremental/mergeDev610DebugResources/merged.dir/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.2.aar\\8995035fccebe7b1a965fd51976636cd\\res\\values-port\\values-port.xml",
+                    "source": "/Users/vaibhav/.gradle/caches/transforms-2/files-2.1/b2b429caccb6171ca95c03df516f5ca1/appcompat-v7-25.3.0/res/values-port/values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -121,8 +121,8 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
             findViewById(R.id.icon_logout).setVisibility(View.VISIBLE);
             findViewById(R.id.icon_logout).setOnClickListener(this);
 
-            viewPager = findViewById(R.id.viewPager);
-            tablayout = findViewById(R.id.tablayout);
+            viewPager = (ViewPager) findViewById(R.id.viewPager);
+            tablayout = (TabLayout) findViewById(R.id.tablayout);
             fragmentList = new ArrayList<>();
             fragmentList.add(new UpTImeVehicleListFragment());
             fragmentList.add(new UptimeEngineReadingFragment());

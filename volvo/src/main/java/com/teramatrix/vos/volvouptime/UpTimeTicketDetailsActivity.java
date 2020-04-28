@@ -152,7 +152,7 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
      */
     private void loadRegisteredReasonList(List<UpTimeAddedReasonsModel> modelArrayList)
     {
-        LinearLayout linearLayout = findViewById(R.id.lay_linear_reasons);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.lay_linear_reasons);
         linearLayout.removeAllViews();
 
         for(int i=0;i<modelArrayList.size();i++) {

@@ -49,7 +49,6 @@ public class EngineHourReadingDialog extends Dialog {
                 dismiss();
             }
         });
-
     }
 
     private int getTotalHours() {

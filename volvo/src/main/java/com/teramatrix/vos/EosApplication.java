@@ -12,6 +12,7 @@ import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.StandardExceptionParser;
 import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.analytics.HitBuilders;
+import com.google.firebase.FirebaseApp;
 
 import android.app.Application;
 import android.content.Context;
@@ -46,7 +47,7 @@ public class EosApplication extends Application {
         //initialize Active android database for Volvo Uptime
 		Configuration dbConfiguration = new Configuration.Builder(this).setDatabaseName("volvoUptime.db").setDatabaseVersion(3).create();
 		ActiveAndroid.initialize(dbConfiguration);
-
+		FirebaseApp.initializeApp(this);
 		mInstance = this;
 
     }

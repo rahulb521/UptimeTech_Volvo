@@ -24,19 +24,18 @@ android {
     defaultConfig {
         applicationId "com.teramatrix.vos"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 28
         multiDexEnabled true
         versionCode = 54
-
         versionName = "1.5"
     }
 
     productFlavors {
         dev610 {
-            buildConfigField 'String', 'HOST', '"http://i.teramatrix.in:609/"'
+            buildConfigField 'String', 'HOST', '"http://183.182.84.29:9093/"'
         }
         dev614 {
-            buildConfigField 'String', 'HOST', '"http://i.teramatrix.in:613/"'
+            buildConfigField 'String', 'HOST', '"http://183.182.84.29:9093/"'
         }
         prod {
             buildConfigField 'String', 'HOST', '"https://uptimecenter.vecv.net:8082/"'
@@ -65,6 +64,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-gcm:15.0.0'
     implementation 'com.google.android.gms:play-services-maps:15.0.0'
     implementation 'com.google.android.gms:play-services-location:15.0.0'
+    implementation "com.google.firebase:firebase-messaging:15.0.0"
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     implementation 'com.android.support:multidex:1.0.1'
@@ -74,9 +74,19 @@ dependencies {
     implementation 'com.facebook.stetho:stetho:1.5.0'
     implementation files('libs/library-2.1.1-sources.jar')
     implementation 'com.google.code.gson:gson:2.8.2'
-    implementation "com.google.firebase:firebase-messaging:15.0.0"
+
     implementation('com.crashlytics.sdk.android:crashlytics:2.9.9@aar') {
         transitive = true
+    }
+}
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '25.3.0'
+            }
+        }
     }
 }
 apply plugin: 'com.google.gms.google-services'
