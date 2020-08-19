@@ -49,7 +49,7 @@ public class ApplicationConstant {
 	public static String LANGUAGE_SELECT="en";
 	
 	//define isLocationTrackingLogsEnabled log boolean variable
-	public static Boolean isLocationTrackingLogsEnabled = false;
+	public static Boolean isLocationTrackingLogsEnabled = true;
 	
 	//flag to maintain code to update old un-versioned db schema
 	public static boolean is_app_update_on_unversioned_db_schema = true;

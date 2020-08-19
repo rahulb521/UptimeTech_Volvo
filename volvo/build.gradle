@@ -26,15 +26,17 @@ android {
         minSdkVersion 15
         targetSdkVersion 28
         multiDexEnabled true
-        versionCode = 54
-        versionName = "1.5"
+        versionCode = 56
+        versionName = "1.6"
     }
 
     productFlavors {
         dev610 {
             buildConfigField 'String', 'HOST', '"http://183.182.84.29:9093/"'
+           // buildConfigField 'String', 'HOST', '"http://10.10.1.100:9093/"'
         }
         dev614 {
+            //buildConfigField 'String', 'HOST', '"http://10.10.1.100:9093/"'
             buildConfigField 'String', 'HOST', '"http://183.182.84.29:9093/"'
         }
         prod {
@@ -74,6 +76,7 @@ dependencies {
     implementation 'com.facebook.stetho:stetho:1.5.0'
     implementation files('libs/library-2.1.1-sources.jar')
     implementation 'com.google.code.gson:gson:2.8.2'
+    //implementation 'testfairy:testfairy-android-sdk:1.+@aar'
 
     implementation('com.crashlytics.sdk.android:crashlytics:2.9.9@aar') {
         transitive = true

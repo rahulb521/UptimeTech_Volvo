@@ -128,7 +128,7 @@
     <string name="log_folder_error">/Eicher_Log/ErrorLogs/</string>
     <string name="log_folder_app_log">/Eicher_Log/AppLogs/</string>
     <!-- log files names -->
-    <string name="eicher_location_log">Eicher_location_log_</string>
+    <string name="eicher_location_log">Volvo_location_log_</string>
     <string name="eicher_error_log">Eicher_error_log_</string>
     <string name="eicher_complete_log">Eicher_complete_log_</string>
     <string name="eicher_log_filename">Eicher_location_log_17-Mar-2015.txt</string>

@@ -452,7 +452,8 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                     timePickerUtil.initTimePicker(UpTimeRegisterActivity.this, timeRange_Min, timeRange_Max, defaultTime, UpTimeRegisterActivity.this, R.id.txt_startDate);
 
                 } else if (type.equalsIgnoreCase(TYPE_JOB)) {
-                    String timeRange_Min = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -7, 0);
+                    String timeRange_Min = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -1, 0);
+                   // String timeRange_Min = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -7, 0);
 
                     //String timeRange_Max = ((TextView)findViewById(R.id.txt_endDate)).getText().toString();
                     String timeRange_Max = TimeFormater.convertMillisecondsToDateFormat(System.currentTimeMillis(), "dd MMM yyyy HH:mm");

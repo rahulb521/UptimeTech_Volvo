@@ -352,6 +352,7 @@ public class SplashActivity extends Activity {
 		protected Void doInBackground(Void... params) {
 			try {
 				vecvPreferences = new VECVPreferences(mContext);
+
 				restIntraction = new RestIntraction(new VECVPreferences(mContext).getAPIEndPoint_EOS()+""+
 						ApiUrls.DEVICE_CONFIGURATION_LICENSE);
 				System.out.println("ChekDeviceReggistrationOnServer: RegistrationNo:"+licenseNumber+" Imei:"+imeiNumber+" DeviceGcmId:"+gcm_registration_id);

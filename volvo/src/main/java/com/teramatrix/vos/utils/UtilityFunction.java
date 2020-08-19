@@ -7,6 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -152,9 +153,11 @@ public class UtilityFunction {
 		SimpleDateFormat dateFormat = new SimpleDateFormat(
 				"dd MMM yyyy HH:mm:ss");
 		// set the TimeZone
+		//dateFormat.setTimeZone(TimeZone.getTimeZone("IST"));
 		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
 		// return date in the specified format
 		return dateFormat.format(new Date());
+
 	}
 
 	/**

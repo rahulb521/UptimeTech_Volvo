@@ -73,6 +73,7 @@ public class ConfigurationPin extends AsyncTask<Void, Void, Void> {
 		try {
 			vecvPreferences = new VECVPreferences(mContext);
 			restIntraction = new RestIntraction(new VECVPreferences(mContext).getAPIEndPoint_EOS()+""+ApiUrls.CONFIGURATION_PIN);
+			//restIntraction = new RestIntraction("http://10.10.1.100:9093/"+""+ApiUrls.CONFIGURATION_PIN);
 			restIntraction.AddParam("Token", securityToken);
 			restIntraction.AddParam("DeviceAlias", str_deviceAlias);
 			restIntraction.AddParam("DevicePin", pin_password);

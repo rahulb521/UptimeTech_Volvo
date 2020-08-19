@@ -83,10 +83,15 @@ public class ConfigurationPinActivity extends Activity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+
+		//TestFairy.begin(this, "SDK-Z9zRwZYI");
+
 		//define layout with no title with full screen
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		/*getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
+
 		//change Status bar color
 		Window window = getWindow();
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -120,6 +125,7 @@ public class ConfigurationPinActivity extends Activity implements
 		/**
 		 * onTextChanged() method focus only one digit to another edit text digit .
 		 */
+
 		eTextpin_digit1.addTextChangedListener(new TextWatcher() {
 
 			public void onTextChanged(CharSequence s, int start, int before,
@@ -525,6 +531,7 @@ public class ConfigurationPinActivity extends Activity implements
 	 * 
 	 * This method call after onPause.
 	 */
+
 
 	@Override
 	protected void onStop() {

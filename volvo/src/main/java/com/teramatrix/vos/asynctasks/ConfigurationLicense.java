@@ -55,7 +55,7 @@ public class ConfigurationLicense extends AsyncTask<Void, Void, Void> {
 
 	/**
 	 * @param context
-	 * @param licenseNum0
+	 * @param
 	 * @param imeiNum
 	 * @param gcmDeviceid
 	 * 
@@ -113,6 +113,7 @@ public class ConfigurationLicense extends AsyncTask<Void, Void, Void> {
 			// create an object for the RestIntraction class
 			restIntraction = new RestIntraction(new VECVPreferences(mContext).getAPIEndPoint_EOS()+""+
 					ApiUrls.DEVICE_CONFIGURATION_LICENSE);
+
 			// Call Configuration API with these parameters
 			System.out.println("ConfigurationLicense.doInBackground() licenseNumber:"+licenseNumber+" imeiNumber:"+imeiNumber+" gcm_registration_id:"+gcm_registration_id);
 			restIntraction.AddParam("token", "teramatrix");
