@@ -6,15 +6,22 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v13.BuildConfig;
+import android.support.v13.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.SpannableString;
@@ -33,6 +40,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.Result;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.location.FusedLocationProviderApi;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.teramatrix.vos.asynctasks.ConfigurationLicense;
@@ -41,8 +58,11 @@ import com.teramatrix.vos.interfaces.INetworkAvailablity;
 import com.teramatrix.vos.preferences.VECVPreferences;
 import com.teramatrix.vos.utils.ApplicationConstant;
 import com.teramatrix.vos.utils.PermissionsUtils;
+import com.teramatrix.vos.utils.TimeFormater;
 import com.teramatrix.vos.utils.UtilityFunction;
 import com.teramatrix.vos.volvouptime.UpTimeVehicleListActivity;
+
+import static com.google.android.gms.location.LocationServices.FusedLocationApi;
 
 /**
  * @author Gaurav.Mangal
@@ -54,8 +74,7 @@ import com.teramatrix.vos.volvouptime.UpTimeVehicleListActivity;
  *         Service. It may take delay to generate until than user can not
  *         process registration.
  */
-public class ConfigurationLicenseActivity extends Activity implements
-		INetworkAvailablity {
+public class ConfigurationLicenseActivity extends Activity implements INetworkAvailablity {
 	// Defining EditText component that will be used in this Activity
 	private EditText eTextLicenseNum;
 
@@ -67,6 +86,7 @@ public class ConfigurationLicenseActivity extends Activity implements
 
 	// Defining a view class for this Activity
 	private ConfigurationLicense configurationLicense;
+
 
 	// Defining boolean variable that will be used in this Activity
 	private boolean hasInternetConnect;
@@ -91,6 +111,7 @@ public class ConfigurationLicenseActivity extends Activity implements
 
 	private int eicher_logo_tap_count;
 
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -101,7 +122,9 @@ public class ConfigurationLicenseActivity extends Activity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// define layout with no title with full screen
+
+
+			// define layout with no title with full screen
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		/*getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -157,6 +180,7 @@ public class ConfigurationLicenseActivity extends Activity implements
 		btn_configure.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+
 				// pass the view of the OnClickListener interface
 				onConfigureClicked();
 			}
@@ -191,6 +215,7 @@ public class ConfigurationLicenseActivity extends Activity implements
 		// Set API end URLs
 		if (vecvPreferences.getAPIEndPoint_EOS().isEmpty()) {
 			//String host_address = BuildConfig.HOST;
+			//String host_address = "https://uptimecenter.vecv.net:8082/";
 			//String host_address = "http://10.10.1.100:9093/";
 			String host_address = "http://169.38.133.115:8081/";
 			vecvPreferences.setAPIEndPoint_EOS(host_address);
@@ -284,6 +309,7 @@ public class ConfigurationLicenseActivity extends Activity implements
 		ApplicationConstant.IS_APP_IN_FORGROUND = false;
 		// set activity context value when app run current screen.
 		ApplicationConstant.currentActivityContext = null;
+
 	}
 
 	/*
@@ -305,6 +331,8 @@ public class ConfigurationLicenseActivity extends Activity implements
 		strLicenseNum = eTextLicenseNum.getText().toString().trim();
 		boolean configureCancel = false;
 		View configureFocusView = null;
+
+
 		if (TextUtils.isEmpty(strLicenseNum)) {
 			UtilityFunction.showCenteredToast(this,
 					getResources().getString(R.string.required_license));
@@ -397,6 +425,8 @@ public class ConfigurationLicenseActivity extends Activity implements
 			}
 		}
 	}
+
+
 
 	/*
 	 * (non-Javadoc)
@@ -532,4 +562,5 @@ public class ConfigurationLicenseActivity extends Activity implements
 				});
 		dialog.show();
 	}
+
 }

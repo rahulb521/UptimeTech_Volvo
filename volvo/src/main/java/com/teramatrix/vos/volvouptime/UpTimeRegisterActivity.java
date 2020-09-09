@@ -409,15 +409,20 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
             case R.id.txt_startDate: {
 
                 if (type.equalsIgnoreCase(TYPE_ADD_REASON)) {
-                    String timeRange_Min = jobStartDate;
-                    String timeRange_Max = ((TextView) findViewById(R.id.txt_endDate)).getText().toString();
+                  //  String timeRange_Min = jobStartDate;
+                    String timeRange_Min  = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -1, 0);
+                    //String timeRange_Max = ((TextView) findViewById(R.id.txt_endDate)).getText().toString();
 
-                    if (timeRange_Max.isEmpty())
-                        timeRange_Max = jobEndDate;
+//                    if (timeRange_Max.isEmpty())
+//                        timeRange_Max = jobEndDate;
+//
+//                    if (timeRange_Max.equalsIgnoreCase("N/A"))
+//                        timeRange_Max = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", 0, 1);
+//
+                    String timeRange_Max = null;
 
-                    if (timeRange_Max.equalsIgnoreCase("N/A"))
+                    if (timeRange_Max == null || timeRange_Max.equalsIgnoreCase("N/A"))
                         timeRange_Max = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", 0, 1);
-
 
                     //If timeRange_Max is greater than current time than assign (timeRange_Max <- current time)
                     String currentTime = TimeFormater.convertMillisecondsToDateFormat(System.currentTimeMillis(), "dd MMM yyyy HH:mm");
@@ -425,6 +430,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                     if (result <= 0)
                         timeRange_Max = currentTime;
 
+                   // String defaultTime = timeRange_Max;
                     String defaultTime = ((TextView) findViewById(R.id.txt_startDate)).getText().toString();
 
                     TimePickerUtil timePickerUtil = new TimePickerUtil();
@@ -448,11 +454,11 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
 
 
                     String defaultTime = ((TextView) findViewById(R.id.txt_startDate)).getText().toString();
-                    TimePickerUtil timePickerUtil = new TimePickerUtil();
-                    timePickerUtil.initTimePicker(UpTimeRegisterActivity.this, timeRange_Min, timeRange_Max, defaultTime, UpTimeRegisterActivity.this, R.id.txt_startDate);
+                  //  TimePickerUtil timePickerUtil = new TimePickerUtil();
+                 //   timePickerUtil.initTimePicker(UpTimeRegisterActivity.this, timeRange_Min, timeRange_Max, defaultTime, UpTimeRegisterActivity.this, R.id.txt_startDate);
 
                 } else if (type.equalsIgnoreCase(TYPE_JOB)) {
-                    String timeRange_Min = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -1, 0);
+                    String timeRange_Min = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -2, 0);
                    // String timeRange_Min = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -7, 0);
 
                     //String timeRange_Max = ((TextView)findViewById(R.id.txt_endDate)).getText().toString();
@@ -467,6 +473,8 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                     timePickerUtil.initTimePicker(UpTimeRegisterActivity.this, timeRange_Min, timeRange_Max, defaultTime, UpTimeRegisterActivity.this, R.id.txt_startDate);
 
                 } else if (type.equalsIgnoreCase(TYPE_EDIT_JOB)) {
+
+
                     String timeRange_Min = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -7, 0);
 
                     String timeRange_Max = oldestStartTime_reason;
@@ -476,6 +484,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
 
                     if (timeRange_Max.isEmpty())
                         timeRange_Max = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", 0, 1);
+                        //timeRange_Max = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", 0, 1);
 
                     //If timeRange_Max is greater than current time than assign (timeRange_Max <- current time)
                     String currentTime = TimeFormater.convertMillisecondsToDateFormat(System.currentTimeMillis(), "dd MMM yyyy HH:mm");
@@ -485,8 +494,8 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
 
                     String defaultTime = ((TextView) findViewById(R.id.txt_startDate)).getText().toString();
 
-                    TimePickerUtil timePickerUtil = new TimePickerUtil();
-                    timePickerUtil.initTimePicker(UpTimeRegisterActivity.this, timeRange_Min, timeRange_Max, defaultTime, UpTimeRegisterActivity.this, R.id.txt_startDate);
+                  //  TimePickerUtil timePickerUtil = new TimePickerUtil();
+                    //timePickerUtil.initTimePicker(UpTimeRegisterActivity.this, timeRange_Min, timeRange_Max, defaultTime, UpTimeRegisterActivity.this, R.id.txt_startDate);
                 }
 
                 //initDateTimePicker(dateString,"txt_startDate");
@@ -496,10 +505,15 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
             case R.id.txt_endDate: {
 
                 if (type.equalsIgnoreCase(TYPE_ADD_REASON)) {
+                    String timeRange_Min  = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -1, 0);
+                 //   String timeRange_Min = ((TextView) findViewById(R.id.txt_startDate)).getText().toString();
+//                    String timeRange_Max = jobEndDate;
+//                    if (timeRange_Max.equalsIgnoreCase("N/A"))
+//                        timeRange_Max = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", 0, 1);
+                    String timeRange_Max = null;
 
-                    String timeRange_Min = ((TextView) findViewById(R.id.txt_startDate)).getText().toString();
-                    String timeRange_Max = jobEndDate;
-                    if (timeRange_Max.equalsIgnoreCase("N/A"))
+                    if (timeRange_Max == null || timeRange_Max.equalsIgnoreCase("N/A"))
+
                         timeRange_Max = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", 0, 1);
 
                     //If timeRange_Max is greater than current time than assign (timeRange_Max <- current time)
@@ -517,7 +531,8 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                     timePickerUtil.initTimePicker(UpTimeRegisterActivity.this, timeRange_Min, timeRange_Max, defaultTime, UpTimeRegisterActivity.this, R.id.txt_endDate);
 
                 } else if (type.equalsIgnoreCase(TYPE_EDIT_JOB)) {
-                    String timeRange_Min = latestEndTime_reason;
+                   // String timeRange_Min = latestEndTime_reason;
+                    String  timeRange_Min = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -1, 0);
 
                     if (timeRange_Min == null || timeRange_Min.isEmpty() || timeRange_Min.equalsIgnoreCase("N/A"))
                         timeRange_Min = ((TextView) findViewById(R.id.txt_startDate)).getText().toString();
@@ -526,6 +541,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                     String timeRange_Max = null;
 
                     if (timeRange_Max == null || timeRange_Max.equalsIgnoreCase("N/A"))
+                       // timeRange_Max = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -2, 0);
                         timeRange_Max = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", 0, 1);
 
                     //If timeRange_Max is greater than current time than assign (timeRange_Max <- current time)
@@ -541,8 +557,15 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                     TimePickerUtil timePickerUtil = new TimePickerUtil();
                     timePickerUtil.initTimePicker(UpTimeRegisterActivity.this, timeRange_Min, timeRange_Max, defaultTime, UpTimeRegisterActivity.this, R.id.txt_endDate);
                 } else {
-                    String timeRange_Min = ((TextView) findViewById(R.id.txt_startDate)).getText().toString();
-                    String timeRange_Max = jobEndDate;
+                   // String timeRange_Min = ((TextView) findViewById(R.id.txt_startDate)).getText().toString();
+                  //  String timeRange_Max = jobEndDate;
+                    String timeRange_Min  = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -1, 0);
+
+                    String timeRange_Max = null;
+
+                    if (timeRange_Max == null || timeRange_Max.equalsIgnoreCase("N/A"))
+                        // timeRange_Max = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -2, 0);
+                        timeRange_Max = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", 0, 1);
 
                     if (timeRange_Max == null || timeRange_Max.equalsIgnoreCase("N/A"))
                         timeRange_Max = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", 0, 1);

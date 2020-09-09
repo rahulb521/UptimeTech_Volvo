@@ -1,5 +1,6 @@
 package com.teramatrix.vos.service;
 
+import android.app.Activity;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -52,7 +53,7 @@ public class PostLocationService extends Service {
 		// get SharedPreferences of an application
 		SharedPreferences preference = getApplicationContext()
 				.getSharedPreferences(ApplicationConstant.PREFERENCE_NAME,
-						MODE_PRIVATE);
+						Activity.MODE_PRIVATE);
 
 		// get updated location
 		float latt = preference.getFloat(ApplicationConstant.KEY_LATT, 0);

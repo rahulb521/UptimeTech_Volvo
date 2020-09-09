@@ -2,9 +2,12 @@ package com.teramatrix.vos.utils;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+
+import com.teramatrix.vos.service.Locationservice;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +46,22 @@ public class PermissionsUtils {
     public void requestForPermission(Activity activity) {
         if (checkPermissions(activity)) {
             //  permissions  granted.
+            //Get Users Last Known Location
+            UtilityFunction.setDefaultLocationToDelhi(activity);
+            // start tracking
+		/*Intent mServiceIntent = new Intent(this,
+				DeviceTrackingService.class);*/
+            Intent mServiceIntent = new Intent(activity,
+                    Locationservice.class);
+            activity.startService(mServiceIntent);
+        }else {
+            UtilityFunction.setDefaultLocationToDelhi(activity);
+            // start tracking
+		/*Intent mServiceIntent = new Intent(this,
+				DeviceTrackingService.class);*/
+            Intent mServiceIntent = new Intent(activity,
+                    Locationservice.class);
+            activity.startService(mServiceIntent);
         }
     }
 

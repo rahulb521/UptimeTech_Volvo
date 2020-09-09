@@ -27,6 +27,10 @@ public class VECVPreferences {
 	private String pinPassword = "Pin_Password";
 	private String userType = "UserType";
 	private String SiteId = "SiteId";
+	private String lat = "Latitude";
+	private String lng = "Longitude";
+
+
 
 
 
@@ -264,4 +268,25 @@ public class VECVPreferences {
 	public void setSiteId(String siteId) {
 		prefsEditor.putString(SiteId, siteId).commit();
 	}
+
+	// Setter getter for lat
+	public void setLat(String lat) {
+		prefsEditor.putString(lat, lat).commit();
+	}
+
+	public String getLat() {
+		return appSharedPrefs.getString(lat, "");
+	}
+
+
+	// Setter getter for lat
+	public void setLng(String value) {
+		prefsEditor.putString(lng, value).apply();
+	}
+
+	public String getLng(String def) {
+		return appSharedPrefs.getString(lng, def);
+	}
+
+
 }

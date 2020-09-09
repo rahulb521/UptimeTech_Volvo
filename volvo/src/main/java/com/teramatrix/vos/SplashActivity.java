@@ -59,6 +59,8 @@ public class SplashActivity extends Activity {
 
 		ApplicationConstant.currentActivityContext = SplashActivity.this;
 		vecvPreferences = new VECVPreferences(SplashActivity.this);
+
+
 	}
 
 	/*

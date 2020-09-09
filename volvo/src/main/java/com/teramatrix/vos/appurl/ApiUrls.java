@@ -34,6 +34,8 @@ public class ApiUrls {
     // URL for DEVICE_CONFIGURATION_LICENSE
     public static String DEVICE_CONFIGURATION_LICENSE = "Api/ServiceEnginner";
 
+    public static String UPDATE_LICENSE = "Api/Mobile?name=tt";
+
     // URL for DEVICE_CONFIGURAITON_PIN
     public static String CONFIGURATION_PIN = "Api/ServiceEnginner?Pin=ttpl";
 

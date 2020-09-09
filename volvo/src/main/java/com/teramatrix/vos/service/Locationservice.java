@@ -26,6 +26,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.teramatrix.vos.MyTicketActivity;
 import com.teramatrix.vos.R;
+import com.teramatrix.vos.preferences.VECVPreferences;
 import com.teramatrix.vos.utils.UtilityFunction;
 
 import java.util.Timer;
@@ -36,6 +37,8 @@ public class Locationservice extends Service implements
   public static final String TAG = "Locationservice";
   public static GoogleApiClient mGoogleApiClient;
   public static final long UPDATE_LOCATION_INTERVAL = 60 * 1000;
+  // Defining VECV Preferences class
+  VECVPreferences vecvPreferences;
   //    PubnubHandler pubnubHandler;
   private LocationRequest mLocationRequest;
   private boolean mRequestingLocationUpdates = false;
@@ -145,8 +148,11 @@ public class Locationservice extends Service implements
     // TODO Auto-generated method stub
     UtilityFunction.saveLocationToPreference(getApplicationContext(), updatelocation);
 
-    if (updatelocation != null)
+    if (updatelocation != null) {
       printLog("location lat:" + updatelocation.getLatitude() + " , lng:" + updatelocation.getLongitude());
+
+    }
+
   }
 
   protected synchronized void buildGoogleApiClient() {

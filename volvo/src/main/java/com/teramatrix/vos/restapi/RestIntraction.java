@@ -18,12 +18,15 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.conn.ConnectTimeoutException;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HTTP;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.util.Log;
 
@@ -35,6 +38,9 @@ public class RestIntraction {
 	// Defining arraylist to get parameters and headers
 	private ArrayList<NameValuePair> params;
 	private ArrayList<NameValuePair> headers;
+	private JSONObject jsonObject;
+
+	private  static HttpClient mHhttpclient = new DefaultHttpClient();
 
 	// Defining string to get url
 	private String url;
@@ -81,6 +87,7 @@ public class RestIntraction {
 		this.url = url;
 		params = new ArrayList<NameValuePair>();
 		headers = new ArrayList<NameValuePair>();
+		jsonObject = new JSONObject();
 	}
 
 	/**
@@ -95,6 +102,10 @@ public class RestIntraction {
 		params.add(new BasicNameValuePair(name, value));
 	}
 
+	public void AddJson(String name, JSONObject value) throws JSONException {
+		jsonObject = value;
+	}
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
@@ -102,14 +113,7 @@ public class RestIntraction {
 
 	}
 
-	/**
-	 * To add parameters to REST Request
-	 * 
-	 * @param name
-	 *            of the parameter
-	 * @param value
-	 *            of the parameter
-	 */
+
 	public void AddParamArray(String name, ArrayList<String> arrayOfValues) {
 		for (String value : arrayOfValues) {
 			params.add(new BasicNameValuePair(name, value));
@@ -198,9 +202,32 @@ public class RestIntraction {
 			executeRequest(request, url);
 			break;
 		}
+			case 3:
+			{
+				// add obj
+				HttpPost request = new HttpPost(url);
+				request.setHeader("Content-type", "application/json");
+				request.setHeader("Accept", "application/json");
+				//request.setHeader("Authorization", "Bearer " + accesstoken);
+				String utf=convertStringToUTF8(jsonObject.toString().trim());
+				StringEntity se = new StringEntity(utf);
+				request.setEntity(se);
+				executeRequest(request, url);
+				break;
+			}
+
 		}
 	}
-
+	// convert internal Java String format to UTF-8
+	public static String convertStringToUTF8(String s) {
+		String out = null;
+		try {
+			out = new String(s.getBytes("UTF-8"), "ISO-8859-1");
+		} catch (Exception e) {
+			return null;
+		}
+		return out;
+	}
 	/**
 	 * To execute the REST request
 	 * 
@@ -300,4 +327,7 @@ public class RestIntraction {
 		}
 		return sb.toString();
 	}
+
+
+
 }
