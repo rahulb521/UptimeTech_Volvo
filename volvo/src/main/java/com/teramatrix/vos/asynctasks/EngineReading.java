@@ -64,8 +64,7 @@ public class EngineReading extends AsyncTask<Void, Void, Void> {
             restIntraction.AddParam("Token", "teramatrix");
             restIntraction.AddParam("InapplicationLicenseKey", vecvPreferences.getLicenseKey());
             restIntraction.AddParam("RequiredDate", ms);
-            restIntraction.toString();
-            restIntraction.Execute(1);
+            restIntraction.toString();restIntraction.Execute(1);
 
             // get response from the service
             response = restIntraction.getResponse();
