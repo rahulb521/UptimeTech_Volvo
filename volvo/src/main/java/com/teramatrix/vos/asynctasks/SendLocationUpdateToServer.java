@@ -2,12 +2,19 @@ package com.teramatrix.vos.asynctasks;
 
 import org.json.JSONObject;
 
+import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.teramatrix.vos.ConfigurationLicenseActivity;
 import com.teramatrix.vos.EosApplication;
+import com.teramatrix.vos.MyDialog;
+import com.teramatrix.vos.R;
 import com.teramatrix.vos.appurl.ApiUrls;
 import com.teramatrix.vos.preferences.VECVPreferences;
 import com.teramatrix.vos.restapi.RestIntraction;
@@ -39,6 +46,8 @@ public class SendLocationUpdateToServer extends AsyncTask<Void, Void, Void> {
 
 	// define JSONObject object of the class
 	private JSONObject jsonObject;
+
+	private boolean isActivityShow = true;
 
 	// define Service instance of the class
 	private Service service;
@@ -94,7 +103,9 @@ public class SendLocationUpdateToServer extends AsyncTask<Void, Void, Void> {
 
 			vecvPreferences = new VECVPreferences(context);
 			restIntraction = new RestIntraction(new VECVPreferences(context).getAPIEndPoint_EOS()+""+
-					ApiUrls.INSERT_TRACKING_LOCATION);
+					ApiUrls.INSERT_TRACKING_LOCATION+"?IMEI_Number="+vecvPreferences.getImeiNumber());
+
+
 
 			restIntraction
 					.AddParam("Token", vecvPreferences.getSecurityToken());
@@ -137,9 +148,19 @@ public class SendLocationUpdateToServer extends AsyncTask<Void, Void, Void> {
 				jsonObject = new JSONObject(response);
 				String response = "Response status:" + jsonObject;
 				System.out.println("Response status:" + jsonObject);
+				String status = jsonObject.getString("status");
+				boolean userLogout = jsonObject.getBoolean("UserLogout");
+				if(!userLogout){
 
-				UtilityFunction.toastMessage(context,response+""+latitude+","+longitude);
+						vecvPreferences.setImeiNumber(null);
+						Intent dialogIntent = new Intent(context, ConfigurationLicenseActivity.class);
+						dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+						context.startActivity(dialogIntent);
 
+
+
+
+				}
 			} catch (Exception e) {
 				//Google Analytic -Tracking Exception 
 				EosApplication.getInstance().trackException(e);

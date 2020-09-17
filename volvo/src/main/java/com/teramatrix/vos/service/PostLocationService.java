@@ -20,8 +20,10 @@ import com.teramatrix.vos.asynctasks.SendLocationUpdateToServer;
 import com.teramatrix.vos.checkinternet.CheckInternetConnection;
 import com.teramatrix.vos.database.DBInteraction;
 import com.teramatrix.vos.model.LocationTrackingLog;
+import com.teramatrix.vos.preferences.VECVPreferences;
 import com.teramatrix.vos.utils.ApplicationConstant;
 import com.teramatrix.vos.utils.UtilityFunction;
+import com.teramatrix.vos.volvouptime.UpTimeVehicleListActivity;
 
 
 /**
@@ -102,9 +104,16 @@ public class PostLocationService extends Service {
 			}
 
 			Log.i(TAG,"SendLocationUpdateToServer "+latt+" "+lng);
-			new SendLocationUpdateToServer(this, getApplicationContext(), latt,
-					lng, locationLogTime, battary_label, gps_state,
-					charging_state, is_power_saving_mode_on).execute();
+
+			VECVPreferences vecvPreferences = new VECVPreferences(getApplicationContext());
+			vecvPreferences.setCheckLogin(false);
+			vecvPreferences.setCheckconfigure(false);
+			String imeiNumber = vecvPreferences.getImeiNumber();
+			if(imeiNumber != null && !imeiNumber.isEmpty()) {
+				new SendLocationUpdateToServer(this, getApplicationContext(), latt,
+								lng, locationLogTime, battary_label, gps_state,
+								charging_state, is_power_saving_mode_on).execute();
+			}
 		} else {
 			// check IS_TESTING_TOAST_SHOWN is enable or not
 			if (ApplicationConstant.isLocationTrackingLogsEnabled) {

@@ -22,6 +22,9 @@
     <!-- Permission to vibrate -->
     <uses-permission android:name="android.permission.VIBRATE" />
 
+
+
+
     <permission
         android:name="com.teramatrix.vos.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
@@ -162,6 +165,11 @@
             android:name="com.teramatrix.vos.service.Locationservice"
             android:enabled="true" >
         </service>
+
+        <activity android:name=".MyDialog"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" />"
+
 
 
         <receiver

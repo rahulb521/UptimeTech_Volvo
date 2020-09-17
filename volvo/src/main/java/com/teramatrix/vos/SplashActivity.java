@@ -230,8 +230,7 @@ public class SplashActivity extends Activity {
 						} else {
 
 							// get IMEI number from vecvPreferences instance
-							String imei_number = vecvPreferences
-									.getImeiNumber();
+							String imei_number = vecvPreferences.getImeiNumber();
 							// get License key
 							String licence_key = vecvPreferences
 									.getLicenseKey();
@@ -451,6 +450,8 @@ public class SplashActivity extends Activity {
 										dialog.dismiss();
 										// finish dialog activity
 										finish();
+										vecvPreferences.setCheckconfigure(false);
+										vecvPreferences.setCheckLogin(false);
 									}
 								});
 						alertbox.show();
