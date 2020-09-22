@@ -1,1 +1,1 @@
-[{"outputType":{"type":"APK"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":54},"path":"volvo-prod-release.apk","properties":{"packageId":"com.teramatrix.vos","split":"","minSdkVersion":"15"}}]
+[{"outputType":{"type":"APK"},"apkData":{"type":"MAIN","splits":[],"versionCode":57,"versionName":"1.7","enabled":true,"outputFile":"volvo-prod-release.apk","fullName":"prodRelease","baseName":"prod-release"},"path":"volvo-prod-release.apk","properties":{}}]

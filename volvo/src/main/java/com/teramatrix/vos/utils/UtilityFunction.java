@@ -114,6 +114,7 @@ public class UtilityFunction {
 		// get the device id via telephonyManage
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 			imeiNumber =  telephonyManager.getImei(1);
+			//imeiNumber =  null;
 		} else {
 			imeiNumber = telephonyManager.getDeviceId();
 		}

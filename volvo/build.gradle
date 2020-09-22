@@ -26,8 +26,8 @@ android {
         minSdkVersion 15
         targetSdkVersion 28
         multiDexEnabled true
-        versionCode = 56
-        versionName = "1.6"
+        versionCode = 57
+        versionName = "1.7"
     }
 
     productFlavors {

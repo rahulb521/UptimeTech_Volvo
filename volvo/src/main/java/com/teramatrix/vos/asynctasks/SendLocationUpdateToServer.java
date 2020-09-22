@@ -150,17 +150,14 @@ public class SendLocationUpdateToServer extends AsyncTask<Void, Void, Void> {
 				System.out.println("Response status:" + jsonObject);
 				String status = jsonObject.getString("status");
 				boolean userLogout = jsonObject.getBoolean("UserLogout");
-				if(!userLogout){
-
-						vecvPreferences.setImeiNumber(null);
-						Intent dialogIntent = new Intent(context, ConfigurationLicenseActivity.class);
-						dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-						context.startActivity(dialogIntent);
-
-
-
-
-				}
+//				if(!userLogout){
+//						vecvPreferences.setCheckLogin(false);
+//						vecvPreferences.setCheckconfigure(false);
+//						vecvPreferences.setImeiNumber(null);
+//						Intent dialogIntent = new Intent(context, ConfigurationLicenseActivity.class);
+//						dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//						context.startActivity(dialogIntent);
+//				}
 			} catch (Exception e) {
 				//Google Analytic -Tracking Exception 
 				EosApplication.getInstance().trackException(e);

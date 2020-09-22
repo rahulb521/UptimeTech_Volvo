@@ -29,8 +29,8 @@ import com.teramatrix.vos.volvouptime.UpTimeVehicleListActivity;
 
 /**
  * SplashActivity class is responsible for Launcher/Splash screen
- * 
  * @author Gaurav Mangal
+ *
  */
 public class SplashActivity extends Activity {
 
