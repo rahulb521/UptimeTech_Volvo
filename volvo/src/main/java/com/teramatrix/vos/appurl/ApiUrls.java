@@ -43,7 +43,7 @@ public class ApiUrls {
     public static String CONFIGURATION_SIGN_IN_PIN = "Api/ServiceEnginner?SignId=ttpl&ServiceEnginner=tttpl";
 
     // URL for DEVICE_CONFIGURAITON_PIN_SIGNIN
-    public static String INSERT_TRACKING_LOCATION = "Api/Tracking";
+    public static String INSERT_TRACKING_LOCATION = "Api/Tracking?";
 
 
     // URL for TICKET_OPEN_DEVICE_ALIAS

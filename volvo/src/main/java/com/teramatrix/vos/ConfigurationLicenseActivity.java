@@ -215,10 +215,11 @@ public class ConfigurationLicenseActivity extends Activity implements INetworkAv
 		// Set API end URLs
 		if (vecvPreferences.getAPIEndPoint_EOS().isEmpty()) {
 			//String host_address = BuildConfig.HOST;
-			String host_address = "https://uptimecenter.vecv.net:8082/";
+			//String host_address = "https://uptimecenter.vecv.net:8082/";
 			//String host_address = "http://10.10.1.100:9093/";
-			//String host_address = "http://169.38.133.115:8081/";
+			String host_address = "http://169.38.133.115:8081/";
 			vecvPreferences.setAPIEndPoint_EOS(host_address);
+
 		}
 
 		//Set Terms and Privacy String
