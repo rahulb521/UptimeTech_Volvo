@@ -3,6 +3,7 @@ package com.teramatrix.vos.asynctasks;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.teramatrix.vos.R;
 import com.teramatrix.vos.appurl.ApiUrls;
@@ -94,6 +95,7 @@ public class SaveEngineReading extends AsyncTask<Void, Void, Void> {
         super.onPostExecute(aVoid);
         try {
             if (response != null) {
+                Log.v("SaveEngineHoursResponse", response);
                 JSONObject jsonObject = new JSONObject(response);
                 if (jsonObject.has("Status") &&
                         jsonObject.getString("Status").equalsIgnoreCase("1")) {
