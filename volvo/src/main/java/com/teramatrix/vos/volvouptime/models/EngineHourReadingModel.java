@@ -69,6 +69,16 @@ public class EngineHourReadingModel extends Model {
     private String PreviousMonthUtilizationData;
     @Column(name = "isModified")
     private boolean isModified;
+    @Column(name = "GetUtilizationDatafirst")
+    private String GetUtilizationDatafirst;
+
+    public String getGetUtilizationDatafirst() {
+        return GetUtilizationDatafirst;
+    }
+
+    public void setGetUtilizationDatafirst(String getUtilizationDatafirst) {
+        GetUtilizationDatafirst = getUtilizationDatafirst;
+    }
 
     public String getInRequiredTime() {
         return inRequiredTime;

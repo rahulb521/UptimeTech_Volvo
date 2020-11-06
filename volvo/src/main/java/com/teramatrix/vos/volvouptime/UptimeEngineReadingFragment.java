@@ -24,10 +24,12 @@ import com.teramatrix.vos.R;
 import com.teramatrix.vos.asynctasks.EngineReading;
 import com.teramatrix.vos.asynctasks.SaveEngineReading;
 import com.teramatrix.vos.checkinternet.CheckInternetConnection;
+import com.teramatrix.vos.firebase.config.Config;
 import com.teramatrix.vos.restapi.RestClient;
 import com.teramatrix.vos.volvouptime.adapter.EngineHourAdapter;
 import com.teramatrix.vos.volvouptime.adapter.VehicleAdapter;
 import com.teramatrix.vos.volvouptime.models.EngineHourReadingModel;
+import com.teramatrix.vos.volvouptime.models.EngineHourUtlilizationReadingDialog;
 import com.teramatrix.vos.volvouptime.models.VehicleModel;
 import com.whiteelephant.monthpicker.MonthPickerDialog;
 
@@ -248,6 +250,18 @@ public class UptimeEngineReadingFragment extends android.support.v4.app.Fragment
     public void engineReadingList(List<EngineHourReadingModel> engineHourReadingModels, boolean whenRefreshing) {
         this.engineHourReadingModels.clear();
         this.engineHourReadingModels.addAll(engineHourReadingModels);
+        for (int i=0; i<engineHourReadingModels.size();i++)
+        {
+            if (engineHourReadingModels.get(i).getGetUtilizationDatafirst().equals("false"))
+            {
+                Config.isClickable=true;
+                break;
+            }
+            else
+            {
+                Config.isClickable = false;
+            }
+        }
         engineHourAdapter.notifyDataSetChanged();
         if (!whenRefreshing) {
             checkAnyEntryPending();
@@ -271,7 +285,7 @@ public class UptimeEngineReadingFragment extends android.support.v4.app.Fragment
                 current_data = current_data + engineHourReadingModel.getCurrentMonthUtilizationData() + ",";
                 save_time=save_time+engineHourReadingModel.getInRequiredTime()+",";
                 prev_util=prev_util+engineHourReadingModel.getPreviousMonthUtilizationData()+",";
-
+               // Config.isClickable=true;
             }
         }
         if (anyData) {
@@ -315,7 +329,7 @@ public class UptimeEngineReadingFragment extends android.support.v4.app.Fragment
                 ) {
             if (engineHourReadingModel.getCurrentMonthUtilizationData().equalsIgnoreCase("0")) {
                 //setdata pending true
-                EngineHourReadingDialog engineHourReadingDialog = new EngineHourReadingDialog(getActivity(), "Please enter engine hours utilization for last month");
+                EngineHourUtlilizationReadingDialog engineHourReadingDialog = new EngineHourUtlilizationReadingDialog(getActivity(), "Please enter engine hours utilization for last month");
                 engineHourReadingDialog.show();
                 break;
             }

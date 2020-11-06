@@ -153,7 +153,8 @@
 	<string name="update_estimation_cost">Updating estimated cost</string>
 	
 	<string name="pd_reason">Select Problem</string>
-	
+	<string name="skip">Skip</string>
+
 	<string name="str_help">Help</string>
 	<string name="log_folder_help_vedio">/Eicher_Log/</string>
 	<string name="file_size">please download video again</string>

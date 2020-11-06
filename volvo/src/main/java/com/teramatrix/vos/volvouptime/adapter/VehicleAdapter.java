@@ -10,10 +10,15 @@ import android.widget.TextView;
 
 
 import com.teramatrix.vos.R;
+import com.teramatrix.vos.firebase.config.Config;
 import com.teramatrix.vos.volvouptime.custom.OnItemClickListener;
 import com.teramatrix.vos.volvouptime.models.VehicleModel;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Arun.Singh on 3/19/2018.
@@ -41,8 +46,23 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHo
         public void bind(final VehicleModel item, final OnItemClickListener listener) {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    listener.onItemClick(item);
+                public void onClick(View v)
+                {
+                    Date c = Calendar.getInstance().getTime();
+                    System.out.println("Current time => " + c);
+                    SimpleDateFormat df = new SimpleDateFormat("dd", Locale.getDefault());
+                    String formattedDate = df.format(c);
+                    if (formattedDate.equals("01") || formattedDate.equals("02"))
+                    {
+                        listener.onItemClick(item);
+                    }
+                    else
+                        {
+                        if (Config.isClickable)
+                        {
+                            listener.onItemClick(item);
+                        }
+                    }
                 }
             });
         }
