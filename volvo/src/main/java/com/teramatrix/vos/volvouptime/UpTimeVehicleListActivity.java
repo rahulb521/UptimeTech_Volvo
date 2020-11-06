@@ -20,10 +20,15 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.text.InputType;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.teramatrix.vos.MyTicketActivity;
 import com.teramatrix.vos.R;
@@ -57,9 +62,11 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
     private List<VehicleModel> vehicleModelList;
     private Dialog confirmjobDialog = null;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-
+    SearchView searchView;
     ViewPager viewPager;
     TabLayout tablayout;
+    UpTImeVehicleListFragment upTImeVehicleListFragment;
+    SparseArray<Fragment> registeredFragments = new SparseArray<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +120,7 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
          * Initialize basic views
          */
         private void initViews () {
-
+            upTImeVehicleListFragment = new UpTImeVehicleListFragment();
             //findViewById(R.id.icon_search).setVisibility(View.VISIBLE);
             //findViewById(R.id.icon_search).setOnClickListener(this);
             findViewById(R.id.icon_refresh).setVisibility(View.VISIBLE);
@@ -123,6 +130,8 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
 
             viewPager = (ViewPager) findViewById(R.id.viewPager);
             tablayout = (TabLayout) findViewById(R.id.tablayout);
+            searchView = (SearchView) findViewById(R.id.searchView);
+            searchView.setQueryHint("Search Chasis");
             fragmentList = new ArrayList<>();
             fragmentList.add(new UpTImeVehicleListFragment());
             fragmentList.add(new UptimeEngineReadingFragment());
@@ -131,6 +140,27 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
             tablayout.setupWithViewPager(viewPager);
             //tablayout.setVisibility(View.GONE);
             new AppVersionChekerAsyn(this, "1001", this).execute();
+            searchView.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query)
+                {
+                    UpTImeVehicleListFragment upTImeVehicleListFragment =(UpTImeVehicleListFragment)getRegisteredFragment(viewPager.getCurrentItem());
+                    upTImeVehicleListFragment.getFilterfromFragment(query);
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String query) {
+
+                    UpTImeVehicleListFragment upTImeVehicleListFragment =(UpTImeVehicleListFragment)getRegisteredFragment(viewPager.getCurrentItem());
+                    upTImeVehicleListFragment.getFilterfromFragment(query);
+                    return false;
+                }
+            });
+
+
 
 
         }
@@ -217,6 +247,7 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
         public class ViewPagerAdapter extends FragmentPagerAdapter {
             List<Fragment> fragmentList;
 
+
             public ViewPagerAdapter(FragmentManager fm, List<Fragment> fragmentList) {
                 super(fm);
                 this.fragmentList = fragmentList;
@@ -243,6 +274,24 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
 
                 return title;
             }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            Fragment fragment = (Fragment) super.instantiateItem(container, position);
+            registeredFragments.put(position, fragment);
+            return fragment;
         }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            registeredFragments.remove(position);
+            super.destroyItem(container, position, object);
+        }
+
+        }
+
+    public Fragment getRegisteredFragment(int position) {
+        return registeredFragments.get(position);
+    }
 
 }

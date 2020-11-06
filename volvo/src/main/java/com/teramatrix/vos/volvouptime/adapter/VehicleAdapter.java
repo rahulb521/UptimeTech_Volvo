@@ -6,15 +6,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.google.android.gms.common.data.DataHolder;
 import com.teramatrix.vos.R;
 import com.teramatrix.vos.firebase.config.Config;
 import com.teramatrix.vos.volvouptime.custom.OnItemClickListener;
 import com.teramatrix.vos.volvouptime.models.VehicleModel;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -25,11 +30,14 @@ import java.util.Locale;
  * This is adapter class to generate vehicle List on UpTime Home Screen(UpTimeVehicleLsitActivity)
  */
 
-public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHolder> {
+public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHolder> implements Filterable {
 
-    private List<VehicleModel> vehicleModelList;
+    static List<VehicleModel> vehicleModelList;
+    static List<VehicleModel> vehicleModelFilterList;
+    static List<String> vehicleChasisList;
     private Context context;
     private OnItemClickListener listener;
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView tv_reg_no_value, tv_door_no_value;
@@ -70,9 +78,11 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHo
     }
 
 
-    public VehicleAdapter(Context context, List<VehicleModel> vehicleModelList, OnItemClickListener listener) {
+    public VehicleAdapter(Context context, List<VehicleModel> vehicleModelList, List<String> vehicleChasisList,OnItemClickListener listener) {
         this.context = context;
         this.vehicleModelList = vehicleModelList;
+        this.vehicleModelFilterList = vehicleModelList;
+        this.vehicleChasisList = vehicleChasisList;
         this.listener = listener;
     }
 
@@ -104,5 +114,62 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHo
     @Override
     public int getItemCount() {
         return vehicleModelList.size();
+    }
+
+
+    public  void filter(String text)
+    {
+        List<VehicleModel> temp = new ArrayList();
+        for(VehicleModel d: vehicleModelList)
+        {
+            if(d.getChassisNumber().contains(text))
+            {
+                temp.add(d);
+            }
+        }
+        if (temp.size()==0)
+        {
+            Toast.makeText(context, "Data not found", Toast.LENGTH_SHORT).show();
+        }
+        updateList(temp);
+    }
+
+    public void updateList(List<VehicleModel> list){
+        vehicleModelList = list;
+        notifyDataSetChanged();
+    }
+
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String charString = charSequence.toString();
+                if (charString.isEmpty())
+                {
+                    vehicleModelFilterList = vehicleModelList;
+                } else {
+                    List<VehicleModel> filteredList = new ArrayList<>();
+                    for (VehicleModel row : vehicleModelList)
+                    {
+                        if (row.getChassisNumber().toLowerCase().contains(charString.toLowerCase()) || row.getDoorNumber().contains(charSequence)) {
+                            filteredList.add(row);
+                        }
+                    }
+                    vehicleModelFilterList = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = vehicleModelFilterList;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                vehicleModelFilterList = (ArrayList<VehicleModel>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 }

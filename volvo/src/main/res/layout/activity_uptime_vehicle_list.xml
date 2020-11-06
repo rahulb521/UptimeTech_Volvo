@@ -9,9 +9,28 @@
 
     <!--Include Header -->
     <include layout="@layout/main_header"
-        ></include>
+        />
 
-  <android.support.design.widget.TabLayout
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:queryHint="Search Here"
+            android:iconifiedByDefault="false"
+            android:layout_alignParentTop="true"
+            />
+
+    </RelativeLayout>
+
+
+
+
+    <android.support.design.widget.TabLayout
       android:id="@+id/tablayout"
       app:tabGravity="fill"
       app:tabMode="fixed"

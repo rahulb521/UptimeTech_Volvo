@@ -51,7 +51,7 @@ public class UptimeEngineReadingFragment extends android.support.v4.app.Fragment
     private RecyclerView recyclerView;
     private Dialog confirmjobDialog = null;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    List<EngineHourReadingModel> engineHourReadingModels = new ArrayList<>();
+    public static List<EngineHourReadingModel> engineHourReadingModels = new ArrayList<>();
     LinearLayout lin_action;
     TextView save_btn;
     TextView current_month, prev_month;

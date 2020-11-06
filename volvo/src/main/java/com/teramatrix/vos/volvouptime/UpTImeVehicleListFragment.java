@@ -35,8 +35,9 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
     View view;
 
     private RecyclerView recyclerView;
-    private VehicleAdapter vehicleAdapter;
-    private List<VehicleModel> vehicleModelList;
+    public  VehicleAdapter vehicleAdapter;
+    public  List<VehicleModel> vehicleModelList;
+    public  List<String> vehicleChasisNo;
     private Dialog confirmjobDialog = null;
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
@@ -65,7 +66,8 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
     private void initViews(){
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_view);
         vehicleModelList = new ArrayList<>();
-        vehicleAdapter = new VehicleAdapter(getActivity(), vehicleModelList, this);
+        vehicleChasisNo = new ArrayList<>();
+        vehicleAdapter = new VehicleAdapter(getActivity(),vehicleModelList,vehicleChasisNo , this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -113,6 +115,16 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
         }
     }
 
+    public void getFilterfromFragment(String text)
+    {
+        vehicleAdapter.filter(text);
+        if (text.equals(""))
+        {
+            vehicleAdapter = new VehicleAdapter(getActivity(),vehicleModelList,vehicleChasisNo , this);
+            recyclerView.setAdapter(vehicleAdapter);
+        }
+    }
+
     @Override
     public void onRefresh() {
         loadVehicleList();
@@ -127,6 +139,11 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
     @Override
     public void vehicleList(List<VehicleModel> vehicleModels) {
         vehicleModelList.clear();
+        vehicleChasisNo.clear();
+        for (int i=0; i<vehicleModels.size();i++)
+        {
+            vehicleChasisNo.add(vehicleModels.get(i).getChassisNumber());
+        }
         if (vehicleModels.size() > 0) {
             view.findViewById(R.id.txt_empty_view).setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
