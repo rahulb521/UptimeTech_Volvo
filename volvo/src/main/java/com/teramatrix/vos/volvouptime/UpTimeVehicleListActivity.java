@@ -65,7 +65,6 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
     SearchView searchView;
     ViewPager viewPager;
     TabLayout tablayout;
-    UpTImeVehicleListFragment upTImeVehicleListFragment;
     SparseArray<Fragment> registeredFragments = new SparseArray<>();
 
     @Override
@@ -120,7 +119,6 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
          * Initialize basic views
          */
         private void initViews () {
-            upTImeVehicleListFragment = new UpTImeVehicleListFragment();
             //findViewById(R.id.icon_search).setVisibility(View.VISIBLE);
             //findViewById(R.id.icon_search).setOnClickListener(this);
             findViewById(R.id.icon_refresh).setVisibility(View.VISIBLE);
@@ -142,27 +140,59 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
             new AppVersionChekerAsyn(this, "1001", this).execute();
             searchView.setInputType(InputType.TYPE_CLASS_NUMBER);
 
+            viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+               @Override
+               public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+               }
+
+               @Override
+               public void onPageSelected(int position) {
+                   if (position==0) {
+                       UpTImeVehicleListFragment upTImeVehicleListFragment = (UpTImeVehicleListFragment) getRegisteredFragment(viewPager.getCurrentItem());
+                       upTImeVehicleListFragment.resetList();
+                   }
+                   else{
+                       UptimeEngineReadingFragment uptimeEngineReadingFragment = (UptimeEngineReadingFragment) getRegisteredFragment(viewPager.getCurrentItem());
+                       uptimeEngineReadingFragment.resetList();
+                   }
+                   searchView.setQuery("", false);
+                   searchView.clearFocus();
+               }
+
+               @Override
+               public void onPageScrollStateChanged(int state) {
+
+               }
+           });
+
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextSubmit(String query)
                 {
-                    UpTImeVehicleListFragment upTImeVehicleListFragment =(UpTImeVehicleListFragment)getRegisteredFragment(viewPager.getCurrentItem());
-                    upTImeVehicleListFragment.getFilterfromFragment(query);
+                    if (viewPager.getCurrentItem()==0) {
+                        UpTImeVehicleListFragment upTImeVehicleListFragment = (UpTImeVehicleListFragment) getRegisteredFragment(viewPager.getCurrentItem());
+                        upTImeVehicleListFragment.getFilterfromFragment(query);
+                    }
+                    else{
+                        UptimeEngineReadingFragment uptimeEngineReadingFragment = (UptimeEngineReadingFragment) getRegisteredFragment(viewPager.getCurrentItem());
+                        uptimeEngineReadingFragment.getFilterfromFragment(query);
+                    }
                     return false;
                 }
 
                 @Override
                 public boolean onQueryTextChange(String query) {
-
-                    UpTImeVehicleListFragment upTImeVehicleListFragment =(UpTImeVehicleListFragment)getRegisteredFragment(viewPager.getCurrentItem());
-                    upTImeVehicleListFragment.getFilterfromFragment(query);
+                    if (viewPager.getCurrentItem()==0) {
+                        UpTImeVehicleListFragment upTImeVehicleListFragment = (UpTImeVehicleListFragment) getRegisteredFragment(viewPager.getCurrentItem());
+                        upTImeVehicleListFragment.getFilterfromFragment(query);
+                    }else{
+                        UptimeEngineReadingFragment uptimeEngineReadingFragment = (UptimeEngineReadingFragment) getRegisteredFragment(viewPager.getCurrentItem());
+                        uptimeEngineReadingFragment.getFilterfromFragment(query);
+                    }
                     return false;
                 }
             });
-
-
-
-
         }
 
 

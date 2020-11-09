@@ -125,6 +125,12 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
         }
     }
 
+    public void resetList()
+    {
+        vehicleAdapter = new VehicleAdapter(getActivity(),vehicleModelList,vehicleChasisNo , this);
+        recyclerView.setAdapter(vehicleAdapter);
+    }
+
     @Override
     public void onRefresh() {
         loadVehicleList();

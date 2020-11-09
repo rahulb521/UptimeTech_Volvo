@@ -11,14 +11,17 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.activeandroid.query.Update;
 import com.teramatrix.vos.R;
 import com.teramatrix.vos.volvouptime.UptimeEngineReadingFragment;
 import com.teramatrix.vos.volvouptime.models.EngineHourReadingModel;
+import com.teramatrix.vos.volvouptime.models.VehicleModel;
 
 import java.text.SimpleDateFormat;
 import java.time.YearMonth;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -31,9 +34,10 @@ public class EngineHourAdapter extends RecyclerView.Adapter<EngineHourAdapter.Vi
     private Context context;
     Long ms;
     List<EngineHourReadingModel> engineHourReadingModels;
+    List<EngineHourReadingModel> engineHourReadingFilterModels;
     ViewHolder viewHolder;
     RecyclerView.LayoutManager layoutManager;
-
+    Toast toast;
     public void setLayoutManager(RecyclerView.LayoutManager layoutManager) {
         this.layoutManager = layoutManager;
     }
@@ -42,6 +46,7 @@ public class EngineHourAdapter extends RecyclerView.Adapter<EngineHourAdapter.Vi
         this.context = context;
         this.ms = ms;
         this.engineHourReadingModels = engineHourReadingModels;
+        this.engineHourReadingFilterModels = engineHourReadingModels;
     }
 
     public Long getMs() {
@@ -214,5 +219,38 @@ public class EngineHourAdapter extends RecyclerView.Adapter<EngineHourAdapter.Vi
 
 // Get the number of days in that month
         return mycal.getActualMaximum(Calendar.DAY_OF_MONTH); // 28
+    }
+
+
+    public void filter(String text)
+    {
+        List<EngineHourReadingModel> temp = new ArrayList();
+        engineHourReadingModels = engineHourReadingFilterModels;
+        for(EngineHourReadingModel d: engineHourReadingModels)
+        {
+            if(d.getChassisNumber().contains(text))
+            {
+                temp.add(d);
+            }
+        }
+        if (temp.size()==0)
+        {
+            showAToast("Data not found");
+
+        }
+        updateList(temp);
+    }
+
+    public void updateList(List<EngineHourReadingModel> list){
+        engineHourReadingModels = list;
+        notifyDataSetChanged();
+    }
+
+    public void showAToast (String message){
+        if (toast != null) {
+            toast.cancel();
+        }
+        toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
+        toast.show();
     }
 }

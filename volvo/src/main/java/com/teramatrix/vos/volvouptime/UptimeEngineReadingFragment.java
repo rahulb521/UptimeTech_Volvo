@@ -345,4 +345,21 @@ public class UptimeEngineReadingFragment extends android.support.v4.app.Fragment
         }
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+
+    public void getFilterfromFragment(String text)
+    {
+        engineHourAdapter.filter(text);
+        if (text.equals(""))
+        {
+            engineHourAdapter = new EngineHourAdapter(getActivity(), requiredTime, engineHourReadingModels);
+            recyclerView.setAdapter(engineHourAdapter);
+        }
+    }
+
+    public void resetList()
+    {
+        engineHourAdapter = new EngineHourAdapter(getActivity(), requiredTime, engineHourReadingModels);
+        recyclerView.setAdapter(engineHourAdapter);
+    }
+
 }

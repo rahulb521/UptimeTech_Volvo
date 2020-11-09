@@ -3,11 +3,13 @@ package com.teramatrix.vos.volvouptime.adapter;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,23 +32,26 @@ import java.util.Locale;
  * This is adapter class to generate vehicle List on UpTime Home Screen(UpTimeVehicleLsitActivity)
  */
 
-public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHolder> implements Filterable {
+public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHolder> {
 
     static List<VehicleModel> vehicleModelList;
     static List<VehicleModel> vehicleModelFilterList;
     static List<String> vehicleChasisList;
     private Context context;
     private OnItemClickListener listener;
-
+    Toast toast;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView tv_reg_no_value, tv_door_no_value;
+        public TextView tv_reg_no_value, tv_door_no_value, txtNoData;
         public View indicator;
+        public LinearLayout linearLayout;
 
         public MyViewHolder(View view) {
             super(view);
 
             tv_reg_no_value = (TextView) view.findViewById(R.id.tv_reg_no_value);
+            txtNoData = (TextView) view.findViewById(R.id.txtNoData);
+            linearLayout = (LinearLayout) view.findViewById(R.id.linearLayout);
             tv_door_no_value = (TextView) view.findViewById(R.id.tv_door_no_value);
             indicator = (View) view.findViewById(R.id.indicator);
         }
@@ -117,9 +122,10 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHo
     }
 
 
-    public  void filter(String text)
+    public void filter(String text)
     {
         List<VehicleModel> temp = new ArrayList();
+        vehicleModelList = vehicleModelFilterList;
         for(VehicleModel d: vehicleModelList)
         {
             if(d.getChassisNumber().contains(text))
@@ -129,8 +135,9 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHo
         }
         if (temp.size()==0)
         {
-            Toast.makeText(context, "Data not found", Toast.LENGTH_SHORT).show();
+           showAToast("Data not found");
         }
+        Log.v("ListSize:",temp.toString());
         updateList(temp);
     }
 
@@ -139,37 +146,13 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHo
         notifyDataSetChanged();
     }
 
-
-    @Override
-    public Filter getFilter() {
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence charSequence) {
-                String charString = charSequence.toString();
-                if (charString.isEmpty())
-                {
-                    vehicleModelFilterList = vehicleModelList;
-                } else {
-                    List<VehicleModel> filteredList = new ArrayList<>();
-                    for (VehicleModel row : vehicleModelList)
-                    {
-                        if (row.getChassisNumber().toLowerCase().contains(charString.toLowerCase()) || row.getDoorNumber().contains(charSequence)) {
-                            filteredList.add(row);
-                        }
-                    }
-                    vehicleModelFilterList = filteredList;
-                }
-
-                FilterResults filterResults = new FilterResults();
-                filterResults.values = vehicleModelFilterList;
-                return filterResults;
-            }
-
-            @Override
-            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                vehicleModelFilterList = (ArrayList<VehicleModel>) filterResults.values;
-                notifyDataSetChanged();
-            }
-        };
+    public void showAToast (String message){
+        if (toast != null) {
+            toast.cancel();
+        }
+        toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
+        toast.show();
     }
+
+
 }
