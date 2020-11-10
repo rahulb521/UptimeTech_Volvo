@@ -42,16 +42,11 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHo
     Toast toast;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView tv_reg_no_value, tv_door_no_value, txtNoData;
+        public TextView tv_reg_no_value, tv_door_no_value;
         public View indicator;
-        public LinearLayout linearLayout;
-
         public MyViewHolder(View view) {
             super(view);
-
             tv_reg_no_value = (TextView) view.findViewById(R.id.tv_reg_no_value);
-            txtNoData = (TextView) view.findViewById(R.id.txtNoData);
-            linearLayout = (LinearLayout) view.findViewById(R.id.linearLayout);
             tv_door_no_value = (TextView) view.findViewById(R.id.tv_door_no_value);
             indicator = (View) view.findViewById(R.id.indicator);
         }

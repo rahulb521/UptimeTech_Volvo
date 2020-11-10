@@ -147,17 +147,19 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
                }
 
                @Override
-               public void onPageSelected(int position) {
-                   if (position==0) {
-                       UpTImeVehicleListFragment upTImeVehicleListFragment = (UpTImeVehicleListFragment) getRegisteredFragment(viewPager.getCurrentItem());
-                       upTImeVehicleListFragment.resetList();
+               public void onPageSelected(int position)
+               {
+                   if (!searchView.isIconified()) {
+                       if (position == 0) {
+                           UpTImeVehicleListFragment upTImeVehicleListFragment = (UpTImeVehicleListFragment) getRegisteredFragment(viewPager.getCurrentItem());
+                           upTImeVehicleListFragment.resetList();
+                       } else {
+                           UptimeEngineReadingFragment uptimeEngineReadingFragment = (UptimeEngineReadingFragment) getRegisteredFragment(viewPager.getCurrentItem());
+                           uptimeEngineReadingFragment.resetList();
+                       }
+                       searchView.setQuery("", false);
+                       searchView.clearFocus();
                    }
-                   else{
-                       UptimeEngineReadingFragment uptimeEngineReadingFragment = (UptimeEngineReadingFragment) getRegisteredFragment(viewPager.getCurrentItem());
-                       uptimeEngineReadingFragment.resetList();
-                   }
-                   searchView.setQuery("", false);
-                   searchView.clearFocus();
                }
 
                @Override
@@ -183,7 +185,8 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
 
                 @Override
                 public boolean onQueryTextChange(String query) {
-                    if (viewPager.getCurrentItem()==0) {
+                    if (viewPager.getCurrentItem()==0)
+                    {
                         UpTImeVehicleListFragment upTImeVehicleListFragment = (UpTImeVehicleListFragment) getRegisteredFragment(viewPager.getCurrentItem());
                         upTImeVehicleListFragment.getFilterfromFragment(query);
                     }else{
