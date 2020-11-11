@@ -515,6 +515,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
 
                 if (type.equalsIgnoreCase(TYPE_ADD_REASON)) {
                     String timeRange_Min  = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -1, 0);
+                    //String timeRange_Min  = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -1, 0);
                  //   String timeRange_Min = ((TextView) findViewById(R.id.txt_startDate)).getText().toString();
 //                    String timeRange_Max = jobEndDate;
 //                    if (timeRange_Max.equalsIgnoreCase("N/A"))
@@ -537,7 +538,8 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                         defaultTime = timeRange_Min;
 
                     TimePickerUtil timePickerUtil = new TimePickerUtil();
-                    timePickerUtil.initTimePicker(UpTimeRegisterActivity.this, timeRange_Min, timeRange_Max, defaultTime, UpTimeRegisterActivity.this, R.id.txt_endDate);
+                    timePickerUtil.initTimePicker(UpTimeRegisterActivity.this, timeRange_Min, timeRange_Max, timeRange_Max, UpTimeRegisterActivity.this, R.id.txt_endDate);
+                   // timePickerUtil.initTimePicker(UpTimeRegisterActivity.this, timeRange_Min, timeRange_Max, defaultTime, UpTimeRegisterActivity.this, R.id.txt_endDate);
 
                 } else if (type.equalsIgnoreCase(TYPE_EDIT_JOB)) {
                    // String timeRange_Min = latestEndTime_reason;

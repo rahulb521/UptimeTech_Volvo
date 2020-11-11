@@ -228,7 +228,7 @@ public class EngineHourAdapter extends RecyclerView.Adapter<EngineHourAdapter.Vi
         engineHourReadingModels = engineHourReadingFilterModels;
         for(EngineHourReadingModel d: engineHourReadingModels)
         {
-            if(d.getChassisNumber().contains(text))
+            if(d.getChassisNumber().contains(text)|| d.getDoorNumber().contains(text))
             {
                 temp.add(d);
             }

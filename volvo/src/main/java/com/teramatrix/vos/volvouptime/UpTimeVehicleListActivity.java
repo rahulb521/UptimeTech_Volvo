@@ -138,7 +138,7 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
             tablayout.setupWithViewPager(viewPager);
             //tablayout.setVisibility(View.GONE);
             new AppVersionChekerAsyn(this, "1001", this).execute();
-            searchView.setInputType(InputType.TYPE_CLASS_NUMBER);
+            //searchView.setInputType(InputType.TYPE_CLASS_NUMBER);
 
             viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                @Override

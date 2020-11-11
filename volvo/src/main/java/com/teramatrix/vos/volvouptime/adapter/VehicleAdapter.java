@@ -123,7 +123,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHo
         vehicleModelList = vehicleModelFilterList;
         for(VehicleModel d: vehicleModelList)
         {
-            if(d.getChassisNumber().contains(text))
+            if(d.getChassisNumber().contains(text) || d.getDoorNumber().contains(text))
             {
                 temp.add(d);
             }
