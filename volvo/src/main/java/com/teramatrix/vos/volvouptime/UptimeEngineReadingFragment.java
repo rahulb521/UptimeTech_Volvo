@@ -252,14 +252,14 @@ public class UptimeEngineReadingFragment extends android.support.v4.app.Fragment
         this.engineHourReadingModels.addAll(engineHourReadingModels);
         for (int i=0; i<engineHourReadingModels.size();i++)
         {
-            if (engineHourReadingModels.get(i).getGetUtilizationDatafirst().equals("false"))
+            if (engineHourReadingModels.get(i).getGetUtilizationDatafirst().equals("true"))
             {
-                Config.isClickable=true;
+                Config.isClickable=false;
                 break;
             }
             else
             {
-                Config.isClickable = false;
+                Config.isClickable = true;
             }
         }
         engineHourAdapter.notifyDataSetChanged();
