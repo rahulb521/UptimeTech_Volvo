@@ -1,7 +1,10 @@
 package com.teramatrix.vos.volvouptime;
 
+import android.app.AlarmManager;
 import android.app.Dialog;
 import android.app.Fragment;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.teramatrix.vos.R;
+import com.teramatrix.vos.firebase.config.Config;
 import com.teramatrix.vos.volvouptime.adapter.VehicleAdapter;
 import com.teramatrix.vos.volvouptime.asyntask.UpTimeGetData;
 import com.teramatrix.vos.volvouptime.asyntask.UpTimeGetReasons;
@@ -23,6 +27,7 @@ import com.teramatrix.vos.volvouptime.custom.OnItemClickListener;
 import com.teramatrix.vos.volvouptime.models.UpTimeReasonsModel;
 import com.teramatrix.vos.volvouptime.models.VehicleModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,8 +59,28 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
         if (getActivity().getIntent().getBooleanExtra("isFromLoginPage", false)) {
             new UpTimeGetReasons(getActivity(), "teramatrix", this).execute();
         }
+        scheduleAlarm();
         return view;
     }
+
+    public void scheduleAlarm()
+    {
+        int i = 20;
+        Intent intent = new Intent(getActivity(), AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                getActivity(), 234324243, intent, PendingIntent.FLAG_ONE_SHOT);
+        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (i * 1000), pendingIntent);
+    }
+
+    private void showCustomList()
+    {
+        Intent intent = new Intent(getActivity(),CustomDialogActivity.class);
+        Config.vehicleModelList = vehicleModelList;
+        startActivity(intent);
+    }
+
+
 
     @Override
     public void onResume() {
@@ -75,6 +100,7 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
         recyclerView.setAdapter(vehicleAdapter);
         mSwipeRefreshLayout = view.findViewById(R.id.swipe_container);
         mSwipeRefreshLayout.setOnRefreshListener(this);
+
     }
 
     @Override
@@ -162,6 +188,11 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
         }
         // Stopping swipe refresh
         mSwipeRefreshLayout.setRefreshing(false);
+
+        if (Config.is24Hrs)
+        {
+            showCustomList();
+        }
     }
 
     @Override

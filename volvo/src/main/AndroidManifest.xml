@@ -3,41 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.teramatrix.vos">
 
-    <uses-sdk
-
-        android:targetSdkVersion="19" />
-
+    <uses-sdk android:targetSdkVersion="19" />
     <!-- GCM requires a Google account. -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <!-- Keeps the processor from sleeping when a message is received. -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <!-- Creates a custom permission so only this app can receive its messages. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" /> <!-- Keeps the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Creates a custom permission so only this app can receive its messages. -->
     <permission
         android:name="com.teramatrix.vos.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.teramatrix.vecv.permission.C2D_MESSAGE" />
-    <!-- This app has permission to register and receive data message. -->
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <!-- Permission to vibrate -->
+    <uses-permission android:name="com.teramatrix.vecv.permission.C2D_MESSAGE" /> <!-- This app has permission to register and receive data message. -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> <!-- Permission to vibrate -->
     <uses-permission android:name="android.permission.VIBRATE" />
-
-
-
 
     <permission
         android:name="com.teramatrix.vos.permission.MAPS_RECEIVE"
-        android:protectionLevel="signature" />
-
-    <!-- Permission to File Read Write -->
+        android:protectionLevel="signature" /> <!-- Permission to File Read Write -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
-
-    <!-- <uses-permission android:name="com.teramatrix.vecv.permission.MAPS_RECEIVE" /> -->
-
-
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" /> <!-- <uses-permission android:name="com.teramatrix.vecv.permission.MAPS_RECEIVE" /> -->
     <!-- Set User Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -54,31 +38,32 @@
         android:required="true" />
 
     <application
-        android:name="com.teramatrix.vos.EosApplication"
+        android:name=".EosApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
+        android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:replace="android:allowBackup"
-        android:theme="@style/AppTheme" >
+        tools:replace="android:allowBackup">
+        <activity android:name=".volvouptime.CustomDialogActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
 
-
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
-        <!-- In order to use Maps in your application add Map API Key -->
+            android:value="@integer/google_play_services_version" /> <!-- In order to use Maps in your application add Map API Key -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/map_api_key" />
 
         <activity
-            android:name="com.teramatrix.vos.SplashActivity"
+            android:name=".SplashActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -86,105 +71,87 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.teramatrix.vos.ConfigurationPinActivity"
+            android:name=".ConfigurationPinActivity"
             android:configChanges="locale"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
-        </activity>
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
         <activity
-            android:name="com.teramatrix.vos.ConfigurationLicenseActivity"
+            android:name=".ConfigurationLicenseActivity"
             android:configChanges="locale"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|adjustResize" >
-        </activity>
+            android:windowSoftInputMode="adjustPan|adjustResize"></activity>
         <activity
-            android:name="com.teramatrix.vos.MyTicketActivity"
+            android:name=".MyTicketActivity"
             android:configChanges="locale"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
-        </activity>
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
         <activity
-            android:name="com.teramatrix.vos.MapViewTimerActivitySeekBar"
+            android:name=".MapViewTimerActivitySeekBar"
             android:configChanges="locale"
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize|adjustPan" >
-        </activity>
+            android:windowSoftInputMode="adjustResize|adjustPan"></activity>
         <activity
-            android:name="com.teramatrix.vos.JobStatusDetailActivity"
+            android:name=".JobStatusDetailActivity"
             android:configChanges="locale"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
-        </activity>
-
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
         <activity
             android:name=".volvouptime.UpTimeRegisterActivity"
             android:configChanges="locale"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
-        </activity>
-
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
         <activity
             android:name=".volvouptime.UpTimeTicketDetailsActivity"
             android:configChanges="locale"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
-        </activity>
-
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
         <activity
             android:name=".volvouptime.UpTimeVehicleListActivity"
             android:configChanges="locale"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:windowSoftInputMode="adjustPan|adjustResize" >
-        </activity>
+            android:windowSoftInputMode="adjustPan|adjustResize"></activity>
 
         <service
-            android:name="com.teramatrix.vos.service.AlertRingerService"
-            android:enabled="true" >
-        </service>
+            android:name=".service.AlertRingerService"
+            android:enabled="true"></service>
         <service
-            android:name="com.teramatrix.vos.service.PostLocationService"
-            android:enabled="true" >
-        </service>
+            android:name=".service.PostLocationService"
+            android:enabled="true"></service>
         <service
-            android:name="com.teramatrix.vos.service.SyncTicketsService"
-            android:enabled="true" >
-        </service>
+            android:name=".service.SyncTicketsService"
+            android:enabled="true"></service>
+        <service
+            android:name=".service.Locationservice"
+            android:enabled="true"></service>
 
-        <service
-            android:name="com.teramatrix.vos.service.Locationservice"
-            android:enabled="true" >
-        </service>
-
-        <activity android:name=".MyDialog"
+        <activity
+            android:name=".MyDialog"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Dialog" />
 
-
-
         <receiver
-            android:name="com.teramatrix.vos.reciver.NewTicketAlertRinger"
-            android:enabled="true" >
-        </receiver>
-        <receiver android:name="com.teramatrix.vos.reciver.InternetAvailabilityRecever" >
+            android:name=".reciver.NewTicketAlertRinger"
+            android:enabled="true"></receiver>
+        <receiver android:name=".reciver.InternetAvailabilityRecever">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
         <receiver
-            android:name="com.teramatrix.vos.reciver.PhoneRebootReceiver"
+            android:name=".reciver.PhoneRebootReceiver"
             android:enabled="true"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
 
@@ -192,33 +159,30 @@
 
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
-        </receiver>
-
-        <!-- GCM Receiver -->
-        <service
-            android:name=".firebase.service.MyFirebaseMessagingService">
+        </receiver> <!-- GCM Receiver -->
+        <service android:name=".firebase.service.MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         <service
             android:name=".firebase.service.MyFirebaseInstanceIDService"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-
 
         <provider
             android:name="com.activeandroid.content.ContentProvider"
             android:authorities="com.teramatrix.vos"
             android:enabled="true"
-            android:exported="false">
-        </provider>
+            android:exported="false"></provider>
+
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="b7fb867e45d32601c7f4cb3104e7ca22e31185ca" />
+            android:value="b7fb867e45d32601c7f4cb3104e7ca22e31185ca" /> <!-- Register the Alarm Receiver -->
+        <receiver android:name=".volvouptime.AlarmReceiver" />
     </application>
 
 </manifest>

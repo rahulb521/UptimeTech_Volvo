@@ -1,6 +1,9 @@
 package com.teramatrix.vos.volvouptime;
 
+import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -28,12 +31,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.teramatrix.vos.MyTicketActivity;
 import com.teramatrix.vos.R;
 import com.teramatrix.vos.SplashActivity;
 import com.teramatrix.vos.asynctasks.AppVersionChekerAsyn;
+import com.teramatrix.vos.firebase.config.Config;
 import com.teramatrix.vos.preferences.VECVPreferences;
 import com.teramatrix.vos.reciver.InternetAvailabilityRecever;
 import com.teramatrix.vos.utils.UtilityFunction;
@@ -46,7 +52,9 @@ import com.teramatrix.vos.volvouptime.custom.OnItemClickListener;
 import com.teramatrix.vos.volvouptime.models.UpTimeReasonsModel;
 import com.teramatrix.vos.volvouptime.models.VehicleModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 
@@ -66,6 +74,8 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
     ViewPager viewPager;
     TabLayout tablayout;
     SparseArray<Fragment> registeredFragments = new SparseArray<>();
+    ArrayAdapter<String> adapter;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +95,6 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
 
         //initialize basic views
         initViews();
-
     }
 
     @Override

@@ -1,5 +1,10 @@
 package com.teramatrix.vos.firebase.config;
 
+import com.teramatrix.vos.volvouptime.models.VehicleModel;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by ubuntu on 7/12/16.
  */
@@ -18,4 +23,7 @@ public class Config {
 
     public static final String SHARED_PREF = "ah_firebase";
     public static  boolean isClickable = true;
+    public static  boolean is24Hrs = false;
+    public static  List<VehicleModel> vehicleModelList;
+
 }

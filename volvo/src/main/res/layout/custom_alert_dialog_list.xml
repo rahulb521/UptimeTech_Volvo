@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:gravity="center_vertical"
+    android:id="@+id/linearLayout"
+    android:orientation="horizontal"
+    android:weightSum="5"
+    >
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        >
+        <com.teramatrix.vos.utils.CustomTextViewArial
+            android:id="@+id/tv_reg_no_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chassis No."
+            android:textSize="12sp"
+            />
+
+        <com.teramatrix.vos.utils.CustomTextViewArialBold
+            android:id="@+id/tv_reg_no_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        >
+
+        <com.teramatrix.vos.utils.CustomTextViewArial
+            android:id="@+id/tv_door_no_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Door No."
+            android:textSize="12sp"
+            />
+
+        <com.teramatrix.vos.utils.CustomTextViewArialBold
+            android:id="@+id/tv_door_no_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            />
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+        <View
+            android:id="@+id/indicator"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/round_indicator"
+            />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

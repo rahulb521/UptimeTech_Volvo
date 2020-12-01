@@ -259,6 +259,7 @@ public class UpTimeGetData extends AsyncTask<Void, Void, Void> {
         //Merge Lsit of Down and Up vehicle
         vehicleModels_down.addAll(vehicleModels_Up);
         vehicleModels_down.addAll(vehicleModels_In);
+      //  vehicleModels_down.addAll(vehicleModels_down);
         //Provide data to caller
         i_upTimeGetVehicles.vehicleList(vehicleModels_down);
     }

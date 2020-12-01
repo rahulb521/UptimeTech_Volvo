@@ -12,6 +12,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -59,7 +60,6 @@ public class SplashActivity extends Activity {
 
 		ApplicationConstant.currentActivityContext = SplashActivity.this;
 		vecvPreferences = new VECVPreferences(SplashActivity.this);
-
 
 	}
 

@@ -110,7 +110,7 @@ public class EngineReading extends AsyncTask<Void, Void, Void> {
                                 engineHourReadingModel.setCurrentMonthUtilizationData(jsonObject1.getString("CurrentMonthUtilizationData"));
                                 engineHourReadingModel.setPreviousMonthUtilizationData(jsonObject1.getString("PreviousMonthUtiizationData"));
                                 engineHourReadingModel.setRegistrationNumber(jsonObject1.getString("RegistrationNumber"));
-                                engineHourReadingModel.setGetUtilizationDatafirst(jsonObject1.getString("GetUtilizationDatafirst"));
+                             //   engineHourReadingModel.setGetUtilizationDatafirst(jsonObject1.getString("GetUtilizationDatafirst"));
                                 engineHourReadingModel.setModified(false);
                                 if (isCurrentMonth) {
                                     engineHourReadingModel.save();

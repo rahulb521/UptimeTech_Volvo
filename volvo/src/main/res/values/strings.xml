@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- @author Gaurav.Mangal -->
+<?xml version="1.0" encoding="utf-8"?><!-- @author Gaurav.Mangal -->
 <resources>
 
     <!-- App name usage string value -->
@@ -89,7 +88,7 @@
     <string name="getting_direction">Getting driving directions</string>
     <string name="getting_new_ticket">Getting new ticket</string>
     <string name="update_estimation_time">Updating estimated time</string>
-    
+
 
     <!-- Validation messages -->
     <string name="error_message">Error Message</string>
@@ -144,22 +143,22 @@
     <string name="english">English</string>
     <string name="source">Source</string>
     <string name="destination">Destination</string>
-    
-    
+
+
     <string name="tv_estimated_distance">Estimated Chargeable Distance(KM)</string>
     <string name="edit_estimationcost_header">Edit Estimated Cost</string>
     <string name="new_estimationcost_header">New Estimated Cost</string>
     <string name="select_estimation_cost">Please select edit estimation cost</string>
-	<string name="update_estimation_cost">Updating estimated cost</string>
-	
-	<string name="pd_reason">Select Problem</string>
-	<string name="skip">Skip</string>
+    <string name="update_estimation_cost">Updating estimated cost</string>
 
-	<string name="str_help">Help</string>
-	<string name="log_folder_help_vedio">/Eicher_Log/</string>
-	<string name="file_size">please download video again</string>
-	<string name="video_filename">/Eicher_Log/EicherHelp.mp4</string>
-	<string name="video_filename_create">EicherHelp.mp4</string>
+    <string name="pd_reason">Select Problem</string>
+    <string name="skip">Skip</string>
+
+    <string name="str_help">Help</string>
+    <string name="log_folder_help_vedio">/Eicher_Log/</string>
+    <string name="file_size">please download video again</string>
+    <string name="video_filename">/Eicher_Log/EicherHelp.mp4</string>
+    <string name="video_filename_create">EicherHelp.mp4</string>
 
 
     <string-array name="job_type_array">
