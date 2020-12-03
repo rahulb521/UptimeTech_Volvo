@@ -159,6 +159,7 @@
     <string name="file_size">please download video again</string>
     <string name="video_filename">/Eicher_Log/EicherHelp.mp4</string>
     <string name="video_filename_create">EicherHelp.mp4</string>
+    <string name="update_delay_reason">Update Delay reason</string>
 
 
     <string-array name="job_type_array">

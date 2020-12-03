@@ -1,10 +1,6 @@
 package com.teramatrix.vos.volvouptime;
 
-import android.app.AlarmManager;
 import android.app.Dialog;
-import android.app.Fragment;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,6 +9,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,11 +21,14 @@ import com.teramatrix.vos.volvouptime.asyntask.UpTimeGetData;
 import com.teramatrix.vos.volvouptime.asyntask.UpTimeGetReasons;
 import com.teramatrix.vos.volvouptime.custom.DAO;
 import com.teramatrix.vos.volvouptime.custom.OnItemClickListener;
+import com.teramatrix.vos.volvouptime.models.UpTimeAddedReasonsModel;
 import com.teramatrix.vos.volvouptime.models.UpTimeReasonsModel;
 import com.teramatrix.vos.volvouptime.models.VehicleModel;
 
-import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -42,6 +42,7 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
     private RecyclerView recyclerView;
     public  VehicleAdapter vehicleAdapter;
     public  List<VehicleModel> vehicleModelList;
+    public  List<VehicleModel> vehicleModelFilterList;
     public  List<String> vehicleChasisNo;
     private Dialog confirmjobDialog = null;
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -59,11 +60,10 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
         if (getActivity().getIntent().getBooleanExtra("isFromLoginPage", false)) {
             new UpTimeGetReasons(getActivity(), "teramatrix", this).execute();
         }
-        scheduleAlarm();
         return view;
     }
 
-    public void scheduleAlarm()
+  /*  public void scheduleAlarm()
     {
         int i = 20;
         Intent intent = new Intent(getActivity(), AlarmReceiver.class);
@@ -72,11 +72,11 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
         AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (i * 1000), pendingIntent);
     }
-
+*/
     private void showCustomList()
     {
         Intent intent = new Intent(getActivity(),CustomDialogActivity.class);
-        Config.vehicleModelList = vehicleModelList;
+        Config.vehicleModelList = vehicleModelFilterList;
         startActivity(intent);
     }
 
@@ -91,6 +91,7 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
     private void initViews(){
         recyclerView = (RecyclerView)view.findViewById(R.id.recycler_view);
         vehicleModelList = new ArrayList<>();
+        vehicleModelFilterList = new ArrayList<>();
         vehicleChasisNo = new ArrayList<>();
         vehicleAdapter = new VehicleAdapter(getActivity(),vehicleModelList,vehicleChasisNo , this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -176,6 +177,21 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
         {
             vehicleChasisNo.add(vehicleModels.get(i).getChassisNumber());
         }
+        for (int i=0; i<vehicleModels.size();i++)
+        {
+            if (vehicleModels.get(i).isDown()==0)
+            {
+                if(getJobDateDifference(vehicleModels.get(i).getJobStartDate()))
+                {
+                    List<UpTimeAddedReasonsModel> upTimeAddedReasonsModels = DAO.getAddedReasons(vehicleModels.get(i).getTicketId());
+                    Log.v("Difference:-", " jobStartDate: " + upTimeAddedReasonsModels);
+                    if (upTimeAddedReasonsModels.size()<0)
+                    {
+                        vehicleModelFilterList.add(vehicleModels.get(i));
+                    }
+                }
+            }
+        }
         if (vehicleModels.size() > 0) {
             view.findViewById(R.id.txt_empty_view).setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
@@ -189,10 +205,38 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
         // Stopping swipe refresh
         mSwipeRefreshLayout.setRefreshing(false);
 
-        if (Config.is24Hrs)
+        if (vehicleModelFilterList.size()>0)
         {
             showCustomList();
         }
+    }
+
+    private boolean getJobDateDifference(String jobStartDate)
+    {
+        boolean isGreaterThan24Hrs = false;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            Date oldDate = dateFormat.parse(jobStartDate);
+            System.out.println(oldDate);
+            Date currentDate = new Date();
+            long diff = currentDate.getTime() - oldDate.getTime();
+            long seconds = diff / 1000;
+            long minutes = seconds / 60;
+            long hours = minutes / 60;
+            long days = hours / 24;
+            if (oldDate.before(currentDate))
+            {
+                Log.v("Difference:-", " jobStartDate: " + jobStartDate+" days: " + days);
+                if (days>=1)
+                {
+                    isGreaterThan24Hrs = true;
+                    return isGreaterThan24Hrs;
+                }
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return isGreaterThan24Hrs;
     }
 
     @Override

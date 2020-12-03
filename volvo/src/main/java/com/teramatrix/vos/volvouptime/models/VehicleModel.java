@@ -45,6 +45,27 @@ public class VehicleModel extends Model {
     @Column(name = "SiteId")
     public String SiteId;
 
+    @Column(name = "JobStartDate")
+    public String JobStartDate;
+
+    @Column(name = "TicketId")
+    public String ticketId;
+
+    public String getTicketId() {
+        return ticketId;
+    }
+
+    public void setTicketId(String ticketId) {
+        this.ticketId = ticketId;
+    }
+
+    public String getJobStartDate() {
+        return JobStartDate;
+    }
+
+    public void setJobStartDate(String jobStartDate) {
+        JobStartDate = jobStartDate;
+    }
 
     public VehicleModel()
     {

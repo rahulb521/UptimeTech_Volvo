@@ -6,9 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".volvouptime.CustomDialogActivity">
 
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/main_header"/>
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/header"
         android:layout_above="@+id/btnSkip"
         android:scrollbars="vertical"
         android:id="@+id/recyclerView"/>

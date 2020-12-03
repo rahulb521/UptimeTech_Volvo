@@ -106,6 +106,8 @@ public class UpTimeGetData extends AsyncTask<Void, Void, Void> {
                                 String DoorNumber = jsonObject1.getString("DoorNumber");
                                 String ChassisNumber = jsonObject1.getString("ChassisNumber");
                                 String VehicleStatus = jsonObject1.getString("VehicleStatus");
+                                String JobStrtDate = jsonObject1.getString("JobStartDate");
+                                String ticketId = jsonObject1.getString("TicketId");
                                 VehicleModel vehicleModel = new Select()
                                         .from(VehicleModel.class)
                                         .where("Registration = ?", RegistrationNumber)
@@ -114,6 +116,7 @@ public class UpTimeGetData extends AsyncTask<Void, Void, Void> {
                                 if (vehicleModel == null)
                                     vehicleModel = new VehicleModel();
                                 vehicleModel.setReg_no_value(RegistrationNumber);
+                                vehicleModel.setJobStartDate(JobStrtDate);
                                 vehicleModel.setNumberPlate(NumberPlate);
                                 vehicleModel.setModelNumber(ModelNumber);
                                 vehicleModel.setInstallationDate(InstallationDate);
@@ -122,6 +125,7 @@ public class UpTimeGetData extends AsyncTask<Void, Void, Void> {
                                 vehicleModel.setVehicleType(VehicleType);
                                 vehicleModel.setVehicleStatus(VehicleStatus);
                                 vehicleModel.setSiteId(SiteId);
+                                vehicleModel.setTicketId(ticketId);
                                 vehicleModel.save();
                                 //Save Ticket Details
                                 String ServiceName = jsonObject1.getString("ServiceName");
