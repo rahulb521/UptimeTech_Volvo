@@ -25,5 +25,6 @@ public class Config {
     public static  boolean isClickable = true;
     public static  boolean is24Hrs = false;
     public static  List<VehicleModel> vehicleModelList;
+    public static  List<VehicleModel> vehicleModelFilterListSecond;
 
 }

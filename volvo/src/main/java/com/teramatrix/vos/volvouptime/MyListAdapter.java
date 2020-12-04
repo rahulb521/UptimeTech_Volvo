@@ -26,15 +26,19 @@ import java.util.Locale;
 
 
 public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder>{
-    public List<VehicleModel> vehicleModelList;
+    public List<VehicleModel> vehicleModelList,vehicleModelFilterListSecond;
     public Context context;
     private OnItemClickListener listener;
     // RecyclerView recyclerView;
-    public MyListAdapter(List<VehicleModel> vehicleModelList,Context context,OnItemClickListener listener) {
+
+    public MyListAdapter(List<VehicleModel> vehicleModelList,List<VehicleModel> vehicleModelFilterListSecond,Context context,OnItemClickListener listener) {
         this.vehicleModelList = vehicleModelList;
+        this.vehicleModelFilterListSecond = vehicleModelFilterListSecond;
+        vehicleModelFilterListSecond.addAll(vehicleModelList);
         this.context = context;
         this.listener = listener;
     }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
@@ -45,7 +49,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final VehicleModel vehicleModel = vehicleModelList.get(position);
+        final VehicleModel vehicleModel = vehicleModelFilterListSecond.get(position);
         holder.tv_reg_no_value.setText(vehicleModel.getChassisNumber());
         holder.tv_door_no_value.setText(vehicleModel.getDoorNumber());
         if (vehicleModel.isDown() == 0)
@@ -72,7 +76,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return vehicleModelList.size();
+        return vehicleModelFilterListSecond.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

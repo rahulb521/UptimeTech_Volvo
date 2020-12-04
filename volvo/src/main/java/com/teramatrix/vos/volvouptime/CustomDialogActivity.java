@@ -44,7 +44,7 @@ public class CustomDialogActivity extends AppCompatActivity  implements OnItemCl
     private void showCustomList()
     {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        MyListAdapter adapter = new MyListAdapter(Config.vehicleModelList,this,this);
+        MyListAdapter adapter = new MyListAdapter(Config.vehicleModelList,Config.vehicleModelFilterListSecond,this,this);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
@@ -54,23 +54,22 @@ public class CustomDialogActivity extends AppCompatActivity  implements OnItemCl
     public void onItemClick(VehicleModel item) {
         Intent mainIntent = null;
         if (item.isDown() == 0) {
-            mainIntent = new Intent(this,
-                    UpTimeTicketDetailsActivity.class);
+            mainIntent = new Intent(this, UpTimeTicketDetailsActivity.class);
             mainIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             mainIntent.putExtra("registration_no", item.getReg_no_value());
             mainIntent.putExtra("door_no", item.getDoorNumber());
             mainIntent.putExtra("chasis_number", item.getChassisNumber());
-
             startActivityForResult(mainIntent, 1001);
+            finish();
         } else if (item.isDown() == 1) {
-            mainIntent = new Intent(this,
-                    UpTimeRegisterActivity.class);
+            mainIntent = new Intent(this, UpTimeRegisterActivity.class);
             mainIntent.putExtra("type", UpTimeRegisterActivity.TYPE_JOB);
             mainIntent.putExtra("registration_no", item.getReg_no_value());
             mainIntent.putExtra("door_no", item.getDoorNumber());
             mainIntent.putExtra("chasis_number", item.getChassisNumber());
             mainIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivityForResult(mainIntent, 1001);
+            finish();
         }
     }
 }

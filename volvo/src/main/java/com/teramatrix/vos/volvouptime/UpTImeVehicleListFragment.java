@@ -44,6 +44,7 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
     public  List<VehicleModel> vehicleModelList;
     public  List<VehicleModel> vehicleModelFilterList;
     public  List<String> vehicleChasisNo;
+    public List<VehicleModel> vehicleModelFilterListSecond;
     private Dialog confirmjobDialog = null;
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
@@ -77,6 +78,7 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
     {
         Intent intent = new Intent(getActivity(),CustomDialogActivity.class);
         Config.vehicleModelList = vehicleModelFilterList;
+        Config.vehicleModelFilterListSecond = vehicleModelFilterListSecond;
         startActivity(intent);
     }
 
@@ -93,6 +95,7 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
         vehicleModelList = new ArrayList<>();
         vehicleModelFilterList = new ArrayList<>();
         vehicleChasisNo = new ArrayList<>();
+        vehicleModelFilterListSecond = new ArrayList<>();
         vehicleAdapter = new VehicleAdapter(getActivity(),vehicleModelList,vehicleChasisNo , this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -173,6 +176,8 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
     public void vehicleList(List<VehicleModel> vehicleModels) {
         vehicleModelList.clear();
         vehicleChasisNo.clear();
+        vehicleModelFilterList.clear();
+        vehicleModelFilterListSecond.clear();
         for (int i=0; i<vehicleModels.size();i++)
         {
             vehicleChasisNo.add(vehicleModels.get(i).getChassisNumber());
@@ -181,13 +186,22 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
         {
             if (vehicleModels.get(i).isDown()==0)
             {
-                if(getJobDateDifference(vehicleModels.get(i).getJobStartDate()))
+                if(getJobDateDifference(vehicleModels.get(i).getJobStartDate())==1)
                 {
                     List<UpTimeAddedReasonsModel> upTimeAddedReasonsModels = DAO.getAddedReasons(vehicleModels.get(i).getTicketId());
                     Log.v("Difference:-", " jobStartDate: " + upTimeAddedReasonsModels);
-                    if (upTimeAddedReasonsModels.size()<0)
+                    if (upTimeAddedReasonsModels.size()==0)
                     {
                         vehicleModelFilterList.add(vehicleModels.get(i));
+                    }
+                }
+                else if(getJobDateDifference(vehicleModels.get(i).getJobStartDate())> 1)
+                {
+                    List<UpTimeAddedReasonsModel> upTimeAddedReasonsModels = DAO.getAddedReasons(vehicleModels.get(i).getTicketId());
+                    Log.v("Difference:-", " jobStartDate: " + upTimeAddedReasonsModels);
+                     if (upTimeAddedReasonsModels.size()==0)
+                    {
+                        vehicleModelFilterListSecond.add(vehicleModels.get(i));
                     }
                 }
             }
@@ -205,16 +219,16 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
         // Stopping swipe refresh
         mSwipeRefreshLayout.setRefreshing(false);
 
-        if (vehicleModelFilterList.size()>0)
+        if (vehicleModelFilterList.size()>0 || vehicleModelFilterListSecond.size()>0 )
         {
             showCustomList();
         }
     }
 
-    private boolean getJobDateDifference(String jobStartDate)
+    private long getJobDateDifference(String jobStartDate)
     {
-        boolean isGreaterThan24Hrs = false;
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        long days = 0;
         try {
             Date oldDate = dateFormat.parse(jobStartDate);
             System.out.println(oldDate);
@@ -223,20 +237,19 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
             long seconds = diff / 1000;
             long minutes = seconds / 60;
             long hours = minutes / 60;
-            long days = hours / 24;
+            days = hours / 24;
             if (oldDate.before(currentDate))
             {
                 Log.v("Difference:-", " jobStartDate: " + jobStartDate+" days: " + days);
                 if (days>=1)
                 {
-                    isGreaterThan24Hrs = true;
-                    return isGreaterThan24Hrs;
+                    return days;
                 }
             }
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return isGreaterThan24Hrs;
+        return days;
     }
 
     @Override
