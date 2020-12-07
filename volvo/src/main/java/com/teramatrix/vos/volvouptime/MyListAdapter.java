@@ -26,7 +26,8 @@ import java.util.Locale;
 
 
 public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder>{
-    public List<VehicleModel> vehicleModelList,vehicleModelFilterListSecond;
+    public List<VehicleModel> vehicleModelList;
+    public List<VehicleModel> vehicleModelFilterListSecond;
     public Context context;
     private OnItemClickListener listener;
     // RecyclerView recyclerView;
@@ -50,7 +51,39 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final VehicleModel vehicleModel = vehicleModelFilterListSecond.get(position);
+
+        if(Config.vehicleModelList.size() == 0)
+        {
+            holder.txtTitle24hrs.setVisibility(View.GONE);
+        }
+        else if (vehicleModel.getChassisNumber().equals(Config.vehicleModelList.get(0).getChassisNumber()))
+        {
+            holder.txtTitle24hrs.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            holder.txtTitle24hrs.setVisibility(View.GONE);
+        }
         holder.tv_reg_no_value.setText(vehicleModel.getChassisNumber());
+        if(Config.vehicleModelFilterListSecond.size() == 0)
+        {
+            holder.txtTitle48hrs.setVisibility(View.GONE);
+        }
+        else if (position == 0 && Config.vehicleModelFilterListSecond.size() > 0)
+        {
+           holder.txtTitle48hrs.setVisibility(View.VISIBLE);
+        }
+        else if(Config.vehicleModelFilterListSecond.size() == 0)
+        {
+            holder.txtTitle48hrs.setVisibility(View.GONE);
+        }
+        if (Config.vehicleModelFilterListSecond.size()==1 && Config.vehicleModelList.size()==1)
+        {
+            if (Config.vehicleModelFilterListSecond.get(0).getChassisNumber().equals(Config.vehicleModelList.get(0).getChassisNumber()))
+            {
+                holder.txtTitle48hrs.setVisibility(View.GONE);
+            }
+        }
         holder.tv_door_no_value.setText(vehicleModel.getDoorNumber());
         if (vehicleModel.isDown() == 0)
         {
@@ -64,12 +97,6 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
         {
             holder.indicator.getBackground().setColorFilter(context.getResources().getColor(R.color.volvo_orange), PorterDuff.Mode.SRC_ATOP);
         }
-        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(view.getContext(),"click on item: "+vehicleModel.getChassisNumber(),Toast.LENGTH_LONG).show();
-            }
-        });
         holder.bind(vehicleModel, listener);
     }
 
@@ -81,13 +108,15 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageView;
-        public TextView tv_reg_no_value,tv_door_no_value;
+        public TextView tv_reg_no_value,tv_door_no_value,txtTitle48hrs,txtTitle24hrs;
         public LinearLayout linearLayout;
         public View indicator;
         public ViewHolder(View itemView) {
             super(itemView);
             this.tv_reg_no_value = (TextView) itemView.findViewById(R.id.tv_reg_no_value);
             this.tv_door_no_value = (TextView) itemView.findViewById(R.id.tv_door_no_value);
+            this.txtTitle24hrs = (TextView) itemView.findViewById(R.id.txtTitle24hrs);
+            this.txtTitle48hrs = (TextView) itemView.findViewById(R.id.txtTitle48hrs);
             this.indicator = (View) itemView.findViewById(R.id.indicator);
             linearLayout = (LinearLayout) itemView.findViewById(R.id.linearLayout);
         }

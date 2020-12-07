@@ -178,6 +178,14 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
         vehicleChasisNo.clear();
         vehicleModelFilterList.clear();
         vehicleModelFilterListSecond.clear();
+        if (Config.vehicleModelFilterListSecond!=null)
+        {
+            Config.vehicleModelFilterListSecond.clear();
+        }
+        if(Config.vehicleModelList!=null)
+        {
+            Config.vehicleModelList.clear();
+        }
         for (int i=0; i<vehicleModels.size();i++)
         {
             vehicleChasisNo.add(vehicleModels.get(i).getChassisNumber());

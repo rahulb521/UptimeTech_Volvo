@@ -18,11 +18,13 @@ import com.teramatrix.vos.volvouptime.custom.OnItemClickListener;
 import com.teramatrix.vos.volvouptime.models.VehicleModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomDialogActivity extends AppCompatActivity  implements OnItemClickListener {
 
     TextView btnSkip,rl_title_bar_title;
-
+    public List<VehicleModel> vehicleModelFilterList = new ArrayList<>();
+    public  List<VehicleModel> vehicleModelFilterListSecond = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +32,10 @@ public class CustomDialogActivity extends AppCompatActivity  implements OnItemCl
         setContentView(R.layout.activity_custom_dialog);
         this.setFinishOnTouchOutside(false);
         btnSkip =(TextView)findViewById(R.id.btnSkip);
+        if(Config.vehicleModelFilterListSecond.size()>0)
+        {
+            btnSkip.setVisibility(View.GONE);
+        }
         rl_title_bar_title =(TextView)findViewById(R.id.rl_title_bar_title);
         rl_title_bar_title.setText(getResources().getString(R.string.update_delay_reason));
         btnSkip.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +50,9 @@ public class CustomDialogActivity extends AppCompatActivity  implements OnItemCl
     private void showCustomList()
     {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        MyListAdapter adapter = new MyListAdapter(Config.vehicleModelList,Config.vehicleModelFilterListSecond,this,this);
+        vehicleModelFilterList = Config.vehicleModelList;
+        vehicleModelFilterListSecond = Config.vehicleModelFilterListSecond;
+        MyListAdapter adapter = new MyListAdapter(vehicleModelFilterList,vehicleModelFilterListSecond,this,this);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);

@@ -1,12 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+    <com.teramatrix.vos.utils.CustomTextViewArial
+        android:id="@+id/txtTitle24hrs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/update_delay_reason_24_hrs"
+        android:textColor="@color/blue_color"
+        android:textSize="16sp"
+        />
+
+    <com.teramatrix.vos.utils.CustomTextViewArial
+        android:id="@+id/txtTitle48hrs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/update_delay_reason_48_hrs"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textColor="@color/blue_color"
+        android:textSize="16sp"
+        />
+
+
+    <LinearLayout
+    android:layout_width="match_parent"
     android:layout_height="70dp"
-    android:gravity="center_vertical"
+    android:gravity="center_vertical" android:layout_below="@+id/txtTitle48hrs"
     android:id="@+id/linearLayout"
     android:orientation="horizontal"
+        android:layout_marginTop="5dp"
     android:weightSum="5"
     >
+
+
 
 
     <LinearLayout
@@ -82,3 +113,5 @@
 
 
 </LinearLayout>
+
+</RelativeLayout>
