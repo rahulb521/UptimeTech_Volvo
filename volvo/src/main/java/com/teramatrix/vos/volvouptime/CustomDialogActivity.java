@@ -80,4 +80,9 @@ public class CustomDialogActivity extends AppCompatActivity  implements OnItemCl
             finish();
         }
     }
+
+    @Override
+    public void onBackPressed() {
+
+    }
 }
