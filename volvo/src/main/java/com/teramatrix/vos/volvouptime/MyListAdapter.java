@@ -126,7 +126,8 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
                 @Override
                 public void onClick(View v)
                 {
-                    Date c = Calendar.getInstance().getTime();
+                    listener.onItemClick(item);
+                    /*Date c = Calendar.getInstance().getTime();
                     System.out.println("Current time => " + c);
                     SimpleDateFormat df = new SimpleDateFormat("dd", Locale.getDefault());
                     String formattedDate = df.format(c);
@@ -140,7 +141,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
                         {
                             listener.onItemClick(item);
                         }
-                    }
+                    }*/
                 }
             });
         }

@@ -183,6 +183,10 @@
             android:name="io.fabric.ApiKey"
             android:value="b7fb867e45d32601c7f4cb3104e7ca22e31185ca" /> <!-- Register the Alarm Receiver -->
         <receiver android:name=".volvouptime.AlarmReceiver" />
+
+        <meta-data android:name="AA_DB_VERSION" android:value="4" />
+
+
     </application>
 
 </manifest>

@@ -3,6 +3,7 @@ package com.teramatrix.vos.volvouptime.models;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.google.gson.annotations.Expose;
 
 /**
  * Created by Arun.Singh on 3/19/2018.

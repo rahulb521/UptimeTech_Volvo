@@ -44,7 +44,7 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
     public  List<VehicleModel> vehicleModelList;
     public  List<VehicleModel> vehicleModelFilterList;
     public  List<String> vehicleChasisNo;
-    public List<VehicleModel> vehicleModelFilterListSecond;
+    public  List<VehicleModel> vehicleModelFilterListSecond;
     private Dialog confirmjobDialog = null;
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
@@ -194,22 +194,22 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
         {
             if (vehicleModels.get(i).isDown()==0)
             {
-                if(getJobDateDifference(vehicleModels.get(i).getJobStartDate())==1)
+                if(vehicleModels.get(i).getJobStartDate()!=null)
                 {
-                    List<UpTimeAddedReasonsModel> upTimeAddedReasonsModels = DAO.getAddedReasons(vehicleModels.get(i).getTicketId());
-                    Log.v("Difference:-", " jobStartDate: " + upTimeAddedReasonsModels);
-                    if (upTimeAddedReasonsModels.size()==0)
+                    if (getJobDateDifference(vehicleModels.get(i).getJobStartDate()) == 1)
                     {
-                        vehicleModelFilterList.add(vehicleModels.get(i));
-                    }
-                }
-                else if(getJobDateDifference(vehicleModels.get(i).getJobStartDate())> 1)
-                {
-                    List<UpTimeAddedReasonsModel> upTimeAddedReasonsModels = DAO.getAddedReasons(vehicleModels.get(i).getTicketId());
-                    Log.v("Difference:-", " jobStartDate: " + upTimeAddedReasonsModels);
-                     if (upTimeAddedReasonsModels.size()==0)
+                        List<UpTimeAddedReasonsModel> upTimeAddedReasonsModels = DAO.getAddedReasons(vehicleModels.get(i).getTicketId());
+                        Log.v("Difference:-", " jobStartDate: " + upTimeAddedReasonsModels);
+                        if (upTimeAddedReasonsModels.size() == 0) {
+                            vehicleModelFilterList.add(vehicleModels.get(i));
+                        }
+                    } else if (getJobDateDifference(vehicleModels.get(i).getJobStartDate()) > 1)
                     {
-                        vehicleModelFilterListSecond.add(vehicleModels.get(i));
+                        List<UpTimeAddedReasonsModel> upTimeAddedReasonsModels = DAO.getAddedReasons(vehicleModels.get(i).getTicketId());
+                        Log.v("Difference:-", " jobStartDate: " + upTimeAddedReasonsModels);
+                        if (upTimeAddedReasonsModels.size() == 0) {
+                            vehicleModelFilterListSecond.add(vehicleModels.get(i));
+                        }
                     }
                 }
             }

@@ -56,7 +56,8 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHo
                 @Override
                 public void onClick(View v)
                 {
-                    Date c = Calendar.getInstance().getTime();
+                    listener.onItemClick(item);
+                   /* Date c = Calendar.getInstance().getTime();
                     System.out.println("Current time => " + c);
                     SimpleDateFormat df = new SimpleDateFormat("dd", Locale.getDefault());
                     String formattedDate = df.format(c);
@@ -70,7 +71,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHo
                         {
                             listener.onItemClick(item);
                         }
-                    }
+                    }*/
                 }
             });
         }

@@ -69,7 +69,7 @@ public class EngineHourReadingModel extends Model {
     private String PreviousMonthUtilizationData;
     @Column(name = "isModified")
     private boolean isModified;
-    @Column(name = "GetUtilizationDatafirst")
+   /* @Column(name = "GetUtilizationDatafirst")
     private String GetUtilizationDatafirst;
 
     public String getGetUtilizationDatafirst() {
@@ -79,7 +79,7 @@ public class EngineHourReadingModel extends Model {
     public void setGetUtilizationDatafirst(String getUtilizationDatafirst) {
         GetUtilizationDatafirst = getUtilizationDatafirst;
     }
-
+*/
     public String getInRequiredTime() {
         return inRequiredTime;
     }
