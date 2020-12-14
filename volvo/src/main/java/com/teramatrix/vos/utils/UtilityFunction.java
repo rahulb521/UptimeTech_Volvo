@@ -25,10 +25,13 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
 import android.os.Environment;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.teramatrix.vos.BuildConfig;
+import com.teramatrix.vos.Manifest;
 import com.teramatrix.vos.R;
 import com.teramatrix.vos.asynctasks.ApplicationLogging;
 import com.teramatrix.vos.model.AppErrorLog;
@@ -108,7 +111,7 @@ public class UtilityFunction {
 	 */
 	@SuppressLint("NewApi")
 	public static String getIMEINumber(Context context,String licenseKey) {
-		// Create an instance of the TelephonyManager
+		/*// Create an instance of the TelephonyManager
 		TelephonyManager telephonyManager = (TelephonyManager) context
 				.getSystemService(Context.TELEPHONY_SERVICE);
 		// get the device id via telephonyManage
@@ -121,10 +124,40 @@ public class UtilityFunction {
 
 		if (imeiNumber == null || imeiNumber.isEmpty()) {
 			imeiNumber = licenseKey+System.currentTimeMillis();
+		}*/
+
+
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+		{
+			imeiNumber = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+		} else {
+			final TelephonyManager mTelephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+				if (context.checkSelfPermission(android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+					return "";
+				}
+			}
+			assert mTelephony != null;
+			if (mTelephony.getDeviceId() != null)
+			{
+				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+				{
+					imeiNumber = mTelephony.getImei();
+				}else {
+					imeiNumber = mTelephony.getDeviceId();
+				}
+			} else {
+				imeiNumber = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+			}
 		}
 
-		return imeiNumber;
+		if (imeiNumber == null || imeiNumber.isEmpty()) {
+			imeiNumber = licenseKey+System.currentTimeMillis();
+		}
+	    return imeiNumber;
 	}
+
+
 
 	// get current UTC time
 
