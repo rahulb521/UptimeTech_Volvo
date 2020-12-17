@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accept">അംഗീകരിക്കുക</string>
+    <string name="action_settings">സജ്ജീകരണങ്ങൾ</string>
+    <string name="app_name">Eicher</string>
+    <string name="assign_time">അസൈൻഡ് സമയം</string>
+    <string name="breakdown_location">വാഹന തളര്ന്നുവീഴുക സ്ഥാനം</string>
+    <string name="btn_submit">लॉग इन करें</string>
+    <string name="cancel">റദ്ദാക്കുക</string>
+    <string name="closed">അടച്ച</string>
+    <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"പ്രവർത്തനക്ഷമമാക്കുക"</string>
+    <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"നിങ്ങൾ Google Play സേവനങ്ങൾ പ്രവർത്തനക്ഷമമാക്കുന്നില്ലെങ്കിൽ <ns1:g id="APP_NAME">%1$s</ns1:g> പ്രവർത്തിക്കില്ല."</string>
+    <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Google Play സേവനങ്ങൾ പ്രവർത്തനക്ഷമമാക്കുക"</string>
+    <string msgid="9115728400623041681" name="common_google_play_services_install_button">"ഇന്‍സ്റ്റാള്‍ ചെയ്യുക"</string>
+    <string msgid="8179894293032530091" name="common_google_play_services_install_text">"Google Play സേവനങ്ങളില്ലാതെ <ns1:g id="APP_NAME">%1$s</ns1:g> പ്രവർത്തിക്കില്ല, ഈ സേവനങ്ങളാകട്ടെ നിങ്ങളുടെ ഉപകരണത്തിൽ ഇല്ല."</string>
+    <string msgid="7442193194585196676" name="common_google_play_services_install_title">"Google Play സേവനങ്ങൾ നേടുക"</string>
+    <string msgid="4293541511340436975" name="common_google_play_services_notification_channel_name">"Google Play സേവന ലഭ്യത"</string>
+    <string msgid="180394615667698242" name="common_google_play_services_notification_ticker">"Google Play സേവനങ്ങളിലെ പിശക്"</string>
+    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"Google Play സേവനങ്ങളുമായി ബന്ധപ്പെട്ട് <ns1:g id="APP_NAME">%1$s</ns1:g> ആപ്പിനെന്തോ പ്രശ്നമുണ്ട്. വീണ്ടും ശ്രമിക്കുക."</string>
+    <string msgid="5501187292256987189" name="common_google_play_services_unsupported_text">"Google Play സേവനങ്ങളില്ലാതെ <ns1:g id="APP_NAME">%1$s</ns1:g> പ്രവർത്തിക്കില്ല, സേവനങ്ങളെയാകട്ടെ നിങ്ങളുടെ ഉപകരണം പിന്തുണയ്ക്കുന്നുമില്ല."</string>
+    <string msgid="8172070149091615356" name="common_google_play_services_update_button">"അപ്‌ഡേറ്റുചെയ്യുക"</string>
+    <string msgid="7773943415006962566" name="common_google_play_services_update_text">"നിങ്ങൾ Google Play സേവനങ്ങൾ അപ്‌ഡേറ്റുചെയ്‌തില്ലെങ്കിൽ <ns1:g id="APP_NAME">%1$s</ns1:g> പ്രവർത്തിക്കില്ല."</string>
+    <string msgid="8706675115216073244" name="common_google_play_services_update_title">"Google Play സേവനങ്ങൾ അപ്‌ഡേറ്റുചെയ്യുക"</string>
+    <string msgid="7894275749778928941" name="common_google_play_services_updating_text">"നിലവിൽ അപ്‌ഡേറ്റുചെയ്യുന്ന Google Play സേവനങ്ങൾ ഇല്ലാതെ <ns1:g id="APP_NAME">%1$s</ns1:g> പ്രവർത്തിക്കില്ല."</string>
+    <string msgid="2804989272736383918" name="common_google_play_services_wear_update_text">"Google Play സേവനങ്ങളുടെ പുതിയ പതിപ്പ് ആവശ്യമാണ്. താമസിയാതെ ഇത് സ്വയം അപ്‌ഡേറ്റുചെയ്യും."</string>
+    <string msgid="5201977337835724196" name="common_open_on_phone">"ഫോണിൽ തുറക്കുക"</string>
+    <string msgid="3441753203274453993" name="common_signin_button_text">"സൈൻ ഇൻ ചെയ്യുക"</string>
+    <string msgid="669893613918351210" name="common_signin_button_text_long">"Google ഉപയോഗിച്ച് സൈൻ ഇൻ ചെയ്യുക"</string>
+    <string name="configure">ക്രമീകരിക്കുക</string>
+    <string name="configuring_license">ലൈസൻസ് ക്രമീകരിക്കുക</string>
+    <string name="configuring_pin">പിൻ ക്രമീകരിക്കുക</string>
+    <string name="confirm_message">നിങ്ങൾ ഈ ജോലി പൂർത്തിയാക്കാൻ നിങ്ങൾക്ക് ഉറപ്പാണോ</string>
+    <string name="customer_contact">കസ്റ്റമർ കോണ്ടാക്ട്</string>
+    <string name="data_offline">ഇന്റർനെറ്റ് ലഭ്യമല്ല</string>
+    <string name="decline">നിരസിക്കുക</string>
+    <string name="decline_title">ദയവായി ഒരു കാരണം തിരഞ്ഞെടുക്കുക</string>
+    <string name="destination">ലക്ഷ്യസ്ഥാനം</string>
+    <string name="device_register">ജിസിഎം കൂടെ ട്രേട് നിങ്ങളുടെ ഉപകരണം</string>
+    <string name="edit_estimationtime_header">ഏകദേശ സമയം എഡിറ്റ്</string>
+    <string name="eicher_complete_log">Eicher_complete_log_</string>
+    <string name="eicher_error_log">Eicher_error_log_</string>
+    <string name="eicher_location_log">Eicher_location_log_</string>
+    <string name="eicher_log_filename">Eicher_location_log_17-Mar-2015.txt</string>
+    <string name="eicher_logs">Eicher Logs</string>
+    <string name="eicher_select_file">फ़ाइल का चयन करें</string>
+    <string name="english">अंग्रेजी</string>
+    <string name="enter_reason">अन्य कारण दर्ज</string>
+    <string name="error_message">പിശക് സന്ദേശം</string>
+    <string name="error_pin_password">നിങ്ങൾ നൽകിയ പിൻ പൊരുത്തപ്പെടുന്നില്ല.</string>
+    <string name="error_sync_update">സെർവറിൽ നിന്ന് അപ്ഡേറ്റുകൾ ഏകോപിപ്പിക്കുന്നു പിശക്</string>
+    <string name="estimation_cost">റിപ്പയറിംഗ് എന്ന ചെലവ് തിരഞ്ഞെടുക്കുക</string>
+    <string name="estimation_cost_title">ചെലവ് തിരഞ്ഞെടുക്കുക</string>
+    <string name="estimation_time">മതിപ്പു സമയം തിരഞ്ഞെടുക്കുക</string>
+    <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"പലവക"</string>
+    <string name="fill_problem_description">പ്രശ്നം വിവരണം പൂരിപ്പിക്കുക</string>
+    <string name="fill_reason_others">മറ്റു കാരണം പൂരിപ്പിക്കുക!</string>
+    <string msgid="9521340570209730" name="gcm_fallback_notification_channel_label">"പലവക"</string>
+    <string name="getting_direction">ഡ്രൈവിംഗ് ദിശകൾ നേടുന്നത്</string>
+    <string name="getting_new_ticket">പുതിയ ടിക്കറ്റ് നേടുന്നു</string>
+    <string name="gpe_check">ജിപിഎസ് നിങ്ങളുടെ device.Please അത് പ്രാപ്തമാക്കുക പ്രവർത്തനരഹിതമാണ്?</string>
+    <string name="gps_forword">ഗോടു ക്രമീകരണങ്ങൾ പേജ് ജിപിഎസ് പ്രവർത്തനക്ഷമമാക്കുക ചെയ്യുക</string>
+    <string name="gps_message">ജിസിഎം ഐഡി സജ്ജമാക്കിയിട്ടില്ലെങ്കിൽ, അപ്ലിക്കേഷൻ പുനരാരംഭിക്കുക!</string>
+    <string name="hello_world">हैलो वर्ल्ड</string>
+    <string name="hindi">हिन्दी</string>
+    <string name="history_ticket">ചരിത്രം ടിക്കറ്റുകൾ</string>
+    <string name="hrs">മണിക്കൂർ</string>
+    <string name="id_details"># टिकट 90 * 12 फरवरी 2015 21:09:45 सौंपा</string>
+    <string name="imei_number_not_found">ഉപകരണ സമർപിക്കുന്നു നേടാൻ കഴിയുന്നില്ല. വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="internet_connection">ഇന്റർനെറ്റ് കണക്ഷൻ കണക്ട് ദയവായി</string>
+    <string name="job_estimation">ഇയ്യോബ് മതിപ്പു</string>
+    <string name="language_option">ഭാഷ തിരഞ്ഞെടുക്കുക</string>
+    <string name="license_number">ലൈസൻസ് നമ്പർ</string>
+    <string name="loading_new_ticket">പുതിയ ടിക്കറ്റ് ലോഡ്</string>
+    <string name="location_not_found">സ്ഥലം കണ്ടെത്തിയില്ല</string>
+    <string name="log_complete">അപ്ലിക്കേഷൻ രേഖകൾ</string>
+    <string name="log_error_log">പിശക് രേഖകൾ</string>
+    <string name="log_folder_app_log">/Eicher_Log/AppLogs/</string>
+    <string name="log_folder_error">/Eicher_Log/ErrorLogs/</string>
+    <string name="log_folder_tracking_location">/Eicher_Log/LocationLogs/</string>
+    <string name="log_location">സ്ഥലം രേഖകൾ</string>
+    <string name="login">ലോഗിൻ</string>
+    <string name="met">ഏറ്റുമുട്ടിയ</string>
+    <string name="missing_sla_time">SLA ൽ സമയം കാണാതായ കാരണം തിരഞ്ഞെടുക്കുക</string>
+    <string name="my_ticket">എന്റെ ടിക്കറ്റുകൾ</string>
+    <string name="nature_of_problem">പ്രശ്നത്തിന്റെ പ്രകൃതി</string>
+    <string name="network_not_available">നെറ്റ്വർക്ക് ലഭ്യമല്ല. പ്രാദേശിക ഡിബി ലെ ലൊക്കേഷൻ സംരക്ഷിക്കാൻ</string>
+    <string name="new_estimationtime_header">പുതിയ കണക്കാക്കിയ സമയം</string>
+    <string name="new_message">പുതിയ സന്ദേശം</string>
+    <string name="new_ticket">പുതിയ ടിക്കറ്റ്</string>
+    <string name="no_closed_tickets">അടച്ച അല്ല ടിക്കറ്റുകൾ</string>
+    <string name="no_log_file">ലഭ്യമായ വിവിധ ഫയൽ ഇല്ല.</string>
+    <string name="no_my_tickets">തുറക്കാൻ ടിക്കറ്റുകൾ</string>
+    <string name="not_available">ലഭ്യമല്ല</string>
+    <string name="not_met">കണ്ടുമുട്ടിയിട്ട്ല്ല</string>
+    <string name="offline">ഓഫ്ലൈൻ</string>
+    <string name="ok">ശരി</string>
+    <string name="one_select_reason">കുറഞ്ഞത് ഒരു കാരണം തിരഞ്ഞെടുക്കുക!</string>
+    <string name="online">ഓൺലൈൻ</string>
+    <string name="pin_password">പിൻ നമ്പർ</string>
+    <string name="please_wait">കാത്തിരിക്കൂ ...</string>
+    <string name="required_license">ലൈസൻസ് നമ്പർ നൽകുക.</string>
+    <string name="resolved">പരിഹരിച്ചു</string>
+    <string name="retriving_data">ഡാറ്റ വീണ്ടെടുക്കുന്നു</string>
+    <string name="retype_pin_number">പാസ്വേഡ് വീണ്ടും ടൈപ്പുചെയ്യുക</string>
+    <string name="retype_pin_password">പിൻ നമ്പർ ടൈപ്പ്</string>
+    <string name="security_token">സുരക്ഷാ ടോക്കൺ കണ്ടെത്തിയില്ല</string>
+    <string name="select_estimated_cost">ചെലവ് തിരഞ്ഞെടുക്കുക.</string>
+    <string name="select_estimation_time">തിരുത്തുക മതിപ്പു സമയം തിരഞ്ഞെടുക്കുക</string>
+    <string name="select_one_options">ഒറ്റ ഓപ്ഷൻ തിരഞ്ഞെടുക്കുക!</string>
+    <string name="select_reason">തിരഞ്ഞെടുക്കുക കാരണം</string>
+    <string name="send_mail">ഇമെയിൽ അയക്കുക ...</string>
+    <string name="settings">സജ്ജീകരണങ്ങൾ</string>
+    <string name="sla_missing_reason">SLA കാരണം നഷ്ടമായ</string>
+    <string name="source">ഉറവിടം</string>
+    <string name="str_job_complete">ഇയ്യോബ് പൂർത്തിയായി</string>
+    <string name="str_pin_number">പാസ്വേഡ്</string>
+    <string name="str_wip">പ്രവൃത്തി പുരോഗതിയിലാണ്</string>
+    <string name="submit">സമർപ്പിക്കുക</string>
+    <string name="sync_data">സെർവറിൽ നിന്നും ഏകോപിപ്പിക്കുന്നു ഡാറ്റ</string>
+    <string name="ticket_action_reason_type_decline_ticket">1</string>
+    <string name="ticket_action_reason_type_estimation_time_increment">3</string>
+    <string name="ticket_action_reason_type_sla_missed">2</string>
+    <string name="ticket_details">वाणिज्यिक वाहन एक वोल्वो समूह और आयशर मोटर्स VE</string>
+    <string name="title_log">പ്രവേശിക്കുക ട്രാക്കിംഗ്</string>
+    <string name="title_vecv_configuration">കോൺഫിഗറേഷൻ</string>
+    <string name="tv_SLA_Time">SLA ൽ സമയം</string>
+    <string name="tv_estimated_distance">കണക്കാക്കിയ ഈടാക്കുന്നതല്ല ദൂരം (കെ.എം.)</string>
+    <string name="tv_estimationCost">കണക്കാക്കിയ ചെലവ്</string>
+    <string name="tv_estimationTime">കണക്കാക്കിയ സമയം</string>
+    <string name="tv_problem_desc">പ്രശ്നം വിവരണം</string>
+    <string name="tv_sla">SLA</string>
+    <string name="tv_time_jobs">11:45:55</string>
+    <string name="tv_timecounter">01:25:55</string>
+    <string name="tv_title_comment">നിങ്ങൾ ടിക്കറ്റ് നിരസിക്കാൻ ആഗ്രഹിക്കുന്നുണ്ടോ?</string>
+    <string name="update_estimation_time">വേണ്ട സമയം പരിഷ്കരിക്കുന്നു</string>
+    <string name="updating_record">റെക്കോർഡുകൾ പരിഷ്കരിക്കുന്നു</string>
+    <string name="updating_tickets">അപ്ഡേറ്റ് ടിക്കറ്റ്</string>
+    <string name="van_reached">വാൻ എത്തിയോ</string>
+    <string name="vehicle_type">വാഹന തരം</string>
+</resources>

@@ -1,0 +1,1 @@
+[{"outputType":{"type":"BUNDLE_MANIFEST"},"apkData":{"type":"MAIN","splits":[],"versionCode":58,"versionName":"1.8","enabled":true,"outputFile":"volvo-prod-release.apk","fullName":"prodRelease","baseName":"prod-release"},"path":"AndroidManifest.xml","properties":{"packageId":"com.teramatrix.vos","split":"","minSdkVersion":"16"}}]
