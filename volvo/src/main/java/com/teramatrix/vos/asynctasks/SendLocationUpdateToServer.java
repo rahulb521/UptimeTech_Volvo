@@ -103,7 +103,7 @@ public class SendLocationUpdateToServer extends AsyncTask<Void, Void, Void> {
 
 			vecvPreferences = new VECVPreferences(context);
 			restIntraction = new RestIntraction(new VECVPreferences(context).getAPIEndPoint_EOS()+""+
-					ApiUrls.INSERT_TRACKING_LOCATION+"?IMEI_Number="+vecvPreferences.getImeiNumber());
+					ApiUrls.INSERT_TRACKING_LOCATION+"IMEI_Number="+vecvPreferences.getImeiNumber());
 
 
 

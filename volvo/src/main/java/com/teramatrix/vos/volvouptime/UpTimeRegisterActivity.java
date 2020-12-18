@@ -221,13 +221,15 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
 
             ((TextView) findViewById(R.id.txt_startDate)).setText(TimeFormater.convertDateFormate(reasonStartDate, "dd MMM yyyy HH:mm:ss", "dd MMM yyyy HH:mm"));
 
-            SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault());
-            String currentDateandTime = sdf.format(new Date());
-            ((TextView) findViewById(R.id.txt_endDate)).setText(currentDateandTime);
-          /*  if (reasonEndDate == null || reasonEndDate.isEmpty() || reasonEndDate.contains("01 Jan 0001"))
+            //SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault());
+            //String currentDateandTime = sdf.format(new Date());
+            //((TextView) findViewById(R.id.txt_endDate)).setText(currentDateandTime);
+
+
+            if (reasonEndDate == null || reasonEndDate.isEmpty() || reasonEndDate.contains("01 Jan 0001"))
                 ((TextView) findViewById(R.id.txt_endDate)).setText("");
             else
-                ((TextView) findViewById(R.id.txt_endDate)).setText(TimeFormater.convertDateFormate(reasonEndDate, "dd MMM yyyy HH:mm:ss", "dd MMM yyyy HH:mm"));*/
+                ((TextView) findViewById(R.id.txt_endDate)).setText(TimeFormater.convertDateFormate(reasonEndDate, "dd MMM yyyy HH:mm:ss", "dd MMM yyyy HH:mm"));
 
             ((EditText) findViewById(R.id.ed_comment)).setText(delayedReasonComment);
 
@@ -255,7 +257,8 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
             SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault());
             String currentDateandTime = sdf.format(new Date());
             ((TextView) findViewById(R.id.txt_endDate)).setText(currentDateandTime);
-           /* if (reasonEndDate == null || reasonEndDate.isEmpty() || reasonEndDate.contains("01 Jan 0001"))
+
+            /* if (reasonEndDate == null || reasonEndDate.isEmpty() || reasonEndDate.contains("01 Jan 0001"))
                 ((TextView) findViewById(R.id.txt_endDate)).setText("");
             else
                 ((TextView) findViewById(R.id.txt_endDate)).setText(TimeFormater.convertDateFormate(reasonEndDate, "dd MMM yyyy HH:mm:ss", "dd MMM yyyy HH:mm"));

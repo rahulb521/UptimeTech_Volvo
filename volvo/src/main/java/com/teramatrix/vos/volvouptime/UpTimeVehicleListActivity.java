@@ -100,9 +100,7 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
     @Override
     protected void onResume() {
         super.onResume();
-
         registerBReciver(this);
-
     }
 
     @Override

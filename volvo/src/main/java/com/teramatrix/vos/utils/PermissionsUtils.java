@@ -34,7 +34,9 @@ public class PermissionsUtils {
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.WAKE_LOCK,
-            Manifest.permission.VIBRATE
+            Manifest.permission.VIBRATE,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_BACKGROUND_LOCATION,
             };
 
     /**

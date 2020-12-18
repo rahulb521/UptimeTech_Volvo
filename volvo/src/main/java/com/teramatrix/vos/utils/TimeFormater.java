@@ -354,6 +354,9 @@ public class TimeFormater {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		catch (Exception ex){
+			ex.printStackTrace();
+		}
 
 		return 0;
 	}
