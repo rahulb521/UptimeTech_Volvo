@@ -87,7 +87,6 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
     @Override
     public void onResume() {
         super.onResume();
-
     }
 
     private void initViews(){

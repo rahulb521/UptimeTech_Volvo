@@ -1,4 +1,0 @@
-#Mon Dec 14 17:00:49 IST 2020
-base.0=E\:\\Android Projects\\eos-mobile-vti\\volvo\\build\\intermediates\\dex\\prodRelease\\mergeDexProdRelease\\out\\classes.dex
-path.0=classes.dex
-renamed.0=classes.dex

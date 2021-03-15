@@ -236,7 +236,7 @@
                 android:id="@+id/txt_comment_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Job Comments"
+                android:text="Job Concern Description"
                 android:textSize="13sp" />
 
             <EditText

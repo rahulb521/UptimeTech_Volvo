@@ -1,2 +1,0 @@
-# Referenced at E:\Android Projects\eos-mobile-vti\volvo\build\intermediates\merged_manifests\prodRelease\AndroidManifest.xml:50
--keep class com.teramatrix.vos.EosApplication { <init>(); }

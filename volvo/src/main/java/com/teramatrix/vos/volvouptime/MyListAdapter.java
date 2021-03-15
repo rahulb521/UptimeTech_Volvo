@@ -24,7 +24,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-
 public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder>{
     public List<VehicleModel> vehicleModelList;
     public List<VehicleModel> vehicleModelFilterListSecond;

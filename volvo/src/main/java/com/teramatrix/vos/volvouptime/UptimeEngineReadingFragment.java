@@ -250,7 +250,7 @@ public class UptimeEngineReadingFragment extends android.support.v4.app.Fragment
     public void engineReadingList(List<EngineHourReadingModel> engineHourReadingModels, boolean whenRefreshing) {
         this.engineHourReadingModels.clear();
         this.engineHourReadingModels.addAll(engineHourReadingModels);
-      /*  for (int i=0; i<engineHourReadingModels.size();i++)
+        for (int i=0; i<engineHourReadingModels.size();i++)
         {
             if (engineHourReadingModels.get(i).getGetUtilizationDatafirst().equals("true"))
             {
@@ -261,7 +261,7 @@ public class UptimeEngineReadingFragment extends android.support.v4.app.Fragment
             {
                 Config.isClickable = true;
             }
-        }*/
+        }
         engineHourAdapter.notifyDataSetChanged();
         if (!whenRefreshing) {
             checkAnyEntryPending();
@@ -285,7 +285,7 @@ public class UptimeEngineReadingFragment extends android.support.v4.app.Fragment
                 current_data = current_data + engineHourReadingModel.getCurrentMonthUtilizationData() + ",";
                 save_time=save_time+engineHourReadingModel.getInRequiredTime()+",";
                 prev_util=prev_util+engineHourReadingModel.getPreviousMonthUtilizationData()+",";
-               // Config.isClickable=true;
+                Config.isClickable=true;
             }
         }
         if (anyData) {
