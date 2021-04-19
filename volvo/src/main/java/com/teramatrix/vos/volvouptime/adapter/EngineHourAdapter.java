@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ public class EngineHourAdapter extends RecyclerView.Adapter<EngineHourAdapter.Vi
     ViewHolder viewHolder;
     RecyclerView.LayoutManager layoutManager;
     Toast toast;
+
     public void setLayoutManager(RecyclerView.LayoutManager layoutManager) {
         this.layoutManager = layoutManager;
     }
@@ -82,6 +84,7 @@ public class EngineHourAdapter extends RecyclerView.Adapter<EngineHourAdapter.Vi
         EditText edit_current;
         ImageView img_edit;
         MyTextWatcher myTextWatcher;
+
         public ViewHolder(final View itemView) {
             super(itemView);
             prev_month = itemView.findViewById(R.id.prev_month);
@@ -95,18 +98,22 @@ public class EngineHourAdapter extends RecyclerView.Adapter<EngineHourAdapter.Vi
             img_edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int pos = (int) img_edit.getTag();
+                    try {
+                        int pos = (int) img_edit.getTag();
 //                    ((EditText) layoutManager.findViewByPosition(pos).findViewById(R.id.edit_current)).setHint(
 //                            "");
 //                    ((EditText) layoutManager.findViewByPosition(pos).findViewById(R.id.edit_current)).setText(
 //                            engineHourReadingModels.get(pos).getCurrentMonthUtilizationData());
-                    layoutManager.findViewByPosition(pos).findViewById(R.id.edit_current).setEnabled(true);
-                    ((EditText) layoutManager.findViewByPosition(pos).findViewById(R.id.edit_current)).requestFocus();
-                    ((EditText) layoutManager.findViewByPosition(pos).findViewById(R.id.edit_current)).setSelection(
-                            engineHourReadingModels.get(pos).getCurrentMonthUtilizationData().length());
-                    InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.showSoftInput(((EditText) layoutManager.findViewByPosition(pos).findViewById(R.id.edit_current)), InputMethodManager.SHOW_FORCED);
+                        layoutManager.findViewByPosition(pos).findViewById(R.id.edit_current).setEnabled(true);
+                        ((EditText) layoutManager.findViewByPosition(pos).findViewById(R.id.edit_current)).requestFocus();
+                        ((EditText) layoutManager.findViewByPosition(pos).findViewById(R.id.edit_current)).
+                                setSelection(engineHourReadingModels.get(pos).getCurrentMonthUtilizationData().length());
 
+                        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.showSoftInput(((EditText) layoutManager.findViewByPosition(pos).findViewById(R.id.edit_current)), InputMethodManager.SHOW_FORCED);
+
+                    } catch (Exception e) {
+                    }
                 }
             });
         }
@@ -146,7 +153,7 @@ public class EngineHourAdapter extends RecyclerView.Adapter<EngineHourAdapter.Vi
 
     private String getCurrentMonth() {
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.MONTH,-1);
+        calendar.add(Calendar.MONTH, -1);
         SimpleDateFormat month_date = new SimpleDateFormat("MMM yyyy");
         String month_name = month_date.format(calendar.getTime());
         return month_name;
@@ -175,7 +182,7 @@ public class EngineHourAdapter extends RecyclerView.Adapter<EngineHourAdapter.Vi
             int position = (int) editText.getTag();
             if (s.toString() != null) {
                 try {
-                    if (varifyHours(Integer.parseInt(s.toString()), editText,position)) {
+                    if (varifyHours(Integer.parseInt(s.toString()), editText, position)) {
                         engineHourReadingModels.get(position).setModified(true);
                         engineHourReadingModels.get(position).setCurrentMonthUtilizationData(s.toString());
                         engineHourReadingModels.get(position).setInRequiredTime(UptimeEngineReadingFragment.getTimeString(System.currentTimeMillis()));
@@ -194,13 +201,13 @@ public class EngineHourAdapter extends RecyclerView.Adapter<EngineHourAdapter.Vi
         }
     }
 
-    private boolean varifyHours(int hours, EditText editText,int pos) {
+    private boolean varifyHours(int hours, EditText editText, int pos) {
         int monthhours = getNumberOfDaysInMonth() * 24;
-        int totalHours=monthhours+Integer.parseInt(engineHourReadingModels.get(pos).getPreviousMonthUtilizationData());
+        int totalHours = monthhours + Integer.parseInt(engineHourReadingModels.get(pos).getPreviousMonthUtilizationData());
         if (hours > totalHours) {
             editText.setError("Hours should be less then " + totalHours + " hours");
             return false;
-        }else if (hours<Integer.parseInt(engineHourReadingModels.get(pos).getPreviousMonthUtilizationData())){
+        } else if (hours < Integer.parseInt(engineHourReadingModels.get(pos).getPreviousMonthUtilizationData())) {
             editText.setError("Hours can not be less then previous month hours");
             return false;
         }
@@ -222,31 +229,27 @@ public class EngineHourAdapter extends RecyclerView.Adapter<EngineHourAdapter.Vi
     }
 
 
-    public void filter(String text)
-    {
+    public void filter(String text) {
         List<EngineHourReadingModel> temp = new ArrayList();
         engineHourReadingModels = engineHourReadingFilterModels;
-        for(EngineHourReadingModel d: engineHourReadingModels)
-        {
-            if(d.getChassisNumber().contains(text)|| d.getDoorNumber().contains(text))
-            {
+        for (EngineHourReadingModel d : engineHourReadingModels) {
+            if (d.getChassisNumber().contains(text) || d.getDoorNumber().contains(text)) {
                 temp.add(d);
             }
         }
-        if (temp.size()==0)
-        {
+        if (temp.size() == 0) {
             showAToast("Data not found");
 
         }
         updateList(temp);
     }
 
-    public void updateList(List<EngineHourReadingModel> list){
+    public void updateList(List<EngineHourReadingModel> list) {
         engineHourReadingModels = list;
         notifyDataSetChanged();
     }
 
-    public void showAToast (String message){
+    public void showAToast(String message) {
         if (toast != null) {
             toast.cancel();
         }

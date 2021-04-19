@@ -33,17 +33,17 @@ android {
     productFlavors {
         dev610 {
            // buildConfigField 'String', 'HOST', '"http://183.182.84.29:9093/"'
-            //buildConfigField 'String', 'HOST', '"http://169.38.133.115:8083/"'
-            buildConfigField 'String', 'HOST', '"https://uptimecenter.vecv.net:8082/"'
+            buildConfigField 'String', 'HOST', '"http://169.38.133.115:8083/"'
+            //buildConfigField 'String', 'HOST', '"https://uptimecenter.vecv.net:8082/"'
         }
         dev614 {
             //buildConfigField 'String', 'HOST', '"http://10.10.1.100:9093/"'
-            //buildConfigField 'String', 'HOST', '"http://169.38.133.115:8083/"'
-            buildConfigField 'String', 'HOST', '"https://uptimecenter.vecv.net:8082/"'
+            buildConfigField 'String', 'HOST', '"http://169.38.133.115:8083/"' //QA url
+            //buildConfigField 'String', 'HOST', '"https://uptimecenter.vecv.net:8082/"' //production
         }
         prod {
-            //buildConfigField 'String', 'HOST', '"http://169.38.133.115:8083/"'
-            buildConfigField 'String', 'HOST', '"https://uptimecenter.vecv.net:8082/"'
+            buildConfigField 'String', 'HOST', '"http://169.38.133.115:8083/"'
+            //buildConfigField 'String', 'HOST', '"https://uptimecenter.vecv.net:8082/"'
         }
     }
 
