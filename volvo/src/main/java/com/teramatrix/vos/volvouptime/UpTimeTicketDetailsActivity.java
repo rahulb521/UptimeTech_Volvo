@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -14,6 +15,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.teramatrix.vos.R;
 import com.teramatrix.vos.preferences.VECVPreferences;
 import com.teramatrix.vos.utils.TimeFormater;
@@ -36,12 +38,14 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
         UpTimeUpdateTicket.I_UpTimeUpdateTicket,ConfirmationDialog.I_ConfirmationResponse {
 
 
+    String TAG = this.getClass().getSimpleName();
     private String ticket_JobType_SequenceOrder,ticketId,ticketIdAlias,registration_no,chasis_number ;
     private boolean isTicketComplete = true;
     private Date reasonLatestEndDate,jobEndDate ;
     private String oldestStartTime_reason;
     private String latestEndTime_reason;
     private String door_no;
+    private String causalpartintent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,8 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
         }
 
         setContentView(R.layout.activity_ticket_details);
+
+        Log.e(TAG, "onCreate: " );
 
         //Set Title of Screen
         ((TextView)findViewById(R.id.rl_title_bar_title)).setText("Job Details");
@@ -76,6 +82,9 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
                 mainIntent.putExtra("ticketIdAlias", ticketIdAlias);
                 mainIntent.putExtra("door_no", door_no);
                 mainIntent.putExtra("chasis_number", chasis_number);
+                mainIntent.putExtra("causalpartintent",causalpartintent);
+
+                Log.e(TAG, "onClick: reason click "+causalpartintent );
 
                 String jobStartEndDate = ((TextView)findViewById(R.id.txt_job_time)).getText().toString();
                 String[] dateArray = jobStartEndDate.split("-");
@@ -104,6 +113,7 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
             @Override
             public void onClick(View v) {
 
+                Log.e(TAG, "onClick: isticketcomplete "+isTicketComplete );
                 if(!isTicketComplete) {
                     Toast.makeText(UpTimeTicketDetailsActivity.this, "Please enter End Time before closing ticket.", Toast.LENGTH_SHORT).show();
                     return;
@@ -170,6 +180,8 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
 
             TextView txt_reason_time = v.findViewById(R.id.txt_reason_time);
 
+            Log.e(TAG, "loadRegisteredReasonList: reason end date "+reasonEdDate );
+
             if(reasonEdDate==null || reasonEdDate.isEmpty() || reasonEdDate.contains("N/A")|| reasonEdDate.contains("01 Jan 0001")) {
                 reasonEdDate = "N/A";
                 isTicketComplete = false;
@@ -192,6 +204,7 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
                 @Override
                 public void onClick(View v) {
 
+                    Log.e(TAG, "onClick: edit reason "+upTimeReasonsModel.getCausalPart() );
                     Intent mainIntent = new Intent(UpTimeTicketDetailsActivity.this,
                             UpTimeRegisterActivity.class);
                     mainIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -209,6 +222,7 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
                     mainIntent.putExtra("delayedReasonComment", upTimeReasonsModel.getDelayedReasonComment());
                     mainIntent.putExtra("door_no", door_no);
                     mainIntent.putExtra("chasis_number", chasis_number);
+                    mainIntent.putExtra("causalpartintent",causalpartintent);
 
                     String jobStartEndDate = ((TextView)findViewById(R.id.txt_job_time)).getText().toString();
                     String[] dateArray = jobStartEndDate.split("-");
@@ -262,6 +276,10 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
 
         if(upTimeTicketDetailModel!=null)
         {
+            Log.e(TAG, "loadTicketDetails: gson111 "+upTimeTicketDetailModel.getCausalPart());
+
+            causalpartintent = upTimeTicketDetailModel.getCausalPart();
+
             isTicketComplete= true;
 
             System.out.println("Get Ticket Details:"+upTimeTicketDetailModel.getStatusAlias()+" "+upTimeTicketDetailModel.getVehicleRegistrationNumber());
@@ -285,6 +303,8 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
 
             String startTime = upTimeTicketDetailModel.getStartDate();
             String endTime = upTimeTicketDetailModel.getEndDate();
+
+            Log.e(TAG, "loadTicketDetails: endtime "+endTime );
 
             if(endTime==null || endTime.contains("01 Jan 0001") || endTime.isEmpty()) {
                 endTime = "N/A";
@@ -313,6 +333,7 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
                 @Override
                 public void onClick(View v) {
 
+                    Log.e(TAG, "onClick: edit job click " );
                     Intent mainIntent = new Intent(UpTimeTicketDetailsActivity.this,
                             UpTimeRegisterActivity.class);
                     mainIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -329,6 +350,7 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
                     mainIntent.putExtra("door_no", door_no);
                     mainIntent.putExtra("chasis_number", chasis_number);
                     mainIntent.putExtra("delayedReasonComment",upTimeTicketDetailModel.getJobComment());
+                    mainIntent.putExtra("causalpartintent",upTimeTicketDetailModel.getCausalPart());
 
                     if(latestEndTime_reason==null || latestEndTime_reason.equalsIgnoreCase("N/A"))
                         latestEndTime_reason = oldestStartTime_reason;

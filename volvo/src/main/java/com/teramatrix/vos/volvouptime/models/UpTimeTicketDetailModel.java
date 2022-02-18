@@ -39,6 +39,9 @@ public class UpTimeTicketDetailModel extends Model{
     @Column(name = "JobComment")
     public String JobComment;
 
+    @Column(name = "causalPart")
+    public String causalPart;
+
     public List<UpTimeAddedReasonsModel> upTimeAddedReasonsModels;
 
     public UpTimeTicketDetailModel()
@@ -47,6 +50,16 @@ public class UpTimeTicketDetailModel extends Model{
     }
 
     //Getter Setters
+
+
+    public String getCausalPart() {
+        return causalPart;
+    }
+
+    public void setCausalPart(String causalPart) {
+        this.causalPart = causalPart;
+    }
+
     public String getStatusAlias() {
         return statusAlias;
     }

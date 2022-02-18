@@ -132,7 +132,8 @@
             android:enabled="true"></service>
         <service
             android:name=".service.SyncTicketsService"
-            android:enabled="true"></service>
+            android:enabled="true"
+            android:exported="false"></service>
         <service
             android:name=".service.Locationservice"
             android:enabled="true"></service>
@@ -145,7 +146,8 @@
         <receiver
             android:name=".reciver.NewTicketAlertRinger"
             android:enabled="true"></receiver>
-        <receiver android:name=".reciver.InternetAvailabilityRecever">
+        <receiver android:name=".reciver.InternetAvailabilityRecever"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>

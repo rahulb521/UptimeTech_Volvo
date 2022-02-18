@@ -34,6 +34,7 @@ import java.util.Locale;
 
 public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHolder> {
 
+    String TAG = this.getClass().getSimpleName();
     static List<VehicleModel> vehicleModelList;
     static List<VehicleModel> vehicleModelFilterList;
     static List<String> vehicleChasisList;
@@ -67,7 +68,8 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.MyViewHo
                     }
                     else
                         {
-                        if (Config.isClickable)
+                            Log.e(TAG, "onClick: config clickable "+Config.isClickable );
+                        //if (Config.isClickable)
                         {
                             listener.onItemClick(item);
                         }

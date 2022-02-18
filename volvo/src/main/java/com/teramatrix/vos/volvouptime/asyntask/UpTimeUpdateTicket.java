@@ -37,6 +37,7 @@ import java.util.List;
 public class UpTimeUpdateTicket extends AsyncTask<Void, Void, Void> {
 
 	// Define Context for this class
+	String TAG = this.getClass().getSimpleName();
 	private Context mContext;
 	// Define String variables for this class
 	private String securityToken,response;
@@ -53,6 +54,10 @@ public class UpTimeUpdateTicket extends AsyncTask<Void, Void, Void> {
 			UUID,
 			InreasonUniqueId,
 			delayedReasonComment;
+
+	//causal part string
+	String causalpart;
+
 	// Define ProgressDialog for this class
 	private ProgressDialog mProgressDialog;
 	//Interface reference for returning data to caller
@@ -87,6 +92,9 @@ public class UpTimeUpdateTicket extends AsyncTask<Void, Void, Void> {
 		this.UUID = requestModel.UUID;
 		this.InreasonUniqueId = requestModel.InreasonUniqueId;
 		this.delayedReasonComment = requestModel.delayedReasonComment;
+		this.causalpart = requestModel.causalpart;
+
+		Log.e(TAG, "UpTimeUpdateTicket: reason id "+requestModel.reasonId );
 	}
 
 	/*
@@ -122,13 +130,14 @@ public class UpTimeUpdateTicket extends AsyncTask<Void, Void, Void> {
 
 				restIntraction = new RestIntraction(new VECVPreferences(mContext).getAPIEndPoint_EOS() + ""
 						+ ApiUrls.UPTIME_INSERT_TICKET);
-
 				restIntraction.AddParam("TicketStatus", reasonId);
+				//restIntraction.AddParam("TicketStatus", "1");
 				restIntraction.AddParam("VehicleRegistrationNumber", vehicleRegNo);
 				restIntraction.AddParam("StartDate", startTime);
 				restIntraction.AddParam("EndDate", endTime);
 				restIntraction.AddParam("AssignedToUserId", licenceNo);
 				restIntraction.AddParam("Description", delayedReasonComment);
+				restIntraction.AddParam("causalpart", causalpart);
 
 
 				//If network not available save new Ticket to local DB and mark vehicle status to down.
@@ -141,6 +150,7 @@ public class UpTimeUpdateTicket extends AsyncTask<Void, Void, Void> {
 					upTimeTicketDetailModel.setStartDate(startTime);
 					upTimeTicketDetailModel.setEndDate(endTime);
 					upTimeTicketDetailModel.setIsSyncWithServer("false");
+
 
 					String year =TimePickerUtil.getTimeOffset(mContext,"yyyy",0,0);
 					String uuid = "Y"+year+"TS"+(System.currentTimeMillis()/1000);
@@ -193,7 +203,7 @@ public class UpTimeUpdateTicket extends AsyncTask<Void, Void, Void> {
 				restIntraction.AddParam("InreasonUniqueId", InreasonUniqueId);
 				restIntraction.AddParam("inremarks", delayedReasonComment);
 				//description = delayedReasonComment;
-
+				restIntraction.AddParam("causalpart", causalpart);
 
 				//Add Reason to Local Database
 				/*UpTimeAddedReasonsModel upTimeAddedReasonsModel =new Select()
@@ -268,6 +278,7 @@ public class UpTimeUpdateTicket extends AsyncTask<Void, Void, Void> {
 				restIntraction.AddParam("isTicketClosed", isTicketClosed);
 				restIntraction.AddParam("InreasonUniqueId", InreasonUniqueId);
 				restIntraction.AddParam("inremarks", delayedReasonComment);
+				restIntraction.AddParam("causalpart", causalpart);
 
 				//Add Reason to Local Database
 				UpTimeAddedReasonsModel upTimeAddedReasonsModel =new Select()
@@ -329,7 +340,7 @@ public class UpTimeUpdateTicket extends AsyncTask<Void, Void, Void> {
 				restIntraction.AddParam("ServiceStartDate", startTime);
 				restIntraction.AddParam("ServiceEndDate", endTime);
 				restIntraction.AddParam("Description",delayedReasonComment);
-
+				restIntraction.AddParam("causalpart", causalpart);
 				UpTimeTicketDetailModel upTimeTicketDetailModel =new Select()
 						.from(UpTimeTicketDetailModel.class)
 						.where("TicketId = ?", TicketId)
@@ -367,7 +378,7 @@ public class UpTimeUpdateTicket extends AsyncTask<Void, Void, Void> {
 				restIntraction.AddParam("TicketId", TicketId);
 				restIntraction.AddParam("isTicketClosed", isTicketClosed);
 				restIntraction.AddParam("Description",delayedReasonComment);
-
+				restIntraction.AddParam("causalpart", causalpart);
 				//Close Ticket(remove)from Local DB
 				UpTimeTicketDetailModel upTimeTicketDetailModel =new Select()
 						.from(UpTimeTicketDetailModel.class)
@@ -451,6 +462,7 @@ private String errorMessage="";
 		if (mProgressDialog != null && mProgressDialog.isShowing())
 			mProgressDialog.dismiss();
 		//Provide data to caller
+		Log.e(TAG, "onPostExecute: error message "+errorMessage );
 		i_upTimeUpdateTicket.onTicketupdateResponse(isUpdateSuccessful,errorMessage);
 	}
 
@@ -493,6 +505,8 @@ private String errorMessage="";
 		public String isTicketClosed;
 		public String InreasonUniqueId;
 		public String delayedReasonComment;
+
+		public String causalpart;
 	}
 
 }

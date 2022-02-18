@@ -10,6 +10,11 @@
     <string name="data_offline">Internet not available</string>
     <string name="map_api_key">AIzaSyC2S5kHeGYkW9cL4d7_uxfauTBfQEtN4HA</string>
 
+    <string name="map_api_key1">AIzaSyC2S5k</string>
+    <string name="map_api_key2">HeGYkW9cL4d</string>
+    <string name="map_api_key3">7_uxfauTBfQ</string>
+    <string name="map_api_key4">EtN4HA</string>
+
     <!-- String Title -->
     <string name="title_vecv_configuration">Configuration</string>
     <string name="title_log">Tracking Log</string>

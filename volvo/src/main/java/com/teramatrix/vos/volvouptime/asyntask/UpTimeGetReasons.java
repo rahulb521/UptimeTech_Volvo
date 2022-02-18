@@ -23,6 +23,7 @@ import java.util.List;
  */
 public class UpTimeGetReasons extends AsyncTask<Void, Void, Void> {
 
+	String TAG = this.getClass().getSimpleName();
 	// Define Context for this class
 	private Context mContext;
 	// Define String variables for this class
@@ -75,9 +76,9 @@ public class UpTimeGetReasons extends AsyncTask<Void, Void, Void> {
 			restIntraction.AddParam("Token", securityToken);
 			restIntraction.Execute(1);
 
-			Log.i("Request",restIntraction.toString());
+			Log.e(TAG,"Request111111 get reason  "+restIntraction.toString());
 			response = restIntraction.getResponse();
-			Log.i("response",response);
+			Log.e(TAG,"response  get reason  "+response);
 
 			if (response != null) {
 				try {
@@ -88,7 +89,9 @@ public class UpTimeGetReasons extends AsyncTask<Void, Void, Void> {
 						JSONArray jsonArray = jsonObject.getJSONArray("ServiceReasonsList");
 						if(jsonArray.length()>0)
 						{
-							for(int i =0;i<jsonArray.length();i++)
+							//Log.e(TAG, "doInBackground: json array length "+jsonArray.length() );
+							for(int i =0;i<jsonArray.length();i++)//top to bottom
+//							for (int i = jsonArray.length()-1; i >=0 ; i--) //bottom to top
 							{
 								JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 								String _service_type_id = jsonObject1.getString("_service_type_id");
@@ -104,6 +107,7 @@ public class UpTimeGetReasons extends AsyncTask<Void, Void, Void> {
 								String _is_active = jsonObject1.getString("_is_active");
 								String _is_deleted = jsonObject1.getString("_is_deleted");
 
+								Log.e(TAG+_service_type_id, _reason_id+" doInBackground: reasonname  "+_reason_name );
 								UpTimeReasonsModel upTimeReasonsModel =new Select()
 										.from(UpTimeReasonsModel.class)
 										.where("ReasonId = ?",_reason_id)
@@ -112,6 +116,7 @@ public class UpTimeGetReasons extends AsyncTask<Void, Void, Void> {
 								if(upTimeReasonsModel==null)
 									upTimeReasonsModel =  new UpTimeReasonsModel();
 
+								//Log.e(TAG, i+" doInBackground: service name "+_service_name );
 								upTimeReasonsModel.set_is_active(_is_active);
 								upTimeReasonsModel.set_service_type_id(_service_type_id);
 								upTimeReasonsModel.set_reason_id(_reason_id);
@@ -125,6 +130,7 @@ public class UpTimeGetReasons extends AsyncTask<Void, Void, Void> {
 								upTimeReasonsModel.set_service_type_is_deleted(_service_type_is_deleted);
 								upTimeReasonsModel.set_is_deleted(_is_deleted);
 								upTimeReasonsModel.save();
+								//Log.e(TAG, "doInBackground: saved" );
 
 							}
 						}

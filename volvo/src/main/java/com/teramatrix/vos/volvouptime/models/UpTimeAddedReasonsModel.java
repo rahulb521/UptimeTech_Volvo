@@ -49,6 +49,17 @@ public class UpTimeAddedReasonsModel extends Model {
     @Column(name = "delayedReasonComment")
     public String delayedReasonComment;
 
+    @Column(name = "causalPart")
+    public String causalPart;
+
+    public String getCausalPart() {
+        return causalPart;
+    }
+
+    public void setCausalPart(String causalPart) {
+        this.causalPart = causalPart;
+    }
+
     public UpTimeAddedReasonsModel()
     {
         super();

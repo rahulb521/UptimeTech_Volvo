@@ -13,10 +13,12 @@ apply plugin: 'io.fabric'
 repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
+    //alias-volvo
+    //password-123456
 
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     buildToolsVersion "29.0.2"
     flavorDimensions "default"
 
@@ -24,10 +26,10 @@ android {
     defaultConfig {
         applicationId "com.teramatrix.vos"
         minSdkVersion 16
-        targetSdkVersion 29
+        targetSdkVersion 30
         multiDexEnabled true
-        versionCode = 60
-        versionName = "1.10"
+        versionCode = 60;//63
+        versionName = 1.10;//"1.13"
     }
 
     productFlavors {

@@ -108,6 +108,8 @@ public class UpTimeGetData extends AsyncTask<Void, Void, Void> {
                                 String VehicleStatus = jsonObject1.getString("VehicleStatus");
                                 String JobStrtDate = jsonObject1.getString("JobStartDate");
                                 String ticketId = jsonObject1.getString("TicketId");
+                                String causalpart = jsonObject1.getString("causalpart");
+                                //Log.e("TAG", "doInBackground: causl part "+causalpart );
                                 VehicleModel vehicleModel = new Select()
                                         .from(VehicleModel.class)
                                         .where("Registration = ?", RegistrationNumber)
@@ -126,6 +128,7 @@ public class UpTimeGetData extends AsyncTask<Void, Void, Void> {
                                 vehicleModel.setVehicleStatus(VehicleStatus);
                                 vehicleModel.setSiteId(SiteId);
                                 vehicleModel.setTicketId(ticketId);
+
                                 vehicleModel.save();
                                 //Save Ticket Details
                                 String ServiceName = jsonObject1.getString("ServiceName");
@@ -155,6 +158,7 @@ public class UpTimeGetData extends AsyncTask<Void, Void, Void> {
                                     upTimeTicketDetailModel.setIsSyncWithServer("true");
                                     upTimeTicketDetailModel.setSequenceOrder(ServiceTypeSequenceNo.split(",")[0]);
                                     upTimeTicketDetailModel.setJobComment(JobDescriptionComment);
+                                    upTimeTicketDetailModel.setCausalPart(causalpart);
                                     upTimeTicketDetailModel.save();
                                 }
                                 //Save Ticket's Reasons Details

@@ -1,15 +1,18 @@
 package com.teramatrix.vos.volvouptime;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputFilter;
 import android.text.Spanned;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ScrollView;
@@ -17,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.teramatrix.vos.R;
 import com.teramatrix.vos.checkinternet.CheckInternetConnection;
 import com.teramatrix.vos.preferences.VECVPreferences;
@@ -25,6 +29,7 @@ import com.teramatrix.vos.volvouptime.adapter.VehicleAdapter;
 import com.teramatrix.vos.volvouptime.asyntask.UpTimeUpdateTicket;
 import com.teramatrix.vos.volvouptime.custom.DAO;
 import com.teramatrix.vos.volvouptime.custom.TimePickerUtil;
+import com.teramatrix.vos.volvouptime.custom.TimePickerUtilEndDate;
 import com.teramatrix.vos.volvouptime.models.UpTimeReasonsModel;
 import com.teramatrix.vos.volvouptime.models.VehicleModel;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
@@ -43,10 +48,15 @@ import java.util.Locale;
  */
 public class UpTimeRegisterActivity extends Activity implements View.OnClickListener,
         UpTimeUpdateTicket.I_UpTimeUpdateTicket,
+
         DatePickerDialog.OnDateSetListener,
         TimePickerDialog.OnTimeSetListener,
-        TimePickerUtil.I_TimePickerUtil {
+        TimePickerUtil.I_TimePickerUtil
+        //, TimePickerUtilEndDate.I_TimePickerUtilEndDate
+{
 
+
+    String TAG = this.getClass().getSimpleName();
 
     private RecyclerView recyclerView;
     private VehicleAdapter vehicleAdapter;
@@ -65,7 +75,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
             door_no,
             inreasonUniqueId,
             delayedReasonComment,
-            chasis_number;
+            chasis_number,causalpartintent;
 
     private String jobEndDate = "N/A";
     private String jobStartDate = "N/A";
@@ -81,6 +91,9 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
     private DatePickerDialog datePickerDialog;
     private TimePickerDialog timePickerDialog;
 
+    EditText et_causalpart;
+    TextView txt_causalpart;
+    ArrayList<String>  reasonidlist ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +109,8 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
         }
         setContentView(R.layout.activity_register);
 
+        et_causalpart = findViewById(R.id.et_causalpart);
+        txt_causalpart = findViewById(R.id.txt_causalpart);
         //Get Extra
         type = getIntent().getStringExtra("type");
         registration_no = getIntent().getStringExtra("registration_no");
@@ -115,6 +130,16 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
         door_no = getIntent().getStringExtra("door_no");
         delayedReasonComment = getIntent().getStringExtra("delayedReasonComment");
         chasis_number = getIntent().getStringExtra("chasis_number");
+        causalpartintent=getIntent().getStringExtra("causalpartintent");
+        Log.e(TAG, reason+"   onCreate: getintent causal part "+getIntent().getStringExtra("causalpartintent") );
+
+        //set causal part
+        if (causalpartintent==null||causalpartintent.isEmpty()||causalpartintent.matches("null")){
+            et_causalpart.setText("");
+        }else {
+            et_causalpart.setText(causalpartintent);
+        }
+
         //txt_chasis_number
         //init screen titles and basic views
         initViews();
@@ -137,6 +162,8 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
         if (!type.equalsIgnoreCase(TYPE_EDIT_REASON))
             loadDelayedReasons();
 
+
+        Log.e(TAG, reasonId+" reasonid onCreate: jobtypeid  "+job_type_id );
         //new UpTimeGetReasons(this,"teramatrix",this).execute();
     }
 
@@ -146,6 +173,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
      */
     private void initViews() {
         //Set Title of Screen
+        Log.e(TAG, "initViews: type "+type );
         if (type.equalsIgnoreCase(TYPE_JOB)) {
 
             ((TextView) findViewById(R.id.rl_title_bar_title)).setText("New Job");
@@ -177,6 +205,8 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
 
         } else if (type.equalsIgnoreCase(TYPE_ADD_REASON)) {
 
+            et_causalpart.setVisibility(View.INVISIBLE);
+            txt_causalpart.setVisibility(View.INVISIBLE);
 
             ((TextView) findViewById(R.id.txt_comment_header)).setText("Delayed Reason Comments");
             ((EditText) findViewById(R.id.ed_comment)).setHint("Enter Delayed Reason Comments");
@@ -205,6 +235,24 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
 
         } else if (type.equalsIgnoreCase(TYPE_EDIT_REASON)) {
 
+            if (reason!=null){
+
+                if (reason.matches("Volvo - Parts not available")
+                        ||reason.matches("Customer - Parts")
+                        ||reason.matches("Vendor Parts")){
+
+                    et_causalpart.setVisibility(View.VISIBLE);
+                    txt_causalpart.setVisibility(View.VISIBLE);
+                    et_causalpart.setEnabled(true);
+
+                }else {
+                    et_causalpart.setVisibility(View.INVISIBLE);
+                    txt_causalpart.setVisibility(View.INVISIBLE);
+                    et_causalpart.setEnabled(false);
+
+                }
+            }
+
             ((TextView) findViewById(R.id.txt_comment_header)).setText("Delayed Reason Comments");
             ((EditText) findViewById(R.id.ed_comment)).setHint("Enter Delayed Reason Comments");
 
@@ -218,6 +266,9 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
 
             ((TextView) findViewById(R.id.txt_job_type)).setText(jobTypeAlias);
             ((TextView) findViewById(R.id.txt_reason)).setText(reason);
+
+
+
 
             ((TextView) findViewById(R.id.txt_startDate)).setText(TimeFormater.convertDateFormate(reasonStartDate, "dd MMM yyyy HH:mm:ss", "dd MMM yyyy HH:mm"));
 
@@ -310,6 +361,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                 requestModel.vehicleRegNo = registration_no;
                 requestModel.token = "teramatrix";
                 requestModel.requestType = type;
+                requestModel.causalpart = et_causalpart.getText().toString();
 
                 if (type.equalsIgnoreCase(TYPE_JOB)) {
 
@@ -325,6 +377,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                     if (true || new CheckInternetConnection(UpTimeRegisterActivity.this).isConnectedToInternet()) {
                         String jobType = ((Spinner) findViewById(R.id.job_spinner)).getSelectedItem().toString();
                         String jobSequenceNo = (((Spinner) findViewById(R.id.job_spinner)).getSelectedItemPosition()) + "";
+                        jobSequenceNo = reasonidlist.get(Integer.parseInt(jobSequenceNo));
                         if (jobType.equalsIgnoreCase("select")) {
                             Toast.makeText(UpTimeRegisterActivity.this, "Please select job type.", Toast.LENGTH_SHORT).show();
                             return;
@@ -333,6 +386,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                         requestModel.reasonId = jobSequenceNo;
                         requestModel.isTicketClosed = "false";
                         requestModel.delayedReasonComment = comment;
+                        requestModel.causalpart = et_causalpart.getText().toString();
 
                         new UpTimeUpdateTicket(
                                 UpTimeRegisterActivity.this,
@@ -354,24 +408,32 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                     }
                     String jobType = ((Spinner) findViewById(R.id.job_spinner)).getSelectedItem().toString();
                     String jobSequenceNo = (((Spinner) findViewById(R.id.job_spinner)).getSelectedItemPosition()) + "";
+                    String selectedjobtypeid = reasonidlist.get(Integer.parseInt(jobSequenceNo));
+
                     if (jobType.equalsIgnoreCase("select")) {
                         Toast.makeText(UpTimeRegisterActivity.this, "Please select delay type.", Toast.LENGTH_SHORT).show();
                         return;
                     }
                     int delayedReasonId = 0;
-                    if (job_type_id != null) {
-                        delayedReasonId = Integer.parseInt(job_type_id);
-                        delayedReasonId = 100 * delayedReasonId;
-                        delayedReasonId = delayedReasonId + Integer.parseInt(jobSequenceNo);
-                    }
+//                    if (job_type_id != null) {
+//                        delayedReasonId = Integer.parseInt(job_type_id);
+//                        delayedReasonId = 100 * delayedReasonId;
+//                        delayedReasonId = delayedReasonId + Integer.parseInt(jobSequenceNo);
+//                    }
+
+
+                    //new code for getting reasonid
+                    delayedReasonId = Integer.parseInt(reasonidlist.get(Integer.parseInt(jobSequenceNo)));
 
                     requestModel.DelayedReasonId = delayedReasonId + "";
                     requestModel.description = jobType;
-                    requestModel.reasonId = jobSequenceNo;
+                    requestModel.reasonId = selectedjobtypeid;
                     requestModel.isTicketClosed = "false";
                     requestModel.InreasonUniqueId = licenceKey + "" + System.currentTimeMillis();
 
                     requestModel.delayedReasonComment = comment;
+                    requestModel.causalpart = et_causalpart.getText().toString();
+                   // requestModel.endTime = "";
 
                     new UpTimeUpdateTicket(UpTimeRegisterActivity.this, requestModel, UpTimeRegisterActivity.this).execute();
 
@@ -390,6 +452,8 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                     requestModel.isTicketClosed = "false";
                     requestModel.InreasonUniqueId = inreasonUniqueId;
                     requestModel.delayedReasonComment = comment;
+                    requestModel.causalpart = et_causalpart.getText().toString();
+                    //requestModel.endTime = "";
 
                     new UpTimeUpdateTicket(
                             UpTimeRegisterActivity.this,
@@ -407,6 +471,9 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                     requestModel.DelayedReasonId = reasonId;
                     requestModel.isTicketClosed = "false";
                     requestModel.delayedReasonComment = comment;
+                    requestModel.causalpart = et_causalpart.getText().toString();
+                    //requestModel.endTime="";
+
                     new UpTimeUpdateTicket(
                             UpTimeRegisterActivity.this,
                             requestModel,
@@ -516,6 +583,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
             break;
             case R.id.txt_endDate: {
 
+                Log.e(TAG, "onClick: type "+type );
                 if (type.equalsIgnoreCase(TYPE_ADD_REASON)) {
                     String timeRange_Min = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -1, 0);
                     //String timeRange_Min  = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -1, 0);
@@ -527,7 +595,10 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
 
                     if (timeRange_Max == null || timeRange_Max.equalsIgnoreCase("N/A"))
 
-                        timeRange_Max = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", 0, 1);
+                       timeRange_Max = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", 0, 1);
+                        //timeRange_Max = TimePickerUtil.getTimeOffsetNew(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm",  1);
+
+
 
                     //If timeRange_Max is greater than current time than assign (timeRange_Max <- current time)
                     String currentTime = TimeFormater.convertMillisecondsToDateFormat(System.currentTimeMillis(), "dd MMM yyyy HH:mm");
@@ -540,13 +611,20 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                     if (defaultTime.isEmpty())
                         defaultTime = timeRange_Min;
 
+                    //TimePickerUtil timePickerUtil = new TimePickerUtil();
+                    //timePickerUtil.initTimePicker(UpTimeRegisterActivity.this, timeRange_Min, timeRange_Max, timeRange_Max, UpTimeRegisterActivity.this, R.id.txt_endDate);
+                    // timePickerUtil.initTimePicker(UpTimeRegisterActivity.this, timeRange_Min, timeRange_Max, defaultTime, UpTimeRegisterActivity.this, R.id.txt_endDate);
+
                     TimePickerUtil timePickerUtil = new TimePickerUtil();
                     timePickerUtil.initTimePicker(UpTimeRegisterActivity.this, timeRange_Min, timeRange_Max, timeRange_Max, UpTimeRegisterActivity.this, R.id.txt_endDate);
-                    // timePickerUtil.initTimePicker(UpTimeRegisterActivity.this, timeRange_Min, timeRange_Max, defaultTime, UpTimeRegisterActivity.this, R.id.txt_endDate);
+
 
                 } else if (type.equalsIgnoreCase(TYPE_EDIT_JOB)) {
                     // String timeRange_Min = latestEndTime_reason;
                     String timeRange_Min = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -1, 0);
+                    //String timeRange_Min = TimePickerUtil.getTimeOffsetNew(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm",  0);
+
+
 
                     if (timeRange_Min == null || timeRange_Min.isEmpty() || timeRange_Min.equalsIgnoreCase("N/A"))
                         timeRange_Min = ((TextView) findViewById(R.id.txt_startDate)).getText().toString();
@@ -574,6 +652,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                     // String timeRange_Min = ((TextView) findViewById(R.id.txt_startDate)).getText().toString();
                     //  String timeRange_Max = jobEndDate;
                     String timeRange_Min = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -1, 0);
+                    //String timeRange_Min = TimePickerUtil.getTimeOffsetNew(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm",  0);
 
                     String timeRange_Max = null;
 
@@ -620,32 +699,55 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
     private void loadDelayedReasons() {
         List<UpTimeReasonsModel> upTimeReasonsModels = DAO.getAllReasons();
 
+
+        Log.e(TAG, "loadDelayedReasons: 111111  "+upTimeReasonsModels.size());
+
+        for (int i = 0; i < upTimeReasonsModels.size(); i++) {
+            Log.e(TAG, upTimeReasonsModels.get(i).get_service_type_id()+"  loadDelayedReasons: listitmes  "+upTimeReasonsModels.get(i).get_service_name() );
+        }
+
         if (upTimeReasonsModels.size() == 0)
             return;
 
         ArrayList<String> strings = new ArrayList<>();
+        reasonidlist = new ArrayList<>();
         strings.add("Select");
+        reasonidlist.add("0");
         if (type.equalsIgnoreCase(TYPE_JOB)) {
             //New Ticket Screen -> Load Spinner with Job Types records
 
             for (UpTimeReasonsModel upTimeReasonsModel : upTimeReasonsModels) {
                 if (strings.size() == 0) {
                     strings.add(upTimeReasonsModel.get_service_name());
+                    reasonidlist.add(upTimeReasonsModel.get_service_type_id());
                 } else {
-                    if (!strings.get(strings.size() - 1).equalsIgnoreCase(upTimeReasonsModel.get_service_name()))
+                    if (!strings.get(strings.size() - 1).equalsIgnoreCase(upTimeReasonsModel.get_service_name())) {
                         strings.add(upTimeReasonsModel.get_service_name());
+                        reasonidlist.add(upTimeReasonsModel.get_service_type_id());
+                    }
+
                 }
             }
 
         } else if (type.equalsIgnoreCase(TYPE_ADD_REASON)) {
             //Add New Reason Screen -> Load Spinner with Reasons Records of particular Job Type of current Ticket
+
             for (UpTimeReasonsModel upTimeReasonsModel : upTimeReasonsModels) {
-                if (upTimeReasonsModel.get_service_type_id().equalsIgnoreCase(job_type_id))
+
+                Log.e(TAG, upTimeReasonsModel.get_service_type_id()+" loadDelayedReasons: jobtypeid "+job_type_id );
+
+                if (upTimeReasonsModel.get_service_type_id().equalsIgnoreCase(job_type_id)) {
                     strings.add(upTimeReasonsModel.get_reason_alias());
+                    reasonidlist.add(upTimeReasonsModel.get_reason_id());
+                }
+
             }
         }
 
-        Spinner spinner = (Spinner) findViewById(R.id.job_spinner);
+
+        Log.e(TAG, reasonidlist+" loadDelayedReasons: jobtype array "+strings );
+
+        final Spinner spinner = (Spinner) findViewById(R.id.job_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(UpTimeRegisterActivity.this,
                 R.layout.spinner_item_layout, strings);
@@ -653,6 +755,36 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+
+        if (type.equalsIgnoreCase(TYPE_ADD_REASON)){
+            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    Log.e(TAG, spinner.getSelectedItem().toString()+" onItemSelected: "+i );
+
+                    if (spinner.getSelectedItem().toString().matches("Volvo - Parts not available")
+                    ||spinner.getSelectedItem().toString().matches("Customer - Parts")
+                    ||spinner.getSelectedItem().toString().matches("Vendor Parts")){
+
+                        et_causalpart.setVisibility(View.VISIBLE);
+                        txt_causalpart.setVisibility(View.VISIBLE);
+                        et_causalpart.setEnabled(true);
+
+                    }else {
+                        et_causalpart.setVisibility(View.INVISIBLE);
+                        txt_causalpart.setVisibility(View.INVISIBLE);
+                        et_causalpart.setEnabled(false);
+
+                    }
+
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });
+        }
     }
 
     @Override
@@ -714,6 +846,10 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
         ((TextView) findViewById(resId)).setText(resultTime);
     }
 
+//    @Override
+//    public void onTimePickerUtilResultEndDate(String resultTime, int resId) {
+//        ((TextView) findViewById(resId)).setText(resultTime);
+//    }
     @Override
     protected void onResume() {
         super.onResume();

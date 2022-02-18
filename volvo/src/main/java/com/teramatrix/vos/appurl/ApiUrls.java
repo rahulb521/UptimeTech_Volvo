@@ -91,7 +91,10 @@ public class ApiUrls {
     public static String UPTIME_UPDATE_TICKET = "Api/UptimeTicket?Action=update&InsertUpdateTicket=1";
 
     // URL for INSERT_TICKET
-    public static String UPTIME_INSERT_TICKET = "Api/UptimeTicket?Action=insert&InsertUpdateTicket=1";
+    //public static String UPTIME_INSERT_TICKET = "Api/UptimeTicket?Action=insert&InsertUpdateTicket=1";//QA
+    public static String UPTIME_INSERT_TICKET = "Api/UptimeTicket?Action=insert&InsertUpdateTicketMobile=abc";//production
+
+
 
     // URL for GET_TICKET_DETAILS
     public static String UPTIME_GET_TICKET_DETAILS = "Api/UptimeTicket?Ticket=tt&OpenTicket=tt";
