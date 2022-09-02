@@ -24,32 +24,36 @@ import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.text.format.DateUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.FirebaseInstanceIdService;
+import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnLastItemVisibleListener;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.teramatrix.vos.accept_reject_ticket.APIClient;
+import com.teramatrix.vos.accept_reject_ticket.APIInterface;
+import com.teramatrix.vos.accept_reject_ticket.responsebodyticketdetail.TicketOpen;
+import com.teramatrix.vos.accept_reject_ticket.responsebodyticketdetail.TicketResponseBody;
 import com.teramatrix.vos.adapter.DeclineReasonAdapter;
 import com.teramatrix.vos.adapter.EstimationCostAdapter;
 import com.teramatrix.vos.adapter.MyTicketListAdapter;
 import com.teramatrix.vos.asynctasks.AppVersionChekerAsyn;
 import com.teramatrix.vos.checkinternet.CheckInternetConnection;
-import com.teramatrix.vos.firebase.service.MyFirebaseInstanceIDService;
 import com.teramatrix.vos.firebase.service.MyFirebaseMessagingService;
 import com.teramatrix.vos.interfaces.INetworkAvailablity;
 import com.teramatrix.vos.model.DeclineReasonModel;
@@ -63,7 +67,11 @@ import com.teramatrix.vos.ticketmanager.NewTicketManager;
 import com.teramatrix.vos.utils.ApplicationConstant;
 import com.teramatrix.vos.utils.TimeFormater;
 import com.teramatrix.vos.utils.UtilityFunction;
-import com.teramatrix.vos.volvouptime.UpTimeVehicleListActivity;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * @author Gaurav.Mangal
@@ -77,6 +85,7 @@ import com.teramatrix.vos.volvouptime.UpTimeVehicleListActivity;
  */
 public class MyTicketActivity extends Activity implements INetworkAvailablity, AppVersionChekerAsyn.I_AppVersionChekerAsyn {
     // define list view instance
+    String TAG = this.getClass().getSimpleName();
     ListView listView_reason_type, listView_estimationcost,
             listview_filename_location;
 
@@ -151,6 +160,10 @@ public class MyTicketActivity extends Activity implements INetworkAvailablity, A
      * showned .
      */
 
+    //==============accept and reject ticket==============
+    APIInterface apiInterface;
+    List<TicketResponseBody> ticketResponseBody;
+
     private final BroadcastReceiver pushBroadCastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -219,6 +232,13 @@ public class MyTicketActivity extends Activity implements INetworkAvailablity, A
 
         setContentView(R.layout.screen_myticket_list);
         myTicketActivity = this;
+
+        //accept and reject ticket======================
+        apiInterface = APIClient.getClient().create(APIInterface.class);
+        retrofitTicketDetailApiCall();
+
+        //====================================
+        Log.e(TAG, "onCreate: " );
         // Google Analytic
         VECVPreferences preferences = new VECVPreferences(this);
         if (!preferences.getGoogleAnalyticSetupStatus()) {
@@ -237,7 +257,7 @@ public class MyTicketActivity extends Activity implements INetworkAvailablity, A
             TAB_OPENED_TAB = TAB_OPEN_TICKET;
             // initialize UI elements
             setDataUi();
-            loadTicketsFromLocalDB();
+            //loadTicketsFromLocalDB();
 
         } catch (Exception e) {
             // TODO: handle exception
@@ -670,6 +690,7 @@ public class MyTicketActivity extends Activity implements INetworkAvailablity, A
 
                         // Do work to refresh the list here.
                         pullRefreshTicketDataFromServer();
+                        retrofitTicketDetailApiCall();
                     }
                 });
         // Add an end-of-list listener
@@ -831,6 +852,8 @@ public class MyTicketActivity extends Activity implements INetworkAvailablity, A
     @Override
     public void I_AppVersionChekerAsyn_onSuccess(String playStoreVersionName) {
         String curretnVersion = UtilityFunction.getAppVersion(MyTicketActivity.this);
+
+        Log.e(TAG, curretnVersion+"  I_AppVersionChekerAsyn_onSuccess: playstore version "+playStoreVersionName );
         if (!curretnVersion.equalsIgnoreCase(playStoreVersionName)) {
             showAppUpgradePopUp(MyTicketActivity.this);
         }
@@ -856,6 +879,134 @@ public class MyTicketActivity extends Activity implements INetworkAvailablity, A
             }
         });
         dialog.show();
+    }
+
+    public void showTicketDialog(final List<TicketResponseBody> ticketResponseBodyList) {
+
+        final Dialog dialog = new Dialog(MyTicketActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setContentView(R.layout.dialog_ticket_popup);
+        dialog.setCancelable(false);
+
+        final Spinner itemsSpinner= (Spinner) dialog.findViewById(R.id.spinner_reject_commect);
+        TextView txt_ticket_id_value= (TextView) dialog.findViewById(R.id.txt_ticket_id_value);
+        TextView txt_contacct_value= (TextView) dialog.findViewById(R.id.txt_contacct_value);
+        TextView txt_contacct_value_owner= (TextView) dialog.findViewById(R.id.txt_contacct_value_owner);
+        TextView value= (TextView) dialog.findViewById(R.id.value);//location
+        TextView value2= (TextView) dialog.findViewById(R.id.value2);//problem
+        TextView value4= (TextView) dialog.findViewById(R.id.value4);//time
+        final RelativeLayout rl_decline_reason= (RelativeLayout) dialog.findViewById(R.id.rl_decline_reason);//time
+        TextView tv_decline= (TextView) dialog.findViewById(R.id.tv_decline);//time
+        TextView tv_accept= (TextView) dialog.findViewById(R.id.tv_accept);//time
+
+        tv_accept.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+
+                acceptRejectTicketApiCall(ticketResponseBodyList.get(0).getTicketOpenList().get(0),"","12");
+            }
+        });
+
+        tv_decline.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rl_decline_reason.setVisibility(View.VISIBLE);
+                if (itemsSpinner.getSelectedItem().toString().matches("Select")){
+                    Toast.makeText(MyTicketActivity.this, "Please select Decline Reason", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                dialog.dismiss();
+                acceptRejectTicketApiCall(ticketResponseBodyList.get(0).getTicketOpenList().get(0),itemsSpinner.getSelectedItem().toString(),"10");
+
+
+            }
+        });
+
+        try {
+            txt_ticket_id_value.setText(ticketResponseBodyList.get(0).getTicketOpenList().get(0).getTicketIdAlias());
+            txt_contacct_value.setText(ticketResponseBodyList.get(0).getTicketOpenList().get(0).getCustomerContactNo());
+            txt_contacct_value_owner.setText(ticketResponseBodyList.get(0).getTicketOpenList().get(0).getOwnerContactNo());
+            value.setText(ticketResponseBodyList.get(0).getTicketOpenList().get(0).getBreakdownLocation());
+            value2.setText(ticketResponseBodyList.get(0).getTicketOpenList().get(0).getDescription());
+            value4.setText(ticketResponseBodyList.get(0).getTicketOpenList().get(0).getCreationTime());
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(MyTicketActivity.this,
+                    R.layout.spinner_item_layout, getResources().getStringArray(R.array.reject_ticket_reason_array));
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            // Apply the adapter to the spinner
+            itemsSpinner.setAdapter(adapter);
+
+            if (ticketResponseBodyList.get(0).getStatus().matches("1"))
+                dialog.show();
+        }catch (Exception e){
+            e.printStackTrace();
+            loadTicketsFromLocalDB();
+        }
+    }
+
+    public void retrofitTicketDetailApiCall(){
+
+        Call<List<TicketResponseBody>> call1 = apiInterface.getDetailTicket("teramatrix",new VECVPreferences(getApplicationContext()).getDevice_alias(),
+                "1970-01-01 00:00:00",new VECVPreferences(getApplicationContext()).getImeiNumber());
+        call1.enqueue(new Callback<List<TicketResponseBody>>() {
+            @Override
+            public void onResponse(Call<List<TicketResponseBody>> call, Response<List<TicketResponseBody>> response) {
+
+                if (response.isSuccessful()){
+                    ticketResponseBody = response.body();
+                    Log.e(TAG, "onResponse:1111 "+ new Gson().toJson(ticketResponseBody));
+                    showTicketDialog(ticketResponseBody);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<TicketResponseBody>> call, Throwable t) {
+                Log.e(TAG, "onResponse onFailure:222222 "+t.getMessage() );
+                call.cancel();
+            }
+        });
+    }
+
+    public void acceptRejectTicketApiCall(TicketOpen ticketOpen, String spinneritem, final String ticketstatus){
+
+        final ProgressDialog pd = new ProgressDialog(
+                MyTicketActivity.this);
+        try {
+            pd.setMessage(getResources().getString(
+                    R.string.updating_tickets));
+            pd.setCancelable(false);
+            pd.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Call<ResponseBody> call1 = apiInterface.acceptRejectTicket("teramatrix",
+                ticketOpen.getTicketId(),ticketOpen.getLastModifiedTime(),ticketOpen.getLastModifiedBy(),ticketstatus,spinneritem);
+        call1.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+                pd.dismiss();
+                if (response.isSuccessful()){
+                    Log.e(TAG, "onResponse:1111 "+ new Gson().toJson(ticketResponseBody));
+                    //if (ticketstatus.matches("12")){
+
+                    loadTicketsFromLocalDB();
+                    //}
+                    //loadUpdatedTickets();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e(TAG, "onResponse onFailure:111 "+t.getMessage() );
+                call.cancel();
+                pd.dismiss();
+            }
+        });
     }
 
 }

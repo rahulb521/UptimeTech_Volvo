@@ -31,6 +31,8 @@ import com.teramatrix.vos.asynctasks.ConfigurationLicense;
 import com.teramatrix.vos.checkinternet.CheckInternetConnection;
 import com.teramatrix.vos.interfaces.INetworkAvailablity;
 import com.teramatrix.vos.preferences.VECVPreferences;
+import com.teramatrix.vos.service.Locationservice;
+import com.teramatrix.vos.service.PostLocationService;
 import com.teramatrix.vos.utils.ApplicationConstant;
 import com.teramatrix.vos.utils.PermissionsUtils;
 import com.teramatrix.vos.utils.UtilityFunction;
@@ -47,6 +49,7 @@ import com.teramatrix.vos.volvouptime.UpTimeVehicleListActivity;
  *         process registration.
  */
 public class ConfigurationLicenseActivity extends Activity implements INetworkAvailablity {
+	String TAG = this.getClass().getSimpleName();
 	// Defining EditText component that will be used in this Activity
 	private EditText eTextLicenseNum;
 
@@ -107,6 +110,8 @@ public class ConfigurationLicenseActivity extends Activity implements INetworkAv
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 			window.setStatusBarColor(ContextCompat.getColor(this,R.color.volvo_blue));
 		}
+
+		Log.e(TAG, "onCreate: " );
 
 		getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -187,9 +192,12 @@ public class ConfigurationLicenseActivity extends Activity implements INetworkAv
 		// Set API end URLs
 		if (vecvPreferences.getAPIEndPoint_EOS().isEmpty()) {
 			//String host_address = BuildConfig.HOST;
-			//String host_address = "https://uptimecenter.vecv.net:8082/";
 			//String host_address = "http://10.10.1.100:9093/";
-			String host_address = "http://169.38.133.115:8083/";
+
+			//buildConfigField 'String', 'HOST', '"http://169.38.133.115:8083/"' //QA for uptime
+			//String host_address = "https://uptimecenter.vecv.net:8082/";//production
+			String host_address = "http://169.38.133.115:8081/";//QA for VAS
+
 			vecvPreferences.setAPIEndPoint_EOS(host_address);
 
 		}
@@ -305,6 +313,8 @@ public class ConfigurationLicenseActivity extends Activity implements INetworkAv
 		boolean configureCancel = false;
 		View configureFocusView = null;
 
+		Log.e(TAG, "onConfigureClicked: str license no. "+strLicenseNum );
+
 
 		if (TextUtils.isEmpty(strLicenseNum)) {
 			UtilityFunction.showCenteredToast(this,
@@ -372,6 +382,7 @@ public class ConfigurationLicenseActivity extends Activity implements INetworkAv
 					String lastUsedLicence = new VECVPreferences(ConfigurationLicenseActivity.this).getLicenseKey();
 					if(strLicenseNum.equalsIgnoreCase(lastUsedLicence))
 					{
+
 						new VECVPreferences(ConfigurationLicenseActivity.this).setCheckconfigure(true);
 						new VECVPreferences(ConfigurationLicenseActivity.this).setCheckLogin(true);
 						Intent myTicket_Intent = new Intent(ConfigurationLicenseActivity.this,

@@ -167,6 +167,7 @@
     <string name="update_delay_reason">Update Delay reason</string>
     <string name="update_delay_reason_24_hrs">No delay reason > 24 hours</string>
     <string name="update_delay_reason_48_hrs">No delay reason > 48 hours</string>
+    <string name="ticket_id">Ticket Id</string>
 
 
     <string-array name="job_type_array">
@@ -186,6 +187,26 @@
         <item>Customer - Man power</item>
         <item>Customer - AR</item>
         <item>Customer - Approval / PO</item>
+    </string-array>
+
+
+    //ticket reason
+    <string-array name="reject_ticket_reason_array">
+        <item>Select</item>
+        <item>Met with an accident</item>
+        <item>Time Out</item>
+        <item>Sorry!! I am busy</item>
+        <item>Multiple work load</item>
+        <item>Spare parts not available</item>
+        <item>Van is not in operating condition</item>
+
+        <item>Engaged in previous VAS call</item>
+        <item>The location is not supported by the dealer</item>
+        <item>Holiday</item>
+        <item>Workshop Closed</item>
+        <item>Other Reason</item>
+        <item>Tools/Equipments not available</item>
+        <item>The product is not supported by Dealer</item>
     </string-array>
 
 </resources>

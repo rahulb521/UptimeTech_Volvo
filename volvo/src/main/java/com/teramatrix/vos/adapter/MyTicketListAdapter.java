@@ -212,7 +212,12 @@ public class MyTicketListAdapter extends BaseAdapter {
 
 					// if ticket status 2 i.e ticket is accepted move
 					// MapViewTimerActivitySeekBar activity .
-					if (ticketstatus.equalsIgnoreCase("2")) {
+					if (ticketstatus.equalsIgnoreCase("12")) {
+						// in = new Intent(context, MapViewTimerActivity.class);
+						in = new Intent(context,
+								MapViewTimerActivitySeekBar.class);
+					}
+					else if (ticketstatus.equalsIgnoreCase("2")) {
 						// in = new Intent(context, MapViewTimerActivity.class);
 						in = new Intent(context,
 								MapViewTimerActivitySeekBar.class);

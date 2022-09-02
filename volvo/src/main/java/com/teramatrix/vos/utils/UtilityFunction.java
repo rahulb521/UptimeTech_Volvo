@@ -48,6 +48,7 @@ import com.teramatrix.vos.service.PostLocationService;
  */
 
 public class UtilityFunction {
+	String TAG = this.getClass().getSimpleName();
 
 	ObjectOutputStream object_outputsrream;
 	// Define static String variable
@@ -500,6 +501,8 @@ public class UtilityFunction {
 		SharedPreferences preference = context.getSharedPreferences(
 				ApplicationConstant.PREFERENCE_NAME, context.MODE_PRIVATE);
 		float lat = preference.getFloat(ApplicationConstant.KEY_LATT,0);
+
+		Log.e("TAG", "setDefaultLocationToDelhi: lat "+lat );
 		if(lat==0)
 		{
 			Location defaultLocationDelhi = new Location("");//provider name is unnecessary

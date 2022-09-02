@@ -93,8 +93,8 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
                  //Replacewithcurrent
                 String currentTime = TimeFormater.convertMillisecondsToDateFormat(System.currentTimeMillis(), "dd MMM yyyy HH:mm");
 
-                // mainIntent.putExtra("jobStartDate", jobStartDate.trim());
-                mainIntent.putExtra("jobStartDate", currentTime);
+                 mainIntent.putExtra("jobStartDate", jobStartDate.trim());
+                //mainIntent.putExtra("jobStartDate", currentTime);
                 mainIntent.putExtra("jobEndDate", jobEndDate.trim());
                 startActivityForResult(mainIntent,1002);
             }

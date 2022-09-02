@@ -1,6 +1,7 @@
 package com.teramatrix.vos;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import com.teramatrix.vos.asynctasks.ConfigurationSignin;
 import com.teramatrix.vos.checkinternet.CheckInternetConnection;
 import com.teramatrix.vos.interfaces.INetworkAvailablity;
 import com.teramatrix.vos.preferences.VECVPreferences;
+import com.teramatrix.vos.service.Locationservice;
 import com.teramatrix.vos.utils.ApplicationConstant;
 import com.teramatrix.vos.utils.UtilityFunction;
 
@@ -100,6 +102,14 @@ public class ConfigurationPinActivity extends Activity implements
 
 		//setting a layout
 		setContentView(R.layout.screen_configuration_pin);
+
+		//start location service
+		UtilityFunction.setDefaultLocationToDelhi(getApplicationContext());
+
+		Intent mServiceIntent = new Intent(getApplicationContext(),
+				Locationservice.class);
+		startService(mServiceIntent);
+
 
 		// set up UI elements
 		setDataUi();

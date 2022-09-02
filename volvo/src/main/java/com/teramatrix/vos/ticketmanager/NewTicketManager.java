@@ -472,7 +472,7 @@ public class NewTicketManager implements INewTicket {
 			center_pop_up.setLayoutParams(center_pop_up_layout_parm);
 
 			// set layout
-			showTicketDialog.setContentView(screen_new_ticket_popup);
+			//showTicketDialog.setContentView(screen_new_ticket_popup);
 
 			// initialization component
 			TextView txt_location = (TextView) showTicketDialog

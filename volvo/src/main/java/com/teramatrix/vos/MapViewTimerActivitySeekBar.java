@@ -344,7 +344,7 @@ public class MapViewTimerActivitySeekBar extends FragmentActivity implements OnM
 		img_network = (ImageView) findViewById(R.id.img_network);
 
 
-		if(ticket.TicketStatus.equalsIgnoreCase("2"))
+		if(ticket.TicketStatus.equalsIgnoreCase("2")||ticket.TicketStatus.equalsIgnoreCase("12"))
 		{
 			btn_vanReached.setText("Trip Start");
 		}else
@@ -367,7 +367,7 @@ public class MapViewTimerActivitySeekBar extends FragmentActivity implements OnM
 					//On confirming Problem description,Notify to server with new Ticket Status '3'(In Progress).
 
 					showTimeEstimationDialog();
-				}else if(ticket.TicketStatus.equalsIgnoreCase("2"))
+				}else if(ticket.TicketStatus.equalsIgnoreCase("2")||ticket.TicketStatus.equalsIgnoreCase("12"))
 				{
 					//Curretn Ticket status ->2 i.e Assigned
 						/*
