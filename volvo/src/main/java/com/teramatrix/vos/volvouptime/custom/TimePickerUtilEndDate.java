@@ -17,22 +17,22 @@ import java.util.Date;
  * Calender Utility to select date and time.
  */
 
-public class TimePickerUtil implements DatePickerDialog.OnDateSetListener,TimePickerDialog.OnTimeSetListener{
+public class TimePickerUtilEndDate implements DatePickerDialog.OnDateSetListener,TimePickerDialog.OnTimeSetListener{
 
 
     private Context context;
     private DatePickerDialog datePickerDialog;
     private TimePickerDialog timePickerDialog;
     private String resultTime;
-    private I_TimePickerUtil i_timePickerUtil;
+    private I_TimePickerUtilEndDate i_timePickerUtil;
     private int resId;
     private String timeRange_Min;
     private String timeRange_Max;
 
 
-    public interface I_TimePickerUtil
+    public interface I_TimePickerUtilEndDate
     {
-        void onTimePickerUtilResult(String resultTime,int resId);
+        void onTimePickerUtilResultEndDate(String resultTime, int resId);
     }
 
     public class RequestModel
@@ -42,7 +42,7 @@ public class TimePickerUtil implements DatePickerDialog.OnDateSetListener,TimePi
         public String timeRange_Max;
         public String default_Time;
         public String tag;
-        public I_TimePickerUtil i_timePickerUtil;
+        public I_TimePickerUtilEndDate i_timePickerUtil;
         public int resId;
     }
 
@@ -56,7 +56,7 @@ public class TimePickerUtil implements DatePickerDialog.OnDateSetListener,TimePi
      * @param timeRange_Max - maximum time in timePicker , [dd MMM yyyy HH:mm]
      * @param default_Time - default time to be shown selected on timepicker , [dd MMM yyyy HH:mm]
      */
-    public void initTimePicker(Context context,String timeRange_Min,String timeRange_Max,String default_Time,I_TimePickerUtil i_timePickerUtil,int resId)
+    public void initTimePicker(Context context,String timeRange_Min,String timeRange_Max,String default_Time,I_TimePickerUtilEndDate i_timePickerUtil,int resId)
     {
         this.context = context;
         this.i_timePickerUtil = i_timePickerUtil;
@@ -87,11 +87,11 @@ public class TimePickerUtil implements DatePickerDialog.OnDateSetListener,TimePi
         datePickerDialog.setMinDate(now);
 
         //set maximum date in date picker
-        int timeRange_Max_day  = TimeFormater.getPartOfDateString(timeRange_Max,"dd MMM yyyy HH:mm","day");
-        int timeRange_Max_month  = TimeFormater.getPartOfDateString(timeRange_Max,"dd MMM yyyy HH:mm","month");
-        int timeRange_Max_year  = TimeFormater.getPartOfDateString(timeRange_Max,"dd MMM yyyy HH:mm","year");
-        now.set(timeRange_Max_year,timeRange_Max_month,timeRange_Max_day);
-        datePickerDialog.setMaxDate(now);
+//        int timeRange_Max_day  = TimeFormater.getPartOfDateString(timeRange_Max,"dd MMM yyyy HH:mm","day");
+//        int timeRange_Max_month  = TimeFormater.getPartOfDateString(timeRange_Max,"dd MMM yyyy HH:mm","month");
+//        int timeRange_Max_year  = TimeFormater.getPartOfDateString(timeRange_Max,"dd MMM yyyy HH:mm","year");
+//        now.set(timeRange_Max_year,timeRange_Max_month,timeRange_Max_day);
+//        datePickerDialog.setMaxDate(now);
 
 
         //Time selector
@@ -188,7 +188,7 @@ public class TimePickerUtil implements DatePickerDialog.OnDateSetListener,TimePi
 
         resultTime = resultTime+" "+hr+":"+min;
 
-        i_timePickerUtil.onTimePickerUtilResult(resultTime,resId);
+        i_timePickerUtil.onTimePickerUtilResultEndDate(resultTime,resId);
     }
 
     /**
@@ -225,7 +225,7 @@ public class TimePickerUtil implements DatePickerDialog.OnDateSetListener,TimePi
         //cal.add(Calendar.DATE,100);
         //cal.set(cal.get(Calendar.YEAR),cal.get(Calendar.MONTH),cal.get(Calendar.DATE));
 
-
+        
         if(flag==0)
         {
             cal.set(Calendar.HOUR_OF_DAY, 0);

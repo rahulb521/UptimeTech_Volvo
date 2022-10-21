@@ -48,7 +48,12 @@ public class GMapV2Direction {
                 + "origin=" + start.latitude + "," + start.longitude  
                 + "&destination=" + end.latitude + "," + end.longitude 
                 + "&sensor=false&units=metric&mode=driving"
-                +"&key="+context.getResources().getString(R.string.map_api_key);
+                +"&key="
+                +context.getResources().getString(R.string.map_api_key1)
+                +context.getResources().getString(R.string.map_api_key2)
+                +context.getResources().getString(R.string.map_api_key3)
+                +context.getResources().getString(R.string.map_api_key4)
+                ;
 
         try {
             HttpClient httpClient = new DefaultHttpClient();

@@ -180,6 +180,18 @@
             android:layout_alignParentRight="true"
             android:background="@drawable/wifi_enalbed"
             android:contentDescription="@string/app_name" />
+
+        <ImageView
+            android:id="@+id/img_call"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="14dp"
+
+            android:layout_toLeftOf="@+id/img_network"
+            android:background="@drawable/call"
+            android:backgroundTint="@color/blue_color"
+            android:contentDescription="@string/app_name" />
     </RelativeLayout>
 
 </RelativeLayout>

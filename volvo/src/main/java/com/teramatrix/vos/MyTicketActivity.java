@@ -233,9 +233,9 @@ public class MyTicketActivity extends Activity implements INetworkAvailablity, A
         setContentView(R.layout.screen_myticket_list);
         myTicketActivity = this;
 
-        //accept and reject ticket======================
-        apiInterface = APIClient.getClient().create(APIInterface.class);
-        retrofitTicketDetailApiCall();
+        //accept and reject ticket new code for VAS 8081======================
+        //apiInterface = APIClient.getClient().create(APIInterface.class);
+        //retrofitTicketDetailApiCall();
 
         //====================================
         Log.e(TAG, "onCreate: " );
@@ -257,7 +257,7 @@ public class MyTicketActivity extends Activity implements INetworkAvailablity, A
             TAB_OPENED_TAB = TAB_OPEN_TICKET;
             // initialize UI elements
             setDataUi();
-            //loadTicketsFromLocalDB();
+            loadTicketsFromLocalDB();
 
         } catch (Exception e) {
             // TODO: handle exception
@@ -690,7 +690,7 @@ public class MyTicketActivity extends Activity implements INetworkAvailablity, A
 
                         // Do work to refresh the list here.
                         pullRefreshTicketDataFromServer();
-                        retrofitTicketDetailApiCall();
+                        //retrofitTicketDetailApiCall();
                     }
                 });
         // Add an end-of-list listener

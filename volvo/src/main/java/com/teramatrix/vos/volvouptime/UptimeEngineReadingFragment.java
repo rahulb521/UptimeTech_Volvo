@@ -10,6 +10,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,7 @@ import java.util.Locale;
  */
 public class UptimeEngineReadingFragment extends android.support.v4.app.Fragment implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener, EngineReading.EngineReadingListListener, SaveEngineReading.EngineReadingSaveListener {
     View view;
+    String TAG = this.getClass().getSimpleName();
     TextView month_select;
     Long requiredTime;
     EngineHourAdapter engineHourAdapter;
@@ -62,6 +64,7 @@ public class UptimeEngineReadingFragment extends android.support.v4.app.Fragment
         if (view == null) {
             view = inflater.inflate(R.layout.fragment_uptime_engine_reading, container, false);
 
+            Log.e(TAG, "onCreateView: " );
         }
         initViews();
 
@@ -362,4 +365,9 @@ public class UptimeEngineReadingFragment extends android.support.v4.app.Fragment
         recyclerView.setAdapter(engineHourAdapter);
     }
 
+    @Override
+    public void setMenuVisibility(boolean menuVisible) {
+        super.setMenuVisibility(menuVisible);
+        Log.e(TAG, "setMenuVisibility: "+menuVisible );
+    }
 }

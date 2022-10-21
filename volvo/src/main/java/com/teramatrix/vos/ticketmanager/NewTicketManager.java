@@ -29,6 +29,7 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.teramatrix.vos.EosApplication;
+import com.teramatrix.vos.JobStatusDetailActivity;
 import com.teramatrix.vos.MyTicketActivity;
 import com.teramatrix.vos.R;
 import com.teramatrix.vos.adapter.DeclineReasonAdapter;
@@ -76,6 +77,7 @@ public class NewTicketManager implements INewTicket {
 	// define decline ticket dialog instance
 	private Dialog declineTicketDialog;
 
+	Dialog confirmjobDialog;
 	/**
 	 * define constructor no argument
 	 */
@@ -472,7 +474,7 @@ public class NewTicketManager implements INewTicket {
 			center_pop_up.setLayoutParams(center_pop_up_layout_parm);
 
 			// set layout
-			//showTicketDialog.setContentView(screen_new_ticket_popup);
+			showTicketDialog.setContentView(screen_new_ticket_popup);
 
 			// initialization component
 			TextView txt_location = (TextView) showTicketDialog
@@ -826,19 +828,19 @@ public class NewTicketManager implements INewTicket {
 
 				// check reason value
 				if (reason_value != null) {
-					// stopNewTicketRinger();
+					/*// stopNewTicketRinger();
 					ticket.SuggestionComment = reason_value;
-
 					// clear new ticket alert
 					clearNewTicketAlert();
-
 					// call api for decline ticket
 					MyTicketManager.getInstance(mContext).api_DeclineTicket(
 							ticket);
-					
-					
 					//Google Analytic - Event Capture
 					EosApplication.getInstance().trackEvent("New Ticket", "User Pressed Decline Option", "Ticket Id:"+ticket.getId());
+*/
+
+					showconfirmDialog(ticket,reason_value, declineTicketDialog);
+
 
 				} else
 					// show center toast
@@ -1113,4 +1115,118 @@ public class NewTicketManager implements INewTicket {
 			UtilityFunction.saveErrorLog(mContext, e);
 		}
 	}
+
+
+
+
+
+	public void showconfirmDialog(final Ticket ticket, final String reason_value, final Dialog declineTicketDialog) {
+
+		try {
+
+			confirmjobDialog = new Dialog(mContext,
+					android.R.style.Theme_Translucent);
+			// dialog.requestWindowFeature(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+			confirmjobDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+			confirmjobDialog.getWindow().setFlags(
+					WindowManager.LayoutParams.FLAG_FULLSCREEN,
+					WindowManager.LayoutParams.FLAG_FULLSCREEN);
+			confirmjobDialog.getWindow().setSoftInputMode(
+					WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+			confirmjobDialog.setCancelable(false);
+
+			// Inflate pop-up view view,set layout parameter
+			View screen_van_reached_popup_seekbar = LayoutInflater.from(
+					mContext).inflate(
+					R.layout.screen_confirmbox_popup, null);
+
+			View center_pop_up = screen_van_reached_popup_seekbar
+					.findViewById(R.id.center_pop_up);
+			LayoutParams center_pop_up_layout_parm = new LayoutParams(
+					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+
+			int popup_h = 0;
+
+			// ScreenDpi 150 - 200 for mdpi
+			// ScreenDpi 200 -300 for mdpi
+			if (MyTicketActivity.ScreenDpi > 150
+					&& MyTicketActivity.ScreenDpi < 200) {
+				popup_h = (int) (MyTicketActivity.ScreenHeight * 0.20);
+			} else if (MyTicketActivity.ScreenDpi > 200) {
+				popup_h = (int) (MyTicketActivity.ScreenHeight * 0.20);
+			}
+			int popup_w = (int) (MyTicketActivity.ScreenWidth * 0.75);
+
+			int paop_up_margin_top_bottom = (MyTicketActivity.ScreenHeight - popup_h) / 2;
+			int paop_up_margin_lefy_right = (MyTicketActivity.ScreenWidth - popup_w) / 2;
+
+			center_pop_up_layout_parm.leftMargin = paop_up_margin_lefy_right;
+			center_pop_up_layout_parm.rightMargin = paop_up_margin_lefy_right;
+			center_pop_up_layout_parm.topMargin = paop_up_margin_top_bottom;
+			center_pop_up_layout_parm.bottomMargin = paop_up_margin_top_bottom;
+
+			center_pop_up.setLayoutParams(center_pop_up_layout_parm);
+			confirmjobDialog.setContentView(screen_van_reached_popup_seekbar);
+
+			confirmjobDialog.getWindow().setSoftInputMode(
+					WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
+			// initialize textview component
+			TextView btn_ok = (TextView) confirmjobDialog
+					.findViewById(R.id.tv_ok);
+			TextView btn_cancel = (TextView) confirmjobDialog
+					.findViewById(R.id.tv_cancel);
+
+			TextView confirmation_messsage_text = (TextView) confirmjobDialog
+					.findViewById(R.id.confirmation_messsage_text);
+
+			confirmation_messsage_text.setText("Are you sure, you want to decline ticket?");
+
+			btn_ok.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+
+					confirmjobDialog.hide();
+					// stopNewTicketRinger();
+					ticket.SuggestionComment = reason_value;
+					// clear new ticket alert
+					clearNewTicketAlert();
+					// call api for decline ticket
+					MyTicketManager.getInstance(mContext).api_DeclineTicket(
+							ticket);
+					//Google Analytic - Event Capture
+					EosApplication.getInstance().trackEvent("New Ticket", "User Pressed Decline Option", "Ticket Id:"+ticket.getId());
+
+				}
+			});
+
+			btn_cancel.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					confirmjobDialog.hide();
+
+					if (declineTicketDialog!=null&& declineTicketDialog.isShowing()){
+						declineTicketDialog.dismiss();
+					}
+				}
+			});
+
+			confirmjobDialog.show();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			// Google Analytic -Tracking Exception
+			EosApplication.getInstance().trackException(e);
+		}
+
+	}
+
+
+
 }

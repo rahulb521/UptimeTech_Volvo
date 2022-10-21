@@ -130,6 +130,7 @@ public class MapViewTimerActivitySeekBar extends FragmentActivity implements OnM
 
 	// define imageview component
 	ImageView img_network;
+	ImageView img_call;
 
 	// define double value in this activity
 	double destination_lat, destination_lng;
@@ -342,7 +343,16 @@ public class MapViewTimerActivitySeekBar extends FragmentActivity implements OnM
 		btn_viewmapNavigation = (Button) findViewById(R.id.btn_navigation);
 
 		img_network = (ImageView) findViewById(R.id.img_network);
+		img_call = (ImageView) findViewById(R.id.img_call);
 
+		img_call.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent callIntent = new Intent(Intent.ACTION_DIAL);
+				callIntent.setData(Uri.parse("tel:18005724860"));
+				startActivity(callIntent);
+			}
+		});
 
 		if(ticket.TicketStatus.equalsIgnoreCase("2")||ticket.TicketStatus.equalsIgnoreCase("12"))
 		{
@@ -2122,7 +2132,7 @@ public class MapViewTimerActivitySeekBar extends FragmentActivity implements OnM
 			TextView confirmation_messsage_text = (TextView) confirmjobDialog
 					.findViewById(R.id.confirmation_messsage_text);
 			confirmation_messsage_text
-					.setText("Are you sure, EOS VAN reached at breakdown location ?");
+					.setText("Are you sure, VAS VAN reached at breakdown location ?");
 			// initialize textview component
 			TextView btn_ok = (TextView) confirmjobDialog
 					.findViewById(R.id.tv_ok);
