@@ -114,7 +114,7 @@ public class DBInteraction extends SQLiteOpenHelper {
 	// private static int db_version = 2;
 
 	// Power saving field (is_power_saving_mode_on) added in Tracking table
-	private static int db_version = 5;
+	private static int db_version = 7;
 
 	public DBInteraction(Context context) {
 

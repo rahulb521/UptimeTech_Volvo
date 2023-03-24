@@ -52,6 +52,19 @@ public class UpTimeAddedReasonsModel extends Model {
     @Column(name = "causalPart")
     public String causalPart;
 
+
+
+    //@Column(name = "Enginehours")
+    public String enginehours;
+
+    public String getEnginehours() {
+        return enginehours;
+    }
+
+    public void setEnginehours(String enginehours) {
+        this.enginehours = enginehours;
+    }
+
     public String getCausalPart() {
         return causalPart;
     }

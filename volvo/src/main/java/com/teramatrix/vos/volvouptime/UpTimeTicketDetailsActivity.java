@@ -46,6 +46,9 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
     private String latestEndTime_reason;
     private String door_no;
     private String causalpartintent;
+    private  String enginehourintent;
+
+    TextView txt_enginehour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,8 +86,9 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
                 mainIntent.putExtra("door_no", door_no);
                 mainIntent.putExtra("chasis_number", chasis_number);
                 mainIntent.putExtra("causalpartintent",causalpartintent);
+                mainIntent.putExtra("enginehourintent",enginehourintent);
 
-                Log.e(TAG, "onClick: reason click "+causalpartintent );
+                Log.e(TAG, enginehourintent+" onClick: reason click "+causalpartintent );
 
                 String jobStartEndDate = ((TextView)findViewById(R.id.txt_job_time)).getText().toString();
                 String[] dateArray = jobStartEndDate.split("-");
@@ -223,6 +227,7 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
                     mainIntent.putExtra("door_no", door_no);
                     mainIntent.putExtra("chasis_number", chasis_number);
                     mainIntent.putExtra("causalpartintent",causalpartintent);
+                    mainIntent.putExtra("enginehourintent",enginehourintent);
 
                     String jobStartEndDate = ((TextView)findViewById(R.id.txt_job_time)).getText().toString();
                     String[] dateArray = jobStartEndDate.split("-");
@@ -276,9 +281,10 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
 
         if(upTimeTicketDetailModel!=null)
         {
-            Log.e(TAG, "loadTicketDetails: gson111 "+upTimeTicketDetailModel.getCausalPart());
+            Log.e(TAG, upTimeTicketDetailModel.getEnginehours()+" loadTicketDetails: gson111 "+upTimeTicketDetailModel.getCausalPart());
 
             causalpartintent = upTimeTicketDetailModel.getCausalPart();
+            enginehourintent = upTimeTicketDetailModel.getEnginehours();
 
             isTicketComplete= true;
 
@@ -294,6 +300,11 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
             ((TextView)findViewById(R.id.txt_ticket_id)).setText(ticketIdAlias);
             ((TextView)findViewById(R.id.txt_job_type)).setText(upTimeTicketDetailModel.getStatusAlias());
             ((EditText)findViewById(R.id.txt_job_comment)).setText(upTimeTicketDetailModel.getJobComment().trim());
+
+
+            //===================engine hour===================
+            if (upTimeTicketDetailModel.getEnginehours()!=null&& !upTimeTicketDetailModel.getEnginehours().isEmpty())
+            ((TextView)findViewById(R.id.txt_enginehour)).setText(upTimeTicketDetailModel.getEnginehours());
 
 
 
@@ -351,6 +362,7 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
                     mainIntent.putExtra("chasis_number", chasis_number);
                     mainIntent.putExtra("delayedReasonComment",upTimeTicketDetailModel.getJobComment());
                     mainIntent.putExtra("causalpartintent",upTimeTicketDetailModel.getCausalPart());
+                    mainIntent.putExtra("enginehourintent",upTimeTicketDetailModel.getEnginehours());
 
                     if(latestEndTime_reason==null || latestEndTime_reason.equalsIgnoreCase("N/A"))
                         latestEndTime_reason = oldestStartTime_reason;
@@ -422,7 +434,7 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
         requestModel.TicketId = ticketId;
         requestModel.isTicketClosed = "true";
         requestModel.delayedReasonComment=comment;
-
+        requestModel.enginehour = enginehourintent;
 
         new UpTimeUpdateTicket(
                 UpTimeTicketDetailsActivity.this,

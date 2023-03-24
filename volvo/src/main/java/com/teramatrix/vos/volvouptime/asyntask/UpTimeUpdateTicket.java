@@ -57,6 +57,7 @@ public class UpTimeUpdateTicket extends AsyncTask<Void, Void, Void> {
 
 	//causal part string
 	String causalpart;
+	String enginehour;
 
 	// Define ProgressDialog for this class
 	private ProgressDialog mProgressDialog;
@@ -93,6 +94,7 @@ public class UpTimeUpdateTicket extends AsyncTask<Void, Void, Void> {
 		this.InreasonUniqueId = requestModel.InreasonUniqueId;
 		this.delayedReasonComment = requestModel.delayedReasonComment;
 		this.causalpart = requestModel.causalpart;
+		this.enginehour = requestModel.enginehour;
 
 		Log.e(TAG, "UpTimeUpdateTicket: reason id "+requestModel.reasonId );
 	}
@@ -139,6 +141,7 @@ public class UpTimeUpdateTicket extends AsyncTask<Void, Void, Void> {
 				restIntraction.AddParam("Description", delayedReasonComment);
 				restIntraction.AddParam("causalpart", causalpart);
 
+				restIntraction.AddParam("Enginehours",enginehour);
 
 				//If network not available save new Ticket to local DB and mark vehicle status to down.
 				if (!new CheckInternetConnection(mContext).isConnectedToInternet()){
@@ -204,7 +207,7 @@ public class UpTimeUpdateTicket extends AsyncTask<Void, Void, Void> {
 				restIntraction.AddParam("inremarks", delayedReasonComment);
 				//description = delayedReasonComment;
 				restIntraction.AddParam("causalpart", causalpart);
-
+				restIntraction.AddParam("Enginehours",enginehour);
 				//Add Reason to Local Database
 				/*UpTimeAddedReasonsModel upTimeAddedReasonsModel =new Select()
 						.from(UpTimeAddedReasonsModel.class)
@@ -279,7 +282,7 @@ public class UpTimeUpdateTicket extends AsyncTask<Void, Void, Void> {
 				restIntraction.AddParam("InreasonUniqueId", InreasonUniqueId);
 				restIntraction.AddParam("inremarks", delayedReasonComment);
 				restIntraction.AddParam("causalpart", causalpart);
-
+				restIntraction.AddParam("Enginehours",enginehour);
 				//Add Reason to Local Database
 				UpTimeAddedReasonsModel upTimeAddedReasonsModel =new Select()
 						.from(UpTimeAddedReasonsModel.class)
@@ -341,6 +344,7 @@ public class UpTimeUpdateTicket extends AsyncTask<Void, Void, Void> {
 				restIntraction.AddParam("ServiceEndDate", endTime);
 				restIntraction.AddParam("Description",delayedReasonComment);
 				restIntraction.AddParam("causalpart", causalpart);
+				restIntraction.AddParam("Enginehours",enginehour);
 				UpTimeTicketDetailModel upTimeTicketDetailModel =new Select()
 						.from(UpTimeTicketDetailModel.class)
 						.where("TicketId = ?", TicketId)
@@ -379,6 +383,7 @@ public class UpTimeUpdateTicket extends AsyncTask<Void, Void, Void> {
 				restIntraction.AddParam("isTicketClosed", isTicketClosed);
 				restIntraction.AddParam("Description",delayedReasonComment);
 				restIntraction.AddParam("causalpart", causalpart);
+				restIntraction.AddParam("Enginehours",enginehour);
 				//Close Ticket(remove)from Local DB
 				UpTimeTicketDetailModel upTimeTicketDetailModel =new Select()
 						.from(UpTimeTicketDetailModel.class)
@@ -507,6 +512,7 @@ private String errorMessage="";
 		public String delayedReasonComment;
 
 		public String causalpart;
+		public String enginehour;
 	}
 
 }

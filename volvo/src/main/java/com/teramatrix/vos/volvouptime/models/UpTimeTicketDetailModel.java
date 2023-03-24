@@ -42,6 +42,18 @@ public class UpTimeTicketDetailModel extends Model{
     @Column(name = "causalPart")
     public String causalPart;
 
+
+    @Column(name = "Enginehours")
+    public String Enginehours;
+
+    public String getEnginehours() {
+        return Enginehours;
+    }
+
+    public void setEnginehours(String enginehours) {
+        Enginehours = enginehours;
+    }
+
     public List<UpTimeAddedReasonsModel> upTimeAddedReasonsModels;
 
     public UpTimeTicketDetailModel()
@@ -50,6 +62,8 @@ public class UpTimeTicketDetailModel extends Model{
     }
 
     //Getter Setters
+
+
 
 
     public String getCausalPart() {

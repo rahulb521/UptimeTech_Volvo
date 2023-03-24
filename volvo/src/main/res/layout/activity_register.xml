@@ -286,6 +286,31 @@
             />
 
 
+        //==============================engine hours==========
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_enginehour"
+            android:visibility="visible"
+            android:text="Engine hours"
+            android:textSize="12sp"
+            android:layout_marginTop="25dp"
+            />
+
+        <EditText
+            android:id="@+id/et_enginehour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+
+            android:digits="1234567890 ,"
+            android:hint="Enter Engine Hour"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            />
+
+
         <!--Buttton -> Back / Update / Submit-->
         <LinearLayout
             android:layout_width="match_parent"

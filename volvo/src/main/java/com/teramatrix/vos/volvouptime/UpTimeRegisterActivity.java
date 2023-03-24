@@ -75,7 +75,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
             door_no,
             inreasonUniqueId,
             delayedReasonComment,
-            chasis_number,causalpartintent;
+            chasis_number,causalpartintent,enginehourintent;
 
     private String jobEndDate = "N/A";
     private String jobStartDate = "N/A";
@@ -94,6 +94,10 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
     EditText et_causalpart;
     TextView txt_causalpart;
     ArrayList<String>  reasonidlist ;
+
+    //======================================engine hours
+    EditText et_enginehours;
+    TextView txt_enginehours;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,6 +112,11 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.volvo_blue));
         }
         setContentView(R.layout.activity_register);
+
+        //============engine hour===========================
+        et_enginehours = findViewById(R.id.et_enginehour);
+        txt_enginehours = findViewById(R.id.txt_enginehour);
+
 
         et_causalpart = findViewById(R.id.et_causalpart);
         txt_causalpart = findViewById(R.id.txt_causalpart);
@@ -131,13 +140,20 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
         delayedReasonComment = getIntent().getStringExtra("delayedReasonComment");
         chasis_number = getIntent().getStringExtra("chasis_number");
         causalpartintent=getIntent().getStringExtra("causalpartintent");
-        Log.e(TAG, reason+"   onCreate: getintent causal part "+getIntent().getStringExtra("causalpartintent") );
+        enginehourintent= getIntent().getStringExtra("enginehourintent");
+        Log.e(TAG, enginehourintent+"   onCreate: getintent causal part "+type );
 
         //set causal part
         if (causalpartintent==null||causalpartintent.isEmpty()||causalpartintent.matches("null")){
             et_causalpart.setText("");
         }else {
             et_causalpart.setText(causalpartintent);
+        }
+
+        if (enginehourintent==null||enginehourintent.isEmpty()||enginehourintent.matches("null")){
+            et_enginehours.setText("");
+        }else {
+            et_enginehours.setText(enginehourintent);
         }
 
         //txt_chasis_number
@@ -205,6 +221,10 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
 
         } else if (type.equalsIgnoreCase(TYPE_ADD_REASON)) {
 
+            et_enginehours.setVisibility(View.GONE);
+            txt_enginehours.setVisibility(View.GONE);
+
+
             et_causalpart.setVisibility(View.INVISIBLE);
             txt_causalpart.setVisibility(View.INVISIBLE);
 
@@ -227,6 +247,8 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
             TextView update = findViewById(R.id.update);
             update.setText("SUBMIT");
 
+            Log.e(TAG, "initViews: jot start date "+jobStartDate );
+
             ((TextView) findViewById(R.id.txt_startDate)).setText(jobStartDate);
             ((TextView) findViewById(R.id.txt_endDate)).setText("");
 
@@ -234,6 +256,10 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
             findViewById(R.id.comment_box_contatiner).setVisibility(View.VISIBLE);
 
         } else if (type.equalsIgnoreCase(TYPE_EDIT_REASON)) {
+
+            et_enginehours.setVisibility(View.GONE);
+            txt_enginehours.setVisibility(View.GONE);
+
 
             if (reason!=null){
 
@@ -292,6 +318,9 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
             findViewById(R.id.comment_box_contatiner).setVisibility(View.VISIBLE);
 
         } else if (type.equalsIgnoreCase(TYPE_EDIT_JOB)) {
+
+            et_enginehours.setEnabled(false);
+
             ((TextView) findViewById(R.id.rl_title_bar_title)).setText("Edit Job");
             findViewById(R.id.spinner_container).setVisibility(View.GONE);
             findViewById(R.id.reason_container).setVisibility(View.VISIBLE);
@@ -362,6 +391,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                 requestModel.token = "teramatrix";
                 requestModel.requestType = type;
                 requestModel.causalpart = et_causalpart.getText().toString();
+                requestModel.enginehour = et_enginehours.getText().toString();
 
                 if (type.equalsIgnoreCase(TYPE_JOB)) {
 
@@ -382,11 +412,19 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                             Toast.makeText(UpTimeRegisterActivity.this, "Please select job type.", Toast.LENGTH_SHORT).show();
                             return;
                         }
+
+
+                        if (et_enginehours.getText().toString().isEmpty()){
+                            Toast.makeText(UpTimeRegisterActivity.this, "Please Add Engine Hours", Toast.LENGTH_SHORT).show();
+
+                            return;
+                        }
                         requestModel.description = jobType;
                         requestModel.reasonId = jobSequenceNo;
                         requestModel.isTicketClosed = "false";
                         requestModel.delayedReasonComment = comment;
                         requestModel.causalpart = et_causalpart.getText().toString();
+                        requestModel.enginehour=et_enginehours.getText().toString();
 
                         new UpTimeUpdateTicket(
                                 UpTimeRegisterActivity.this,
@@ -433,6 +471,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
 
                     requestModel.delayedReasonComment = comment;
                     requestModel.causalpart = et_causalpart.getText().toString();
+                    requestModel.enginehour= et_enginehours.getText().toString();
                    // requestModel.endTime = "";
 
                     new UpTimeUpdateTicket(UpTimeRegisterActivity.this, requestModel, UpTimeRegisterActivity.this).execute();
@@ -453,6 +492,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                     requestModel.InreasonUniqueId = inreasonUniqueId;
                     requestModel.delayedReasonComment = comment;
                     requestModel.causalpart = et_causalpart.getText().toString();
+                    requestModel.enginehour=et_enginehours.getText().toString();
                     //requestModel.endTime = "";
 
                     new UpTimeUpdateTicket(
@@ -472,6 +512,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                     requestModel.isTicketClosed = "false";
                     requestModel.delayedReasonComment = comment;
                     requestModel.causalpart = et_causalpart.getText().toString();
+                    requestModel.enginehour= et_enginehours.getText().toString();
                     //requestModel.endTime="";
 
                     new UpTimeUpdateTicket(
@@ -488,9 +529,12 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
             case R.id.txt_startDate: {
 
                 if (type.equalsIgnoreCase(TYPE_ADD_REASON)) {
-                    //  String timeRange_Min = jobStartDate;
-                    String timeRange_Min = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -1, 0);
+                    Log.e(TAG, "onClick: add reason" );
+                    String timeRange_Min = jobStartDate;
+                    //String timeRange_Min = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", -1, 0);
                     //String timeRange_Max = ((TextView) findViewById(R.id.txt_endDate)).getText().toString();
+
+                    Log.e(TAG, jobStartDate+" onClick: add min  111 "+timeRange_Min );
 
 //                    if (timeRange_Max.isEmpty())
 //                        timeRange_Max = jobEndDate;
@@ -503,12 +547,15 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                     if (timeRange_Max == null || timeRange_Max.equalsIgnoreCase("N/A"))
                         timeRange_Max = TimePickerUtil.getTimeOffset(UpTimeRegisterActivity.this, "dd MMM yyyy HH:mm", 0, 1);
 
+                    Log.e(TAG, "onClick: maxdate "+timeRange_Max );
                     //If timeRange_Max is greater than current time than assign (timeRange_Max <- current time)
                     String currentTime = TimeFormater.convertMillisecondsToDateFormat(System.currentTimeMillis(), "dd MMM yyyy HH:mm");
                     int result = TimeFormater.compareDateString(currentTime, timeRange_Max, "dd MMM yyyy HH:mm");
                     if (result <= 0)
                         timeRange_Max = currentTime;
 
+
+                    Log.e(TAG, "onClick: result "+result );
                     // String defaultTime = timeRange_Max;
                     String defaultTime = ((TextView) findViewById(R.id.txt_startDate)).getText().toString();
 
