@@ -52,6 +52,19 @@ public class VehicleModel extends Model {
     @Column(name = "TicketId")
     public String ticketId;
 
+
+    @Column(name = "PreEnginehours")
+    public String PreEnginehours;
+
+    public String getPreEnginehours() {
+        return PreEnginehours;
+    }
+
+    public void setPreEnginehours(String preEnginehours) {
+        PreEnginehours = preEnginehours;
+    }
+
+
     public String getTicketId() {
         return ticketId;
     }

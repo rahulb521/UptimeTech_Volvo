@@ -1,6 +1,9 @@
 package com.teramatrix.vos.volvouptime;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -17,6 +20,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.teramatrix.vos.R;
+import com.teramatrix.vos.firebase.service.MyFirebaseMessagingService;
 import com.teramatrix.vos.preferences.VECVPreferences;
 import com.teramatrix.vos.utils.TimeFormater;
 import com.teramatrix.vos.volvouptime.asyntask.UpTimeUpdateTicket;
@@ -47,8 +51,20 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
     private String door_no;
     private String causalpartintent;
     private  String enginehourintent;
+    private String preenginehoursintent;
 
     TextView txt_enginehour;
+    String enginhr_onactivityresult="";
+
+    BroadcastReceiver broadcastReceiverForEnginehour = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            String engh = intent.getStringExtra("enginehour");
+            Log.e(TAG, "onReceive: enginhour "+ engh);
+            //txt_enginehour.setText("afdsfsd");
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +82,9 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
         setContentView(R.layout.activity_ticket_details);
 
         Log.e(TAG, "onCreate: " );
+
+        //===========================get updated engin hour
+        txt_enginehour = (TextView)findViewById(R.id.txt_enginehour);
 
         //Set Title of Screen
         ((TextView)findViewById(R.id.rl_title_bar_title)).setText("Job Details");
@@ -87,7 +106,7 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
                 mainIntent.putExtra("chasis_number", chasis_number);
                 mainIntent.putExtra("causalpartintent",causalpartintent);
                 mainIntent.putExtra("enginehourintent",enginehourintent);
-
+                mainIntent.putExtra("preenginehoursintent",preenginehoursintent);
                 Log.e(TAG, enginehourintent+" onClick: reason click "+causalpartintent );
 
                 String jobStartEndDate = ((TextView)findViewById(R.id.txt_job_time)).getText().toString();
@@ -148,12 +167,21 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
     protected void onResume() {
         super.onResume();
         registerBReciver(this);
+
+
+        //registerReceiver(broadcastReceiverForEnginehour, new IntentFilter("com.teramatrix.enginehour"));
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         unregisterBReciver();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //unregisterReceiver(broadcastReceiverForEnginehour);
     }
 
     @Override
@@ -228,6 +256,7 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
                     mainIntent.putExtra("chasis_number", chasis_number);
                     mainIntent.putExtra("causalpartintent",causalpartintent);
                     mainIntent.putExtra("enginehourintent",enginehourintent);
+                    mainIntent.putExtra("preenginehoursintent",preenginehoursintent);
 
                     String jobStartEndDate = ((TextView)findViewById(R.id.txt_job_time)).getText().toString();
                     String[] dateArray = jobStartEndDate.split("-");
@@ -281,10 +310,11 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
 
         if(upTimeTicketDetailModel!=null)
         {
-            Log.e(TAG, upTimeTicketDetailModel.getEnginehours()+" loadTicketDetails: gson111 "+upTimeTicketDetailModel.getCausalPart());
+            Log.e(TAG, upTimeTicketDetailModel.getPreEnginehours()+" loadTicketDetails: gson111 "+upTimeTicketDetailModel.getCausalPart());
 
             causalpartintent = upTimeTicketDetailModel.getCausalPart();
             enginehourintent = upTimeTicketDetailModel.getEnginehours();
+            preenginehoursintent = upTimeTicketDetailModel.getPreEnginehours();
 
             isTicketComplete= true;
 
@@ -303,8 +333,15 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
 
 
             //===================engine hour===================
-            if (upTimeTicketDetailModel.getEnginehours()!=null&& !upTimeTicketDetailModel.getEnginehours().isEmpty())
-            ((TextView)findViewById(R.id.txt_enginehour)).setText(upTimeTicketDetailModel.getEnginehours());
+
+            Log.e(TAG, enginehourintent+" loadTicketDetails: engine "+enginhr_onactivityresult );
+
+            if (enginhr_onactivityresult!=null && !enginhr_onactivityresult.isEmpty()){
+                txt_enginehour.setText(enginhr_onactivityresult);
+                enginehourintent= enginhr_onactivityresult;
+            }else if (upTimeTicketDetailModel.getEnginehours()!=null&& !upTimeTicketDetailModel.getEnginehours().isEmpty()) {
+                txt_enginehour.setText(upTimeTicketDetailModel.getEnginehours());
+            }
 
 
 
@@ -363,7 +400,7 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
                     mainIntent.putExtra("delayedReasonComment",upTimeTicketDetailModel.getJobComment());
                     mainIntent.putExtra("causalpartintent",upTimeTicketDetailModel.getCausalPart());
                     mainIntent.putExtra("enginehourintent",upTimeTicketDetailModel.getEnginehours());
-
+                    mainIntent.putExtra("preenginehoursintent",preenginehoursintent);
                     if(latestEndTime_reason==null || latestEndTime_reason.equalsIgnoreCase("N/A"))
                         latestEndTime_reason = oldestStartTime_reason;
 
@@ -391,6 +428,11 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (data!=null) {
+            enginhr_onactivityresult = data.getStringExtra("enginehours");
+        }
+        Log.e(TAG, "onActivityResult:111 "+enginhr_onactivityresult );
         if(requestCode == 1002)
         {
             if(resultCode == RESULT_OK)
@@ -446,4 +488,5 @@ public class UpTimeTicketDetailsActivity extends UpTimeBaseActivity implements
     public void onNegative_ConfirmationDialog() {
 
     }
+
 }

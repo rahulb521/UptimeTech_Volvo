@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.LinearLayout;
@@ -22,6 +23,7 @@ import java.util.List;
 
 public class CustomDialogActivity extends AppCompatActivity  implements OnItemClickListener {
 
+    String TAG = this.getClass().getSimpleName();
     TextView btnSkip,rl_title_bar_title;
     public List<VehicleModel> vehicleModelFilterList = new ArrayList<>();
     public  List<VehicleModel> vehicleModelFilterListSecond = new ArrayList<>();
@@ -31,6 +33,8 @@ public class CustomDialogActivity extends AppCompatActivity  implements OnItemCl
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_custom_dialog);
         this.setFinishOnTouchOutside(false);
+
+        Log.e(TAG, "onCreate: " );
         btnSkip =(TextView)findViewById(R.id.btnSkip);
         if(Config.vehicleModelFilterListSecond.size()>0)
         {

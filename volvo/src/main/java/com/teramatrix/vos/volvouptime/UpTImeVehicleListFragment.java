@@ -39,6 +39,7 @@ import static android.app.Activity.RESULT_OK;
 public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment implements OnItemClickListener, SwipeRefreshLayout.OnRefreshListener, UpTimeGetData.I_UpTimeGetVehicles, UpTimeGetReasons.I_UpTimeGetReasons {
     View view;
 
+    String TAG = this.getClass().getSimpleName();
     private RecyclerView recyclerView;
     public  VehicleAdapter vehicleAdapter;
     public  List<VehicleModel> vehicleModelList;
@@ -54,11 +55,14 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
         if (view==null){
             view=inflater.inflate(R.layout.fragment_uptime_vehicle_list,container,false);
         }
+
+        Log.e(TAG, "onCreateView: " );
         initViews();
         mSwipeRefreshLayout.setRefreshing(true);
         loadVehicleList();
         //Get All delayed reasons and save them in local DB
         if (getActivity().getIntent().getBooleanExtra("isFromLoginPage", false)) {
+            Log.e(TAG, "onCreateView: getdelay reason " );
             new UpTimeGetReasons(getActivity(), "teramatrix", this).execute();
         }
         return view;
@@ -87,6 +91,9 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
     @Override
     public void onResume() {
         super.onResume();
+
+        Log.e(TAG, "onResume: " );
+        //loadVehicleList();
     }
 
     private void initViews(){
@@ -108,6 +115,7 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
 
     @Override
     public void onItemClick(VehicleModel item) {
+        Log.e(TAG, item.getPreEnginehours()+" onItemClick: item "+item.isDown );
         Intent mainIntent = null;
         if (item.isDown() == 0) {
             mainIntent = new Intent(getActivity(),
@@ -126,6 +134,7 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
             mainIntent.putExtra("door_no", item.getDoorNumber());
             mainIntent.putExtra("chasis_number", item.getChassisNumber());
 
+            mainIntent.putExtra("preenginehoursintent",item.getPreEnginehours());
 
             mainIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivityForResult(mainIntent, 1001);
@@ -205,7 +214,7 @@ public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment i
                     } else if (getJobDateDifference(vehicleModels.get(i).getJobStartDate()) > 1)
                     {
                         List<UpTimeAddedReasonsModel> upTimeAddedReasonsModels = DAO.getAddedReasons(vehicleModels.get(i).getTicketId());
-                        Log.v("Difference:-", " jobStartDate: " + upTimeAddedReasonsModels);
+                        Log.v("Difference:-", " jobStartDate: 1111 " + upTimeAddedReasonsModels);
                         if (upTimeAddedReasonsModels.size() == 0) {
                             vehicleModelFilterListSecond.add(vehicleModels.get(i));
                         }

@@ -46,6 +46,17 @@ public class UpTimeTicketDetailModel extends Model{
     @Column(name = "Enginehours")
     public String Enginehours;
 
+    @Column(name = "PreEnginehours")
+    public String PreEnginehours;
+
+    public String getPreEnginehours() {
+        return PreEnginehours;
+    }
+
+    public void setPreEnginehours(String preEnginehours) {
+        PreEnginehours = preEnginehours;
+    }
+
     public String getEnginehours() {
         return Enginehours;
     }

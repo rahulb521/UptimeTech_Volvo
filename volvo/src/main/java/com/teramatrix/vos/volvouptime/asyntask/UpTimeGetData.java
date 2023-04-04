@@ -28,6 +28,7 @@ import java.util.List;
  */
 public class UpTimeGetData extends AsyncTask<Void, Void, Void> {
 
+    String TAG = this.getClass().getSimpleName();
     // Define Context for this class
     private Context mContext;
     // Define String variables for this class
@@ -86,6 +87,9 @@ public class UpTimeGetData extends AsyncTask<Void, Void, Void> {
             Log.i("response", response);
             if (response != null) {
                 try {
+
+
+
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getString("Status").equalsIgnoreCase("1")) {
                         //Delete All Records from local db(Active Android models)
@@ -93,141 +97,191 @@ public class UpTimeGetData extends AsyncTask<Void, Void, Void> {
                         DAO.deleteAllRecords(UpTimeTicketDetailModel.class);
                         DAO.deleteAllRecords(UpTimeAddedReasonsModel.class);
                         JSONArray jsonArray = jsonObject.getJSONArray("VehicleTicketReasonsList");
+
+                        Log.e(TAG, "doInBackground: json array length "+jsonArray.length() );
                         if (jsonArray.length() > 0) {
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                //Save Vehicle Details
-                                JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                                String RegistrationNumber = jsonObject1.getString("RegistrationNumber");
-                                String NumberPlate = jsonObject1.getString("VehicleNumberPlate");
-                                String ModelNumber = jsonObject1.getString("ModelNumber");
-                                String VehicleType = jsonObject1.getString("VehicleType");
-                                String InstallationDate = jsonObject1.getString("VehicleInstallationDate");
-                                String SiteId = jsonObject1.getString("SiteId");
-                                String DoorNumber = jsonObject1.getString("DoorNumber");
-                                String ChassisNumber = jsonObject1.getString("ChassisNumber");
-                                String VehicleStatus = jsonObject1.getString("VehicleStatus");
-                                String JobStrtDate = jsonObject1.getString("JobStartDate");
-                                String ticketId = jsonObject1.getString("TicketId");
-                                String causalpart = jsonObject1.getString("causalpart");
-                                //Log.e("TAG", "doInBackground: causl part "+causalpart );
-                                VehicleModel vehicleModel = new Select()
-                                        .from(VehicleModel.class)
-                                        .where("Registration = ?", RegistrationNumber)
-                                        .executeSingle();
 
-                                if (vehicleModel == null)
-                                    vehicleModel = new VehicleModel();
-                                vehicleModel.setReg_no_value(RegistrationNumber);
-                                vehicleModel.setJobStartDate(JobStrtDate);
-                                vehicleModel.setNumberPlate(NumberPlate);
-                                vehicleModel.setModelNumber(ModelNumber);
-                                vehicleModel.setInstallationDate(InstallationDate);
-                                vehicleModel.setDoorNumber(DoorNumber);
-                                vehicleModel.setChassisNumber(ChassisNumber);
-                                vehicleModel.setVehicleType(VehicleType);
-                                vehicleModel.setVehicleStatus(VehicleStatus);
-                                vehicleModel.setSiteId(SiteId);
-                                vehicleModel.setTicketId(ticketId);
 
-                                vehicleModel.save();
-                                //Save Ticket Details
-                                String ServiceName = jsonObject1.getString("ServiceName");
-                                String VehicleRegistrationNumber = jsonObject1.getString("VehicleRegistrationNumber");
-                                String TicketId = jsonObject1.getString("TicketId");
-                                String TicketIdAlias = jsonObject1.getString("TicketIdAlias");
-                                String JobStartDate = jsonObject1.getString("JobStartDate");
-                                String JobDescriptionComment = jsonObject1.getString("Description");
-                                JobStartDate = TimeFormater.getTimeInIST(JobStartDate, "yyyy-MM-dd HH:mm:ss", "dd MMM yyyy HH:mm");
-                                String JobEndDate = jsonObject1.getString("JobEndDate");
-                                JobEndDate = TimeFormater.getTimeInIST(JobEndDate, "yyyy-MM-dd HH:mm:ss", "dd MMM yyyy HH:mm");
-                                String ServiceTypeSequenceNo = jsonObject1.getString("ServiceTypeSequenceNo");
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    //Save Vehicle Details
 
-                                UpTimeTicketDetailModel upTimeTicketDetailModel = new Select()
-                                        .from(UpTimeTicketDetailModel.class)
-                                        .where("TicketId = ?", TicketId)
-                                        .executeSingle();
+                                    //try{
+                                    JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                                    String RegistrationNumber = jsonObject1.getString("RegistrationNumber");
+                                    String NumberPlate = jsonObject1.getString("VehicleNumberPlate");
+                                    String ModelNumber = jsonObject1.getString("ModelNumber");
+                                    String VehicleType = jsonObject1.getString("VehicleType");
+                                    String InstallationDate = jsonObject1.getString("VehicleInstallationDate");
+                                    String SiteId = jsonObject1.getString("SiteId");
+                                    String DoorNumber = jsonObject1.getString("DoorNumber");
+                                    String ChassisNumber = jsonObject1.getString("ChassisNumber");
+                                    String VehicleStatus = jsonObject1.getString("VehicleStatus");
+                                    String JobStrtDate = jsonObject1.getString("JobStartDate");
+                                    String ticketId = jsonObject1.getString("TicketId");
+                                    String causalpart = jsonObject1.getString("causalpart");
+                                    String enginehours = jsonObject1.getString("Enginehours");
 
-                                if (upTimeTicketDetailModel == null) {
-                                    upTimeTicketDetailModel = new UpTimeTicketDetailModel();
-                                    upTimeTicketDetailModel.setStatusAlias(ServiceName);
-                                    upTimeTicketDetailModel.setVehicleRegistrationNumber(VehicleRegistrationNumber);
-                                    upTimeTicketDetailModel.setTicketId(TicketId);
-                                    upTimeTicketDetailModel.setTicketIdAlias(TicketIdAlias);
-                                    upTimeTicketDetailModel.setStartDate(JobStartDate);
-                                    upTimeTicketDetailModel.setEndDate(JobEndDate);
-                                    upTimeTicketDetailModel.setIsSyncWithServer("true");
-                                    upTimeTicketDetailModel.setSequenceOrder(ServiceTypeSequenceNo.split(",")[0]);
-                                    upTimeTicketDetailModel.setJobComment(JobDescriptionComment);
-                                    upTimeTicketDetailModel.setCausalPart(causalpart);
-                                    upTimeTicketDetailModel.save();
-                                }
-                                //Save Ticket's Reasons Details
-                                String ReasonName = jsonObject1.getString("ReasonName");
-                                String ReasonAlias = jsonObject1.getString("ReasonAlias");
-                                String DelayReasonStatus = jsonObject1.getString("DelayReasonStatus");
-                                String ReasonSequenceNumber = jsonObject1.getString("ReasonSequenceNumber");
-                                String ReasonStartDate = jsonObject1.getString("ReasonStartDate");
-                                String ReasonEndDate = jsonObject1.getString("ReasonEndDate");
-                                String DelayedReasonUniqueId = jsonObject1.getString("DelayedReasonUniqueId");
-                                String DelayedReasonRemarks = jsonObject1.getString("DelayedReasonRemarks");
+                                    String preenginehours = jsonObject1.getString("PreEnginehours");
+                                    Log.e("TAG", preenginehours+" doInBackground: causl part "+causalpart );
 
-                                if (ReasonName == null || ReasonName.equalsIgnoreCase("null"))
-                                    continue;
 
-                                List<String> DelayReasonStatusList = UtilityFunction.spiltAndGenerateList(DelayReasonStatus, "\\$");
-                                List<String> ReasonNameList = UtilityFunction.spiltAndGenerateList(ReasonName, "\\$");
-                                List<String> ReasonAliasList = UtilityFunction.spiltAndGenerateList(ReasonAlias, "\\$");
-                                List<String> ReasonSequenceNumberList = UtilityFunction.spiltAndGenerateList(ReasonSequenceNumber, "\\$");
-                                List<String> ReasonStartDateNumberList = UtilityFunction.spiltAndGenerateList(ReasonStartDate, "\\$");
-                                List<String> ReasonEndDateNumberList = UtilityFunction.spiltAndGenerateList(ReasonEndDate, "\\$");
-                                List<String> DelayedReasonUniqueIdList = UtilityFunction.spiltAndGenerateList(DelayedReasonUniqueId, "\\$");
-                                List<String> DelayedReasonRemarksList = UtilityFunction.spiltAndGenerateList(DelayedReasonRemarks, "\\$");
-
-                                for (int j = 0; j < DelayReasonStatusList.size(); j++) {
-                                    String ReasonId = DelayReasonStatusList.get(j);
-                                    UpTimeAddedReasonsModel upTimeAddedReasonsModel = new Select()
-                                            .from(UpTimeAddedReasonsModel.class)
-                                            .where("TicketId = ? AND ReasonId = ? AND inreasonUniqueId = ?", upTimeTicketDetailModel.getTicketId(), ReasonId, DelayedReasonUniqueIdList.get(j))
+                                    VehicleModel vehicleModel = new Select()
+                                            .from(VehicleModel.class)
+                                            .where("Registration = ?", RegistrationNumber)
                                             .executeSingle();
 
-                                    if (upTimeAddedReasonsModel == null)
-                                        upTimeAddedReasonsModel = new UpTimeAddedReasonsModel();
+                                    Log.e(TAG + RegistrationNumber, jsonArray.length() + "  doInBackground: iiii " + i);
 
-                                    upTimeAddedReasonsModel.set_reason_id(ReasonId);
-                                    upTimeAddedReasonsModel.set_reason_name(ReasonNameList.get(j));
-                                    upTimeAddedReasonsModel.set_reason_alias(ReasonAliasList.get(j));
-                                    upTimeAddedReasonsModel.set_reason_sequence_number(ReasonSequenceNumberList.get(j));
-                                    upTimeAddedReasonsModel.setInreasonUniqueId(DelayedReasonUniqueIdList.get(j));
 
-                                    String reasonStartDate = TimeFormater.getTimeInIST(ReasonStartDateNumberList.get(j), "yyyy-MM-dd HH:mm:ss", "dd MMM yyyy HH:mm");
-                                    upTimeAddedReasonsModel.setReasonStartDate(reasonStartDate);
+                                    if (vehicleModel == null)
+                                        vehicleModel = new VehicleModel();
+                                    vehicleModel.setReg_no_value(RegistrationNumber);
+                                    vehicleModel.setJobStartDate(JobStrtDate);
+                                    vehicleModel.setNumberPlate(NumberPlate);
+                                    vehicleModel.setModelNumber(ModelNumber);
+                                    vehicleModel.setInstallationDate(InstallationDate);
+                                    vehicleModel.setDoorNumber(DoorNumber);
+                                    vehicleModel.setChassisNumber(ChassisNumber);
+                                    vehicleModel.setVehicleType(VehicleType);
+                                    vehicleModel.setVehicleStatus(VehicleStatus);
+                                    vehicleModel.setSiteId(SiteId);
+                                    vehicleModel.setTicketId(ticketId);
+                                    vehicleModel.setPreEnginehours(preenginehours);
 
-                                    if (ReasonEndDateNumberList.size() > j) {
-                                        String reasonEndDate = TimeFormater.getTimeInIST(ReasonEndDateNumberList.get(j), "yyyy-MM-dd HH:mm:ss", "dd MMM yyyy HH:mm");
-                                        upTimeAddedReasonsModel.setReasonEndDate(reasonEndDate);
-                                    }
+                                    vehicleModel.save();
 
-                                    upTimeAddedReasonsModel.setIsSyncWithServer("true");
-                                    upTimeAddedReasonsModel.set_ticket_id(upTimeTicketDetailModel.getTicketId());
-                                    upTimeAddedReasonsModel.setDelayedReasonComment(DelayedReasonRemarksList.get(j));
+                                    //Save Ticket Details
+                                    String ServiceName = jsonObject1.getString("ServiceName");
+                                    String VehicleRegistrationNumber = jsonObject1.getString("VehicleRegistrationNumber");
+                                    String TicketId = jsonObject1.getString("TicketId");
+                                    String TicketIdAlias = jsonObject1.getString("TicketIdAlias");
+                                    String JobStartDate = jsonObject1.getString("JobStartDate");
+                                    String JobDescriptionComment = jsonObject1.getString("Description");
+                                    JobStartDate = TimeFormater.getTimeInIST(JobStartDate, "yyyy-MM-dd HH:mm:ss", "dd MMM yyyy HH:mm");
+                                    String JobEndDate = jsonObject1.getString("JobEndDate");
+                                    JobEndDate = TimeFormater.getTimeInIST(JobEndDate, "yyyy-MM-dd HH:mm:ss", "dd MMM yyyy HH:mm");
+                                    String ServiceTypeSequenceNo = jsonObject1.getString("ServiceTypeSequenceNo");
 
-                                    Long result = upTimeAddedReasonsModel.save();
-                                    Log.i("result", result + "");
+                                    Log.e(TAG, "doInBackground: 2222222222" );
+                                    UpTimeTicketDetailModel upTimeTicketDetailModel = new Select()
+                                            .from(UpTimeTicketDetailModel.class)
+                                            .where("TicketId = ?", TicketId)
+                                            .executeSingle();
+
+                                    Log.e(TAG, "doInBackground: 333333333" );
+
+                                        if (upTimeTicketDetailModel == null) {
+                                            upTimeTicketDetailModel = new UpTimeTicketDetailModel();
+                                            upTimeTicketDetailModel.setStatusAlias(ServiceName);
+                                            upTimeTicketDetailModel.setVehicleRegistrationNumber(VehicleRegistrationNumber);
+                                            upTimeTicketDetailModel.setTicketId(TicketId);
+                                            upTimeTicketDetailModel.setTicketIdAlias(TicketIdAlias);
+                                            upTimeTicketDetailModel.setStartDate(JobStartDate);
+                                            upTimeTicketDetailModel.setEndDate(JobEndDate);
+                                            upTimeTicketDetailModel.setIsSyncWithServer("true");
+                                            upTimeTicketDetailModel.setSequenceOrder(ServiceTypeSequenceNo.split(",")[0]);
+                                            upTimeTicketDetailModel.setJobComment(JobDescriptionComment);
+                                            upTimeTicketDetailModel.setCausalPart(causalpart);
+                                            upTimeTicketDetailModel.setEnginehours(enginehours);
+                                            upTimeTicketDetailModel.setPreEnginehours(preenginehours);
+                                            upTimeTicketDetailModel.save();
+                                        }
+
+                                    Log.e(TAG, "doInBackground: 5555555" );
+                                    //Save Ticket's Reasons Details
+                                    //Log.e(TAG, "doInBackground: reason name jsonobject "+jsonObject1 );
+                                    String ReasonName = jsonObject1.getString("ReasonName");
+                                    String ReasonAlias = jsonObject1.getString("ReasonAlias");
+                                    String DelayReasonStatus = jsonObject1.getString("DelayReasonStatus");
+                                    String ReasonSequenceNumber = jsonObject1.getString("ReasonSequenceNumber");
+                                    String ReasonStartDate = jsonObject1.getString("ReasonStartDate");
+                                    String ReasonEndDate = jsonObject1.getString("ReasonEndDate");
+                                    String DelayedReasonUniqueId = jsonObject1.getString("DelayedReasonUniqueId");
+                                    String DelayedReasonRemarks = jsonObject1.getString("DelayedReasonRemarks");
+
+
+                                    Log.e(TAG, "doInBackground: reason name "+ReasonName );
+
+                                    if (ReasonName == null || ReasonName.equalsIgnoreCase("null"))
+                                        continue;
+
+                                    //all list size should be same================================
+                                    List<String> DelayReasonStatusList = UtilityFunction.spiltAndGenerateList(DelayReasonStatus, "\\$");
+                                    List<String> ReasonNameList = UtilityFunction.spiltAndGenerateList(ReasonName, "\\$");
+                                    List<String> ReasonAliasList = UtilityFunction.spiltAndGenerateList(ReasonAlias, "\\$");
+                                    List<String> ReasonSequenceNumberList = UtilityFunction.spiltAndGenerateList(ReasonSequenceNumber, "\\$");
+                                    List<String> ReasonStartDateNumberList = UtilityFunction.spiltAndGenerateList(ReasonStartDate, "\\$");
+                                    List<String> ReasonEndDateNumberList = UtilityFunction.spiltAndGenerateList(ReasonEndDate, "\\$");
+                                    List<String> DelayedReasonUniqueIdList = UtilityFunction.spiltAndGenerateList(DelayedReasonUniqueId, "\\$");
+                                    List<String> DelayedReasonRemarksList = UtilityFunction.spiltAndGenerateList(DelayedReasonRemarks, "\\$");
+
+
+                                    Log.e(TAG, RegistrationNumber+" doInBackground: 444444 \n " +DelayReasonStatusList.size()
+                                            +"\n reason "+ReasonNameList.size()
+                                    +"\n "+ReasonAliasList.size()
+                                    +"\n "+ReasonSequenceNumberList.size()
+                                    +"\n "+ReasonStartDateNumberList.size()
+                                    +"\n "+ReasonEndDateNumberList.size()
+                                    +"\n "+DelayedReasonUniqueIdList.size()
+                                    +"\n "+DelayedReasonRemarksList.size());
+
+                                        for (int j = 0; j < DelayReasonStatusList.size(); j++) {
+                                            String ReasonId = DelayReasonStatusList.get(j);
+                                            UpTimeAddedReasonsModel upTimeAddedReasonsModel = new Select()
+                                                    .from(UpTimeAddedReasonsModel.class)
+                                                    .where("TicketId = ? AND ReasonId = ? AND inreasonUniqueId = ?", upTimeTicketDetailModel.getTicketId(), ReasonId, DelayedReasonUniqueIdList.get(j))
+                                                    .executeSingle();
+
+                                            if (upTimeAddedReasonsModel == null)
+                                                upTimeAddedReasonsModel = new UpTimeAddedReasonsModel();
+
+                                            upTimeAddedReasonsModel.set_reason_id(ReasonId);
+                                            upTimeAddedReasonsModel.set_reason_name(ReasonNameList.get(j));
+                                            upTimeAddedReasonsModel.set_reason_alias(ReasonAliasList.get(j));
+                                            upTimeAddedReasonsModel.set_reason_sequence_number(ReasonSequenceNumberList.get(j));
+                                            upTimeAddedReasonsModel.setInreasonUniqueId(DelayedReasonUniqueIdList.get(j));
+
+                                            String reasonStartDate = TimeFormater.getTimeInIST(ReasonStartDateNumberList.get(j), "yyyy-MM-dd HH:mm:ss", "dd MMM yyyy HH:mm");
+                                            upTimeAddedReasonsModel.setReasonStartDate(reasonStartDate);
+
+                                            if (ReasonEndDateNumberList.size() > j) {
+                                                String reasonEndDate = TimeFormater.getTimeInIST(ReasonEndDateNumberList.get(j), "yyyy-MM-dd HH:mm:ss", "dd MMM yyyy HH:mm");
+                                                upTimeAddedReasonsModel.setReasonEndDate(reasonEndDate);
+                                            }
+
+                                            upTimeAddedReasonsModel.setIsSyncWithServer("true");
+                                            upTimeAddedReasonsModel.set_ticket_id(upTimeTicketDetailModel.getTicketId());
+                                            upTimeAddedReasonsModel.setDelayedReasonComment(DelayedReasonRemarksList.get(j));
+
+                                            Long result = upTimeAddedReasonsModel.save();
+                                            Log.e("result", result + "");
+                                        }
+
+
+                                    Log.e(TAG, "doInBackground: 55555555" );
+                                    Log.e(TAG, "doInBackground: ==============================" );
+//                                }catch (Exception e){
+//                                        Log.e(TAG, "doInBackground: eeeeeee 222 "+e.getMessage() );
+//                                    }
                                 }
 
-                            }
                         }
                     }
-                } catch (Exception e) {
+
+                }
+                catch (Exception e) {
+
+                    Log.e(TAG, e.getLocalizedMessage()+"doInBackground: exception "+e.getMessage() );
                     // Google Analytic -Tracking Exception
                     //EosApplication.getInstance().trackException(e);
                     // save error location in file
                     UtilityFunction.saveErrorLog(mContext, e);
-                }
+               }
             }
 
         } catch (Exception ex) {
 
+            Log.e(TAG, "doInBackground: ecxeeeee "+ex.getMessage() );
             // Google Analytic -Tracking Exception
             //EosApplication.getInstance().trackException(ex);
             UtilityFunction.saveErrorLog(mContext, ex);

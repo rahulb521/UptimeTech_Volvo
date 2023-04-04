@@ -20,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.activeandroid.query.Select;
 import com.google.gson.Gson;
 import com.teramatrix.vos.R;
 import com.teramatrix.vos.checkinternet.CheckInternetConnection;
@@ -31,6 +32,7 @@ import com.teramatrix.vos.volvouptime.custom.DAO;
 import com.teramatrix.vos.volvouptime.custom.TimePickerUtil;
 import com.teramatrix.vos.volvouptime.custom.TimePickerUtilEndDate;
 import com.teramatrix.vos.volvouptime.models.UpTimeReasonsModel;
+import com.teramatrix.vos.volvouptime.models.UpTimeTicketDetailModel;
 import com.teramatrix.vos.volvouptime.models.VehicleModel;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
@@ -56,6 +58,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
 {
 
 
+
     String TAG = this.getClass().getSimpleName();
 
     private RecyclerView recyclerView;
@@ -75,7 +78,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
             door_no,
             inreasonUniqueId,
             delayedReasonComment,
-            chasis_number,causalpartintent,enginehourintent;
+            chasis_number,causalpartintent,enginehourintent,preenginehoursintent;
 
     private String jobEndDate = "N/A";
     private String jobStartDate = "N/A";
@@ -98,6 +101,11 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
     //======================================engine hours
     EditText et_enginehours;
     TextView txt_enginehours;
+
+
+    public interface Getenginehour{
+        void ongetenginghour(String enginehour);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,6 +120,8 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.volvo_blue));
         }
         setContentView(R.layout.activity_register);
+
+
 
         //============engine hour===========================
         et_enginehours = findViewById(R.id.et_enginehour);
@@ -141,7 +151,10 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
         chasis_number = getIntent().getStringExtra("chasis_number");
         causalpartintent=getIntent().getStringExtra("causalpartintent");
         enginehourintent= getIntent().getStringExtra("enginehourintent");
-        Log.e(TAG, enginehourintent+"   onCreate: getintent causal part "+type );
+
+        preenginehoursintent = getIntent().getStringExtra("preenginehoursintent");
+
+        Log.e(TAG, preenginehoursintent+"   onCreate: getintent causal part "+type );
 
         //set causal part
         if (causalpartintent==null||causalpartintent.isEmpty()||causalpartintent.matches("null")){
@@ -319,7 +332,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
 
         } else if (type.equalsIgnoreCase(TYPE_EDIT_JOB)) {
 
-            et_enginehours.setEnabled(false);
+           // et_enginehours.setEnabled(false);
 
             ((TextView) findViewById(R.id.rl_title_bar_title)).setText("Edit Job");
             findViewById(R.id.spinner_container).setVisibility(View.GONE);
@@ -418,6 +431,10 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                             Toast.makeText(UpTimeRegisterActivity.this, "Please Add Engine Hours", Toast.LENGTH_SHORT).show();
 
                             return;
+                        }else if (Long.parseLong(et_enginehours.getText().toString())<=Long.parseLong(preenginehoursintent)){
+                            Log.e(TAG, "onClick: greater "+preenginehoursintent );
+                            Toast.makeText(UpTimeRegisterActivity.this, "Please enter value greater than "+preenginehoursintent, Toast.LENGTH_SHORT).show();
+                            return;
                         }
                         requestModel.description = jobType;
                         requestModel.reasonId = jobSequenceNo;
@@ -514,6 +531,18 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                     requestModel.causalpart = et_causalpart.getText().toString();
                     requestModel.enginehour= et_enginehours.getText().toString();
                     //requestModel.endTime="";
+
+
+                    if (et_enginehours.getText().toString().isEmpty()){
+                        Toast.makeText(UpTimeRegisterActivity.this, "Please Add Engine Hours", Toast.LENGTH_SHORT).show();
+
+                        return;
+                    }else if (Long.parseLong(et_enginehours.getText().toString())<=Long.parseLong(preenginehoursintent)){
+                        Log.e(TAG, "onClick: greater "+preenginehoursintent );
+                        Toast.makeText(UpTimeRegisterActivity.this, "Please enter value greater than "+preenginehoursintent, Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
 
                     new UpTimeUpdateTicket(
                             UpTimeRegisterActivity.this,
@@ -837,8 +866,37 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
     @Override
     public void onTicketupdateResponse(boolean isUpdateSuccessful, String msg) {
 
+        Log.e(TAG, "onTicketupdateResponse: engine hour "+et_enginehours.getText().toString() );
         if (isUpdateSuccessful) {
-            setResult(RESULT_OK);
+
+
+            //save engine hour to database=======================
+            try {
+                UpTimeTicketDetailModel upTimeTicketDetailModel = new Select()
+                        .from(UpTimeTicketDetailModel.class)
+                        .where("TicketId = ?", ticketId)
+                        .executeSingle();
+
+                Log.e(TAG, "doInBackground: 333333333");
+
+                upTimeTicketDetailModel.setEnginehours(et_enginehours.getText().toString());
+                upTimeTicketDetailModel.save();
+            }catch (Exception e){
+
+            }
+
+
+
+            Intent intent1 = new Intent();
+            intent1.putExtra("enginehours", et_enginehours.getText().toString());
+
+            setResult(RESULT_OK,intent1);
+            //getenginehourreference.ongetenginghour(et_enginehours.getText().toString());
+
+//            Intent in = new Intent("com.teramatrix.enginehour");
+//            in.putExtra("enginehour",et_enginehours.getText().toString());
+//            sendBroadcast(in);
+
             finish();
         } else {
             //TODO show dialog to user
