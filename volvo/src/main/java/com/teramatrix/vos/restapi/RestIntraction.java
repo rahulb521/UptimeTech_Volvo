@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URLEncoder;
+import java.security.KeyStore;
 import java.util.ArrayList;
 
 import org.apache.http.HttpEntity;
@@ -18,8 +19,14 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.conn.ConnectTimeoutException;
+import org.apache.http.conn.scheme.PlainSocketFactory;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+import org.apache.http.conn.ssl.X509HostnameVerifier;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.SingleClientConnManager;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
@@ -33,8 +40,11 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.teramatrix.vos.model.ErrorResponseModel;
 
+import javax.net.ssl.HostnameVerifier;
+
 public class RestIntraction {
 
+	String TAG = this.getClass().getSimpleName();
 	// Defining arraylist to get parameters and headers
 	private ArrayList<NameValuePair> params;
 	private ArrayList<NameValuePair> headers;
@@ -236,18 +246,28 @@ public class RestIntraction {
 	 */
 	private void executeRequest(HttpUriRequest request, String url)throws Exception {
 		Log.e("RESTUrl", url);
+
+
 		HttpParams httpParameters = new BasicHttpParams();
 		// Set the timeout in milliseconds until a connection is established.
 		// The default value is zero, that means the timeout is not used.
-		int timeoutConnection = 60000;
+		int timeoutConnection = 60000*2;
 		HttpConnectionParams.setConnectionTimeout(httpParameters,
 				timeoutConnection);
 		// Set the default socket timeout (SO_TIMEOUT)
 		// in milliseconds which is the timeout for waiting for data.
-		int timeoutSocket = 60000;
+		int timeoutSocket = 60000*2;
 		HttpConnectionParams.setSoTimeout(httpParameters, timeoutSocket);
 		// Initializing HttpClient to execute request
+
+
+
+		//===============================new code for certificate issue
+
+
 		HttpClient client = new DefaultHttpClient(httpParameters);
+
+		Log.e(TAG, "resturl111: " );
 
 		// Defining HttpResponse to get response of request
 		HttpResponse httpResponse;
@@ -264,6 +284,8 @@ public class RestIntraction {
 				InputStream instream = entity.getContent();
 				response = convertStreamToString(instream);
 				// Closing the input stream will trigger connection release
+				Log.e(TAG, "executeRequest:response "+response);
+
 				instream.close();
 			}
 		} catch (ConnectTimeoutException connectTimeoutException) {
@@ -273,7 +295,8 @@ public class RestIntraction {
 			errorResponseModel.setStatus("0");
 			response = new Gson().toJson(errorResponseModel);
 
-			
+			Log.e(TAG, "executeRequest:333 "+connectTimeoutException.getMessage() );
+
 			throw connectTimeoutException;
 
 		} catch (ClientProtocolException e) {
@@ -282,7 +305,8 @@ public class RestIntraction {
 			errorResponseModel.setMessage("Protocol Error");
 			errorResponseModel.setStatus("0");
 			response = new Gson().toJson(errorResponseModel);
-			
+			Log.e(TAG, "executeRequest222: "+e.getMessage() );
+
 			throw e;
 		} catch (IOException e) {
 			client.getConnectionManager().shutdown();
@@ -290,10 +314,12 @@ public class RestIntraction {
 			errorResponseModel.setMessage("Connection Error");
 			errorResponseModel.setStatus("0");
 			response = new Gson().toJson(errorResponseModel);
-			
+			Log.e(TAG,e.fillInStackTrace()+" executeRequest111: "+e.getMessage() );
+
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
+			Log.e(TAG, "executeRequest: "+e.getMessage() );
 		}
 	}
 

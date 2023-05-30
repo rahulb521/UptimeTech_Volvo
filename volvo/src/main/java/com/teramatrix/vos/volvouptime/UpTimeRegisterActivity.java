@@ -213,6 +213,8 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
             ((TextView) findViewById(R.id.txt_vehicle_reg_title)).setText("Vehicle Registration Number");
             ((TextView) findViewById(R.id.txt_vehicle_reg_no)).setText("" + registration_no);
 
+
+
             //lable of first Field
             TextView textView = findViewById(R.id.tv_type_title);
             textView.setText("Job Type");
@@ -331,6 +333,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
             findViewById(R.id.comment_box_contatiner).setVisibility(View.VISIBLE);
 
         } else if (type.equalsIgnoreCase(TYPE_EDIT_JOB)) {
+            et_causalpart.setEnabled(false);
 
            // et_enginehours.setEnabled(false);
 
@@ -380,6 +383,19 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
 
         switch (v.getId()) {
             case R.id.update: {
+
+                Log.e(TAG, type+" onClick: update "+et_causalpart.isEnabled() );
+//                if (type.equalsIgnoreCase(TYPE_JOB)) {
+//
+//                    if (et_causalpart.isEnabled() == true) {
+//                        if (et_causalpart.getText().toString().isEmpty()) {
+//                            Toast.makeText(this, "Please add causal part", Toast.LENGTH_SHORT).show();
+//                            return;
+//                        }
+//                    }
+//                }
+
+
                 String licenceKey = new VECVPreferences(UpTimeRegisterActivity.this).getLicenseKey();
                 String startTime_UTC = ((TextView) findViewById(R.id.txt_startDate)).getText().toString();
                 String endTime_UTC = ((TextView) findViewById(R.id.txt_endDate)).getText().toString();
@@ -426,14 +442,22 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                             return;
                         }
 
+                        if (preenginehoursintent==null){
+                            preenginehoursintent="0";
+                        }else if (preenginehoursintent.isEmpty()){
+                            preenginehoursintent="0";
+                        }else if (preenginehoursintent.matches("null")){
+                            preenginehoursintent = "0";
+                        }
 
+                        Log.e(TAG, preenginehoursintent+" onClick: eeeeeeeeee "+et_enginehours.getText().toString() );
                         if (et_enginehours.getText().toString().isEmpty()){
                             Toast.makeText(UpTimeRegisterActivity.this, "Please Add Engine Hours", Toast.LENGTH_SHORT).show();
 
                             return;
-                        }else if (Long.parseLong(et_enginehours.getText().toString())<=Long.parseLong(preenginehoursintent)){
+                        }else if (Long.parseLong(et_enginehours.getText().toString())<Long.parseLong(preenginehoursintent)){
                             Log.e(TAG, "onClick: greater "+preenginehoursintent );
-                            Toast.makeText(UpTimeRegisterActivity.this, "Please enter value greater than "+preenginehoursintent, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UpTimeRegisterActivity.this, "Please enter value greater than or equal to "+preenginehoursintent, Toast.LENGTH_SHORT).show();
                             return;
                         }
                         requestModel.description = jobType;
@@ -451,6 +475,17 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                         Toast.makeText(UpTimeRegisterActivity.this, "Can not create new ticket in offline mode.", Toast.LENGTH_SHORT).show();
                     }
                 } else if (type.equalsIgnoreCase(TYPE_ADD_REASON)) {
+                    String jobTypesp = ((Spinner) findViewById(R.id.job_spinner)).getSelectedItem().toString();
+
+                    if (jobTypesp.matches("Volvo - Parts not available")
+                            ||jobTypesp.matches("Customer - Parts")
+                            ||jobTypesp.matches("Vendor Parts")) {
+
+                        if (et_causalpart.getText().toString().isEmpty()) {
+                            Toast.makeText(this, "Please add causal part", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
 
                     //Add New Reason to current Ticket
 
@@ -496,6 +531,20 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                 } else if (type.equalsIgnoreCase(TYPE_EDIT_REASON)) {
                     //Update Current Reason
 
+                    //String jobTypesp1 = ((Spinner) findViewById(R.id.job_spinner)).getSelectedItem().toString();
+
+                    Log.e(TAG, "onClick: gettext edit dela reason"+reason );
+                    if (reason.matches("Volvo - Parts not available")
+                            ||reason.matches("Customer - Parts")
+                            ||reason.matches("Vendor Parts")) {
+
+                        if (et_causalpart.getText().toString().isEmpty()) {
+                            Toast.makeText(this, "Please add causal part", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
+
+
                     //Validate Description before sumbitting
                     EditText editText = (EditText) findViewById(R.id.ed_comment);
                     String comment = editText.getText().toString();
@@ -537,9 +586,9 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                         Toast.makeText(UpTimeRegisterActivity.this, "Please Add Engine Hours", Toast.LENGTH_SHORT).show();
 
                         return;
-                    }else if (Long.parseLong(et_enginehours.getText().toString())<=Long.parseLong(preenginehoursintent)){
+                    }else if (Long.parseLong(et_enginehours.getText().toString())<Long.parseLong(preenginehoursintent)){
                         Log.e(TAG, "onClick: greater "+preenginehoursintent );
-                        Toast.makeText(UpTimeRegisterActivity.this, "Please enter value greater than "+preenginehoursintent, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UpTimeRegisterActivity.this, "Please enter value greater than or equal to "+preenginehoursintent, Toast.LENGTH_SHORT).show();
                         return;
                     }
 
@@ -880,6 +929,7 @@ public class UpTimeRegisterActivity extends Activity implements View.OnClickList
                 Log.e(TAG, "doInBackground: 333333333");
 
                 upTimeTicketDetailModel.setEnginehours(et_enginehours.getText().toString());
+                upTimeTicketDetailModel.setCausalPart(et_causalpart.getText().toString());
                 upTimeTicketDetailModel.save();
             }catch (Exception e){
 
