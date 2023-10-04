@@ -26,6 +26,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -93,6 +94,7 @@ import com.teramatrix.vos.utils.UtilityFunction;
 public class MapViewTimerActivitySeekBar extends FragmentActivity implements OnMapReadyCallback,
 		OnClickListener, INetworkAvailablity {
 
+	String TAG = this.getClass().getSimpleName();
 	// define TextView component of a class
 	TextView tv_time_counter, btn_vanReached, tv_title_estimation_desc, btn_ok,
 			btn_cancel, tv_title_estimation_cost, tv_title_estimation_time,
@@ -369,6 +371,7 @@ public class MapViewTimerActivitySeekBar extends FragmentActivity implements OnM
 			public void onClick(View v) {
 
 				// open estimation time dialog when press van reached
+				Log.e(TAG, "onClick: ticket status "+ticket.TicketStatus );
 
 				if (ticket.TicketStatus.equalsIgnoreCase("3")) {
 					//Curretn Ticket status ->3 i.e In Progress(After Van reached confirmed).
@@ -389,7 +392,7 @@ public class MapViewTimerActivitySeekBar extends FragmentActivity implements OnM
 					showTripStartConfirmDialog();
 
 				}
-				else if(ticket.TicketStatus.equalsIgnoreCase("9")) {
+				else if(ticket.TicketStatus.equalsIgnoreCase("9")||ticket.TicketStatus.equalsIgnoreCase("13")) {
 					//Curretn Ticket status ->9 i.e Trip Start.
 					// In this case a button will be shown (Van Reached).
 					//When user click (Van Reached) button a confirmation dialog will be shown to confirm Van reached at breakdown location.

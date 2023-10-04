@@ -45,7 +45,8 @@ public class EosApplication extends Application {
 //		Stetho.initialize(initializer);
 		Stetho.initializeWithDefaults(this);
         //initialize Active android database for Volvo Uptime
-		Configuration dbConfiguration = new Configuration.Builder(this).setDatabaseName("volvoUptime.db").setDatabaseVersion(5).create();
+		Configuration dbConfiguration = new Configuration.Builder(this).setDatabaseName("volvoUptime.db").setDatabaseVersion(10).create();
+
 		ActiveAndroid.initialize(dbConfiguration);
 		FirebaseApp.initializeApp(this);
 		mInstance = this;

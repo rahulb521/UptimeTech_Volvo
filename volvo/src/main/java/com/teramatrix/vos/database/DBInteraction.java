@@ -13,7 +13,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
+import com.activeandroid.query.Select;
 import com.teramatrix.vos.EosApplication;
 import com.teramatrix.vos.model.DeclineReasonModel;
 import com.teramatrix.vos.model.EstimationCostModel;
@@ -22,6 +24,7 @@ import com.teramatrix.vos.model.TrackingLocation;
 import com.teramatrix.vos.model.UpdateCounter;
 import com.teramatrix.vos.utils.ApplicationConstant;
 import com.teramatrix.vos.utils.UtilityFunction;
+import com.teramatrix.vos.volvouptime.models.UpTimeTicketDetailModel;
 
 /**
  * 
@@ -29,9 +32,11 @@ import com.teramatrix.vos.utils.UtilityFunction;
  * connectivity, Queries to the database, close database connection.
  * 
  */
+import com.activeandroid.query.Update;
 
 public class DBInteraction extends SQLiteOpenHelper {
 
+	String TAG = this.getClass().getSimpleName();
 	private static DBInteraction _instance = null;
 	private static String DB_PATH = "/data/data/com.teramatrix.vos/databases/";
 	// private static String DB_NAME = "VECV_DB.db";
@@ -114,13 +119,16 @@ public class DBInteraction extends SQLiteOpenHelper {
 	// private static int db_version = 2;
 
 	// Power saving field (is_power_saving_mode_on) added in Tracking table
-	private static int db_version = 7;
+	private static int db_version = 11;
 
 	public DBInteraction(Context context) {
 
 		super(context, "VOC_DB", null, db_version);
 
 	}
+
+
+
 
 	/*
 	 * public DBInteraction(Context context) {
@@ -1772,11 +1780,15 @@ public class DBInteraction extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase arg0) {
 		// TODO Auto-generated method stub
 
+		Log.e(TAG, "onCreate: " );
+
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase arg0, int old_version, int new_version) {
 		// TODO Auto-generated method stub
+
+		Log.e(TAG, old_version+" onUpgrade: "+new_version );
 
 		// System.out.println("DBInteraction.onUpgrade() "+"old_version:"+old_version+" new_version:"+new_version);
 
@@ -1785,7 +1797,11 @@ public class DBInteraction extends SQLiteOpenHelper {
 		if (ApplicationConstant.currentActivityContext != null)
 			ApplicationConstant.currentActivityContext.deleteDatabase(DB_NAME);
 
-		// context.deleteDatabase(DB_NAME);
+		//context.deleteDatabase(DB_NAME);
+
+
+
+
 	}
 
 	public long updateCounter_EstimatedCostCounter(Ticket ticket) {

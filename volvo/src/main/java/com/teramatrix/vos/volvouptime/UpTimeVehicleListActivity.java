@@ -18,6 +18,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -32,12 +33,15 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.teramatrix.vos.MyTicketActivity;
 import com.teramatrix.vos.R;
 import com.teramatrix.vos.SplashActivity;
+import com.teramatrix.vos.adapter.CustomExpandableListAdapter;
 import com.teramatrix.vos.asynctasks.AppVersionChekerAsyn;
 import com.teramatrix.vos.firebase.config.Config;
 import com.teramatrix.vos.preferences.VECVPreferences;
@@ -55,6 +59,7 @@ import com.teramatrix.vos.volvouptime.models.VehicleModel;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -76,6 +81,13 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
     SparseArray<Fragment> registeredFragments = new SparseArray<>();
     ArrayAdapter<String> adapter;
     ListView listView;
+    String TAG = this.getClass().getSimpleName();
+
+    ExpandableListView expandableListView;
+    ExpandableListAdapter expandableListAdapter;
+    List<String> expandableListTitle;
+    HashMap<String, List<String>> expandableListDetail;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +107,8 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
 
         //initialize basic views
         initViews();
+
+        Log.e(TAG, "onCreate: 11" );
     }
 
     @Override
@@ -146,6 +160,36 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
             //tablayout.setVisibility(View.GONE);
             new AppVersionChekerAsyn(this, "1001", this).execute();
             //searchView.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+
+            //========================================expandable list=================
+
+           /* DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+            //drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+
+            HashMap<String, List<String>> expandableListDetail = new HashMap<String, List<String>>();
+
+            List<String> cricket = new ArrayList<String>();
+            cricket.add("India");
+            cricket.add("Australia");
+            cricket.add("England");
+
+            List<String> cricket1 = new ArrayList<String>();
+
+
+            expandableListDetail.put("CRICKET TEAMS", cricket);
+            expandableListDetail.put("CRICKET TEAMS11", cricket1);
+
+
+            expandableListView = (ExpandableListView) findViewById(R.id.expandable_list);
+            //expandableListDetail = ExpandableListDataPump.getData();
+            expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+            expandableListAdapter = new CustomExpandableListAdapter(this, expandableListTitle, expandableListDetail);
+            expandableListView.setAdapter(expandableListAdapter);
+
+            */
+
+
 
             viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                @Override
@@ -254,6 +298,8 @@ public class UpTimeVehicleListActivity extends UpTimeBaseActivity implements Vie
     @Override
     public void I_AppVersionChekerAsyn_onSuccess(String playStoreVersionName) {
         String curretnVersion = UtilityFunction.getAppVersion(UpTimeVehicleListActivity.this);
+
+        Log.e("TAG", curretnVersion+"  I_AppVersionChekerAsyn_onSuccess: playstore "+playStoreVersionName );
         if (!curretnVersion.equalsIgnoreCase(playStoreVersionName)) {
             showAppUpgradePopUp(UpTimeVehicleListActivity.this);
         }

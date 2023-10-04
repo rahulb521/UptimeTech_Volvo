@@ -196,10 +196,9 @@ public class ConfigurationLicenseActivity extends Activity implements INetworkAv
 
 			//buildConfigField 'String', 'HOST', '"http://169.38.133.115:8083/"' //QA for uptime
 			//String host_address = "https://uptimecenter.vecv.net:8082/";//production
-			String host_address = "http://169.38.133.115:8081/";//QA for VAS
+			String host_address = "http://169.38.133.115:8081/";//QA for VAS === create job
 
 			vecvPreferences.setAPIEndPoint_EOS(host_address);
-
 		}
 
 		//Set Terms and Privacy String

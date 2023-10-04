@@ -76,6 +76,7 @@ public class Locationservice extends Service implements
     printLog("onStartCommand call");
     buildGoogleApiClient();
     mRequestingLocationUpdates = false;
+    Log.e(TAG, "onStartCommand: " );
     triggerLocationPostTimer();
     super.onStartCommand(intent, flags, startId);
     return START_STICKY;

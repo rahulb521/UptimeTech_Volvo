@@ -223,6 +223,8 @@ public class ConfigurationLicense extends AsyncTask<Void, Void, Void> {
 				String SiteId = jsonObject.getString("SiteId");
 
 
+				Log.e("configurationlicense", "onPostExecute: usertype "+UserType );
+
 				// if status is "1" then call ConfigurationPin Activity
 				if (status.equals("1")) {
 

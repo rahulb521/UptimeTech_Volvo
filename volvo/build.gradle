@@ -16,7 +16,6 @@ repositories {
     //alias-volvo
     //password-123456
 
-
 android {
     compileSdkVersion 30
     buildToolsVersion "29.0.2"
@@ -33,25 +32,28 @@ android {
     }
 
     productFlavors {
+        /*
         dev610 {
 
             // buildConfigField 'String', 'HOST', '"http://183.182.84.29:9093/"'
-            buildConfigField 'String', 'HOST', '"http://169.38.133.115:8081/"'//QA for VAS
-            //buildConfigField 'String', 'HOST', '"https://uptimecenter.vecv.net:8082/"'//Prod
+            //buildConfigField 'String', 'HOST', '"http://169.38.133.115:8081/"'//QA for VAS
+            buildConfigField 'String', 'HOST', '"https://uptimecenter.vecv.net:8082/"'//Prod
             //buildConfigField 'String', 'HOST', '"http://169.38.133.115:8083/"'//QA for uptime
 
         }
         dev614 {
             //buildConfigField 'String', 'HOST', '"http://10.10.1.100:9093/"'
-            buildConfigField 'String', 'HOST', '"http://169.38.133.115:8081/"' //QA for VAS
-            //buildConfigField 'String', 'HOST', '"https://uptimecenter.vecv.net:8082/"' //production
-            //buildConfigField 'String', 'HOST', '"http://169.38.133.115:8083/"'// QA for uptime
+            //buildConfigField 'String', 'HOST', '"http://169.38.133.115:8081/"' //QA for VAS(create job)
+            buildConfigField 'String', 'HOST', '"https://uptimecenter.vecv.net:8082/"' //production
+            //buildConfigField 'String', 'HOST', '"http://169.38.133.115:8083/"'// QA for uptime(already created job)
 
         }
+
+         */
         prod {
-            buildConfigField 'String', 'HOST', '"http://169.38.133.115:8081/"' //QA for VAS
+            buildConfigField 'String', 'HOST', '"http://169.38.133.115:8081/"' //QA for VAS(create job)
             //buildConfigField 'String', 'HOST', '"https://uptimecenter.vecv.net:8082/"' //prod
-            //buildConfigField 'String', 'HOST', '"http://169.38.133.115:8083/"' //QA for uptime
+            //buildConfigField 'String', 'HOST', '"http://169.38.133.115:8083/"' //QA for uptime(already created job)
 
         }
     }

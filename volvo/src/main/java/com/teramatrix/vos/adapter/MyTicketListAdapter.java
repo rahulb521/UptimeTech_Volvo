@@ -8,6 +8,7 @@ import java.util.TimeZone;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -31,6 +32,7 @@ import com.teramatrix.vos.model.Ticket;
  */
 public class MyTicketListAdapter extends BaseAdapter {
 
+	String TAG = this.getClass().getSimpleName();
 	// Defining List for this class
 	private List<Ticket> items;
 
@@ -205,6 +207,7 @@ public class MyTicketListAdapter extends BaseAdapter {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 
+				Log.e(TAG, "onClick: ticketstatus " +ticket.TicketStatus);
 				String ticketstatus = ticket.TicketStatus;
 				String estimatedCostForJobComplition = ticket.EstimatedCostForJobComplition;
 				if (ticketstatus != null) {
@@ -221,7 +224,7 @@ public class MyTicketListAdapter extends BaseAdapter {
 						// in = new Intent(context, MapViewTimerActivity.class);
 						in = new Intent(context,
 								MapViewTimerActivitySeekBar.class);
-					}else if (ticketstatus.equalsIgnoreCase("9"))
+					}else if (ticketstatus.equalsIgnoreCase("9")||ticketstatus.equalsIgnoreCase("13"))
 					{
 						// This case will occur when user have Started Trip to breakdown location
 						// Redirect User to Map screen

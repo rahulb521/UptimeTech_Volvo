@@ -1,6 +1,7 @@
 package com.teramatrix.vos.volvouptime.custom;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.Cache;
@@ -21,6 +22,9 @@ import java.util.List;
  */
 
 public class DAO {
+
+
+    String TAG = this.getClass().getSimpleName();
 
     /**
      * This method will call a API to get all vehicles from server, will save them into local db and then will return a list of vehicles.
@@ -44,11 +48,17 @@ public class DAO {
                 .where("VehicleRegistration = ?", vehicleRegistrationNumber)
                 .execute();
 
-        String tickeId = upTimeTicketDetailModels.get(0).getTicketId();
-        List<UpTimeAddedReasonsModel> upTimeAddedReasonsModels = getAddedReasons(tickeId);
-        upTimeTicketDetailModels.get(0).setUpTimeReasonsList(upTimeAddedReasonsModels);
+        Log.e("DAO", "getTicketDetails: list size "+upTimeTicketDetailModels.size() );
 
-        return upTimeTicketDetailModels.get(0);
+        //if (upTimeTicketDetailModels.size()!=0) {
+            String tickeId = upTimeTicketDetailModels.get(0).getTicketId();
+            List<UpTimeAddedReasonsModel> upTimeAddedReasonsModels = getAddedReasons(tickeId);
+            upTimeTicketDetailModels.get(0).setUpTimeReasonsList(upTimeAddedReasonsModels);
+
+            return upTimeTicketDetailModels.get(0);
+//        }else {
+//            return null;
+//        }
     }
 
     /**

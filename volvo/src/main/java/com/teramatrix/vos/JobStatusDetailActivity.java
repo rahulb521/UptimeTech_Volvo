@@ -21,6 +21,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -71,6 +72,7 @@ import com.teramatrix.vos.utils.UtilityFunction;
 public class JobStatusDetailActivity extends Activity implements
 		INetworkAvailablity {
 
+	String TAG = this.getClass().getSimpleName();
 	// define TextView component of an activity
 	TextView tv_problemdescription;
 	TextView tv_time_counter;
@@ -309,6 +311,8 @@ public class JobStatusDetailActivity extends Activity implements
 			ticket = (Ticket) getIntent().getSerializableExtra("ticket");
 			isjobcompleted = getIntent().getStringExtra("jobcompleted");
 
+
+			Log.e(TAG, "onCreate: " );
 			// setup data ui component
 			setdataUI();
 		} catch (Exception e) {

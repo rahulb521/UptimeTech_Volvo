@@ -7,6 +7,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.teramatrix.vos.EosApplication;
 import com.teramatrix.vos.MyTicketActivity;
@@ -115,6 +116,8 @@ public class ConfigurationPin extends AsyncTask<Void, Void, Void> {
 					vecvPreferences.setPinPassword(pin_password);
 					String userType =  vecvPreferences.getUserType();
 
+
+					Log.e("TAG", vecvPreferences.isTicketStatusTableExistsInDB()+" onPostExecute: user type "+userType );
 					if(userType.equalsIgnoreCase("0")) {
 						//For Volvo Servcie Van app
 						if (vecvPreferences.isTicketStatusTableExistsInDB()) {

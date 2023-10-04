@@ -103,7 +103,7 @@ public class PostLocationService extends Service {
 						location_tracking).execute();
 			}
 
-			Log.i(TAG,"SendLocationUpdateToServer "+latt+" "+lng);
+			Log.e(TAG,"SendLocationUpdateToServer onstart "+latt+" "+lng);
 
 //			VECVPreferences vecvPreferences = new VECVPreferences(getApplicationContext());
 //			String imeiNumber = vecvPreferences.getImeiNumber();
