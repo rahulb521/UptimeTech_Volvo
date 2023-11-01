@@ -17,8 +17,8 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.LayoutInflater;
@@ -29,7 +29,6 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.teramatrix.vos.EosApplication;
-import com.teramatrix.vos.JobStatusDetailActivity;
 import com.teramatrix.vos.MyTicketActivity;
 import com.teramatrix.vos.R;
 import com.teramatrix.vos.adapter.DeclineReasonAdapter;

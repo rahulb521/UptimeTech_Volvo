@@ -3,12 +3,13 @@ package com.teramatrix.vos.volvouptime;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +37,7 @@ import static android.app.Activity.RESULT_OK;
 /**
  * @author neeraj on 26/12/18.
  */
-public class UpTImeVehicleListFragment extends android.support.v4.app.Fragment implements OnItemClickListener, SwipeRefreshLayout.OnRefreshListener, UpTimeGetData.I_UpTimeGetVehicles, UpTimeGetReasons.I_UpTimeGetReasons {
+public class UpTImeVehicleListFragment extends Fragment implements OnItemClickListener, SwipeRefreshLayout.OnRefreshListener, UpTimeGetData.I_UpTimeGetVehicles, UpTimeGetReasons.I_UpTimeGetReasons {
     View view;
 
     String TAG = this.getClass().getSimpleName();

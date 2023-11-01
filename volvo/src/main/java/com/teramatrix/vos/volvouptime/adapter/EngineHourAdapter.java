@@ -1,10 +1,9 @@
 package com.teramatrix.vos.volvouptime.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,19 +13,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.activeandroid.query.Update;
 import com.teramatrix.vos.R;
 import com.teramatrix.vos.volvouptime.UptimeEngineReadingFragment;
 import com.teramatrix.vos.volvouptime.models.EngineHourReadingModel;
-import com.teramatrix.vos.volvouptime.models.VehicleModel;
 
 import java.text.SimpleDateFormat;
-import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * @author neeraj on 26/12/18.

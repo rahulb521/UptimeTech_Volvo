@@ -2,27 +2,20 @@ package com.teramatrix.vos.volvouptime;
 
 import android.content.Context;
 import android.graphics.PorterDuff;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.teramatrix.vos.R;
 import com.teramatrix.vos.firebase.config.Config;
 import com.teramatrix.vos.volvouptime.custom.OnItemClickListener;
 import com.teramatrix.vos.volvouptime.models.VehicleModel;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder>{
     public List<VehicleModel> vehicleModelList;

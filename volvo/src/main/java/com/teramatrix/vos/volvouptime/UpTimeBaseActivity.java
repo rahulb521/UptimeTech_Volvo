@@ -1,14 +1,13 @@
 package com.teramatrix.vos.volvouptime;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.teramatrix.vos.reciver.InternetAvailabilityRecever;
 import com.teramatrix.vos.volvouptime.asyntask.OfflineDataSync;

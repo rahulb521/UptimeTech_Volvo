@@ -3,7 +3,7 @@ package com.teramatrix.vos.volvouptime.models;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +12,6 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.teramatrix.vos.R;
-import com.teramatrix.vos.firebase.config.Config;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

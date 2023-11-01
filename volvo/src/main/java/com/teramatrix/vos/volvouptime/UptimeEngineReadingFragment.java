@@ -2,14 +2,14 @@ package com.teramatrix.vos.volvouptime;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.app.Fragment;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,12 +26,9 @@ import com.teramatrix.vos.asynctasks.EngineReading;
 import com.teramatrix.vos.asynctasks.SaveEngineReading;
 import com.teramatrix.vos.checkinternet.CheckInternetConnection;
 import com.teramatrix.vos.firebase.config.Config;
-import com.teramatrix.vos.restapi.RestClient;
 import com.teramatrix.vos.volvouptime.adapter.EngineHourAdapter;
-import com.teramatrix.vos.volvouptime.adapter.VehicleAdapter;
 import com.teramatrix.vos.volvouptime.models.EngineHourReadingModel;
 import com.teramatrix.vos.volvouptime.models.EngineHourUtlilizationReadingDialog;
-import com.teramatrix.vos.volvouptime.models.VehicleModel;
 import com.whiteelephant.monthpicker.MonthPickerDialog;
 
 import java.text.DateFormatSymbols;
@@ -39,12 +36,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * @author neeraj on 26/12/18.
  */
-public class UptimeEngineReadingFragment extends android.support.v4.app.Fragment implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener, EngineReading.EngineReadingListListener, SaveEngineReading.EngineReadingSaveListener {
+public class UptimeEngineReadingFragment extends Fragment implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener, EngineReading.EngineReadingListListener, SaveEngineReading.EngineReadingSaveListener {
     View view;
     String TAG = this.getClass().getSimpleName();
     TextView month_select;

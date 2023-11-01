@@ -6,37 +6,17 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.os.Bundle;
-import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v13.BuildConfig;
-import android.support.v13.app.ActivityCompat;
-import android.util.Log;
-import android.view.View;
-import android.view.WindowManager;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.common.api.Result;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.location.FusedLocationProviderApi;
-import com.google.android.gms.location.LocationListener;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.LocationSettingsRequest;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import android.util.Log;
+
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.teramatrix.vos.ConfigurationLicenseActivity;
 import com.teramatrix.vos.ConfigurationPinActivity;
 import com.teramatrix.vos.EosApplication;
 import com.teramatrix.vos.MyTicketActivity;
@@ -44,16 +24,11 @@ import com.teramatrix.vos.R;
 import com.teramatrix.vos.appurl.ApiUrls;
 import com.teramatrix.vos.preferences.VECVPreferences;
 import com.teramatrix.vos.restapi.RestIntraction;
-import com.teramatrix.vos.service.Locationservice;
-import com.teramatrix.vos.service.PostLocationService;
 import com.teramatrix.vos.utils.ApplicationConstant;
-import com.teramatrix.vos.utils.TimeFormater;
 import com.teramatrix.vos.utils.UpdateLicenseModel;
 import com.teramatrix.vos.utils.UtilityFunction;
 
 import java.util.concurrent.ExecutionException;
-
-import static com.google.android.gms.location.LocationServices.FusedLocationApi;
 
 /**
  * 

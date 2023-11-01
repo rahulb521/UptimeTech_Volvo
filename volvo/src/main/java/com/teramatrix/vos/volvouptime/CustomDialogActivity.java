@@ -1,20 +1,18 @@
 package com.teramatrix.vos.volvouptime;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.teramatrix.vos.R;
 import com.teramatrix.vos.firebase.config.Config;
-import com.teramatrix.vos.utils.CustomTextViewArial;
 import com.teramatrix.vos.volvouptime.custom.OnItemClickListener;
 import com.teramatrix.vos.volvouptime.models.VehicleModel;
 
